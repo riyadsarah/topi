@@ -30,6 +30,11 @@
       }
     </style>
 
+
+
+
+
+
 </head>
 
 
@@ -143,19 +148,12 @@
             <img src="img/carousel.img.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+       
       
     </div><br><br><br>
 
 
-      <h1>KALKULATOR🤗</h1>
+      <h1>Hitung Uang Kamu🤗</h1>
       <form>
         <input type="text" id="input-1" />
         <select id="operator">
@@ -174,16 +172,7 @@
       
       <button id="hasil"></button><br>
       <button id="message">🤭</button>
-    
- 
-    
 
-    
-    
-    <div class="calculator-container">
-      
-    </div>
-    
       
       <script>
         const input1 = document.getElementById("input-1");
@@ -237,16 +226,43 @@
       <br><br><br><br>
       
      
+      <h1>Hitung Umur Kamu🤭</h1>
+  <p>Masukkan tanggal lahir, bulan, dan tahun:</p>
+  <input type="text" id="tanggal-lahir">
+  <input type="text" id="bulan-lahir">
+  <input type="text" id="tahun-lahir">
+  <button type="button" onclick="hitungUmur()">Hitung</button>
+  
+  <p id="output"></p>
+  <script>
+    function hitungUmur() {
+      var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
+      var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
+      var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
+      var sekarang = new Date();
+      var tanggalSekarang = sekarang.getDate();
+      var bulanSekarang = sekarang.getMonth() + 1;
+      var tahunSekarang = sekarang.getFullYear();
+      var umurTahun = tahunSekarang - tahunLahir;
+      var umurBulan = bulanSekarang - bulanLahir;
+      var umurTanggal = tanggalSekarang - tanggalLahir;
+      if (umurBulan < 0) {
+        umurTahun--;
+        umurBulan = 12 + umurBulan;
+      }
+      if (umurTanggal < 0) {
+        umurBulan--;
+        umurTanggal = 30 + umurTanggal;
+      }
+      document.getElementById("output").innerHTML = "Umur Anda adalah " + umurTahun + " tahun " + umurBulan + " bulan " + umurTanggal + " hari.";
+    }
+  </script><br><br><br>
       
-    
-     
-      
-
 
 
     <h2>Prodak TopiPremium</h2><br><br>
       
-
+   
 
 
     <div class="container">
@@ -361,14 +377,7 @@
           <img src="img/carousel.img.jpg" class="d-block img-fluid" alt="...">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      
     </div>
   </div>
 
