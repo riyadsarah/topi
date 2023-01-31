@@ -1,8 +1,4 @@
 
-body {
-  background-image: linear-gradient(to right,#0011fa 0,#16e3fe 100%);
-  overflow-x: hidden;
-}
 
 
 
@@ -308,6 +304,8 @@ h4 {
 
 
 body {
+  background-image: linear-gradient(to right,#0011fa 0,#16e3fe 100%);
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
   text-align: center;
 }

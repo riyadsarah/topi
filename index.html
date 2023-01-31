@@ -63,65 +63,13 @@
 
 
 
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light  shadow-lg" >
-        <div class="container">
-          <a class="navbar-brand" href="#"> <img id="logo" src="img/loggo.img.png" alt="Logo">
+    
+      
+      <br><br><br><br>
 
-            <script>
-              // Mendapatkan elemen logo
-              var logo = document.getElementById("logo");
-            
-              // Mendapatkan lebar dan tinggi logo
-              var logoWidth = logo.offsetWidth;
-              var logoHeight = logo.offsetHeight;
-            
-              // Menambahkan event listener mouseover pada logo
-              logo.addEventListener("mouseover", function() {
-                // Memperbesar ukuran logo
-                logo.style.width = logoWidth * 1.5 + "px";
-                logo.style.height = logoHeight * 1.5 + "px";
-              });
-            
-              // Menambahkan event listener mouseout pada logo
-              logo.addEventListener("mouseout", function() {
-                // Mengembalikan ukuran logo ke ukuran asli
-                logo.style.width = logoWidth + "px";
-                logo.style.height = logoHeight + "px";
-              });
-            </script></a>
-          <p href="jam">
-            <div id="jam"></div>
-            
-          
-
-          </p>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fa-solid fa-list"></i>
-          </button>
-          <div class="collapse navbar-collapse text-right" id="navbarText">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              
-              <li class="nav-item">
-                <a class="nav-link" href="#TOPI">TOPI</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#KOPIAH">KOPIAH</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#HIJAB">HIJAB</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#TENTANG KAMI">TENTANG KAMI</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div id="scroll-icon">
-          <i class="fas fa-arrow-up"></i>
-        </div>
-        
-      </nav><br><br><br><br>
+      <div id="scroll-icon">
+        <i class="fas fa-arrow-up"></i>
+      </div>
       
       <div id="carouselExampleIndicators" class="carousel slide "  data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -153,75 +101,7 @@
     </div><br><br><br>
 
 
-      <h1>Hitung Uang Kamu🤗</h1>
-      <form>
-        <input type="text" id="input-1" />
-        <select id="operator">
-          <option value="+">+</option>
-          <option value="-">-</option>
-          <option value="*">x</option>
-          <option value="/">÷</option>
-        </select>
-        <input type="text" id="input-2" />
-      </form><br>
-       <form >
-        <button type="button" id="submit-button" class="btn btn-danger">=</button>
-        <button type="button" id="reset-button" class="btn btn-danger">
-          <i class="fas fa-undo"></i>
-        </button></form>
       
-      <button id="hasil"></button><br>
-      <button id="message">🤭</button>
-
-      
-      <script>
-        const input1 = document.getElementById("input-1");
-        const input2 = document.getElementById("input-2");
-        const operator = document.getElementById("operator");
-        const submitButton = document.getElementById("submit-button");
-        const resetButton = document.getElementById("reset-button");
-        const hasil = document.getElementById("hasil");
-        const message = document.getElementById("message");
-    
-        submitButton.addEventListener("click", function() {
-          let nilai1 = parseFloat(input1.value);
-          let nilai2 = parseFloat(input2.value);
-          let op = operator.value;
-    
-          if (isNaN(nilai1) || isNaN(nilai2)) {
-            hasil.textContent = "Input tidak valid.";
-            return;
-          }
-    
-          if (op === "+") {
-            hasil.textContent = nilai1 + nilai2;
-          } else if (op === "-") {
-            hasil.textContent = nilai1 - nilai2;
-          } else if (op === "*") {
-            hasil.textContent = nilai1 * nilai2;
-          } else if (op === "/") {
-            if (nilai2 === 0) {
-              hasil.textContent = "Tidak bisa dibagi dengan 0.";
-              return;
-            }
-            hasil.textContent = nilai1 / nilai2;
-          } else {
-            hasil.textContent = "Operator tidak valid.";
-          }
-          
-          message.textContent = "AYO SEGERA BELI🥺 MUNGPUNG DISKON🔥💥";
-        });
-    
-        resetButton.addEventListener("click", function() {
-          input1.value = "";
-          input2.value = "";
-          operator.selectedIndex = 0;
-          hasil.textContent = "";
-          message.textContent ="";
-        });
-      </script>
-
-
       
       <br><br><br><br>
       
