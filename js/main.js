@@ -40,24 +40,11 @@ window.addEventListener("load", function(){
     tampilkanJam();
 
 
-//kalkulator umur
 
 
 
-      window.onscroll = function() {
-        if (window.pageYOffset > 100) {
-          document.getElementById("scroll-icon").style.display = "block";
-        } else {
-          document.getElementById("scroll-icon").style.display = "none";
-        }
-      };
-      
-      document.getElementById("scroll-icon").addEventListener("click", function() {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      });
+
+
 
 // kalkilator
 
@@ -77,4 +64,51 @@ window.addEventListener("load", function(){
 
 
         //
-   
+            var headerNav = document.getElementById("header-nav");
+
+        window.onscroll = function() {
+          if (window.pageYOffset > 100) {
+            headerNav.style.backgroundColor = "transparent";
+          } else {
+            headerNav.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+          }
+        };
+    
+        
+
+
+
+
+        function updateTime() {
+          var date = new Date();
+          var time = date.toLocaleTimeString();
+          var formattedDate = date.toLocaleDateString();
+          document.getElementById("time").innerHTML = time;
+          document.getElementById("date").innerHTML = formattedDate;
+        }
+        
+        function getWeather() {
+          // Code to fetch weather data from API goes here
+          var location = "Salamanggu, Maja";
+          var temperature = "17°C";
+          var condition = "Mountdunk Cloudy";
+          document.getElementById("location").innerHTML = location;
+          document.getElementById("temperature").innerHTML = temperature;
+          document.getElementById("condition").innerHTML = condition;
+        }
+        
+        updateTime();
+        setInterval(updateTime, 1000);
+        getWeather();
+        
+
+
+
+
+
+        
+
+        // Select the button
+
+
+        

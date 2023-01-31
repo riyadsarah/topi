@@ -48,8 +48,10 @@
   <div class="row">
     <div class="col">
       <!-- Your content here -->
-   
-  
+      <div id="scroll-icon">
+        <i class="fas fa-arrow-up"></i>
+      </div>
+      
 
   <div class="preloader">
     <div class="loading-welcome active welcome-screen">
@@ -62,15 +64,25 @@
   
 
 
-
+  <header>
+    <nav id="header-nav">
+      <div class="header-nav-container">
+        <div class="header-nav-left">
+          <a href="#" class="header-nav-logo"><img id="logo" src="img/loggo.img.png" alt="Logo"></a>
+        </div>
+        <div class="header-nav-right">
+          <a href="#"><i class="fab fa-discord"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+    </nav>
+  </header> <br><br>
     
       
-      <br><br><br><br>
-
-      <div id="scroll-icon">
-        <i class="fas fa-arrow-up"></i>
-      </div>
       
+      <div>
       <div id="carouselExampleIndicators" class="carousel slide "  data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -96,24 +108,44 @@
             <img src="img/carousel.img.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
-       
-      
-    </div><br><br><br>
+    </div>
+  </div>
+    
+    <br>
 
+<div class="header-nav-container">
+    <div id="widget-container">
+      <div id="clock">
+        <p id="time"></p>
+        <p id="date"></p>
+      </div>
+      <div id="weather">
+        <p id="location"></p>
+        <p id="temperature"></p>
+        <p id="condition"></p>
+      </div>
+    </div>
+  </div>
+    
+    <br><br><br>
 
-      
+  
+    
       
       <br><br><br><br>
       
-     
+     <div >
       <h1>Hitung Umur Kamu🤭</h1>
   <p>Masukkan tanggal lahir, bulan, dan tahun:</p>
   <input type="text" id="tanggal-lahir">
   <input type="text" id="bulan-lahir">
   <input type="text" id="tahun-lahir">
-  <button type="button" onclick="hitungUmur()">Hitung</button>
-  
+  <button type="button2" onclick="hitungUmur()">Hitung</button>
+  <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
   <p id="output"></p>
+</div>
+  <br><br>
+  
   <script>
     function hitungUmur() {
       var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
@@ -136,8 +168,89 @@
       }
       document.getElementById("output").innerHTML = "Umur Anda adalah " + umurTahun + " tahun " + umurBulan + " bulan " + umurTanggal + " hari.";
     }
-  </script><br><br><br>
+
+    function resetRiwayat() {
+      document.getElementById("tanggal-lahir").value = "";
+      document.getElementById("bulan-lahir").value = "";
+      document.getElementById("tahun-lahir").value = "";
+      document.getElementById("output").innerHTML = "";
+    }
+    document.addEventListener("keyup", function(event) {
+  if (event.code === "Enter") {
+    hitungUmur();
+  }
+});
+</script>
+
+<h1>Hitung uang anda🥺💲</h1>
+<div>
+  <input type="text" id="input-1" />
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">x</option>
+    <option value="/">÷</option>
+  </select>
+  <input type="text" id="input-2" />
+  <button type="button" id="submit-button">Hitung</button>
+  <button type="button" id="reset-button"><i class="fas fa-undo"></i></button>
+</div>
+<p id="hasil"></p>
+<p id="message"></p>
       
+      <script>
+        const input1 = document.getElementById("input-1");
+        const input2 = document.getElementById("input-2");
+        const operator = document.getElementById("operator");
+        const submitButton = document.getElementById("submit-button");
+        const resetButton = document.getElementById("reset-button");
+        const hasil = document.getElementById("hasil");
+        const message = document.getElementById("message");
+    
+        submitButton.addEventListener("click", function() {
+          let nilai1 = parseFloat(input1.value);
+          let nilai2 = parseFloat(input2.value);
+          let op = operator.value;
+    
+          if (isNaN(nilai1) || isNaN(nilai2)) {
+            hasil.textContent = "Input tidak valid.";
+            return;
+          }
+    
+          if (op === "+") {
+            hasil.textContent = nilai1 + nilai2;
+          } else if (op === "-") {
+            hasil.textContent = nilai1 - nilai2;
+          } else if (op === "*") {
+            hasil.textContent = nilai1 * nilai2;
+          } else if (op === "/") {
+            if (nilai2 === 0) {
+              hasil.textContent = "Tidak bisa dibagi dengan 0.";
+              return;
+            }
+            hasil.textContent = nilai1 / nilai2;
+          } else {
+            hasil.textContent = "Operator tidak valid.";
+          }
+          
+          message.textContent = "AYO SEGERA BELI🥺 MUNGPUNG DISKON🔥💥";
+        });
+    
+        resetButton.addEventListener("click", function() {
+          input1.value = "";
+          input2.value = "";
+          operator.selectedIndex = 0;
+          hasil.textContent = "";
+          message.textContent ="";
+        });
+      </script>
+
+
+
+
+  
+  
+<br><br>
 
 
     <h2>Prodak TopiPremium</h2><br><br>
@@ -147,6 +260,10 @@
 
     <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+
+
       <div class="col">
         <div class="card h-100">
           <img src="img/4.img.jpg" class="card-img-top" alt="...">
@@ -161,7 +278,7 @@
                   <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa-solid fa-shop"></i>
                   </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <ul class="dropdown-menu" >
                     <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
                     <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
                   </ul>
@@ -265,223 +382,29 @@
 
 <div class="container">
   <div class="row row-cols-2 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/6.img.jpeg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <h4> Rp 15.000</h4>
-          <div class="container d-flex">
-            <div class="mr-2"> <small class="text-muted"><a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
-            </small></div>
-            <div><div class="dropdown">
-              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-shop"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
-                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
-              </ul>
-            </div>
-         </div>
-        </div>
-        </div>
-      </div>
-    </div>
 
-    
-  
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/4.img.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-          <div class="container d-flex">
-            <div class="mr-2"> <small class="text-muted"><a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
-            </small></div>
-            <div><div class="dropdown">
-              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-shop"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
-                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
-              </ul>
-            </div>
-         </div>
-        </div>
-        </div>
-      </div>
-    </div>
-    
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/5.img.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="container d-flex">
-            <div class="mr-2"> <small class="text-muted"><a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
-            </small></div>
-            <div><div class="dropdown">
-              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-shop"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
-                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
-              </ul>
-            </div>
-         </div>
-        </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/5.img.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="container d-flex">
-            <div class="mr-2"> <small class="text-muted"><a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
-            </small></div>
-            <div><div class="dropdown">
-              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-shop"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
-                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
-              </ul>
-            </div>
-         </div>
-        </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/5.img.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="container d-flex">
-            <div class="mr-2"> <small class="text-muted"><a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
-            </small></div>
-            <div><div class="dropdown">
-              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-shop"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
-                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
-              </ul>
-            </div>
-         </div>
-        </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/5.img.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="container d-flex">
-            <div class="mr-2"> <small class="text-muted"><a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
-            </small></div>
-            <div><div class="dropdown">
-              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-shop"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
-                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
-              </ul>
-            </div>
-         </div>
-        </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/5.img.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="container d-flex">
-            <div class="mr-2"> <small class="text-muted"><a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
-            </small></div>
-            <div><div class="dropdown">
-              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-shop"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
-                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
-              </ul>
-            </div>
-         </div>
-        </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card h-100">
-        <img src="img/4.img.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">content.</p>
-        </div>
-        <div class="container d-flex">
-          <div style="position: absolute; bottom: 0; left: 0;">
-            <small class="text-muted">
-              <a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">
-                Beli via <i class="fa-brands fa-whatsapp"></i>
-              </a>
-            </small>
-          </div>
-          <div style="position: absolute; bottom: 0; right: 0;">
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">Beli di
-                <i class="fa-solid fa-shop"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
-                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     
     <script>
       function sendWhatsAppMessage(namaProduk) {
-        window.location.href = 'https://wa.me/+628983813800?text=Saya%20membeli%20produk%20' + namaProduk + '%20ini';
+        window.location.href = 'https://wa.me/+628983813800?text=Saya%20membeli%20TOPI%20' + namaProduk + '%20ini';
       }
     </script>
     <div class="col">
       <div class="card h-100">
         <img src="img/5.img.webp" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">Topi Trend Masa kini code A5</h5>
+          <p class="card-text">Bahan : Katun
+            <p>Jenis Kelamin
+              Unisex</p> 
+              <p> Gaya Topi : Topi Bisbol </p>
+              <p> Jenis : Kulit Katun</p>
+              <p>Stok : 1000</p>
+            </p>
+            <h4>Rp 25.000</h4><br>
           <div class="container d-flex">
             <div class="mr-2"> <small class="text-muted">
-              <a href="#" onclick="sendWhatsAppMessage('Card title')" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
+              <a href="" onclick="sendWhatsAppMessage('Card title')" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
             </small></div>
             <div><div class="dropdown">
               <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -497,6 +420,91 @@
         </div>
       </div>
     </div>
+
+
+    <script>
+      function sendWhatsAppMessage(namaProduk) {
+        window.location.href = 'https://wa.me/+628983813800?text=Saya%20membeli%20TOPI%20' + namaProduk + '%20ini';
+      }
+    </script>
+    <div class="col">
+      <div class="card h-100">
+        <img src="img/5.img.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Topi Trend Masa kini code A5</h5>
+          <p class="card-text">Bahan : Katun
+            <p>Jenis Kelamin
+              Unisex</p> 
+              <p> Gaya Topi : Topi Bisbol </p>
+              <p> Jenis : Kulit Katun</p>
+              <p>Stok : 1000</p>
+            </p>
+            <h4>Rp 25.000</h4><br>
+          <div class="container d-flex">
+            <div class="mr-2"> <small class="text-muted">
+              <a href="" onclick="sendWhatsAppMessage('Card title')" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
+            </small></div>
+            <div><div class="dropdown">
+              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-shop"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
+                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
+              </ul>
+            </div>
+         </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script>
+      function sendWhatsAppMessage(namaProduk) {
+        window.location.href = 'https://wa.me/+628983813800?text=Saya%20membeli%20TOPI%20' + namaProduk + '%20ini';
+      }
+    </script>
+    <div class="col">
+      <div class="card h-100">
+        <img src="img/5.img.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Topi Trend Masa kini code A5</h5>
+          <p class="card-text">Bahan : Katun
+            <p>Jenis Kelamin
+              Unisex</p> 
+              <p> Gaya Topi : Topi Bisbol </p>
+              <p> Jenis : Kulit Katun</p>
+              <p>Stok : 1000</p>
+            </p>
+            <h4>Rp 25.000</h4><br>
+          <div class="container d-flex">
+            <div class="mr-2"> <small class="text-muted">
+              <a href="" onclick="sendWhatsAppMessage('Card title')" class="btn btn-primary">Beli via <i class="fa-brands fa-whatsapp"></i></a>
+            </small></div>
+            <div><div class="dropdown">
+              <button class="btn btn-primary dropdown" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-shop"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><button class="dropdown-item" type="button">Beli di Shopee</button></li>
+                <li><button class="dropdown-item" type="button">Beli di Lazada</button></li>
+              </ul>
+            </div>
+         </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+
+
+
+
 
   </div>
 </div>
@@ -540,6 +548,9 @@
           }
           tampilkanJam();
       </script>
+
+
+<div>
       <footer>
         <div class="container">
           <div class="row">
@@ -609,6 +620,7 @@
           Copyright &copy; 2023 SRgroup-MUHAMMAD RIYAD. All rights reserved.
         </div>
       </footer>
+    </div>
       
 
 

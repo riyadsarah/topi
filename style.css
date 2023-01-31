@@ -1,4 +1,8 @@
 
+body {
+  color: whitesmoke;
+  background-image: linear-gradient(to right,#0011fa 0,#16e3fe 100%);
+}
 
 
 
@@ -87,16 +91,16 @@
   
   #jam {
     
-    color: rgba(0, 0, 0, 0.425);
-    font-size: 15px;
+    color: rgba(0, 0, 0, 0.555);
+    font-size: 10px;
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
   }
   #tanggal {
     text-align: center;
-    color: rgba(0, 0, 0, 0.459);
-    font-size: 20px;
+    color: rgba(0, 0, 0, 0.596);
+    font-size: 8px;
     
     
 }
@@ -105,18 +109,18 @@ h1 {
   text-align: center;
   
   /* warna awal */
-  color: #0011fa; 
+  color: #ffffff; 
   /* animasi selama 5 detik */
-  animation: color-animation 5s linear infinite; 
+  animation: color-animation 20s linear infinite; 
 }
 
 /* keyframes untuk animasi warna */
 @keyframes color-animation {
   0% {
-      color: #05050550;
+      color: #ffffff;
   }
   100% {
-      color: #000000;
+      color: #ffffff4d;
   }
 }
 
@@ -172,9 +176,10 @@ h2 {
 
 
 #logo {
-  width: 90px;
-  height: 60px;
-  animation: logo-animation 4s ease-in-out infinite;
+  margin-left: 10px;
+  width: 70px;
+  height: 50px;
+  animation: logo-animation 7s ease-in-out infinite;
 }
 
 @keyframes logo-animation {
@@ -191,15 +196,10 @@ h2 {
 
 
 
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-}
+
 
 input[type="text"] {
-  width: 150px;
+  width: 10px;
   height: 50px;
   font-size: 20px;
   text-align: center;
@@ -209,50 +209,43 @@ input[type="text"] {
 }
 
 select {
-  width: 80px;
+  width: 40px;
   height: 50px;
   font-size: 20px;
   text-align: center;
-  border: 2px solid gray;
+  border: 2px solid rgba(0, 0, 0, 0.24);
   border-radius: 10px;
   margin: 10px;
-  background-color: lightgray;
+  background-color: rgba(0, 0, 0, 0.096);
 }
 
 #submit-button {
-  margin-right: 10px;
+  margin-right: px;
 }
 
 #hasil {
+  color: #16e3fe;
   display: block;
   margin: 0 auto;
   text-align: center;
   font-size: 24px;
   margin-top: 20px;
-  padding: 20px;
-  background-color: #eaf7dc;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px #ccc;
-  color: #454545;
-}
+  padding: 20px;}
+  
 
 
 
-#hasil.error {
-  background-color: #ffb3b3;
-  color: #8b0000;
-}
 
   
 #message {
-  background-color: #0000005d;
-
+  font-family: cursive;
+font-size: 15px;
  display: block;
   margin: 0 auto;
  
-  border-radius: 10px;
   
-  color: #1eff00;
+  
+  color: #00ffea;
 }
 
 
@@ -274,21 +267,9 @@ h4 {
 
 
 
-
-#scroll-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  display: none;
-}
-
-#scroll-icon i {
-  font-size: 24px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.336);
-  padding: 10px;
-  border-radius: 50%;
+.card  {
+  width: 200px;
+  height: 10px;
 }
 
 
@@ -304,21 +285,21 @@ h4 {
 
 
 body {
-  background-image: linear-gradient(to right,#0011fa 0,#16e3fe 100%);
+ 
   overflow-x: hidden;
+  
   font-family: Arial, sans-serif;
   text-align: center;
 }
+
 
 h1 {
   margin-top: 50px;
 }
 
-form {
-  margin: 0 auto;
-  width: 500px;
-  text-align: left;
-}
+
+
+
 
 label {
   display: inline-block;
@@ -333,16 +314,160 @@ input[type="text"], input[type="date"] {
   border: 1px solid #ccc;
 }
 
-button[type="button"], button[type="reset"] {
+button[type="button"]{
   padding: 5px 20px;
-  margin-left: 20px;
-  background-color: #4CAF50;
+  
+  background-color: #15e015;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-button[type="reset"] {
-  background-color: #f44336;
+button :hover{
+  transform: scale(1.2);
 }
+button[type="button1"]  {
+  background-color: #00ffea;
+  color: white;
+  padding: 5px 20px;
+  
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button[type="button2"] {
+  background-color: #00ffea;
+  color: white;
+  padding: 5px 20px;
+  
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#output {
+  color: #16e3fe;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 17px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.header-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+}
+
+.header-nav-left {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.header-nav-right a {
+  margin-left: 20px;
+  font-size: 30px;
+  color: rgb(0, 255, 255);
+  text-decoration: none;
+}
+
+#header-nav {
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.2s;
+}
+
+
+
+#widget-container {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  background-color: rgba(0, 0, 0, 0.24);
+  color: #fff;
+  border-radius: 10px;
+}
+
+#clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#time {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+#date {
+  font-size: 9px;
+}
+
+#weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#location {
+  font-size: 9px;
+  margin-bottom: 5px;
+}
+
+#temperature {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+#condition {
+  font-size: 9px;
+}
+
+
+
+
+
+
+#scroll-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: none;
+}
+
+#scroll-icon i {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.589);
+ 
+  padding: 10px;
+  border-radius: 50%;
+}
+
+
+
+
+
+
