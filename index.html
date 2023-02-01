@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>SRgroup STORE</title>
   <link rel="icon" href="img/logo1.img.png" >
   
@@ -11,26 +12,8 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <style>
-      /* Grid Layout */
-      .row {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .col {
-        flex: 1;
-        padding: 10px;
-      }
-      
-      /* Media Query */
-      @media (max-width: 600px) {
-        .col {
-          flex: 100%;
-        }
-      }
-    </style>
 
-
+    
 
 
 
@@ -45,31 +28,34 @@
 <body>
 
 <div>
-  <div class="row">
-    <div class="col">
-      <!-- Your content here -->
+ -->
      
 
 
   
 
-<div>
-  <header>
-    <nav id="header-nav">
-      <div class="header-nav-container">
-        <div class="header-nav-left">
-          <a href="#" class="header-nav-logo"><img id="logo" src="img/loggo.img.png" alt="Logo"></a>
-        </div>
-        <div class="header-nav-right">
-          <a href="#"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
-          <a href="#"><i class="fa-solid fa-shirt"></i></i></a>
-          <a href="#"><i class="fa-solid fa-shoe-prints"></i></a>
-          <a href="#"><i class="fa-brands fa-redhat"></i></a>
-        </div>
+
+ <header>
+  <nav id="header-nav">
+    <div class="header-nav-container">
+      <div class="header-nav-left">
+        <a href="#" class="header-nav-logo"><img id="logo" src="img/loggo.img.png" alt="Logo"></a>
       </div>
-    </nav>
-  </header> 
-</div>
+      <div class="header-nav-right responsive" id="nav-links">
+        <a href="#" class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+        <a href="#"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+        <a href="#"><i class="fa-solid fa-shirt"></i></i></a>
+        <a href="#"><i class="fa-solid fa-shoe-prints"></i></a>
+        <a href="#"><i class="fa-brands fa-redhat"></i></a>
+      </div>
+    </div>
+  </nav>
+</header> 
+
+
+
   <br><br>
   <div class="preloader">
     <div class="loading-welcome active welcome-screen">
@@ -79,7 +65,7 @@
       <img src="img/loggo.img.png" alt="logo">
     </div>
   </div>
-
+<br>
       
       
       <div>
@@ -112,7 +98,7 @@
   </div>
     
     <br>
-
+<div>
 <div class="header-nav-container">
     <div id="widget-container">
       <div id="clock">
@@ -125,24 +111,24 @@
         <p id="condition"></p>
       </div>
     </div>
-  
-    
-  <div id="timer">
-    <h1><p id="font">BIG SALE <i class="fa-sharp fa-solid fa-cart-shopping"></i> </p></h1>
-
-    <p id="days"></p>
-    <p id="hours"></p>
-    <p id="minutes"></p>
-    <h1><p id="seconds"></p></h1>
-  </div>
 </div>
+</div>
+
+<div id="timer">
+  <h1><p id="font">BIG SALE <i class="fa-sharp fa-solid fa-cart-shopping"></i> </p></h1>
+  <p id="days"></p>
+  <p id="hours"></p>
+  <p id="minutes"></p>
+  <h1><p id="seconds"></p></h1>
+</div>
+
 
 
 
 
     
       
-      <br><br><br><br>
+     
       <h2>Hitung Umur Kamu <h4><i class="fa-sharp fa-solid fa-face-tired"></i></h4></h2>
      <div >
      
@@ -530,26 +516,6 @@
     </div>
   </div>
 </div>
-</div>
-
-<div>
-  <div class="form-group">
-    <label for="nama">Nama</label>
-    <input type="text" class="form-control" id="nama" placeholder="Masukkan nama">
-  </div>
-  <div class="form-group">
-    <label for="alamat">Alamat</label>
-    <input type="text" class="form-control" id="alamat" placeholder="Masukkan alamat">
-  </div>
-  <div class="form-group">
-    <label for="nomor">Nomor Telepon</label>
-    <input type="text" class="form-control" id="nomor" placeholder="Masukkan nomor telepon">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" placeholder="Masukkan email">
-  </div>
-  <a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">Kirim</a>
 </div>
 
 

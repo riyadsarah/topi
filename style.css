@@ -1,21 +1,26 @@
 
 body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  }
+
+body {
   
-  background-image: linear-gradient(to right,#201cff 0,#14d4e2 100%);
+  background-image: linear-gradient(to right,#0703f7 0,#24a6af 100%);
   background: cover;
 }
 
-
-
-
-.container {
+.card {
+  margin-left: 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
-.mr-2 {
-  margin-right: 1rem;
-}
+
+
+
 
 
   footer {
@@ -390,7 +395,7 @@ header {
 .header-nav-right a {
   margin-left: 15px;
   font-size: 30px;
-  color: rgb(36, 205, 218);
+  color: rgb(0, 255, 128);
   text-decoration: none;
 }
 
@@ -411,6 +416,7 @@ header {
   color: #fff;
   border-radius: 10px;
 }
+
 
 #clock {
   margin-right: 50px;
@@ -450,37 +456,53 @@ header {
 }
 
 #timer {
- 
+  width: 100px;
+  height: 200px;
+  margin: 0 auto;
+margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.3); /* membuat latar belakang transparan */
+  color: #fff;
   margin-left: 20px;
+
   align-items: center;
   justify-content: space-between;
   padding: 10px 10px;
-  background-color: rgba(0, 0, 0, 0.301);
-  color: #fff;
   border-radius: 10px;
-
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* membuat bayangan transparan */
+  animation: fadeIn 1s ease-in-out; /* membuat animasi fade-in */
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 
 
-#font {
-  font-size: 30px;
-  font-family: fantasy;
+@media screen and (max-width: 768px) {
+  .header-nav-right a:not(.hamburger) {
+    display: none;
+  }
 }
-#seconds {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 25px;
+.header-nav-right {
+  transition: height 0.3s ease;
 }
-#minutes {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+.header-nav-right.active {
+  height: 200px;
 }
-#hours {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-#days {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+
+
+
+
+
+
+
+
 
 
 

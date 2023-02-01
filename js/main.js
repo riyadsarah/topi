@@ -9,6 +9,13 @@ window.addEventListener("load", function(){
 
 
 
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.getElementById("nav-links");
+  
+  hamburger.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+  });
+  
   
 
       function tampilkanJam() {
@@ -70,7 +77,7 @@ window.addEventListener("load", function(){
           if (window.pageYOffset > 100) {
             headerNav.style.backgroundColor = "transparent";
           } else {
-            headerNav.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+            headerNav.style.backgroundColor = "rgba(255, 255, 255, 1)";
           }
         };
     
@@ -140,3 +147,8 @@ var x = setInterval(function() {
     document.getElementById("timer").innerHTML = "EXPIRED";
   }
 }, 1000);
+
+
+
+
+
