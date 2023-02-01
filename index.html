@@ -61,10 +61,10 @@
           <a href="#" class="header-nav-logo"><img id="logo" src="img/loggo.img.png" alt="Logo"></a>
         </div>
         <div class="header-nav-right">
-          <a href="#"><i class="fab fa-discord"></i></a>
-          <a href="#"><i class="fab fa-discord"></i></a>
-          <a href="#"><i class="fab fa-discord"></i></a>
-          <a href="#"><i class="fab fa-discord"></i></a>
+          <a href="#"><i class="fa-sharp fa-solid fa-cart-shopping"></i></a>
+          <a href="#"><i class="fa-solid fa-shirt"></i></i></a>
+          <a href="#"><i class="fa-solid fa-shoe-prints"></i></a>
+          <a href="#"><i class="fa-brands fa-redhat"></i></a>
         </div>
       </div>
     </nav>
@@ -79,6 +79,7 @@
       <img src="img/loggo.img.png" alt="logo">
     </div>
   </div>
+
       
       
       <div>
@@ -124,23 +125,34 @@
         <p id="condition"></p>
       </div>
     </div>
-  </div>
-    
-    <br><br><br>
-
   
+    
+  <div id="timer">
+    <h1><p id="font">BIG SALE <i class="fa-sharp fa-solid fa-cart-shopping"></i> </p></h1>
+
+    <p id="days"></p>
+    <p id="hours"></p>
+    <p id="minutes"></p>
+    <h1><p id="seconds"></p></h1>
+  </div>
+</div>
+
+
+
+
     
       
       <br><br><br><br>
-      
+      <h2>Hitung Umur Kamu <h4><i class="fa-sharp fa-solid fa-face-tired"></i></h4></h2>
      <div >
-      <h1>Hitung Umur Kamu🤭</h1>
-  <p>Masukkan tanggal lahir, bulan, dan tahun:</p>
-  <input type="text" id="tanggal-lahir">
-  <input type="text" id="bulan-lahir">
-  <input type="text" id="tahun-lahir">
+     
+      <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
+      <input type="text" id="bulan-lahir" placeholder="Bulan">
+      <input type="text" id="tahun-lahir" placeholder="Tahun">
+      <div>
   <button type="button2" onclick="hitungUmur()">Hitung</button>
   <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
+</div>
   <p id="output"></p>
 </div>
   <br><br>
@@ -181,18 +193,24 @@
 });
 </script>
 
-<h1>Hitung uang anda🥺💲</h1>
+
+<div></div>
+<h2>Hitung uang Kamu <h4><i class="fa-sharp fa-solid fa-face-sad-cry"></i></h4></h2>
 <div>
-  <input type="text" id="input-1" />
+  <input type="text" id="input-1" placeholder="89000 "/>
+  <div>
   <select id="operator">
     <option value="+">+</option>
     <option value="-">-</option>
     <option value="*">x</option>
     <option value="/">÷</option>
   </select>
-  <input type="text" id="input-2" />
+</div>
+  <input type="text" id="input-2"placeholder="14000" />
+  <div>
   <button type="button" id="submit-button">Hitung</button>
   <button type="button" id="reset-button"><i class="fas fa-undo"></i></button>
+</div>
 </div>
 <p id="hasil"></p>
 <p id="message"></p>
@@ -252,10 +270,10 @@
 <br><br>
 
 
-    <h2>Prodak TopiPremium</h2><br><br>
+    <h2>TOPI TERLARIS</h2><br><br>
       
    
-
+<div >
 
     <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -510,16 +528,28 @@
         </div>
       </div>
     </div>
-
-
-    
-
-
-
-
-
-
   </div>
+</div>
+</div>
+
+<div>
+  <div class="form-group">
+    <label for="nama">Nama</label>
+    <input type="text" class="form-control" id="nama" placeholder="Masukkan nama">
+  </div>
+  <div class="form-group">
+    <label for="alamat">Alamat</label>
+    <input type="text" class="form-control" id="alamat" placeholder="Masukkan alamat">
+  </div>
+  <div class="form-group">
+    <label for="nomor">Nomor Telepon</label>
+    <input type="text" class="form-control" id="nomor" placeholder="Masukkan nomor telepon">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Masukkan email">
+  </div>
+  <a href="https://wa.me/+628983813800?text=Saya%2%20membeli%20produk%20ini" class="btn btn-primary">Kirim</a>
 </div>
 
 

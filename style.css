@@ -1,7 +1,8 @@
 
 body {
-  color: whitesmoke;
-  background-image: linear-gradient(to right,#0011fa 0,#16e3fe 100%);
+  
+  background-image: linear-gradient(to right,#201cff 0,#14d4e2 100%);
+  background: cover;
 }
 
 
@@ -109,18 +110,18 @@ h1 {
   text-align: center;
   
   /* warna awal */
-  color: #ffffff; 
+  color: #000000; 
   /* animasi selama 5 detik */
-  animation: color-animation 20s linear infinite; 
+  animation: color-animation 1s linear infinite; 
 }
 
 /* keyframes untuk animasi warna */
 @keyframes color-animation {
   0% {
-      color: #ffffff;
+      color: #33c22057;
   }
   100% {
-      color: #ffffff4d;
+      color: #00f120;
   }
 }
 
@@ -224,7 +225,8 @@ select {
 }
 
 #hasil {
-  color: #16e3fe;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #ffffff;
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -254,7 +256,7 @@ font-size: 15px;
 
 
 .card:hover {
-  box-shadow: 0px 2px 20px rgb(0, 0, 0);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.438);
 }
 
 
@@ -313,7 +315,7 @@ input[type="text"], input[type="date"] {
 button[type="button"]{
   padding: 5px 20px;
   
-  background-color: #15e015;
+  background-color: #01ffd5;
   color: white;
   border: none;
   border-radius: 4px;
@@ -342,7 +344,8 @@ button[type="button2"] {
   cursor: pointer;
 }
 #output {
-  color: #16e3fe;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #ffffff;
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -363,11 +366,12 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  right: 0px;
   z-index: 10;
 }
 
 .header-nav-container {
+  margin-right: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -375,6 +379,8 @@ header {
 }
 
 .header-nav-left {
+ 
+  margin-left: 50px;
   display: flex;
   align-items: center;
 }
@@ -382,9 +388,9 @@ header {
 
 
 .header-nav-right a {
-  margin-left: 20px;
+  margin-left: 15px;
   font-size: 30px;
-  color: rgb(0, 255, 255);
+  color: rgb(36, 205, 218);
   text-decoration: none;
 }
 
@@ -407,6 +413,7 @@ header {
 }
 
 #clock {
+  margin-right: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -418,7 +425,7 @@ header {
 }
 
 #date {
-  font-size: 9px;
+  font-size: 13px;
 }
 
 #weather {
@@ -430,6 +437,7 @@ header {
 #location {
   font-size: 9px;
   margin-bottom: 5px;
+  margin-top: 7px;
 }
 
 #temperature {
@@ -441,26 +449,41 @@ header {
   font-size: 9px;
 }
 
-
-
-
-
-
-#scroll-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  display: none;
-}
-
-#scroll-icon i {
-  font-size: 24px;
-  color: rgba(0, 0, 0, 0.589);
+#timer {
  
-  padding: 10px;
-  border-radius: 50%;
+  margin-left: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  background-color: rgba(0, 0, 0, 0.301);
+  color: #fff;
+  border-radius: 10px;
+
 }
+
+
+
+
+#font {
+  font-size: 30px;
+  font-family: fantasy;
+}
+#seconds {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
+}
+#minutes {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#hours {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#days {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+
 
 
 
