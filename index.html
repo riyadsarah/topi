@@ -22,27 +22,27 @@
     
 <style>
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   body {
     font-size: 14px;
   }
 }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .modal-2-content {
       width: 95%;
       margin: 10% auto;
     }
     
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .header-nav-container-2 {
       width: 95%;
       margin: 10% auto;
     }
     
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .modal-2-content {
       width: 95%;
       margin: 10% auto;
@@ -131,7 +131,9 @@
         </div>
     </div>
   </div>
-    
+ 
+
+
     <br>
 <div>
 <div class="header-nav-container">
@@ -217,21 +219,20 @@
  });
  </script></p>
     <button class="close-button" onclick="closePopup()">Close</button>
-
   </div>
 </div>
+<button class="close-button" onclick="openPopup()">Hitung Umur <i class="fa-solid fa-person-arrow-up-from-line"></i></i></button>    
+</div>
 
-<button class="close-button" onclick="openPopup()">Hitung Umur <i class="fa-solid fa-person-arrow-up-from-line"></i></i></button>
 
 
-     
-<!-- Second pop-up -->
-<div  id="modal-2" class="modal-2"  >
-  <div class="modal-2-content">
-    
-    <p><h2>Hitung uang </h2>
+
+
+
+
       <div>
-        <input type="text" id="input-1" placeholder=". . . "/>
+        <h3>Kalkulator Biasa</h3>
+        <input type="text" id="input-1" placeholder="Masukan Angka"/>
         <div>
         <select id="operator">
           <option value="+">+</option>
@@ -240,75 +241,156 @@
           <option value="/">÷</option>
         </select>
       </div>
-        <input type="text" id="input-2"placeholder=". . ." />
+        <input type="text" id="input-2"placeholder="Masukan Angka" />
         <div>
         <button type="button" id="submit-button">Hitung</button>
         <button type="button" id="reset-button"><i class="fas fa-undo"></i></button>
+        <p id="hasil"></p>
+        <h5 id="message"></h5>
       </div>
       </div>
-      <p id="hasil"></p>
-      <p id="message"></p>
+
+
+<div>
+    <form id="form">
       
-            
-            <script>
-              const input1 = document.getElementById("input-1");
-              const input2 = document.getElementById("input-2");
-              const operator = document.getElementById("operator");
-              const submitButton = document.getElementById("submit-button");
-              const resetButton = document.getElementById("reset-button");
-              const hasil = document.getElementById("hasil");
-              const message = document.getElementById("message");
-          
-              submitButton.addEventListener("click", function() {
-                let nilai1 = parseFloat(input1.value);
-                let nilai2 = parseFloat(input2.value);
-                let op = operator.value;
-          
-                if (isNaN(nilai1) || isNaN(nilai2)) {
-                  hasil.textContent = "Input tidak valid.";
-                  return;
-                }
-          
-                if (op === "+") {
-                  hasil.textContent = nilai1 + nilai2;
-                } else if (op === "-") {
-                  hasil.textContent = nilai1 - nilai2;
-                } else if (op === "*") {
-                  hasil.textContent = nilai1 * nilai2;
-                } else if (op === "/") {
-                  if (nilai2 === 0) {
-                    hasil.textContent = "Tidak bisa dibagi dengan 0.";
-                    return;
-                  }
-                  hasil.textContent = nilai1 / nilai2;
-                } else {
-                  hasil.textContent = "Operator tidak valid.";
-                }
-                
-                message.textContent = "CIeeeee ngitung hutang🔥💥";
-              });
-          
-              resetButton.addEventListener("click", function() {
-                input1.value = "";
-                input2.value = "";
-                operator.selectedIndex = 0;
-                hasil.textContent = "";
-                message.textContent ="";
-              });
-            </script></p>
-         <button  class="close-button" onclick="closeModal('modal-2')">close</button>   
+      <h3>Berapa batang/Hari</h3>
+      <h5>Skip Kuntung😭</h5>
+      <input type="number" id="jumlah" name="jumlah" placeholder="Jumlah Batang Roko/Hari">
+      <h3>Harga Perbungkus</h3>
+      <select id="harga" name="harga">
+        <option value="20000">20.000</option>
+        <option value="25000">25.000</option>
+        <option value="30000">30.000</option>
+        <option value="#">RQ sama LOIS skip</option>
+        <option value="#">Up dulu 😂</option>
+      </select><br><br>
+      <h3>Sudah berapa hari meroko</h3>
+      <input type="number" id="periode" name="periode" placeholder="Masukan Total Hari Meroko">
+
+      
+      <br><br>
+      <input type="submit" value="Hitung">
+      <button type="button" id="reset"><i class="fas fa-undo"></i></button>
+      <p id="result"></p>
+    </form>
   </div>
+    
+
+    
+  <script>
+  const result= document.getElementById("result");
+const jumlah = document.getElementById("jumlah");
+const harga = document.getElementById("harga");
+const periode = document.getElementById("periode");
+
+const hisil = document.getElementById("hisil");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  hitungRoko();
+});
+
+function hitungRoko() {
+  const total = jumlah.value * harga.value * periode.value;
+  hasil.textContent = "Total: Rp " + total;
+}
+document.querySelector("form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const jumlahValue = parseInt(jumlah.value);
+  const hargaValue = parseInt(harga.value);
+  const periodeValue = parseInt(periode.value);
+
+  if (!jumlahValue || !hargaValue || !periodeValue) {
+    alert("Mohon isi semua field");
+    return;
+  }
+
+  const result = calculateCigaretteConsumption(hargaValue, null, jumlahValue, 1, periodeValue);
+  hasil.textContent = ` Kamu telah Udud sebanyak : ${result.totalConsumptionInSticks} batang. jika sebungkus 20 batang maka kamu telah menghabiskan${result.totalConsumptionInPacks.toFixed(2)} bungkus. dengan total biaya sekitar Rp ${result.totalConsumptionAmount.toLocaleString(0)}. Total panjang roko sekitar ${result.totalConsumptionInCentimeters} cm atau ${result.totalConsumptionInMeters.toFixed(2)} meter dan total berat roko sekitar ${result.totalConsumptionWeight} kg.`;
+});
+
+function calculateCigaretteConsumption(packPrice, stickPrice, quantity, frequency, duration) {
+  let packs = (packPrice === 20000) ? (quantity / 20) : (quantity / 12);
+  let sticks = quantity;
+  let totalAmount = (packPrice === 20000) ? (packs * 20000) : (packs * 25000);
+  let totalConsumptionInSticks = quantity * frequency * duration;
+  let totalConsumptionInPacks = totalConsumptionInSticks / ((packPrice === 20000) ? 20 : 12);
+  let totalConsumptionAmount = totalConsumptionInPacks * packPrice;
+  let totalConsumptionInCentimeters = totalConsumptionInSticks * 8; // 1 batang rokok memiliki panjang 8 cm
+  let totalConsumptionInMeters = totalConsumptionInCentimeters / 100;
+  let totalConsumptionWeight = totalConsumptionInSticks * 1.9 / 1000; // 1 batang rokok memiliki berat 1.9 gram, dikonversikan ke kilogram
+  
+  return {
+    totalConsumptionInSticks: totalConsumptionInSticks,
+    totalConsumptionInPacks: totalConsumptionInPacks,
+    totalConsumptionAmount: totalConsumptionAmount,
+    totalConsumptionInCentimeters: totalConsumptionInCentimeters,
+    totalConsumptionInMeters: totalConsumptionInMeters,
+    totalConsumptionWeight: totalConsumptionWeight
+  };
+}
+document.querySelector("#reset").addEventListener("click", function() {
+  jumlah.value = "";
+  harga.value = "";
+  periode.value = "";
+  hasil.textContent = "";
+});
+
+ </script>
+
+ 
 </div>
-<button class="close-button"  onclick="openModal('modal-2')">Hitung Uang  <i class="fa-solid fa-calculator"></i></button>
-
- </div>
-
 </div>
 
-
-</div>
-
-   
+  
+        
+        <script>
+          const input1 = document.getElementById("input-1");
+          const input2 = document.getElementById("input-2");
+          const operator = document.getElementById("operator");
+          const submitButton = document.getElementById("submit-button");
+          const resetButton = document.getElementById("reset-button");
+          const hasil1 = document.getElementById("hasil");
+          const message = document.getElementById("message");
+      
+          submitButton.addEventListener("click", function() {
+            let nilai1 = parseFloat(input1.value);
+            let nilai2 = parseFloat(input2.value);
+            let op = operator.value;
+      
+            if (isNaN(nilai1) || isNaN(nilai2)) {
+              hasil.textContent = "Input tidak valid.";
+              return;
+            }
+      
+            if (op === "+") {
+              hasil.textContent = nilai1 + nilai2;
+            } else if (op === "-") {
+              hasil.textContent = nilai1 - nilai2;
+            } else if (op === "*") {
+              hasil.textContent = nilai1 * nilai2;
+            } else if (op === "/") {
+              if (nilai2 === 0) {
+                hasil.textContent = "Tidak bisa dibagi dengan 0.";
+                return;
+              }
+              hasil.textContent = nilai1 / nilai2;
+            } else {
+              hasil.textContent = "Operator tidak valid.";
+            }
+            
+            message.textContent = "CIeeeee ngitung hutang🔥💥";
+          });
+      
+          resetButton.addEventListener("click", function() {
+            input1.value = "";
+            input2.value = "";
+            operator.selectedIndex = 0;
+            hasil.textContent = "";
+            message.textContent ="";
+          });
+        </script>
 
 
 <p id="jam"></p>
@@ -342,9 +424,6 @@
     }
     tampilkanJam();
 </script>
-
-
-
 
 
 

@@ -132,9 +132,28 @@ h1 {
       color: #00f120;
   }
 }
-
-h2 {
+h5 {
   text-align: center;
+  
+  /* warna awal */
+  color: #000000; 
+  /* animasi selama 5 detik */
+  animation: color-animation 1s linear infinite; 
+}
+
+/* keyframes untuk animasi warna */
+@keyframes color-animation {
+  0% {
+      color: #33c22057;
+  }
+  100% {
+      color: #00f120;
+  }
+}
+h3 {
+  text-align: center;
+  color: #f2f2f2;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 
@@ -406,7 +425,7 @@ header {
 .header-nav-right a {
   margin-left: 15px;
   font-size: 30px;
-  color: rgb(255, 51, 0);
+  color: rgb(11, 70, 148);
   text-decoration: none;
 }
 
@@ -478,12 +497,12 @@ header {
 
 #timer {
   width: 120px;
-  height: 220px;
+  height: 230px;
   margin: 0 auto;
-margin-top: 20px;
+margin-top: 10px;
   background-color: rgba(0, 0, 0, 0.3); /* membuat latar belakang transparan */
   color: #fff;
-  margin-left: 20px;
+  margin-left: 5px;
 
   align-items: center;
   justify-content: space-between;
@@ -595,12 +614,107 @@ margin-top: 20px;
 
 
 
+.calculator {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #37ff0f77;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  animation: bounceIn 0.5s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+form {
+  
+  padding: 30px;
+}
+
+input[type="number"] {
+  width: 50%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+  outline: none;
+  margin-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="number"]:focus {
+  box-shadow: 0 0 10px #1ebdb5;
+}
+
+select {
+  width: 50%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 18px;
+  outline: none;
+  margin-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+  background-color: #f2f2f2;
+}
+
+select:focus {
+  box-shadow: 0 0 10px #7f7f7f;
+}
+
+input[type="submit"] {
+  width: 30%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: #ff4400;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+}
 
 
 
-
-
-
-
-
-
+#hasil {
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 18px;
+  text-align: center;
+  margin: 50px 0;
+  padding: 20px;
+  background-color: rgb(51, 168, 184);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.3);
+  animation: slideIn 1s ease-out;
+  }
+  
+  @keyframes slideIn {
+  from {
+  transform: translateY(-50%);
+  opacity: 0;
+  }
+  to {
+  transform: translateY(0);
+  opacity: 1;
+  }
+  }
+  
+  
