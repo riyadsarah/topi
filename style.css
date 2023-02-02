@@ -428,7 +428,7 @@ header {
 
 #widget-container-2 {
   
-  display: flex;
+ 
   align-items: center;
   
   padding: 10px 10px;
@@ -507,15 +507,14 @@ margin-top: 20px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(10, 1, 1, 0);
+  background: rgba(10, 1, 1, 0.479);
   display: none;
   align-items: center;
   justify-content: center;
 }
 
 .popup-content {
-  width: 250px;
-  height: 580px;
+
   background: rgb(0, 174, 255);
   padding: 20px;
   border-radius: 10px;
@@ -564,7 +563,7 @@ margin-top: 20px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(10, 1, 1, 0);
+  background: rgba(10, 1, 1, 0.479);
   display: none;
   align-items: center;
   justify-content: center;
@@ -573,8 +572,7 @@ margin-top: 20px;
 
 /* Modal Content */
 .modal-2-content {
-  width: 250px;
-  height: 550px;
+
   background: rgb(0, 174, 255);
   padding: 20px;
   border-radius: 10px;
