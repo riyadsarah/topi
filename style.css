@@ -152,7 +152,7 @@ h5 {
 }
 h3 {
   text-align: center;
-  color: #f2f2f2;
+  color: #00000085;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -344,7 +344,7 @@ input[type="text"], input[type="date"] {
 button[type="button"]{
   padding: 5px 20px;
   
-  background-color: #ff1e00;
+  background-color: #00000069;
   color: white;
   border: none;
   border-radius: 4px;
@@ -355,7 +355,7 @@ button :hover{
   transform: scale(1.2);
 }
 button[type="button1"]  {
-  background-color: #ff1e00;
+  background-color: #000000;
   color: white;
   padding: 5px 20px;
   
@@ -364,7 +364,7 @@ button[type="button1"]  {
   cursor: pointer;
 }
 button[type="button2"] {
-  background-color: #ff1e00;
+  background-color: #00000069;
   color: white;
   padding: 5px 20px;
   
@@ -672,7 +672,7 @@ select {
   outline: none;
   margin-bottom: 20px;
   transition: all 0.3s ease-in-out;
-  background-color: #f2f2f2;
+  background-color: #00000049;
 }
 
 select:focus {
@@ -680,19 +680,23 @@ select:focus {
 }
 
 input[type="submit"] {
-  width: 30%;
-  height: 40px;
+  width: 23%;
+  height: 34px;
   border: none;
   border-radius: 5px;
   font-size: 18px;
-  background-color: #ff4400;
-  color: #fff;
+  background-color: #0000005d;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-top: 20px;
 }
 
-
+h7{
+  text-align: center;
+  color: #f2f2f2;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 #hasil {
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
