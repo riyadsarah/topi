@@ -107,182 +107,206 @@
 </div>
 </div>
 
+
+<div class="header-nav-container-2">
+  <div id="widget-container-2">
 <div id="timer">
-  <h1><p id="font">BIG SALE <i class="fa-sharp fa-solid fa-cart-shopping"></i> </p></h1>
+  <h1><p id="font">RAMADAN TINGGAL  <i class="fa-solid fa-mosque"></i> </p></h1>
   <p id="days"></p>
   <p id="hours"></p>
   <p id="minutes"></p>
   <h1><p id="seconds"></p></h1>
-</div><br><br>
+</div>
 
 
 
 
+<div id="widget-container-2" >
+<div class="popup" id="myPopup">
+  <div class="popup-content">
+    <p> 
+      <p><h2> Masukan Angka </h2>
+      <div >
+      
+       <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
+       <input type="text" id="bulan-lahir" placeholder="Bulan">
+       <input type="text" id="tahun-lahir" placeholder="Tahun">
+       <div>
+   <button type="button2" onclick="hitungUmur()">Hitung</button>
+   <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
+ </div>
+   <p id="output"></p>
+ </div>
+   <br><br>
+   
+   <script>
+     function hitungUmur() {
+       var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
+       var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
+       var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
+       var sekarang = new Date();
+       var tanggalSekarang = sekarang.getDate();
+       var bulanSekarang = sekarang.getMonth() + 1;
+       var tahunSekarang = sekarang.getFullYear();
+       var umurTahun = tahunSekarang - tahunLahir;
+       var umurBulan = bulanSekarang - bulanLahir;
+       var umurTanggal = tanggalSekarang - tanggalLahir;
+       if (umurBulan < 0) {
+         umurTahun--;
+         umurBulan = 12 + umurBulan;
+       }
+       if (umurTanggal < 0) {
+         umurBulan--;
+         umurTanggal = 30 + umurTanggal;
+       }
+       document.getElementById("output").innerHTML = "Umur Anda adalah " + umurTahun + " tahun " + umurBulan + " bulan " + umurTanggal + " hari.";
+     }
+ 
+     function resetRiwayat() {
+       document.getElementById("tanggal-lahir").value = "";
+       document.getElementById("bulan-lahir").value = "";
+       document.getElementById("tahun-lahir").value = "";
+       document.getElementById("output").innerHTML = "";
+     }
+     document.addEventListener("keyup", function(event) {
+   if (event.code === "Enter") {
+     hitungUmur();
+   }
+ });
+ </script></p>
+    <button class="close-button" onclick="closePopup()">Close</button>
+
+  </div>
+</div>
+
+<button class="close-button" onclick="openPopup()">Hitung Umur <i class="fa-solid fa-person-arrow-up-from-line"></i></i></button>
+
+
+     
+
+
+<!-- Second pop-up -->
+<div  id="modal-2" class="modal-2"  >
+  <div class="modal-2-content">
+    
+    <p><h2>Hitung uang </h2>
+      <div>
+        <input type="text" id="input-1" placeholder=". . . "/>
+        <div>
+        <select id="operator">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">x</option>
+          <option value="/">÷</option>
+        </select>
+      </div>
+        <input type="text" id="input-2"placeholder=". . ." />
+        <div>
+        <button type="button" id="submit-button">Hitung</button>
+        <button type="button" id="reset-button"><i class="fas fa-undo"></i></button>
+      </div>
+      </div>
+      <p id="hasil"></p>
+      <p id="message"></p>
+      
+            
+            <script>
+              const input1 = document.getElementById("input-1");
+              const input2 = document.getElementById("input-2");
+              const operator = document.getElementById("operator");
+              const submitButton = document.getElementById("submit-button");
+              const resetButton = document.getElementById("reset-button");
+              const hasil = document.getElementById("hasil");
+              const message = document.getElementById("message");
+          
+              submitButton.addEventListener("click", function() {
+                let nilai1 = parseFloat(input1.value);
+                let nilai2 = parseFloat(input2.value);
+                let op = operator.value;
+          
+                if (isNaN(nilai1) || isNaN(nilai2)) {
+                  hasil.textContent = "Input tidak valid.";
+                  return;
+                }
+          
+                if (op === "+") {
+                  hasil.textContent = nilai1 + nilai2;
+                } else if (op === "-") {
+                  hasil.textContent = nilai1 - nilai2;
+                } else if (op === "*") {
+                  hasil.textContent = nilai1 * nilai2;
+                } else if (op === "/") {
+                  if (nilai2 === 0) {
+                    hasil.textContent = "Tidak bisa dibagi dengan 0.";
+                    return;
+                  }
+                  hasil.textContent = nilai1 / nilai2;
+                } else {
+                  hasil.textContent = "Operator tidak valid.";
+                }
+                
+                message.textContent = "CIeeeee ngitung hutang🔥💥";
+              });
+          
+              resetButton.addEventListener("click", function() {
+                input1.value = "";
+                input2.value = "";
+                operator.selectedIndex = 0;
+                hasil.textContent = "";
+                message.textContent ="";
+              });
+            </script></p>
+         <button  class="close-button" onclick="closeModal('modal-2')">close</button>   
+  </div>
+</div>
+<button class="close-button"  onclick="openModal('modal-2')">Hitung Uang  <i class="fa-solid fa-calculator"></i></button>
+</div>
+
+  
 
     
-      
-     
-      <h2>Hitung Umur </h4></h2>
-     <div >
-     
-      <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
-      <input type="text" id="bulan-lahir" placeholder="Bulan">
-      <input type="text" id="tahun-lahir" placeholder="Tahun">
-      <div>
-  <button type="button2" onclick="hitungUmur()">Hitung</button>
-  <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
-</div>
-  <p id="output"></p>
-</div>
-  <br><br>
-  
-  <script>
-    function hitungUmur() {
-      var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
-      var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
-      var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
-      var sekarang = new Date();
-      var tanggalSekarang = sekarang.getDate();
-      var bulanSekarang = sekarang.getMonth() + 1;
-      var tahunSekarang = sekarang.getFullYear();
-      var umurTahun = tahunSekarang - tahunLahir;
-      var umurBulan = bulanSekarang - bulanLahir;
-      var umurTanggal = tanggalSekarang - tanggalLahir;
-      if (umurBulan < 0) {
-        umurTahun--;
-        umurBulan = 12 + umurBulan;
-      }
-      if (umurTanggal < 0) {
-        umurBulan--;
-        umurTanggal = 30 + umurTanggal;
-      }
-      document.getElementById("output").innerHTML = "Umur Anda adalah " + umurTahun + " tahun " + umurBulan + " bulan " + umurTanggal + " hari.";
-    }
+      </div>
 
-    function resetRiwayat() {
-      document.getElementById("tanggal-lahir").value = "";
-      document.getElementById("bulan-lahir").value = "";
-      document.getElementById("tahun-lahir").value = "";
-      document.getElementById("output").innerHTML = "";
+</div>
+</div>
+
+   
+
+
+<p id="jam"></p>
+<a id="tanggal"></a>
+<script>
+    function tampilkanJam() {
+        var waktu = new Date();
+        var jam = waktu.getHours();
+        var menit = waktu.getMinutes();
+        var detik = waktu.getSeconds();
+
+        var tanggal = waktu.getDate();
+        var bulan = waktu.getMonth();
+        var tahun = waktu.getFullYear();
+
+        // Tambahkan 0 didepan angka jika kurang dari 10
+        if (jam < 10) {
+            jam = "0" + jam;
+        }
+        if (menit < 10) {
+            menit = "0" + menit;
+        }
+        if (detik < 10) {
+            detik = "0" + detik;
+        }
+
+        document.getElementById("jam").innerHTML = jam + ":" + menit + ":" + detik;
+        document.getElementById("tanggal").innerHTML = tanggal + "-" + (bulan + 1) + "-" + tahun;
+
+        setTimeout("tampilkanJam()", 1000);
     }
-    document.addEventListener("keyup", function(event) {
-  if (event.code === "Enter") {
-    hitungUmur();
-  }
-});
+    tampilkanJam();
 </script>
 
 
-<div></div>
-<h2>Hitung uang </h2>
-<div>
-  <input type="text" id="input-1" placeholder="89000 "/>
-  <div>
-  <select id="operator">
-    <option value="+">+</option>
-    <option value="-">-</option>
-    <option value="*">x</option>
-    <option value="/">÷</option>
-  </select>
-</div>
-  <input type="text" id="input-2"placeholder="14000" />
-  <div>
-  <button type="button" id="submit-button">Hitung</button>
-  <button type="button" id="reset-button"><i class="fas fa-undo"></i></button>
-</div>
-</div>
-<p id="hasil"></p>
-<p id="message"></p>
-      
-      <script>
-        const input1 = document.getElementById("input-1");
-        const input2 = document.getElementById("input-2");
-        const operator = document.getElementById("operator");
-        const submitButton = document.getElementById("submit-button");
-        const resetButton = document.getElementById("reset-button");
-        const hasil = document.getElementById("hasil");
-        const message = document.getElementById("message");
-    
-        submitButton.addEventListener("click", function() {
-          let nilai1 = parseFloat(input1.value);
-          let nilai2 = parseFloat(input2.value);
-          let op = operator.value;
-    
-          if (isNaN(nilai1) || isNaN(nilai2)) {
-            hasil.textContent = "Input tidak valid.";
-            return;
-          }
-    
-          if (op === "+") {
-            hasil.textContent = nilai1 + nilai2;
-          } else if (op === "-") {
-            hasil.textContent = nilai1 - nilai2;
-          } else if (op === "*") {
-            hasil.textContent = nilai1 * nilai2;
-          } else if (op === "/") {
-            if (nilai2 === 0) {
-              hasil.textContent = "Tidak bisa dibagi dengan 0.";
-              return;
-            }
-            hasil.textContent = nilai1 / nilai2;
-          } else {
-            hasil.textContent = "Operator tidak valid.";
-          }
-          
-          message.textContent = "CIeeeee ngitung hutang🔥💥";
-        });
-    
-        resetButton.addEventListener("click", function() {
-          input1.value = "";
-          input2.value = "";
-          operator.selectedIndex = 0;
-          hasil.textContent = "";
-          message.textContent ="";
-        });
-      </script>
 
-
-
-
-  
-  
-<br><br>
-
-
-
-  
-
-      <p id="jam"></p>
-      <a id="tanggal"></a>
-      <script>
-          function tampilkanJam() {
-              var waktu = new Date();
-              var jam = waktu.getHours();
-              var menit = waktu.getMinutes();
-              var detik = waktu.getSeconds();
-      
-              var tanggal = waktu.getDate();
-              var bulan = waktu.getMonth();
-              var tahun = waktu.getFullYear();
-      
-              // Tambahkan 0 didepan angka jika kurang dari 10
-              if (jam < 10) {
-                  jam = "0" + jam;
-              }
-              if (menit < 10) {
-                  menit = "0" + menit;
-              }
-              if (detik < 10) {
-                  detik = "0" + detik;
-              }
-      
-              document.getElementById("jam").innerHTML = jam + ":" + menit + ":" + detik;
-              document.getElementById("tanggal").innerHTML = tanggal + "-" + (bulan + 1) + "-" + tahun;
-      
-              setTimeout("tampilkanJam()", 1000);
-          }
-          tampilkanJam();
-      </script>
 
 
 <div>

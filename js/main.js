@@ -42,6 +42,11 @@ window.addEventListener("load", function(){
 
 
 
+    
+
+
+
+
 
 
 
@@ -112,7 +117,7 @@ window.addEventListener("load", function(){
         // Select the button
 
      // Set the date we're counting down to
-var countDownDate = new Date("Feb 3, 2023 23:59:59").getTime();
+var countDownDate = new Date("march 22, 2023 23:59:59").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -144,5 +149,61 @@ var x = setInterval(function() {
 
 
 
+function openPopup() {
+  document.getElementById("myPopup").style.display = "flex";
+}
 
+function closePopup() {
+  document.getElementById("myPopup").style.display = "none";
+}
+
+
+
+function openModal(id) {
+  var modal = document.
+getElementById(id);
+modal.style.display = "flex";
+}
+
+function closeModal(id) {
+var modal = document.getElementById(id);
+modal.style.display = "none";
+}
+
+
+
+
+function hitungUmur() {
+  var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
+  var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
+  var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
+  var sekarang = new Date();
+  var tanggalSekarang = sekarang.getDate();
+  var bulanSekarang = sekarang.getMonth() + 1;
+  var tahunSekarang = sekarang.getFullYear();
+  var umurTahun = tahunSekarang - tahunLahir;
+  var umurBulan = bulanSekarang - bulanLahir;
+  var umurTanggal = tanggalSekarang - tanggalLahir;
+  if (umurBulan < 0) {
+    umurTahun--;
+    umurBulan = 12 + umurBulan;
+  }
+  if (umurTanggal < 0) {
+    umurBulan--;
+    umurTanggal = 30 + umurTanggal;
+  }
+  document.getElementById("output").innerHTML = "Umur Anda adalah " + umurTahun + " tahun " + umurBulan + " bulan " + umurTanggal + " hari.";
+}
+
+function resetRiwayat() {
+  document.getElementById("tanggal-lahir").value = "";
+  document.getElementById("bulan-lahir").value = "";
+  document.getElementById("tahun-lahir").value = "";
+  document.getElementById("output").innerHTML = "";
+}
+document.addEventListener("keyup", function(event) {
+if (event.code === "Enter") {
+hitungUmur();
+}
+});
 

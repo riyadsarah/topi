@@ -375,6 +375,13 @@ header {
   z-index: 10;
 }
 
+.header-nav-container-2 {
+  margin-right: 50px;
+   display: flex;
+   
+   align-items: center;
+}
+
 .header-nav-container {
   margin-right: 50px;
   display: flex;
@@ -412,12 +419,22 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 10px;
-  background-color: rgba(0, 0, 0, 0.24);
+  background-color: rgba(5, 5, 5, 0.24);
   color: #fff;
   border-radius: 10px;
 }
 
 
+
+#widget-container-2 {
+  
+  display: flex;
+  align-items: center;
+  
+  padding: 10px 10px;
+
+  
+}
 #clock {
   margin-right: 50px;
   display: flex;
@@ -456,8 +473,8 @@ header {
 }
 
 #timer {
-  width: 100px;
-  height: 200px;
+  width: 120px;
+  height: 220px;
   margin: 0 auto;
 margin-top: 20px;
   background-color: rgba(0, 0, 0, 0.3); /* membuat latar belakang transparan */
@@ -478,6 +495,99 @@ margin-top: 20px;
   }
   to {
     opacity: 1;
+  }
+}
+
+
+
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 1, 1, 0);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  width: 250px;
+  height: 580px;
+  background: rgb(0, 174, 255);
+  padding: 20px;
+  border-radius: 10px;
+  animation: zoomIn 0.5s;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.close-button {
+  
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.315);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin-left: 10px;
+}
+
+.close-button:hover {
+  background-color: lightblue;
+}
+
+.close-button:active {
+  transform: translateY(2px);
+}
+
+
+
+
+
+
+/* The modal (background) */
+.modal-2{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 1, 1, 0);
+  display: none;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+/* Modal Content */
+.modal-2-content {
+  width: 250px;
+  height: 550px;
+  background: rgb(0, 174, 255);
+  padding: 20px;
+  border-radius: 10px;
+  animation: zoomIn 0.5s;
+  
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
   }
 }
 
