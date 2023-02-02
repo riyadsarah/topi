@@ -223,7 +223,7 @@ select {
   border: 2px solid rgba(0, 0, 0, 0.24);
   border-radius: 10px;
   margin: 10px;
-  background-color: rgba(0, 0, 0, 0.096);
+  background-color: rgb(255, 251, 251);
 }
 
 #submit-button {
@@ -273,7 +273,9 @@ h4 {
   color: #ff8800;
 }
 
-
+h2 {
+  color: antiquewhite;
+}
 
 
 
@@ -428,7 +430,7 @@ header {
 
 #widget-container-2 {
   
- 
+  display: flex;
   align-items: center;
   
   padding: 10px 10px;
@@ -507,7 +509,7 @@ margin-top: 20px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(10, 1, 1, 0.479);
+  background: rgba(10, 1, 1, 0.63);
   display: none;
   align-items: center;
   justify-content: center;
@@ -515,7 +517,7 @@ margin-top: 20px;
 
 .popup-content {
 
-  background: rgb(0, 174, 255);
+  
   padding: 20px;
   border-radius: 10px;
   animation: zoomIn 0.5s;
@@ -563,7 +565,7 @@ margin-top: 20px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(10, 1, 1, 0.479);
+  background: rgba(10, 1, 1, 0.63);
   display: none;
   align-items: center;
   justify-content: center;
@@ -573,7 +575,7 @@ margin-top: 20px;
 /* Modal Content */
 .modal-2-content {
 
-  background: rgb(0, 174, 255);
+ 
   padding: 20px;
   border-radius: 10px;
   animation: zoomIn 0.5s;
