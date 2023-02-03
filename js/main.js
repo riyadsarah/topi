@@ -173,41 +173,55 @@ modal.style.display = "none";
 
 
 
-function hitungUmur() {
-  var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
-  var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
-  var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
-  var sekarang = new Date();
-  var tanggalSekarang = sekarang.getDate();
-  var bulanSekarang = sekarang.getMonth() + 1;
-  var tahunSekarang = sekarang.getFullYear();
-  var umurTahun = tahunSekarang - tahunLahir;
-  var umurBulan = bulanSekarang - bulanLahir;
-  var umurTanggal = tanggalSekarang - tanggalLahir;
-  if (umurBulan < 0) {
-    umurTahun--;
-    umurBulan = 12 + umurBulan;
-  }
-  if (umurTanggal < 0) {
-    umurBulan--;
-    umurTanggal = 30 + umurTanggal;
-  }
-  document.getElementById("output").innerHTML = "Umur Anda adalah " + umurTahun + " tahun " + umurBulan + " bulan " + umurTanggal + " hari.";
-}
 
-function resetRiwayat() {
-  document.getElementById("tanggal-lahir").value = "";
-  document.getElementById("bulan-lahir").value = "";
-  document.getElementById("tahun-lahir").value = "";
-  document.getElementById("output").innerHTML = "";
-}
-document.addEventListener("keyup", function(event) {
-if (event.code === "Enter") {
-hitungUmur();
-}
+
+//calculator
+
+          //kalkulator umur
+          function hitungUmur() {
+            var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
+            var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
+            var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
+            var sekarang = new Date();
+            var tanggalSekarang = sekarang.getDate();
+            var bulanSekarang = sekarang.getMonth() + 1;
+            var tahunSekarang = sekarang.getFullYear();
+            var umurTahun = tahunSekarang - tahunLahir;
+            var umurBulan = bulanSekarang - bulanLahir;
+            var umurTanggal = tanggalSekarang - tanggalLahir;
+            if (umurBulan < 0) {
+              umurTahun--;
+              umurBulan = 12 + umurBulan;
+            }
+            if (umurTanggal < 0) {
+              umurBulan--;
+              umurTanggal = 30 + umurTanggal;
+            }
+            document.getElementById("output").innerHTML = "Umur Anda adalah " + umurTahun + " tahun " + umurBulan + " bulan " + umurTanggal + " hari.";
+          }
+      
+          function resetRiwayat() {
+            document.getElementById("tanggal-lahir").value = "";
+            document.getElementById("bulan-lahir").value = "";
+            document.getElementById("tahun-lahir").value = "";
+            document.getElementById("output").innerHTML = "";
+          }
+          document.addEventListener("keyup", function(event) {
+        if (event.code === "Enter") {
+          hitungUmur();
+        }
+      });
+
+
+
+
+
+      // This example uses jQuery
+$(document).ready(function() {
+  $('.product-card').click(function() {
+    $(this).toggleClass('flipped');
+  });
 });
-
-
 
 
 
