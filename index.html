@@ -44,7 +44,7 @@
     
   }
   @media (max-width: 1024px) {
-    # {
+    .popup {
       width: 95%;
       margin: 10% auto;
     }
@@ -440,64 +440,69 @@ document.querySelector("#reset").addEventListener("click", function() {
 <div class="card-container">
 
 
-<div class="card">
-  <a href="img/1.img.jpg" data-lightbox="product">
-    <img src="img/1.img.jpg" alt="product">
-  </a>
-  <h5>Rp35.700</h5>
-  <div class="card-description">
-    <h4 class="back">Topi Elegan</h4><br>
-    <p class="teks">
-      Baseball cap : Topi Baseball Topi Golf Topi Polos Topi Pria
-    </p>
-  </div>
-  <div class="card-actions">
-    <a href="https://wa.me/+628983813800">
-      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button>
-    </a>
-    <button class="shop-button" id="menuButton1"> <i class="fa-sharp fa-solid fa-store"></i></button>
-    <div id="menuContainer1" style="display: none;">
-      <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
-      <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
-      <script>
-        document.getElementById("menuButton1").addEventListener("click", function() {
-          var menuContainer = document.getElementById("menuContainer1");
-          if (menuContainer.style.display === "none") {
-            menuContainer.style.display = "block";
-          } else {
-            menuContainer.style.display = "none";
-          }
-        });
-      </script>
+  <div class="card">
+    <a href="img/1.img.jpg" data-lightbox="product"><img src="img/1.img.jpg"  alt="product"></a>
+    <h5>Rp35.500</h5>
+    <div class="card-description">
+      <h4 class="back">Topi Elegan </h4><br>
+      <p class="teks">Bahan: katun, kulit, dll.
+        Ukuran: S, M, L, XL, dll.
+        Warna: hitam, merah, putih, dll.
+        Desain: simple, elegan, sporty, dll. </p>
+        <p class="teks">Toko keperluan fashion.
+          Jual topi dan aksesoris lain.
+          Berkualitas dan harga terjangkau.
+          Pelayanan baik dan ramah. </p>
+  
+    </div>
+    <div class="card-actions">
+      <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
+      <button class="shop-button" id="menuButton1"> <i class="fa-sharp fa-solid fa-store"></i></button>
+      <div id="menuContainer1" style="display: none;">
+        <button class="whatsapp-button">
+        <a href="https://shopee.co.id/"><img src="img/shopee.img.png" alt=""  id="gambar-shopee" ></a>
+        <a href="https://www.lazada.co.id/"><img src="img/ikon lazada.img.png" alt=""  id="gambar-shopee"></i></a>
+        <a href="https://www.tokopedia.com/"><img src="img/tokopedia.img.png" alt="" id="gambar-shopee"></i></a>
+        <script>
+          document.getElementById("menuButton1").addEventListener("click", function() {
+            var menuContainer = document.getElementById("menuContainer1");
+            if (menuContainer.style.display === "none") {
+              menuContainer.style.display = "block";
+            } else {
+              menuContainer.style.display = "none";
+            }
+          });
+        </script>
+        </button>
+      </div>
     </div>
   </div>
-</div>
-
-
 
 
 
 <div class="card">
-  <a href="img/2.img.jpg" data-lightbox="product">
-    <img src="img/2.img.jpg"  alt="product">
-  </a>
-  <h5>Rp45.500</h5>
+  <a href="img/2.img.jpg" data-lightbox="product"><img src="img/2.img.jpg"  alt="product"></a>
+  <h5>Rp55.500</h5>
   <div class="card-description">
-    <h4 class="back">Sepatu Sneakers</h4><br>
-    <p class="teks">
-      Sepatu Sneakers : Sepatu Olahraga Sepatu Pria
-    </p>
+    <h4 class="back">Topi Elegan </h4><br>
+    <p class="teks">Bahan: katun, kulit, dll.
+      Ukuran: S, M, L, XL, dll.
+      Warna: hitam, merah, putih, dll.
+      Desain: simple, elegan, sporty, dll. </p>
+      <p class="teks">Toko keperluan fashion.
+        Jual topi dan aksesoris lain.
+        Berkualitas dan harga terjangkau.
+        Pelayanan baik dan ramah. </p>
+
   </div>
   <div class="card-actions">
-    <a href="https://wa.me/+628983813800">
-      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button>
-    </a>
+    <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
     <button class="shop-button" id="menuButton2"> <i class="fa-sharp fa-solid fa-store"></i></button>
     <div id="menuContainer2" style="display: none;">
-      <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
-      <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
+      <button class="whatsapp-button">
+      <a href="https://shopee.co.id/"><img src="img/shopee.img.png" alt=""  id="gambar-shopee" ></a>
+      <a href="https://www.lazada.co.id/"><img src="img/ikon lazada.img.png" alt=""  id="gambar-shopee"></i></a>
+      <a href="https://www.tokopedia.com/"><img src="img/tokopedia.img.png" alt="" id="gambar-shopee"></i></a>
       <script>
         document.getElementById("menuButton2").addEventListener("click", function() {
           var menuContainer = document.getElementById("menuContainer2");
@@ -508,6 +513,7 @@ document.querySelector("#reset").addEventListener("click", function() {
           }
         });
       </script>
+      </button>
     </div>
   </div>
 </div>
@@ -515,28 +521,28 @@ document.querySelector("#reset").addEventListener("click", function() {
 
 
 <div class="card">
-  <a href="img/2.img.jpg" data-lightbox="product">
-    <img src="img/2.img.jpg"  alt="product">
-  </a>
-  <h5>Rp45.500</h5>
+  <a href="img/3.img.png" data-lightbox="product"><img src="img/3.img.png"  alt="product"></a>
+  <h5>Rp25.500</h5>
   <div class="card-description">
-    <h4 class="back">Sepatu Sneakers</h4><br>
-    <p class="teks">
-      Sepatu Sneakers : Sepatu Olahraga Sepatu Pria
-    </p>
+    <h4 class="back">Topi Elegan </h4><br>
+    <p class="teks">Bahan: katun, kulit, dll.
+      Ukuran: S, M, L, XL, dll.
+      Warna: hitam, merah, putih, dll.
+      Desain: simple, elegan, sporty, dll. </p>
+      <p class="teks">Toko keperluan fashion.
+        Jual topi dan aksesoris lain.
+        Berkualitas dan harga terjangkau.
+        Pelayanan baik dan ramah. </p>
+
   </div>
-
-
-
   <div class="card-actions">
-    <a href="https://wa.me/+628983813800">
-      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button>
-    </a>
+    <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
     <button class="shop-button" id="menuButton3"> <i class="fa-sharp fa-solid fa-store"></i></button>
     <div id="menuContainer3" style="display: none;">
-      <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
-      <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
+      <button class="whatsapp-button">
+      <a href="https://shopee.co.id/"><img src="img/shopee.img.png" alt=""  id="gambar-shopee" ></a>
+      <a href="https://www.lazada.co.id/"><img src="img/ikon lazada.img.png" alt=""  id="gambar-shopee"></i></a>
+      <a href="https://www.tokopedia.com/"><img src="img/tokopedia.img.png" alt="" id="gambar-shopee"></i></a>
       <script>
         document.getElementById("menuButton3").addEventListener("click", function() {
           var menuContainer = document.getElementById("menuContainer3");
@@ -547,13 +553,253 @@ document.querySelector("#reset").addEventListener("click", function() {
           }
         });
       </script>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card">
+  <a href="img/4.img.jpg" data-lightbox="product"><img src="img/4.img.jpg"  alt="product"></a>
+  <h5>Rp15.500</h5>
+  <div class="card-description">
+    <h4 class="back">Topi Elegan </h4><br>
+    <p class="teks">Bahan: katun, kulit, dll.
+      Ukuran: S, M, L, XL, dll.
+      Warna: hitam, merah, putih, dll.
+      Desain: simple, elegan, sporty, dll. </p>
+      <p class="teks">Toko keperluan fashion.
+        Jual topi dan aksesoris lain.
+        Berkualitas dan harga terjangkau.
+        Pelayanan baik dan ramah. </p>
+
+  </div>
+  <div class="card-actions">
+    <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
+    <button class="shop-button" id="menuButton4"> <i class="fa-sharp fa-solid fa-store"></i></button>
+    <div id="menuContainer4" style="display: none;">
+      <button class="whatsapp-button">
+      <a href="https://shopee.co.id/"><img src="img/shopee.img.png" alt=""  id="gambar-shopee" ></a>
+      <a href="https://www.lazada.co.id/"><img src="img/ikon lazada.img.png" alt=""  id="gambar-shopee"></i></a>
+      <a href="https://www.tokopedia.com/"><img src="img/tokopedia.img.png" alt="" id="gambar-shopee"></i></a>
+      <script>
+        document.getElementById("menuButton4").addEventListener("click", function() {
+          var menuContainer = document.getElementById("menuContainer4");
+          if (menuContainer.style.display === "none") {
+            menuContainer.style.display = "block";
+          } else {
+            menuContainer.style.display = "none";
+          }
+        });
+      </script>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card">
+  <a href="img/5.img.webp" data-lightbox="product"><img src="img/5.img.webp"  alt="product"></a>
+  <h5>Rp55.500</h5>
+  <div class="card-description">
+    <h4 class="back">Topi Elegan </h4><br>
+    <p class="teks">Bahan: katun, kulit, dll.
+      Ukuran: S, M, L, XL, dll.
+      Warna: hitam, merah, putih, dll.
+      Desain: simple, elegan, sporty, dll. </p>
+      <p class="teks">Toko keperluan fashion.
+        Jual topi dan aksesoris lain.
+        Berkualitas dan harga terjangkau.
+        Pelayanan baik dan ramah. </p>
+
+  </div>
+  <div class="card-actions">
+    <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
+    <button class="shop-button" id="menuButton5"> <i class="fa-sharp fa-solid fa-store"></i></button>
+    <div id="menuContainer5" style="display: none;">
+      <button class="whatsapp-button">
+      <a href="https://shopee.co.id/"><img src="img/shopee.img.png" alt=""  id="gambar-shopee" ></a>
+      <a href="https://www.lazada.co.id/"><img src="img/ikon lazada.img.png" alt=""  id="gambar-shopee"></i></a>
+      <a href="https://www.tokopedia.com/"><img src="img/tokopedia.img.png" alt="" id="gambar-shopee"></i></a>
+      <script>
+        document.getElementById("menuButton5").addEventListener("click", function() {
+          var menuContainer = document.getElementById("menuContainer5");
+          if (menuContainer.style.display === "none") {
+            menuContainer.style.display = "block";
+          } else {
+            menuContainer.style.display = "none";
+          }
+        });
+      </script>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card">
+  <a href="img/6.img.jpeg" data-lightbox="product"><img src="img/6.img.jpeg"  alt="product"></a>
+  <h5>Rp85.500</h5>
+  <div class="card-description">
+    <h4 class="back">Topi Elegan </h4><br>
+    <p class="teks">Bahan: katun, kulit, dll.
+      Ukuran: S, M, L, XL, dll.
+      Warna: hitam, merah, putih, dll.
+      Desain: simple, elegan, sporty, dll. </p>
+      <p class="teks">Toko keperluan fashion.
+        Jual topi dan aksesoris lain.
+        Berkualitas dan harga terjangkau.
+        Pelayanan baik dan ramah. </p>
+
+  </div>
+  <div class="card-actions">
+    <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
+    <button class="shop-button" id="menuButton6"> <i class="fa-sharp fa-solid fa-store"></i></button>
+    <div id="menuContainer6" style="display: none;">
+      <button class="whatsapp-button">
+      <a href="https://shopee.co.id/"><img src="img/shopee.img.png" alt=""  id="gambar-shopee" ></a>
+      <a href="https://www.lazada.co.id/"><img src="img/ikon lazada.img.png" alt=""  id="gambar-shopee"></i></a>
+      <a href="https://www.tokopedia.com/"><img src="img/tokopedia.img.png" alt="" id="gambar-shopee"></i></a>
+      <script>
+        document.getElementById("menuButton6").addEventListener("click", function() {
+          var menuContainer = document.getElementById("menuContainer6");
+          if (menuContainer.style.display === "none") {
+            menuContainer.style.display = "block";
+          } else {
+            menuContainer.style.display = "none";
+          }
+        });
+      </script>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card">
+  <a href="img/7.img.jpeg" data-lightbox="product"><img src="img/7.img.jpeg"  alt="product"></a>
+  <h5>Rp21.500</h5>
+  <div class="card-description">
+    <h4 class="back">Topi Elegan </h4><br>
+    <p class="teks">Bahan: katun, kulit, dll.
+      Ukuran: S, M, L, XL, dll.
+      Warna: hitam, merah, putih, dll.
+      Desain: simple, elegan, sporty, dll. </p>
+      <p class="teks">Toko keperluan fashion.
+        Jual topi dan aksesoris lain.
+        Berkualitas dan harga terjangkau.
+        Pelayanan baik dan ramah. </p>
+
+  </div>
+  <div class="card-actions">
+    <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
+    <button class="shop-button" id="menuButton7"> <i class="fa-sharp fa-solid fa-store"></i></button>
+    <div id="menuContainer7" style="display: none;">
+      <button class="whatsapp-button">
+      <a href="https://shopee.co.id/"><img src="img/shopee.img.png" alt=""  id="gambar-shopee" ></a>
+      <a href="https://www.lazada.co.id/"><img src="img/ikon lazada.img.png" alt=""  id="gambar-shopee"></i></a>
+      <a href="https://www.tokopedia.com/"><img src="img/tokopedia.img.png" alt="" id="gambar-shopee"></i></a>
+      <script>
+        document.getElementById("menuButton7").addEventListener("click", function() {
+          var menuContainer = document.getElementById("menuContainer7");
+          if (menuContainer.style.display === "none") {
+            menuContainer.style.display = "block";
+          } else {
+            menuContainer.style.display = "none";
+          }
+        });
+      </script>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card">
+  <a href="img/2.img.jpg" data-lightbox="product"><img src="img/2.img.jpg"  alt="product"></a>
+  <h5>Rp45.500</h5>
+  <div class="card-description">
+    <h4 class="back">Topi Elegan </h4><br>
+    <p class="teks">Bahan: katun, kulit, dll.
+      Ukuran: S, M, L, XL, dll.
+      Warna: hitam, merah, putih, dll.
+      Desain: simple, elegan, sporty, dll. </p>
+      <p class="teks">Toko keperluan fashion.
+        Jual topi dan aksesoris lain.
+        Berkualitas dan harga terjangkau.
+        Pelayanan baik dan ramah. </p>
+
+  </div>
+  <div class="card-actions">
+    <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
+    <button class="shop-button" id="menuButton8"> <i class="fa-sharp fa-solid fa-store"></i></button>
+    <div id="menuContainer8" style="display: none;">
+      <button class="whatsapp-button">
+      <a href="https://shopee.co.id/"><img src="img/shopee.img.png" alt=""  id="gambar-shopee" ></a>
+      <a href="https://www.lazada.co.id/"><img src="img/ikon lazada.img.png" alt=""  id="gambar-shopee"></i></a>
+      <a href="https://www.tokopedia.com/"><img src="img/tokopedia.img.png" alt="" id="gambar-shopee"></i></a>
+      <script>
+        document.getElementById("menuButton8").addEventListener("click", function() {
+          var menuContainer = document.getElementById("menuContainer8");
+          if (menuContainer.style.display === "none") {
+            menuContainer.style.display = "block";
+          } else {
+            menuContainer.style.display = "none";
+          }
+        });
+      </script>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card">
+  <a href="img/2.img.jpg" data-lightbox="product"><img src="img/2.img.jpg"  alt="product"></a>
+  <h5>Rp45.500</h5>
+  <div class="card-description">
+    <h4 class="back">Topi Elegan </h4><br>
+    <p class="teks">Bahan: katun, kulit, dll.
+      Ukuran: S, M, L, XL, dll.
+      Warna: hitam, merah, putih, dll.
+      Desain: simple, elegan, sporty, dll. </p>
+      <p class="teks">Toko keperluan fashion.
+        Jual topi dan aksesoris lain.
+        Berkualitas dan harga terjangkau.
+        Pelayanan baik dan ramah. </p>
+
+  </div>
+  <div class="card-actions">
+    <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
+    <button class="shop-button" id="menuButton9"> <i class="fa-sharp fa-solid fa-store"></i></button>
+    <div id="menuContainer9" style="display: none;">
+      <button class="whatsapp-button">
+      <a href="https://shopee.co.id/"><img src="img/shopee.img.png" alt=""  id="gambar-shopee" ></a>
+      <a href="https://www.lazada.co.id/"><img src="img/ikon lazada.img.png" alt=""  id="gambar-shopee"></i></a>
+      <a href="https://www.tokopedia.com/"><img src="img/tokopedia.img.png" alt="" id="gambar-shopee"></i></a>
+      <script>
+        document.getElementById("menuButton9").addEventListener("click", function() {
+          var menuContainer = document.getElementById("menuContainer9");
+          if (menuContainer.style.display === "none") {
+            menuContainer.style.display = "block";
+          } else {
+            menuContainer.style.display = "none";
+          }
+        });
+      </script>
+      </button>
     </div>
   </div>
 </div>
   
  
 </div>
-
 
 <script>let products = [
   {

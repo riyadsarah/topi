@@ -792,7 +792,7 @@ h3 {
   overflow-y: auto;
   max-height: 150px;
   text-align: left;
- background-color: #0000001a;
+ background-color: #4caf4f1a;
  border-radius: 10px;
 }
 
@@ -860,7 +860,7 @@ h3 {
 
 .whatsapp-button,
 .shop-button {
-  font-size: 11px;
+  font-size: 12px;
   background-color: #4caf50;
   color: #fff;
   padding: 5px 15px;
@@ -880,10 +880,11 @@ h3 {
   position: relative;
   overflow: hidden;
   margin: 5px;
- 
+  
 }
 
 .shop-button::before {
+
   content: '';
   position: absolute;
   top: -100%;
@@ -900,12 +901,6 @@ h3 {
 }
 
 
-button {
-  border: none;
-}
-
-
-
 
 
 
@@ -914,7 +909,7 @@ button {
     position: absolute;
     top: 35px;
     right: -60px;
-    background-color: rgba(0, 255, 34, 0.678);
+    background-color: rgba(0, 255, 34, 0);
     padding: 10px;
     border-radius: 50% 50% 0 50%;
     transform: translate(0, -100%);
@@ -933,7 +928,7 @@ button {
     position: absolute;
     top: 35px;
     right: -60px;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(0, 0, 0, 0);
     padding: 10px;
     border-radius: 50% 50% 0 50%;
     transform: translate(0, -100%);
@@ -957,3 +952,9 @@ button {
 
 
 
+  #gambar-shopee {
+    width: 18px;
+    height: 18px;
+  margin-left: 5px;
+  }
+  
