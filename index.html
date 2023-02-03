@@ -30,7 +30,7 @@
 }
 
   @media (max-width: 1024px) {
-    .modal-2-content {
+    .popup-content {
       width: 95%;
       margin: 10% auto;
     }
@@ -44,7 +44,7 @@
     
   }
   @media (max-width: 1024px) {
-    .modal-2-content {
+    .popup {
       width: 95%;
       margin: 10% auto;
     }
@@ -439,375 +439,116 @@ document.querySelector("#reset").addEventListener("click", function() {
 
 <div class="card-container">
 
-<!--card 1-->
-  <div class="card">
-    <a href="img/2.img.jpg" data-lightbox="product">
+
+<div class="card">
+  <a href="img/1.img.jpg" data-lightbox="product">
+    <img src="img/1.img.jpg" alt="product">
+  </a>
+  <h5>Rp35.700</h5>
+  <div class="card-description">
+    <h4 class="back">Topi Elegan</h4><br>
+    <p class="teks">
+      Baseball cap : Topi Baseball Topi Golf Topi Polos Topi Pria
+    </p>
+  </div>
+  <div class="card-actions">
+    <a href="https://wa.me/+628983813800">
+      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button>
+    </a>
+    <button class="shop-button" id="menuButton1"> <i class="fa-sharp fa-solid fa-store"></i></button>
+    <div id="menuContainer1" style="display: none;">
+      <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
+      <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
+      <script>
+        document.getElementById("menuButton1").addEventListener("click", function() {
+          var menuContainer = document.getElementById("menuContainer1");
+          if (menuContainer.style.display === "none") {
+            menuContainer.style.display = "block";
+          } else {
+            menuContainer.style.display = "none";
+          }
+        });
+      </script>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="card">
+  <a href="img/2.img.jpg" data-lightbox="product">
     <img src="img/2.img.jpg"  alt="product">
   </a>
-    <h5>Rp35.700</h5>
-    <div class="card-description">
-      <h4 class="back">Topi Elegan</h4><br>
-      <p class="teks"><p>Baseball cap : Topi Baseball Topi Golf Topi Polos Topi Pria </p>
-       <p> Spesifikasi : </p>
-       <p> 1. Material : 100% cotton </p>
-       <p> 2. Embroidered graphics : -</p>
-       <p> 3. Dimensi :
-       <p> - Ukuran 1size adjustable untuk lingkar kepala : 55-60 +/- 1cm</p>
-       <p> - Visor/brim/lidah topi : +/- 7.5cm </p>
-       <p> - Tinggi :+/- 11cm</p>
-       <p> - Berat : 200gram</p>
-       <p> 4. PIlihan warna :
-       <p> -Hitam</p>
-       <p> -Abu</p>
-       <p> -Biru </p>
-       <p> -Coklat </p>
-       <p> -Merah</p>
-       <p> Silahkan order di varian warna yg diinginkan
-        5. EFFECT  : STONE WASHED EFFECT/VINTAGE LOOK = EFEK BELEL = PUDAR
-        PERHATIKAN : KARENA EFFECT VINTAGE, WARNA AKAN BISA BERVARIASI +/- 10%</p>
-       <p> 100% dijamin berkualitas😍😍</p>
-       </p>
-    </div>
-    <div class="card-actions">
-
-      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i><script>document.querySelector('.whatsapp-button').addEventListener('click', function() {
-       var productChoice = "Saya ingin membeli Baseball cap : Topi Baseball\n" +
-"Topi Golf\n" +
-"SR group adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan, dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti Shopee dan lain-lain.\n" +
-"Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan kami dengan harga yang terjangkau";
-        window.location.href = 'https://api.whatsapp.com/send?phone=+628983813800&text=' + productChoice;
-      });
-      </script></button>
-      <button class="shop-button" id="menuButton"> <i class="fa-sharp fa-solid fa-store"></i></button>
-<div id="menuContainer" style="display: none;">
-  
-  <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
-  <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
-        <script>document.getElementById("menuButton").addEventListener("click", function() {
-          var menuContainer = document.getElementById("menuContainer");
+  <h5>Rp45.500</h5>
+  <div class="card-description">
+    <h4 class="back">Sepatu Sneakers</h4><br>
+    <p class="teks">
+      Sepatu Sneakers : Sepatu Olahraga Sepatu Pria
+    </p>
+  </div>
+  <div class="card-actions">
+    <a href="https://wa.me/+628983813800">
+      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button>
+    </a>
+    <button class="shop-button" id="menuButton2"> <i class="fa-sharp fa-solid fa-store"></i></button>
+    <div id="menuContainer2" style="display: none;">
+      <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
+      <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
+      <script>
+        document.getElementById("menuButton2").addEventListener("click", function() {
+          var menuContainer = document.getElementById("menuContainer2");
           if (menuContainer.style.display === "none") {
             menuContainer.style.display = "block";
           } else {
             menuContainer.style.display = "none";
           }
-        });</script>
-      </div>
+        });
+      </script>
     </div>
   </div>
+</div>
+  
 
 
-  <div class="card">
-    <a href="img/3.img.png" data-lightbox="product">
-    <img src="img/3.img.png"  alt="product">
+<div class="card">
+  <a href="img/2.img.jpg" data-lightbox="product">
+    <img src="img/2.img.jpg"  alt="product">
   </a>
-    <h5>Rp35.700</h5>
-    <div class="card-description">
-      <h4 class="back">Topi Elegan</h4><br>
-      <p class="teks"><p>Baseball cap : Topi Baseball Topi Golf Topi Polos Topi Pria </p>
-       <p> Spesifikasi : </p>
-       <p> 1. Material : 100% cotton </p>
-       <p> 2. Embroidered graphics : -</p>
-       <p> 3. Dimensi :
-       <p> - Ukuran 1size adjustable untuk lingkar kepala : 55-60 +/- 1cm</p>
-       <p> - Visor/brim/lidah topi : +/- 7.5cm </p>
-       <p> - Tinggi :+/- 11cm</p>
-       <p> - Berat : 200gram</p>
-       <p> 4. PIlihan warna :
-       <p> -Hitam</p>
-       <p> -Abu</p>
-       <p> -Biru </p>
-       <p> -Coklat </p>
-       <p> -Merah</p>
-       <p> Silahkan order di varian warna yg diinginkan
-        5. EFFECT  : STONE WASHED EFFECT/VINTAGE LOOK = EFEK BELEL = PUDAR
-        PERHATIKAN : KARENA EFFECT VINTAGE, WARNA AKAN BISA BERVARIASI +/- 10%</p>
-       <p> 100% dijamin berkualitas😍😍</p>
-       </p>
-    </div>
-    <div class="card-actions">
-
-      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i><script>document.querySelector('.whatsapp-button').addEventListener('click', function() {
-       var productChoice = "Saya ingin membeli Baseball cap : Topi Baseball\n" +
-"Topi Golf\n" +
-"SR group adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan, dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti Shopee dan lain-lain.\n" +
-"Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan kami dengan harga yang terjangkau";
-        window.location.href = 'https://api.whatsapp.com/send?phone=+628983813800&text=' + productChoice;
-      });
-      </script></button>
-      <button class="shop-button" id="menuButton"> <i class="fa-sharp fa-solid fa-store"></i></button>
-<div id="menuContainer" style="display: none;">
-  
-  <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
-  <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
-        <script>document.getElementById("menuButton").addEventListener("click", function() {
-          var menuContainer = document.getElementById("menuContainer");
+  <h5>Rp45.500</h5>
+  <div class="card-description">
+    <h4 class="back">Sepatu Sneakers</h4><br>
+    <p class="teks">
+      Sepatu Sneakers : Sepatu Olahraga Sepatu Pria
+    </p>
+  </div>
+  <div class="card-actions">
+    <a href="https://wa.me/+628983813800">
+      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button>
+    </a>
+    <button class="shop-button" id="menuButton3"> <i class="fa-sharp fa-solid fa-store"></i></button>
+    <div id="menuContainer3" style="display: none;">
+      <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
+      <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
+      <script>
+        document.getElementById("menuButton3").addEventListener("click", function() {
+          var menuContainer = document.getElementById("menuContainer3");
           if (menuContainer.style.display === "none") {
             menuContainer.style.display = "block";
           } else {
             menuContainer.style.display = "none";
           }
-        });</script>
-      </div>
+        });
+      </script>
     </div>
   </div>
-
-
-
-
-
-
-  <div class="card">
-    <a href="img/4.img.jpg" data-lightbox="product">
-    <img src="img/4.img.jpg"  alt="product">
-  </a>
-    <h5>Rp35.700</h5>
-    <div class="card-description">
-      <h4 class="back">Topi Elegan</h4><br>
-      <p class="teks"><p>Baseball cap : Topi Baseball Topi Golf Topi Polos Topi Pria </p>
-       <p> Spesifikasi : </p>
-       <p> 1. Material : 100% cotton </p>
-       <p> 2. Embroidered graphics : -</p>
-       <p> 3. Dimensi :
-       <p> - Ukuran 1size adjustable untuk lingkar kepala : 55-60 +/- 1cm</p>
-       <p> - Visor/brim/lidah topi : +/- 7.5cm </p>
-       <p> - Tinggi :+/- 11cm</p>
-       <p> - Berat : 200gram</p>
-       <p> 4. PIlihan warna :
-       <p> -Hitam</p>
-       <p> -Abu</p>
-       <p> -Biru </p>
-       <p> -Coklat </p>
-       <p> -Merah</p>
-       <p> Silahkan order di varian warna yg diinginkan
-        5. EFFECT  : STONE WASHED EFFECT/VINTAGE LOOK = EFEK BELEL = PUDAR
-        PERHATIKAN : KARENA EFFECT VINTAGE, WARNA AKAN BISA BERVARIASI +/- 10%</p>
-       <p> 100% dijamin berkualitas😍😍</p>
-       </p>
-    </div>
-    <div class="card-actions">
-
-      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i><script>document.querySelector('.whatsapp-button').addEventListener('click', function() {
-       var productChoice = "Saya ingin membeli Baseball cap : Topi Baseball\n" +
-"Topi Golf\n" +
-"SR group adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan, dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti Shopee dan lain-lain.\n" +
-"Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan kami dengan harga yang terjangkau";
-        window.location.href = 'https://api.whatsapp.com/send?phone=+628983813800&text=' + productChoice;
-      });
-      </script></button>
-      <button class="shop-button" id="menuButton"> <i class="fa-sharp fa-solid fa-store"></i></button>
-<div id="menuContainer" style="display: none;">
+</div>
   
-  <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
-  <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
-        <script>document.getElementById("menuButton").addEventListener("click", function() {
-          var menuContainer = document.getElementById("menuContainer");
-          if (menuContainer.style.display === "none") {
-            menuContainer.style.display = "block";
-          } else {
-            menuContainer.style.display = "none";
-          }
-        });</script>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <div class="card">
-    <a href="img/5.img.webp" data-lightbox="product">
-    <img src="img/5.img.webp"  alt="product">
-  </a>
-    <h5>Rp35.700</h5>
-    <div class="card-description">
-      <h4 class="back">Topi Elegan</h4><br>
-      <p class="teks"><p>Baseball cap : Topi Baseball Topi Golf Topi Polos Topi Pria </p>
-       <p> Spesifikasi : </p>
-       <p> 1. Material : 100% cotton </p>
-       <p> 2. Embroidered graphics : -</p>
-       <p> 3. Dimensi :
-       <p> - Ukuran 1size adjustable untuk lingkar kepala : 55-60 +/- 1cm</p>
-       <p> - Visor/brim/lidah topi : +/- 7.5cm </p>
-       <p> - Tinggi :+/- 11cm</p>
-       <p> - Berat : 200gram</p>
-       <p> 4. PIlihan warna :
-       <p> -Hitam</p>
-       <p> -Abu</p>
-       <p> -Biru </p>
-       <p> -Coklat </p>
-       <p> -Merah</p>
-       <p> Silahkan order di varian warna yg diinginkan
-        5. EFFECT  : STONE WASHED EFFECT/VINTAGE LOOK = EFEK BELEL = PUDAR
-        PERHATIKAN : KARENA EFFECT VINTAGE, WARNA AKAN BISA BERVARIASI +/- 10%</p>
-       <p> 100% dijamin berkualitas😍😍</p>
-       </p>
-    </div>
-    <div class="card-actions">
-
-      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i><script>document.querySelector('.whatsapp-button').addEventListener('click', function() {
-       var productChoice = "Saya ingin membeli Baseball cap : Topi Baseball\n" +
-"Topi Golf\n" +
-"SR group adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan, dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti Shopee dan lain-lain.\n" +
-"Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan kami dengan harga yang terjangkau";
-        window.location.href = 'https://api.whatsapp.com/send?phone=+628983813800&text=' + productChoice;
-      });
-      </script></button>
-      <button class="shop-button" id="menuButton"> <i class="fa-sharp fa-solid fa-store"></i></button>
-<div id="menuContainer" style="display: none;">
-  
-  <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
-  <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
-        <script>document.getElementById("menuButton").addEventListener("click", function() {
-          var menuContainer = document.getElementById("menuContainer");
-          if (menuContainer.style.display === "none") {
-            menuContainer.style.display = "block";
-          } else {
-            menuContainer.style.display = "none";
-          }
-        });</script>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-  <div class="card">
-    <a href="img/6.img.jpeg" data-lightbox="product">
-    <img src="img/6.img.jpeg"  alt="product">
-  </a>
-    <h5>Rp35.700</h5>
-    <div class="card-description">
-      <h4 class="back">Topi Elegan</h4><br>
-      <p class="teks"><p>Baseball cap : Topi Baseball Topi Golf Topi Polos Topi Pria </p>
-       <p> Spesifikasi : </p>
-       <p> 1. Material : 100% cotton </p>
-       <p> 2. Embroidered graphics : -</p>
-       <p> 3. Dimensi :
-       <p> - Ukuran 1size adjustable untuk lingkar kepala : 55-60 +/- 1cm</p>
-       <p> - Visor/brim/lidah topi : +/- 7.5cm </p>
-       <p> - Tinggi :+/- 11cm</p>
-       <p> - Berat : 200gram</p>
-       <p> 4. PIlihan warna :
-       <p> -Hitam</p>
-       <p> -Abu</p>
-       <p> -Biru </p>
-       <p> -Coklat </p>
-       <p> -Merah</p>
-       <p> Silahkan order di varian warna yg diinginkan
-        5. EFFECT  : STONE WASHED EFFECT/VINTAGE LOOK = EFEK BELEL = PUDAR
-        PERHATIKAN : KARENA EFFECT VINTAGE, WARNA AKAN BISA BERVARIASI +/- 10%</p>
-       <p> 100% dijamin berkualitas😍😍</p>
-       </p>
-    </div>
-    <div class="card-actions">
-
-      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i><script>document.querySelector('.whatsapp-button').addEventListener('click', function() {
-       var productChoice = "Saya ingin membeli Baseball cap : Topi Baseball\n" +
-"Topi Golf\n" +
-"SR group adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan, dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti Shopee dan lain-lain.\n" +
-"Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan kami dengan harga yang terjangkau";
-        window.location.href = 'https://api.whatsapp.com/send?phone=+628983813800&text=' + productChoice;
-      });
-      </script></button>
-      <button class="shop-button" id="menuButton"> <i class="fa-sharp fa-solid fa-store"></i></button>
-<div id="menuContainer" style="display: none;">
-  
-  <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
-  <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
-        <script>document.getElementById("menuButton").addEventListener("click", function() {
-          var menuContainer = document.getElementById("menuContainer");
-          if (menuContainer.style.display === "none") {
-            menuContainer.style.display = "block";
-          } else {
-            menuContainer.style.display = "none";
-          }
-        });</script>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-  <div class="card">
-    <a href="img/7.img.jpeg" data-lightbox="product">
-    <img src="img/7.img.jpeg"  alt="product">
-  </a>
-    <h5>Rp35.700</h5>
-    <div class="card-description">
-      <h4 class="back">Topi Elegan</h4><br>
-      <p class="teks"><p>Baseball cap : Topi Baseball Topi Golf Topi Polos Topi Pria </p>
-       <p> Spesifikasi : </p>
-       <p> 1. Material : 100% cotton </p>
-       <p> 2. Embroidered graphics : -</p>
-       <p> 3. Dimensi :
-       <p> - Ukuran 1size adjustable untuk lingkar kepala : 55-60 +/- 1cm</p>
-       <p> - Visor/brim/lidah topi : +/- 7.5cm </p>
-       <p> - Tinggi :+/- 11cm</p>
-       <p> - Berat : 200gram</p>
-       <p> 4. PIlihan warna :
-       <p> -Hitam</p>
-       <p> -Abu</p>
-       <p> -Biru </p>
-       <p> -Coklat </p>
-       <p> -Merah</p>
-       <p> Silahkan order di varian warna yg diinginkan
-        5. EFFECT  : STONE WASHED EFFECT/VINTAGE LOOK = EFEK BELEL = PUDAR
-        PERHATIKAN : KARENA EFFECT VINTAGE, WARNA AKAN BISA BERVARIASI +/- 10%</p>
-       <p> 100% dijamin berkualitas😍😍</p>
-       </p>
-    </div>
-    <div class="card-actions">
-
-      <button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i><script>document.querySelector('.whatsapp-button').addEventListener('click', function() {
-       var productChoice = "Saya ingin membeli Baseball cap : Topi Baseball\n" +
-"Topi Golf\n" +
-"SR group adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan, dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti Shopee dan lain-lain.\n" +
-"Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan kami dengan harga yang terjangkau";
-        window.location.href = 'https://api.whatsapp.com/send?phone=+628983813800&text=' + productChoice;
-      });
-      </script></button>
-      <button class="shop-button" id="menuButton"> <i class="fa-sharp fa-solid fa-store"></i></button>
-<div id="menuContainer" style="display: none;">
-  
-  <a href="https://shopee.co.id/"><i class="fab fa-whatsapp" ></i></a>
-  <a href="https://www.lazada.co.id/"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://www.tokopedia.com/"><i class="fab fa-whatsapp"></i></a>
-        <script>document.getElementById("menuButton").addEventListener("click", function() {
-          var menuContainer = document.getElementById("menuContainer");
-          if (menuContainer.style.display === "none") {
-            menuContainer.style.display = "block";
-          } else {
-            menuContainer.style.display = "none";
-          }
-        });</script>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  
-  
-
-  <!--card 2-->
-  
-  <!-- Add additional cards here -->
+ 
 </div>
 
 
