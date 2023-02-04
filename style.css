@@ -698,7 +698,7 @@ h7{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-#hasil {
+#result {
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 18px;
   text-align: center;
@@ -766,6 +766,7 @@ h3 {
   justify-content: center;
  background-color: #0000003b;
  border-radius: 10px;
+ border: 1px solid rgba(255, 255, 255, 0.5);
 
 }
 
@@ -783,7 +784,7 @@ h3 {
   width: 100%;
   height: 200px;
   object-fit: contain;
-  
+ 
 }
 
 .card-description {
@@ -792,8 +793,9 @@ h3 {
   overflow-y: auto;
   max-height: 150px;
   text-align: left;
- background-color: #4caf4f1a;
- border-radius: 10px;
+ background-color: #ffffff;
+ border-radius: 5px;
+ border: 1px solid rgba(76, 255, 21, 0.329);
 }
 
 .card-description::-webkit-scrollbar {
@@ -958,3 +960,56 @@ h3 {
   margin-left: 5px;
   }
   
+
+  .card-container-baru2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #0ef51a3a;
+    border-radius: 10px;
+    overflow-x: scroll;
+    height: 450px;
+    width: limit-value;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+
+.card-container-baru3 {
+  border-radius: 10px ;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #003cff3a;
+  border-radius: 10px;
+  overflow-y: scroll;
+  height: 440px; /* set height sesuai kebutuhan */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@media only screen and (max-width: 767px) {
+.card-container-baru2 {
+  flex-direction: column;
+  overflow-x: scroll;
+}
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(211, 211, 211, 0.479);
+  border-radius: 10px;
+}
+
