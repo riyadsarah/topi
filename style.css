@@ -247,9 +247,7 @@ select {
   background-color: rgb(255, 251, 251);
 }
 
-#submit-button {
-  margin-right: px;
-}
+
 
 #hasil {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -410,7 +408,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 11px;
+  padding: 6px;
 }
 
 .header-nav-left {
@@ -684,7 +682,7 @@ input[type="submit"] {
   height: 34px;
   border: none;
   border-radius: 5px;
-  font-size: 15x;
+  font-size: 1x;
   background-color: #0000005d;
   color: rgb(255, 255, 255);
   cursor: pointer;
