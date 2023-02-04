@@ -136,7 +136,11 @@
     </div>
   </div>
  
-
+  <div>
+    
+    
+    
+    
 
     <br>
 <div>
@@ -226,21 +230,21 @@ document.getElementById("timer").innerHTML = "EXPIRED";
 
 
 
-<div class="popup" id="myPopup">
-  <div class="popup-content">
-    
-      <p><h2> Masukan Angka </h2>
+     
       <div >
       
-       <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
-       <input type="text" id="bulan-lahir" placeholder="Bulan">
-       <input type="text" id="tahun-lahir" placeholder="Tahun">
+        <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
+        <input type="text" id="bulan-lahir" placeholder="Bulan">
+        <input type="text" id="tahun-lahir" placeholder="Tahun">
+        
        <div>
    <button type="button2" onclick="hitungUmur()">Hitung</button>
    <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
-   <button class="close-button" onclick="closePopup()">Tutup</button>
+   
  </div>
    <p id="output"></p>
+   <div id="output"></div>
+  
  </div>
    <br><br>
    
@@ -248,11 +252,11 @@ document.getElementById("timer").innerHTML = "EXPIRED";
     
   </div>
 </div>
-<button class="close-button" onclick="openPopup()">Hitung Umur <i class="fa-solid fa-person-arrow-up-from-line"></i></i></button>    
+
 </div>
 
 
-<script>   //kalkulator umur
+<script>
   function hitungUmur() {
     var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
     var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
@@ -272,8 +276,25 @@ document.getElementById("timer").innerHTML = "EXPIRED";
       umurBulan--;
       umurTanggal = 30 + umurTanggal;
     }
-    document.getElementById("output").innerHTML = "Umur Anda adalah " + umurTahun + " tahun " + umurBulan + " bulan " + umurTanggal + " hari.";
-  }
+    totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
+totalDetik = totalMenit * 60;
+    var totalJam = umurTahun * 365 * 24;
+    var panjangRambut = umurTahun * 15;
+    var panjangKuku = umurTahun * 3 * 12;
+    var totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
+var totalDetik = totalMenit * 60;
+var waktuTidur = umurTahun * 365 * 8 * 3600;
+totalDetik += waktuTidur;
+document.getElementById("output").innerHTML = "Umur Anda Sekarang " + umurTahun + " tahun " + umurBulan + " bulan " + umurTanggal + " hari  atau " + totalJam + " jam " + " atau " + totalMenit + " menit " + " atau " + totalDetik + " detik😂😭. " + "<br>" + "Jika anda tidur 8 jam sehari total waktu tidur adalah " + waktuTidur / 3600 + " jam." + "<br>"  +  "<br>" + "Jika rambut Anda tidak dipotong, panjang rambut Anda sekarang sekitar " + panjangRambut + " cm." + "<br>" + "Jika kuku Anda tidak dipotong, panjang kuku Anda sekarang sekitar " + panjangKuku + " mm." + "<br>" + "<br>" + "<br>" + "Sumber: Rambut tumbuh sekitar 0,3–0.4mm per hari atau 15cm per tahun. Kuku tangan tumbuh sekitar 0,1mm per hari atau 3mm per bulan (American Academy of Dermatology)";
+
+if (umurTahun >= 20) {
+    setTimeout(function() {
+        document.getElementById("output").innerHTML += "<br>" + "Wah, umur kamu sudah 20 keatas!!! Emang masa-masa paling sulit🥲 ";
+    }, 1000);
+}
+
+}
+  
 
   function resetRiwayat() {
     document.getElementById("tanggal-lahir").value = "";
@@ -282,10 +303,10 @@ document.getElementById("timer").innerHTML = "EXPIRED";
     document.getElementById("output").innerHTML = "";
   }
   document.addEventListener("keyup", function(event) {
-if (event.code === "Enter") {
-  hitungUmur();
-}
-});
+    if (event.code === "Enter") {
+      hitungUmur();
+    }
+  });
 </script>
 
 <div id="widget-container-2">
@@ -499,6 +520,9 @@ document.querySelector("#reset").addEventListener("click", function() {
     });
   });
 </script>
+
+
+
 
 
 
