@@ -238,13 +238,14 @@ document.getElementById("timer").innerHTML = "EXPIRED";
        <div>
    <button type="button2" onclick="hitungUmur()">Hitung</button>
    <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
+   <button class="close-button" onclick="closePopup()">Tutup</button>
  </div>
    <p id="output"></p>
  </div>
    <br><br>
    
    </p>
-    <button class="close-button" onclick="closePopup()">Close</button>
+    
   </div>
 </div>
 <button class="close-button" onclick="openPopup()">Hitung Umur <i class="fa-solid fa-person-arrow-up-from-line"></i></i></button>    
@@ -298,7 +299,7 @@ if (event.code === "Enter") {
     
     <h6>Jumlah batang roko/Hari</h6>
    
-    <input type="number" id="jumlah" name="jumlah" placeholder="contoh : 12 batang ">
+    <input type="number" id="jumlah" name="jumlah" placeholder="cth : 12 batang ">
     <h6>Harga Perbungkus</h6>
     <select id="harga" name="harga">
       <option value="20000">20.000</option>
@@ -306,7 +307,7 @@ if (event.code === "Enter") {
       <option value="30000">30.000</option>
     </select><br><br>
     <h6>Total waktu meroko </h6>
-    <input type="number" id="periode" name="periode" placeholder="contoh : 365 hari">
+    <input type="number" id="periode" name="periode" placeholder="cth : 365 hari">
 <h3>*masukan dalam bentuk angka</h3>
     
   
