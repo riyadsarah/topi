@@ -355,7 +355,7 @@ button :hover{
   transform: scale(1.2);
 }
 button[type="button1"]  {
-  background-color: #000000;
+  background-color: #0000006e;
   color: white;
   padding: 5px 20px;
   
@@ -410,7 +410,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px;
+  padding: 11px;
 }
 
 .header-nav-left {
@@ -425,7 +425,7 @@ header {
 .header-nav-right a {
   margin-left: 15px;
   font-size: 30px;
-  color: rgb(11, 70, 148);
+  color: rgb(0, 255, 34);
   text-decoration: none;
 }
 
@@ -530,7 +530,7 @@ margin-top: 10px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(10, 1, 1, 0.63);
+  background: rgb(0, 238, 255);
   display: none;
   align-items: center;
   justify-content: center;
@@ -684,7 +684,7 @@ input[type="submit"] {
   height: 34px;
   border: none;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 15x;
   background-color: #0000005d;
   color: rgb(255, 255, 255);
   cursor: pointer;
