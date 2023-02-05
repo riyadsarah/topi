@@ -69,55 +69,6 @@ window.addEventListener("load", function(){
 
 
 
-        //
-          
-        
-
-
-
-
-        
-
-
-
-
-
-        
-
-
-
-function openPopup() {
-  document.getElementById("myPopup").style.display = "flex";
-}
-
-function closePopup() {
-  document.getElementById("myPopup").style.display = "none";
-}
-
-
-
-function openModal(id) {
-  var modal = document.
-getElementById(id);
-modal.style.display = "flex";
-}
-
-function closeModal(id) {
-var modal = document.getElementById(id);
-modal.style.display = "none";
-}
-
-
-
-
-
-
-//calculator
-
-       
-
-
-
 
       // This example uses jQuery
 $(document).ready(function() {
