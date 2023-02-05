@@ -10,7 +10,7 @@ body {
 
 body {
   
-  background-image: linear-gradient(to right,#0400ff 0,#00eeff 100%);
+  background-image: linear-gradient(to right,#756c6c18 0,#0607074d 100%);
   background: cover;
 }
 
@@ -1010,4 +1010,5 @@ h3 {
   background-color: rgba(211, 211, 211, 0.479);
   border-radius: 10px;
 }
+
 

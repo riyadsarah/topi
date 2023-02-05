@@ -230,13 +230,15 @@ document.getElementById("timer").innerHTML = "EXPIRED";
 
 
 
+
+
      
       <div >
-      
         <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
-        <input type="text" id="bulan-lahir" placeholder="Bulan">
-        <input type="text" id="tahun-lahir" placeholder="Tahun">
         
+        
+        <input type="text" id="bulan-lahir" placeholder="Bulan">
+        <input type="text" id="tahun-lahir" placeholder="Tahun"> 
        <div>
    <button type="button2" onclick="hitungUmur()">Hitung</button>
    <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
@@ -309,9 +311,10 @@ if (umurTahun >= 20) {
   });
 </script>
 
+
+
 <div id="widget-container-2">
 <button type="button" id="tombol">Kalkulator Peroko</button>
-
 <div id="formContainer" style="display: none;">
   
 <div>
@@ -360,7 +363,7 @@ if (umurTahun >= 20) {
 
 
 
-  <script>
+<script>
   const result= document.getElementById("result");
 const jumlah = document.getElementById("jumlah");
 const harga = document.getElementById("harga");
@@ -420,12 +423,9 @@ document.querySelector("#reset").addEventListener("click", function() {
   hasil.textContent = "";
 });
 
- </script>
-
-
- 
-        
-        <script>
+</script>
+    
+<script>
           const input1 = document.getElementById("input-1");
           const input2 = document.getElementById("input-2");
           const operator = document.getElementById("operator");
@@ -471,9 +471,7 @@ document.querySelector("#reset").addEventListener("click", function() {
             hasil.textContent = "";
             message.textContent ="";
           });
-        </script>
-
-
+</script>
 
 <p id="jam"></p>
 <a id="tanggal"></a>
@@ -506,11 +504,6 @@ document.querySelector("#reset").addEventListener("click", function() {
     }
     tampilkanJam();
 </script>
-
-
-
-
-
 
 <script>
   $(document).ready(function() {
