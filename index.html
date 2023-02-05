@@ -152,7 +152,7 @@
         <p id="condition"></p>
       </div>
     </div>
-</div>
+
 </div>
 
 <script>
@@ -225,26 +225,14 @@ document.getElementById("timer").innerHTML = "EXPIRED";
 </script>
    <br><br> 
    </p>
-  </div>
-</div>
-</div>
-
-
-
-<div id="riyad">
-<h1>Hitung Umur Kamu🤭</h1>
-  <input type="text" id="tanggal-lahir">
-  <input type="text" id="bulan-lahir">
-  <input type="text" id="tahun-lahir">
-  <button type="button2" onclick="hitungUmur()">Hitung</button>
-  <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
-  <p id="output"></p>
-  
   
 
-  
-</div>
-  <script>
+
+
+
+
+
+<script>
      function hitungUmur() {
     var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
     var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
@@ -321,6 +309,21 @@ if (umurTahun >= 20) {
 
 
 
+<div id="widget-container-2">
+  <button type="button" id="tombol1">Kalkulator Umur</button>
+  <div id="formContainer1" style="display: none;">
+    <div id="riyad">
+      <h1>Hitung Umur Kamu🤭</h1>
+        <input type="text" id="tanggal-lahir">
+        <input type="text" id="bulan-lahir">
+        <input type="text" id="tahun-lahir">
+        <button type="button2" onclick="hitungUmur()">Hitung</button>
+        <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
+    <button type="button" id="closeForm1">Tutup</button>
+  </div>
+  <p id="output"></p>
+  </div>
+</div>
 
 
 <div id="widget-container-2">
@@ -330,7 +333,7 @@ if (umurTahun >= 20) {
 <div>
   <form id="form">
     
-    
+    <h1>Hitung pengeluaran roko </h1>
     <h6>Jumlah batang roko/Hari</h6>
    
     <input type="number" id="jumlah" name="jumlah" placeholder="cth : 12 batang ">
@@ -354,11 +357,27 @@ if (umurTahun >= 20) {
 </div>
 </div>
 </div>
+</div>
 
 <script>
   const tombol = document.getElementById("tombol");
   const formContainer = document.getElementById("formContainer");
   const closeForm = document.getElementById("closeForm");
+
+  const tombol1 = document.getElementById("tombol1");
+  const formContainer1 = document.getElementById("formContainer1");
+  const closeForm1 = document.getElementById("closeForm1");
+  
+
+  tombol1.addEventListener("click", function() {
+    formContainer1.style.display = "block";
+    tombol1.style.display = "none";
+  });
+
+  closeForm1.addEventListener("click", function() {
+    formContainer1.style.display = "none";
+    tombol1.style.display = "block";
+  });
 
   tombol.addEventListener("click", function() {
     formContainer.style.display = "block";
@@ -369,6 +388,7 @@ if (umurTahun >= 20) {
     formContainer.style.display = "none";
     tombol.style.display = "block";
   });
+
 </script>
 
 
