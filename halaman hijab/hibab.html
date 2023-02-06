@@ -17,6 +17,60 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
   
     <style>
+
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #ffffff; /* warna kertas buku */
+  color: #000; /* warna font */
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 2px 2px 10px #888888; /* shadow pada tooltip */
+}
+
+a:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.promo-price {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: #00bfa5;
+  text-decoration: line-through;
+ 
+  
+}
+
+.discounted-price {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ff5722;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff5722;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50px;
+}
+
+
 .banner {
   display: flex;
   align-items: center;
@@ -1095,8 +1149,28 @@ border: 1px solid rgba(76, 255, 21, 0.329);
         <img src="img/3.img.png" alt="Toko Nafish Group">
         <div class="banner-content">
           <h3>Toko Nafish Group</h3>
-          <p>The Best Clothing Retailer</p>
-          <a href="#" class="banner-cta">Shop Now</a>
+          <p>Terima kasih telah memilih Nafish Group sebagai tempat belanja topi dan pakaian Anda. Kami berharap Anda memiliki pengalaman belanja yang menyenangkan</p>
+          <div class="col-md-4">
+            <div class="container">
+      
+              
+              
+           
+            <ul class="social-icons">
+               
+              <li><a href=""><i class="fab fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+             
+              
+              
+              
+              <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+              <li><a href="https://www.youtube.com/@FIRD.Official/featured"><i class="fa-brands fa-youtube"></i></a></li>
+           
+            </div>
+            </ul>
+          </div>
         </div>
       </div>
       
@@ -1108,26 +1182,23 @@ border: 1px solid rgba(76, 255, 21, 0.329);
 
 
 
-
         <div class="card">
-            
-            <a href="img/1.img.jpg" data-lightbox="product"><img src="img/1.img.jpg"  alt="product"></a>
-            <h5>Rp35.500</h5>
-            <div class="card-description">
-              <h4 class="back">Topi Elegan </h4><br>
-              <p class="teks">Bahan: katun, kulit, dll.
+            <a href="img/1.img.jpg" data-lightbox="product">
+              <img src="img/1.img.jpg"  alt="product">
+              <span class="tooltiptext"> <p>Deskripsi Produk</p><p class="teks">Bahan: katun, kulit, dll.
                 Ukuran: S, M, L, XL, dll.
                 Warna: hitam, merah, putih, dll.
-                Desain: simple, elegan, sporty, dll. </p>
-                <p class="teks">Toko keperluan fashion.
-                  Jual topi dan aksesoris lain.
-                  Berkualitas dan harga terjangkau.
-                  Pelayanan baik dan ramah. </p>
-          
+                Desain: simple, elegan, sporty, dll. </p></span>
+            </a>
+            <div class="promo-price">Rp. 100,000</div>
+             <div class="discounted-price">Rp. 50,000</div>
+             <div class="discount-badge">50% off </div>
+              <div class="card-description">
+              <h6 class="back">Topi Elegan </h6>
+              <p class="teks"> Kode prodak "TP-001" </p>
             </div>
             <div class="card-actions">
-              
-              <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Whats <i class="fab fa-whatsapp"></i></button></a>
+              <a href="https://wa.me/+628983813800"><button class="whatsapp-button">Beli Via Whats <i class="fab fa-whatsapp"></i></button></a>
               <button class="shop-button" id="menuButton1"> <i class="fa-sharp fa-solid fa-store"></i></button>
               <div id="menuContainer1" style="display: none;">
                 <button class="whatsapp-button">
@@ -1148,6 +1219,7 @@ border: 1px solid rgba(76, 255, 21, 0.329);
               </div>
             </div>
           </div>
+        
         
         
         
