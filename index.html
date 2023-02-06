@@ -545,14 +545,49 @@ document.querySelector("#reset").addEventListener("click", function() {
 </script>
 
 
+<script>
+  function showTooltip(element) {
+  // Ambil informasi yang dibutuhkan untuk membuat tooltip
+  var title = element.getAttribute("title");
 
+  // Buat elemen tooltip
+  var tooltip = document.createElement("div");
+  tooltip.innerHTML = title;
+  tooltip.style.position = "absolute";
+  tooltip.style.backgroundColor = "white";
+  tooltip.style.padding = "10px";
 
+  // Pasang elemen tooltip pada dokumen
+  document.body.appendChild(tooltip);
+
+  // Pasang event listener pada elemen HTML untuk menghapus tooltip
+  element.addEventListener("mouseout", function() {
+    document.body.removeChild(tooltip);
+  });
+}
+
+// Pasang event listener pada setiap elemen HTML yang membutuhkan tooltip
+var elements = document.querySelectorAll("[title]");
+for (var i = 0; i < elements.length; i++) {
+  elements[i].addEventListener("mouseover", function() {
+    showTooltip(this);
+  });
+}
+
+</script>
 
 <div class="card-container">
 
 
   <div class="card">
-    <a href="img/1.img.jpg" data-lightbox="product"><img src="img/1.img.jpg"  alt="product"></a>
+    <a href="img/1.img.jpg" data-lightbox="product">
+      <img src="img/1.img.jpg"  alt="product">
+      <span class="tooltiptext"><p class="teks">Bahan: katun, kulit, dll.
+        Ukuran: S, M, L, XL, dll.
+        Warna: hitam, merah, putih, dll.
+        Desain: simple, elegan, sporty, dll. </p></span>
+    </a>
+    
     <h5>Rp35.500</h5>
     <div class="card-description">
       <h4 class="back">Topi Elegan </h4><br>
@@ -593,7 +628,32 @@ document.querySelector("#reset").addEventListener("click", function() {
 
 
 <div class="card">
-  <a href="img/2.img.jpg" data-lightbox="product"><img src="img/2.img.jpg"  alt="product"></a>
+  <a href="img/1.img.jpg" data-lightbox="product">
+    <img src="img/1.img.jpg"  alt="product">
+    <span class="tooltiptext">Assalamu'alaikum [Nama Pelanggan],
+
+      Terima kasih telah menghubungi Nafish Group melalui WhatsApp 📱. Kami sangat senang dapat membantu Anda 😊.
+      
+      Untuk memproses pesanan Anda, kami membutuhkan informasi berikut:
+      
+      ▪Nama Lengkap:
+      ▪Nomor Telepon:
+      ▪Alamat Pengiriman:
+      ▪Nama Produk:
+      ▪Jumlah Pesanan:
+      ▪Ukuran (jika berlaku):
+      ▪Metode Pengiriman (JNE/POS/Gojek):
+      ▪Metode Pembayaran (COD/Transfer Bank):
+      ▪Catatan Tambahan: 💬
+      Setelah menerima informasi di atas, tim layanan pelanggan Nafish Group akan segera memproses pesanan Anda 💻. Kami menawarkan 2 pilihan pembayaran, yaitu COD (bayar saat barang diterima) atau transfer bank 💰. 
+      
+      Anda juga bisa menemukan produk-produk Nafish Group di berbagai platform media sosial dan marketplace, seperti Instagram @nafishgroup dan Tokopedia @nafishgroup_official.
+      
+      Terima kasih telah memilih Nafish Group sebagai tempat belanja topi dan pakaian Anda. Kami berharap Anda memiliki pengalaman belanja yang menyenangkan 🛍.
+      
+      Wassalamu'alaikum,
+      Nafish Group.</span>
+  </a>
   <h5>Rp55.500</h5>
   <div class="card-description">
     <h4 class="back">Topi Elegan </h4><br>
