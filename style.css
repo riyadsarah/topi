@@ -9,7 +9,7 @@ body {
 
 body {
 
-  background-image: linear-gradient(to right, #0066ff 0, #1a58aa 100%);
+  background-image: linear-gradient(to right, #00eeff 0, #006eff 100%);
   background: cover;
 }
 
@@ -89,6 +89,8 @@ li {
   color: rgba(255, 255, 255, 0.37);
   padding: 10px;
   text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+
 
 }
 
@@ -110,7 +112,7 @@ li {
 
 }
 
-h1 {
+h3 {
   text-align: center;
 
   /* warna awal */
@@ -142,11 +144,11 @@ h5 {
 /* keyframes untuk animasi warna */
 @keyframes color-animation {
   0% {
-    color: #33c22057;
+    color: #00000057;
   }
 
   100% {
-    color: #00f120;
+    color: #ffffff;
   }
 }
 
@@ -365,6 +367,18 @@ button[type="button1"] {
   border-radius: 4px;
   cursor: pointer;
 }
+button[type="button11"] {
+  background-color: #0000006e;
+  color: white;
+  padding: 5px 20px;
+
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button[type="button11"] {
+  margin: 5px;
+}
 
 button[type="button2"] {
   background-color: #00000069;
@@ -379,11 +393,11 @@ button[type="button2"] {
 #output {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 18px;
-  color: #fff;
+  color: #000000;
   text-align: center;
   margin: 50px 0;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.377);
+  background-color: rgba(0, 0, 0, 0.123);
   border-radius: 10px;
   box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.3);
   animation: slideIn 1s ease-out;
@@ -713,7 +727,7 @@ h3 {
   text-align: left;
   background-color: #ffffff;
   border-radius: 5px;
-  border: 1px solid rgba(76, 255, 21, 0.329);
+  border: 1px solid rgba(0, 0, 0, 0.144);
 }
 
 .card-description::-webkit-scrollbar {
@@ -781,7 +795,7 @@ h3 {
 .whatsapp-button,
 .shop-button {
   font-size: 12px;
-  background-color: #4caf50;
+  background-color: #00bfa6;
   color: #fff;
   padding: 5px 15px;
   border-radius: 5px;
@@ -794,7 +808,7 @@ h3 {
 
 .whatsapp-button:hover,
 .shop-button:hover {
-  background-color: #3e8e41;
+  background-color: #2da192;
 }
 
 .shop-button {
@@ -812,7 +826,7 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #3e8e41;
+  background-color: #00000048;
   transform: rotate(45deg);
   transition: all 0.2s ease-in-out;
 }
@@ -965,9 +979,9 @@ a:hover .tooltiptext {
 
 .promo-price {
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
-  color: #00bfa6a9;
+  color: #00bfa6;
   text-decoration: line-through;
 
 
@@ -977,18 +991,18 @@ a:hover .tooltiptext {
   text-align: center;
   font-size: 25px;
   font-weight: bold;
-  color: #ff5722;
+  color: #000000;
 }
 
 .discount-badge {
-  font-size: 13px;
+  font-size: 10px;
   width: 70px;
   position: absolute;
   top: 10px;
   right: 10px;
   background-color: #ff5622;
   color: #fff;
-  padding: 5px 10px;
+  padding: 3px 6px;
   border-radius: 50px;
 }
 
@@ -1014,3 +1028,94 @@ a:hover .tooltiptext {
 
 
 
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(194, 28, 28);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #b60b0bcb;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Animasi modal */
+.modal {
+  animation-name: animasiModal;
+  animation-duration: 0.5s;
+}
+
+@keyframes animasiModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.banner-container {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 500px;
+  background-color: #00000077;
+}
+
+.product-image {
+  width: 50%;
+  text-align: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.banner-content {
+  width: 50%;
+  padding: 40px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.banner-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ffffff;
+font-family: fantasy;
+}
+
+.social-media {
+  margin-top: 40px;
+}
+
+.social-media a {
+  font-size: 24px;
+  margin: 0 10px;
+  color: #04e0c3;
+  text-decoration: none;
+}
+
+/* Style for screen width greater than or equal to 700px */
+@media screen and (min-width: 700px) {
+  /* Your styles here */
+}
+
+/* Style for screen width less than 700px */
+@media screen and (max-width: 700px) {
+  /* Your styles here */
+}

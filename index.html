@@ -51,7 +51,6 @@
     body {
       font-size: 14px;
     }
-
     h1,
     h2,
     h3,
@@ -65,6 +64,27 @@
       width: 90%;
     }
   }
+  @media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+#carouselExampleIndicators {
+    border-radius: 20px;
+    margin: 30px;
+  }
+  .carousel-inner {
+    border-radius: 20px;
+    
+  }
+  .carousel-item {
+    border-radius: 20px;
+  }
+  img {
+    border-radius: 20px;
+  }
+
 </style>
 
 
@@ -149,23 +169,100 @@
       </div>
     </div>
   </div>
+  <div  class="container">
+    <button type="button11">Button 1</button>
+    <button type="button11">Button 2</button>
+    <button type="button11">Button 3</button>
+  </div>
+  
+  <button type="button11"  id="myBtn"><i class="fa-sharp fa-solid fa-calculator"></i></button>
+
+  <div id="myModal" class="modal" >
+    <div class="modal-content">
+      <p><div id="riyad">
+        <h3>Hitung Umur Kamu</h3>
+        <p id="output"></p>
+
+        <P>Masukan Tanggal lahir, bulan, tahun</P>
+        <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
+        <input type="text" id="bulan-lahir" placeholder="Bulan lahir">
+        <input type="text" id="tahun-lahir" placeholder="Tahun lahir">
+        <div>
+        <button type="button2" onclick="hitungUmur()">Hitung</button>
+        <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
+      </div>
+      </div>
+  
+        <button type="button1" class="close">Tutup</button>
+
+      </div>
+      </p>
+   
+    
+  </div>
+  
+  <script>// Get the modal
+    // Mencari elemen tombol tutup
+var tutup = document.getElementsByClassName("close")[0];
+
+// Mencari elemen modal
+var modal = document.getElementById("myModal");
+
+// Menampilkan modal saat tombol diklik
+document.getElementById("myBtn").onclick = function() {
+  modal.style.display = "block";
+}
+
+// Menutup modal saat tombol tutup diklik
+tutup.onclick = function() {
+  modal.style.display = "none";
+}
+
+// Menutup modal saat klik diluar area modal
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+    </script>
 
   <div>
     <br>
     <div>
       <div class="header-nav-container">
         <div id="widget-container">
+          
           <div id="clock">
+            
             <p id="time"></p>
-            <p id="date"></p>
+            <div><i class="fa-sharp fa-solid fa-calendar-days"></i><p id="date"></p></div>
+            
           </div>
+          
           <div id="weather">
-            <p id="location"></p>
+            <i class="fa-sharp fa-solid fa-location-dot"></i>
+            <p id="location"></p> 
+
+            
             <p id="temperature"></p>
             <p id="condition"></p>
           </div>
         </div>
-
+        
+         
+        <div id="timer">
+          
+            <p id="font"><i class="fa-sharp fa-solid fa-clock-rotate-left"></i>  Menuju Ramadan <i class="fa-solid fa-mosque"></i> </p>
+        
+          <p id="days"></p>
+          <p id="hours"></p>
+          <p id="minutes"></p>
+          <h3>
+           <p id="seconds"></p>
+          </h3>
+        </div>
+        
       </div>
 
       <script>
@@ -194,18 +291,7 @@
 
       <div>
 
-        <div id="widget-container-2">
-          <div id="timer">
-            <h1>
-              <p id="font">Menuju Ramadan <i class="fa-solid fa-mosque"></i> </p>
-            </h1>
-            <p id="days"></p>
-            <p id="hours"></p>
-            <p id="minutes"></p>
-            <h1>
-              <p id="seconds"></p>
-            </h1>
-          </div>
+      
           <script>
             // Select the button
 
@@ -337,56 +423,7 @@
 
 
 
-          <div id="widget-container-2">
-            <button type="button" id="tombol1">Umur</button>
-            <div id="formContainer1" style="display: none;">
-              <div id="riyad">
-                <h1>Hitung Umur Kamu</h1>
-                <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
-                <input type="text" id="bulan-lahir" placeholder="Bulan lahir">
-                <input type="text" id="tahun-lahir" placeholder="Tahun lahir">
-                <button type="button2" onclick="hitungUmur()">Hitung</button>
-                <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
-                <button type="button" id="closeForm1">Tutup</button>
-              </div>
-              <p id="output"></p>
-            </div>
-          </div>
-
-
-          <div id="widget-container-2">
-            <button type="button" id="tombol">Pengeluaran</button>
-            <div id="formContainer" style="display: none;">
-
-              <div>
-                <form id="form">
-
-                  <h1>Hitung pengeluaran roko </h1>
-                  <h6>Jumlah batang roko/Hari</h6>
-
-                  <input type="number" id="jumlah" name="jumlah" placeholder="cth : 12 batang ">
-                  <h6>Harga Perbungkus</h6>
-                  <select id="harga" name="harga">
-                    <option value="20000">20.000</option>
-                    <option value="25000">25.000</option>
-                    <option value="30000">30.000</option>
-                  </select><br><br>
-                  <h6>Total waktu meroko </h6>
-                  <input type="number" id="periode" name="periode" placeholder="cth : 365 hari">
-                  <h3>*masukan dalam bentuk angka</h3>
-
-
-                  <input class="button" type="submit" value="Hitung">
-                  <button type="button" id="reset"><i class="fas fa-undo"></i></button>
-                  <button type="button" id="closeForm">Tutup</button>
-
-                  <p id="result"></p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-    
+         
 
         <script>
           const tombol = document.getElementById("tombol");
@@ -607,6 +644,22 @@
 
 
 
+<div class="banner-container">
+  <div class="product-image">
+    <img src="img/baneer.img.png" alt="product">
+  </div>
+  <div class="banner-content">
+    <h1 >SR Fashion - Stylist for Your Outfit</h1>
+    <p>"Hadir dengan koleksi topi, kopiah, dan pakaian berkualitas tinggi, Belanja sekarang dan rasakan perbedaan gaya dan kenyamanan."</p>
+    <div class="social-media">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@FIRD.Official/featured"><i
+        class="fa-brands fa-youtube"></i></a>
+    </div>
+  </div>
+</div>
 
 
 
@@ -627,7 +680,7 @@
               </span></a>
             <div class="promo-price">Rp. 100,000</div>
             <div class="discounted-price">Rp. 50,000</div>
-            <div class="discount-badge">50% off </div>
+            <div class="discount-badge">diskon 50% </div>
             <div class="card-description">
               <div id="product">
                 <h2 class="product-title">Topi Elegan dengan Desain Klasik</h2>
@@ -2075,19 +2128,19 @@
               <div class="col-md-4">
                 <h3>Tentang Kami</h3>
 
-                <p>SR group adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan,
+                <p>SR Fashion adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan,
                   dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti
                   Shopee dan lain-lain. Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan
                   kami dengan harga yang terjangkau.</p>
                 <p>Kami memiliki tim yang berpengalaman dan profesional dalam memenuhi kebutuhan pelanggan kami. Kami
                   berupaya untuk selalu memberikan pengalaman belanja yang memuaskan bagi setiap pelanggan kami.</p>
-                <p>SR group didirikan dengan visi untuk menjadi perusahaan terkemuka dalam industri penjualan topi,
+                <p>SR Fashion didirikan dengan visi untuk menjadi perusahaan terkemuka dalam industri penjualan topi,
                   kopiah, hijab, makanan ringan, dan jasa branding. Kami bekerja keras untuk memenuhi visi kami dan
                   terus berkembang untuk menjadi yang terbaik.</p>
                 <p>Kami sangat menghargai setiap pelanggan kami dan akan selalu berupaya untuk memenuhi harapan mereka.
                   Kami berharap untuk membangun hubungan jangka panjang dengan pelanggan kami dan memberikan layanan
                   yang selalu memuaskan.</p>
-                <p>Nikmati belanja produk berkualitas dengan SR group hari ini!"</p>
+                <p>Nikmati belanja produk berkualitas dengan SR Fashion hari ini!"</p>
               </div>
               <div class="col-md-4">
                 <h3>Kontak Kami</h3>
@@ -2101,30 +2154,8 @@
                 <div class="container">
                   <h3>Ikuti Kami :
 
-                    <a class="navbar-brand" href="#"> <img id="logo" src="img/loggo.img.png" alt="Logo">
+                    <a class="navbar-brand" href="#"> <img id="logo" src="img/logo png.img.png" alt="Logo">
 
-                      <script>
-                        // Mendapatkan elemen logo
-                        var logo = document.getElementById("logo");
-
-                        // Mendapatkan lebar dan tinggi logo
-                        var logoWidth = logo.offsetWidth;
-                        var logoHeight = logo.offsetHeight;
-
-                        // Menambahkan event listener mouseover pada logo
-                        logo.addEventListener("mouseover", function () {
-                          // Memperbesar ukuran logo
-                          logo.style.width = logoWidth * 1.5 + "px";
-                          logo.style.height = logoHeight * 1.5 + "px";
-                        });
-
-                        // Menambahkan event listener mouseout pada logo
-                        logo.addEventListener("mouseout", function () {
-                          // Mengembalikan ukuran logo ke ukuran asli
-                          logo.style.width = logoWidth + "px";
-                          logo.style.height = logoHeight + "px";
-                        });
-                      </script>
                     </a>
                   </h3>
                   <ul class="social-icons">
@@ -2146,7 +2177,7 @@
             </div>
           </div>
           <div class="copyright">
-            Copyright &copy; 2023 SRgroup-MUHAMMAD RIYAD. All rights reserved.
+            Copyright &copy; 2023 SR Fashion-Muhammad Riyad Firdaus. All rights reserved.
           </div>
         </footer>
 
