@@ -348,7 +348,7 @@ button[type="button"] {
   padding: 5px 20px;
 
   background-color: #00000069;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -359,7 +359,7 @@ button :hover {
 }
 
 button[type="button1"] {
-  background-color: #0000006e;
+  background-color:rgba(0, 0, 0, 0.795);
   color: white;
   padding: 5px 20px;
 
@@ -368,7 +368,7 @@ button[type="button1"] {
   cursor: pointer;
 }
 button[type="button11"] {
-  background-color: #0000006e;
+  background-color: rgba(0, 0, 0, 0.356);
   color: white;
   padding: 5px 20px;
 
@@ -381,7 +381,7 @@ button[type="button11"] {
 }
 
 button[type="button2"] {
-  background-color: #00000069;
+  background-color: rgba(0, 0, 0, 0.795);
   color: white;
   padding: 5px 20px;
 
@@ -393,11 +393,11 @@ button[type="button2"] {
 #output {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 18px;
-  color: #000000;
+  color: #ffffff;
   text-align: center;
   margin: 50px 0;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.123);
+  background-color: rgba(0, 0, 0, 0.795);
   border-radius: 10px;
   box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.3);
   animation: slideIn 1s ease-out;
