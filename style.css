@@ -658,16 +658,16 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
 
+margin: 10px;
 
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #ccc;
 
 }
 
 .card {
   width: 350px;
   height: 400px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   margin-left: 10px;
  
 
@@ -914,11 +914,11 @@ h3 {
 .tooltiptext {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   visibility: hidden;
-  width: 150px;
-  background-color: #e9a0a0;
+  width: 170px;
+ background-color: #ffffff;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* warna kertas buku */
-  color: rgb(255, 255, 255);
+  color: rgba(0, 0, 0, 0.692);
   /* warna font */
   text-align: center;
   border-radius: 20px;
@@ -926,7 +926,7 @@ h3 {
   position: absolute;
   z-index: 1;
   bottom: 1%;
-  left: 50%;
+  left: 40%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -1150,9 +1150,12 @@ a:hover .tooltiptext {
 .photo-container{
   overflow-x: scroll;
   white-space: nowrap;
-  margin-left: 30px;
-  margin-right: 30px;
-  border-radius: 30px;
+  margin-bottom: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+  border-radius: 60px;
+  box-shadow: 0px 0px 10px #ccc;
+  padding: 8px;
 }
 
 .photo-scroll img {
@@ -1174,10 +1177,12 @@ a:hover .tooltiptext {
   }
 }
 
-
-.photo-container-1 .photo-scroll-1 {
+.photo-container-1{
   overflow-x: scroll;
   white-space: nowrap;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 
 .photo-scroll-1 img {
@@ -1187,6 +1192,8 @@ a:hover .tooltiptext {
   width: 200px;
 }
 
+
 .photo-container-1::-webkit-scrollbar {
   display: none;
 }
+

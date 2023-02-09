@@ -204,7 +204,11 @@
   
   
   <div  class="container">
-    <button type="button11"><i class="fa-sharp fa-solid fa-cart-shopping"></i></button>
+    <button type="button11" onclick="scrollToSection('cardSection')"><i class="fa-sharp fa-solid fa-cart-shopping"></i></button>
+    <script>function scrollToSection(id) {
+      const section = document.getElementById(id);
+      section.scrollIntoView({ behavior: 'smooth' });
+      }</script>
     <button type="button11" id="myBtn1"><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-sharp fa-solid fa-smoking"></i></button>
     <div id="myModal1" class="modal1" >
       <p id="result"></p>
@@ -255,7 +259,7 @@
     
         </script>
     </div>
-    <button type="button11"><i class="fa-sharp fa-solid fa-circle-info"></i></button>
+    <button type="button11"  onclick="location.href='#footerSection'"><i class="fa-sharp fa-solid fa-circle-info"></i></button>
   </div>
   
   <button type="button11"  id="myBtn"><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-solid fa-fingerprint"></i></button>
@@ -748,10 +752,26 @@ window.onclick = function(event) {
 
 
 
+<div class="photo-container-1">
+  <div class="photo-scroll-1">
+    <img src="img/3.img.png" alt="Topi 1">
+    <img src="img/5.img.webp" alt="Topi 2">
+    <img src="img/3.img.png" alt="Topi 1">
+    <img src="img/5.img.webp" alt="Topi 2">
+    <img src="img/3.img.png" alt="Topi 1">
+    <img src="img/5.img.webp" alt="Topi 2">
+    <img src="img/3.img.png" alt="Topi 1">
+    <img src="img/5.img.webp" alt="Topi 2">
+    <img src="img/3.img.png" alt="Topi 1">
+    <img src="img/5.img.webp" alt="Topi 2">
+    <img src="img/3.img.png" alt="Topi 1">
+    <img src="img/5.img.webp" alt="Topi 2">
+  </div>
+</div><br>
 
 
+<div class="card-container" id="cardSection">
 
-        <div class="card-container">
 
 <!--1 -->
           <div class="card">
@@ -1332,18 +1352,6 @@ window.onclick = function(event) {
 
 
 
-        <div class="photo-container-1">
-          <div class="photo-scroll-1">
-            <img src="img/6.img.jpeg" alt="Topi 1">
-            <img src="img/5.img.webp" alt="Topi 2">
-            <img src="img/6.img.jpeg" alt="Topi 1">
-            <img src="img/5.img.webp" alt="Topi 2">
-            <img src="img/6.img.jpeg" alt="Topi 1">
-            <img src="img/5.img.webp" alt="Topi 2">
-            <img src="img/6.img.jpeg" alt="Topi 1">
-            <img src="img/5.img.webp" alt="Topi 2">
-          </div>
-        </div>
 
 
 <br><br>
@@ -1935,7 +1943,7 @@ window.onclick = function(event) {
 
         <br><br><br>
 
-        <footer>
+        <footer id="footerSection">
           <div class="container">
             <div class="row">
               <div class="col-md-4">
