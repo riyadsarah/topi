@@ -969,6 +969,7 @@ a:hover .tooltiptext {
   border-radius: 50px;
 }
 
+
 .product {
   text-align: center;
   padding: 40px;
@@ -1143,4 +1144,21 @@ a:hover .tooltiptext {
   .product-image {
     width: 80%;
   }
+}
+
+
+
+.photo-container {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.photo-scroll img {
+  display: inline-block;
+  height: 200px;
+  margin-right: 20px;
+  width: 200px;
+}
+.photo-container::-webkit-scrollbar {
+  display: none;
 }
