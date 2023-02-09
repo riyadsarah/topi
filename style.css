@@ -325,10 +325,10 @@ button[type="button1"] {
   cursor: pointer;
 }
 button[type="button11"] {
-  background-color: rgba(0, 0, 0, 0.356);
+  background-color: rgba(0, 0, 0, 0.253);
   color: white;
   padding: 5px 20px;
-
+  box-shadow: 0px 0px 10px #ccc;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -434,9 +434,10 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 10px;
-  background-color: rgba(5, 5, 5, 0.24);
+  background-color: rgba(5, 5, 5, 0.274);
   color: #fff;
   border-radius: 10px;
+  box-shadow: 0px 0px 10px #ccc;
 }
 
 
@@ -491,7 +492,8 @@ header {
   height: 230px;
   margin: 0 auto;
   margin-top: 10px;
-  background-color: rgba(0, 0, 0, 0.3);
+  
+  background-color: rgba(0, 0, 0, 0.219);
   /* membuat latar belakang transparan */
   color: #fff;
   margin-left: 5px;
@@ -500,7 +502,7 @@ header {
   justify-content: space-between;
   padding: 10px 10px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px #ccc;
   /* membuat bayangan transparan */
   animation: fadeIn 1s ease-in-out;
   /* membuat animasi fade-in */
@@ -656,8 +658,9 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
 
+padding: 20px;
   border-radius: 10px;
-
+  box-shadow: 0px 0px 10px #ccc;
 
 }
 
@@ -666,7 +669,7 @@ h3 {
   height: 400px;
   margin-top: 10px;
   margin-left: 10px;
-
+ 
 
 }
 
