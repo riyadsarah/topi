@@ -223,12 +223,12 @@
       <img src="img/5.img.webp" alt="Topi 3">
       <img src="img/6.img.jpeg" alt="Topi 4">
       <script>
-        var photoContainer = document.querySelector('.photo-container-1');
+        var photoContainer1 = document.querySelector('.photo-container-1');
         
         function startScrolling() {
-          photoContainer.scrollLeft += 1;
-          if (photoContainer.scrollLeft >= photoContainer.scrollWidth - photoContainer.offsetWidth) {
-            photoContainer.scrollLeft = 0;
+          photoContainer1.scrollLeft += 1;
+          if (photoContainer1.scrollLeft >= photoContainer1.scrollWidth - photoContainer1.offsetWidth) {
+            photoContainer1.scrollLeft = 0;
           }
           setTimeout(startScrolling, 60);
         }

@@ -1184,3 +1184,9 @@ a:hover .tooltiptext {
 .photo-container-1::-webkit-scrollbar {
   display: none;
 }
+@media (max-width: 767px) { /* Buat media query untuk ponsel */
+  .photo-scroll-1 img {
+    height: 60px; /* Ubah tinggi foto */
+    width: 60px; /* Ubah lebar foto */
+  }
+}
