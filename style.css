@@ -1095,7 +1095,7 @@ a:hover .tooltiptext {
 }
 
 .banner-content {
-  width: 80%;
+  width: 50%;
   text-align: center;
   margin: 30px auto;
   color: #ffffff;
@@ -1160,5 +1160,26 @@ a:hover .tooltiptext {
   width: 200px;
 }
 .photo-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+.photo-container-1{
+  overflow-x: scroll;
+  white-space: nowrap;
+ margin-top: 20px;
+  margin-left: 70px;
+  margin-right: 70px;
+  border-radius: 20px;
+}
+
+.photo-scroll-1 img {
+  display: inline-block;
+  height: 100px;
+  margin-right: 10px;
+  width: 100px;
+}
+.photo-container-1::-webkit-scrollbar {
   display: none;
 }
