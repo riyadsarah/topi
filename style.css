@@ -1147,30 +1147,12 @@ a:hover .tooltiptext {
 }
 
 
-
-.photo-container {
+.photo-container-1 .photo-scroll-1 {
   overflow-x: scroll;
   white-space: nowrap;
 }
 
-.photo-scroll img {
-  display: inline-block;
-  height: 200px;
-  margin-right: 20px;
-  width: 200px;
-}
-
-.photo-container::-webkit-scrollbar {
-  display: none;
-}
-
-
-.photo-container-1 {
-  overflow-x: scroll;
-  white-space: nowrap;
-}
-
-.photo-scroll-1 img {
+.photo-container-1 .photo-scroll-1 img {
   display: inline-block;
   height: 200px;
   margin-right: 20px;
@@ -1181,6 +1163,35 @@ a:hover .tooltiptext {
   display: none;
 }
 
+.photo-container-2 .photo-scroll-2 {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
 
+.photo-container-2 .photo-scroll-2 img {
+  display: inline-block;
+  height: 200px;
+  margin-right: 20px;
+  width: 200px;
+}
 
+.photo-container-2::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-container-3 .photo-scroll-3 {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.photo-container-3 .photo-scroll-3 img {
+  display: inline-block;
+  height: 200px;
+  margin-right: 20px;
+  width: 200px;
+}
+
+.photo-container-3::-webkit-scrollbar {
+  display: none;
+}
 
