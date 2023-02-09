@@ -172,6 +172,35 @@
       </div>
     </div>
   </div><br>
+  <div class="photo-container">
+    <div class="photo-scroll">
+      <img src="img/3.img.png" alt="Topi 1">
+      <img src="img/5.img.webp" alt="Topi 2">
+      <img src="img/6.img.jpeg" alt="Topi 3">
+      <img src="img/7.img.jpeg" alt="Topi 4">
+      <img src="img/3.img.png" alt="Topi 1">
+      <img src="img/5.img.webp" alt="Topi 2">
+      <img src="img/6.img.jpeg" alt="Topi 3">
+      <img src="img/7.img.jpeg" alt="Topi 4">
+      <img src="img/3.img.png" alt="Topi 1">
+      <img src="img/5.img.webp" alt="Topi 2">
+      <img src="img/6.img.jpeg" alt="Topi 3">
+      <img src="img/7.img.jpeg" alt="Topi 4">   
+    </div>
+  </div>
+  <script>
+    var photoContainer = document.querySelector('.photo-container');
+    
+    function startScrolling() {
+      photoContainer.scrollLeft += 1;
+      if (photoContainer.scrollLeft >= photoContainer.scrollWidth - photoContainer.offsetWidth) {
+        photoContainer.scrollLeft = 0;
+      }
+      setTimeout(startScrolling, 50);
+    }
+    
+    window.addEventListener("load", startScrolling);
+    </script>
   
   
   <div  class="container">
@@ -715,47 +744,12 @@ window.onclick = function(event) {
     </div>
   </div>
 </div>
-
-<div class="photo-container-1">
-  <div class="photo-scroll-1">
-    <img src="img/1.img.jpg" alt="Topi 1">
-    <img src="img/2.img.jpg" alt="Topi 2">
-    <img src="img/1.img.jpg" alt="Topi 1">
-    <img src="img/2.img.jpg" alt="Topi 2">
-    <img src="img/1.img.jpg" alt="Topi 1">
-    <img src="img/2.img.jpg" alt="Topi 2">
-    <img src="img/1.img.jpg" alt="Topi 1">
-    <img src="img/2.img.jpg" alt="Topi 2">
-  </div>
-</div>
-
-<div class="photo-container-2">
-  <div class="photo-scroll-2">
-    <img src="img/3.img.png" alt="Topi 3">
-    <img src="img/6.img.jpeg" alt="Topi 4">
-    <img src="img/3.img.png" alt="Topi 3">
-    <img src="img/6.img.jpeg" alt="Topi 4">
-    <img src="img/3.img.png" alt="Topi 3">
-    <img src="img/6.img.jpeg" alt="Topi 4">
-    <img src="img/3.img.png" alt="Topi 3">
-    <img src="img/6.img.jpeg" alt="Topi 4">
-  </div>
-</div>
-
-<div class="photo-container-3">
-  <div class="photo-scroll-3">
-    <img src="img/7.img.jpeg" alt="Topi 5">
-    <img src="img/5.img.webp" alt="Topi 6">
-    <img src="img/7.img.jpeg" alt="Topi 5">
-    <img src="img/5.img.webp" alt="Topi 6">
-    <img src="img/7.img.jpeg" alt="Topi 5">
-    <img src="img/5.img.webp" alt="Topi 6">
-    <img src="img/7.img.jpeg" alt="Topi 5">
-    <img src="img/5.img.webp" alt="Topi 6">
-  </div>
-</div>
-
 </div><br>
+
+
+
+
+
 
         <div class="card-container">
 
