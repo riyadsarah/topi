@@ -72,7 +72,10 @@
 }
 #carouselExampleIndicators {
     border-radius: 20px;
-    margin: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    
   }
   .carousel-inner {
     border-radius: 20px;
@@ -130,7 +133,7 @@
       <div class="progress">
         <div class="loading-bar"></div>
       </div>
-      <img src="img/png1.img.png" alt="logo">
+      <img src="img/png5.img.png" alt="logo">
     </div>
   </div>
   <br>
@@ -171,7 +174,56 @@
   </div>
   <div  class="container">
     <button type="button11">Button 1</button>
-    <button type="button11"><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-sharp fa-solid fa-smoking"></i></button>
+    <button type="button11" id="myBtn1"><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-sharp fa-solid fa-smoking"></i></button>
+    <div id="myModal1" class="modal1" >
+      <p id="result"></p>
+      <form id="form">
+        
+        
+        <h5>Jumlah batang roko/Hari</h5>
+
+        <input type="number" id="jumlah" name="jumlah" placeholder="cth : 12 batang ">
+        <h5>Harga Perbungkus</h5>
+        <select id="harga" name="harga">
+          <option value="20000">20.000</option>
+          <option value="25000">25.000</option>
+          <option value="30000">30.000</option>
+        </select><br><br>
+        <h5>Total waktu meroko </h5>
+        <input type="number" id="periode" name="periode" placeholder="cth : 365 hari">
+
+<div>
+        <input class="button" type="submit" value="Hitung">
+        <button type="button" id="reset"><i class="fas fa-undo"></i></button></div><br>
+       <div> <button type="button1" class="close1">Tutup</button></div><br>
+        
+      </form>
+      <script>// Get the modal
+        // Mencari elemen tombol tutup
+    var tutup = document.getElementsByClassName("close1")[0];
+    
+    // Mencari elemen modal
+    var modal1 = document.getElementById("myModal1");
+    
+    // Menampilkan modal saat tombol diklik
+    document.getElementById("myBtn1").onclick = function() {
+      modal1.style.display = "block";
+    }
+    
+    // Menutup modal saat tombol tutup diklik
+    tutup.onclick = function() {
+      modal1.style.display = "none";
+    }
+    
+    // Menutup modal saat klik diluar area modal
+    window.onclick = function(event) {
+      if (event.target == modal1) {
+        modal1.style.display = "none";
+      }
+    }
+    
+        </script>
+    </div>
     <button type="button11">Button 3</button>
   </div>
   
@@ -489,7 +541,7 @@ window.onclick = function(event) {
 
             const result = calculateCigaretteConsumption(hargaValue, null, jumlahValue, 1, periodeValue);
             hasil.textContent =
-              ` Kamu telah Udud sebanyak : ${result.totalConsumptionInSticks} batang. jika sebungkus 20 batang maka kamu telah menghabiskan${result.totalConsumptionInPacks.toFixed(2)} bungkus. dengan total biaya sekitar Rp ${result.totalConsumptionAmount.toLocaleString(0)}. Total panjang roko sekitar ${result.totalConsumptionInCentimeters} cm atau ${result.totalConsumptionInMeters.toFixed(2)} meter dan total berat roko sekitar ${result.totalConsumptionWeight} kg.`;
+              ` Kamu telah meroko sebanyak : ${result.totalConsumptionInSticks} batang. jika sebungkus 20 batang maka kamu telah menghabiskan${result.totalConsumptionInPacks.toFixed(2)} bungkus. dengan total biaya sekitar Rp ${result.totalConsumptionAmount.toLocaleString(0)}. Total panjang roko sekitar ${result.totalConsumptionInCentimeters} cm atau ${result.totalConsumptionInMeters.toFixed(2)} meter dan total berat roko sekitar ${result.totalConsumptionWeight} kg.`;
           });
 
           function calculateCigaretteConsumption(packPrice, stickPrice, quantity, frequency, duration) {
