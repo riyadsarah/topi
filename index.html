@@ -222,6 +222,20 @@
       <img src="img/4.img.jpg" alt="Topi 2">
       <img src="img/5.img.webp" alt="Topi 3">
       <img src="img/6.img.jpeg" alt="Topi 4">
+      <script>
+        var photoContainer = document.querySelector('.photo-container-1');
+        
+        function startScrolling() {
+          photoContainer.scrollLeft += 1;
+          if (photoContainer.scrollLeft >= photoContainer.scrollWidth - photoContainer.offsetWidth) {
+            photoContainer.scrollLeft = 0;
+          }
+          setTimeout(startScrolling, 60);
+        }
+        
+        startScrolling();
+        </script>
+        
     </div>
   </div>
   
