@@ -1173,3 +1173,20 @@ a:hover .tooltiptext {
     width: 70px; /* Ubah lebar foto */
   }
 }
+
+
+.photo-container-1 .photo-scroll-1 {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.photo-scroll-1 img {
+  display: inline-block;
+  height: 200px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.photo-container-1::-webkit-scrollbar {
+  display: none;
+}
