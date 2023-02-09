@@ -326,7 +326,7 @@ button[type="button1"] {
 }
 button[type="button11"] {
   background-color: rgba(0, 0, 0, 0.253);
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 5px 20px;
   box-shadow: 0px 0px 10px #ccc;
   border: none;
@@ -434,7 +434,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 10px;
-  background-color: rgba(5, 5, 5, 0.274);
+  background-color: rgba(5, 5, 5, 0);
   color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 10px #ccc;
@@ -493,7 +493,7 @@ header {
   margin: 0 auto;
   margin-top: 10px;
   
-  background-color: rgba(0, 0, 0, 0.219);
+  background-color: rgba(0, 0, 0, 0);
   /* membuat latar belakang transparan */
   color: #fff;
   margin-left: 5px;
@@ -658,7 +658,7 @@ h3 {
   flex-wrap: wrap;
   justify-content: center;
 
-padding: 20px;
+
   border-radius: 10px;
   box-shadow: 0px 0px 10px #ccc;
 
