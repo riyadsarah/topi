@@ -1074,17 +1074,7 @@ h3 {
   }
 }
 
-.banner-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  background-color: #883d3d00;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
+
 
 .product-image {
   width: 60%;
@@ -1184,12 +1174,14 @@ h3 {
 }
 
 .photo-container-1{
+  display: flex;
   overflow-x: scroll;
   white-space: nowrap;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 10px;
 }
+
 
 .photo-scroll-1 img {
   display: inline-block;
@@ -1236,4 +1228,8 @@ img {
     width: 200px; /* Ubah lebar foto */
   }
 }
+
+
+
+
 

@@ -1932,12 +1932,160 @@ window.onclick = function(event) {
               </div>
             </div>
           </div>
-        </div><br>
+        </div><br><br><br>
 
 
         
 
-
+        
+     
+      
+          <label  for="word"><i class="fa-solid fa-keyboard"></i> <i class="fa-solid fa-text-width"></i></label>
+          
+          <input type="text" id="word" placeholder="Masukan kalimah">
+          <button type="button11" onclick="convertWordToNumber()"><i class="fa-solid fa-dna"></i></button>
+        </div>
+          <div class="card-description">
+            <div id="product">
+          <p id="wordToNumberResult"></p>
+        </div>
+      </div>
+        
+        
+          <label for="number" ><i class="fa-solid fa-keyboard"></i> <i class="fa-solid fa-code-compare"></i></label>
+          
+          <input type="text" id="number" placeholder="Masukan code">
+        
+          <button  type="button11" onclick="convertNumberToLetter()"><i class="fa-solid fa-dna"></i></button>
+    
+          <div class="card-description">
+            <div id="product">
+          <p id="numberToLetterResult"></p>
+        </div>
+      </div>
+        </div>
+    
+        
+        
+        <script>
+        function convertWordToNumber() {
+          let word = document.querySelector("#word").value;
+          let result = "";
+          for (let i = 0; i < word.length; i++) {
+            if (word[i] === " ") {
+              result += "02%&$%$&**^%^&347528704riyad&%$%hack850275428__++__+_____+++_+_7203947 ";
+            } else {
+              let letter = word[i].toUpperCase();
+              let number = letter.charCodeAt(0) - 64;
+              result += number + " ";
+            }
+          }
+          
+          result = result.trim();
+          let wordToNumberResult = document.querySelector("#wordToNumberResult");
+          wordToNumberResult.innerHTML = result;
+          let copyButton = document.createElement("button");
+          copyButton.innerHTML = "Copy";
+          copyButton.addEventListener("click", function() {
+            navigator.clipboard.writeText(result).then(
+              function() {
+                console.log("Text copied to clipboard");
+              },
+              function() {
+                console.error("Could not copy text");
+              }
+            );
+          });
+        
+          wordToNumberResult.appendChild(copyButton);
+        }
+        
+        
+        
+        
+        function convertNumberToLetter() {
+          const number = document.getElementById("number").value;
+          const numberToLetterResult = document.getElementById("numberToLetterResult");
+        
+          const letters = number
+            .split(" ")
+            .map(function(char) {
+              if (char === "02%&$%$&**^%^&347528704riyad&%$%hack850275428__++__+_____+++_+_7203947") {
+                return " ";
+              } else if (char === "-18") {
+                return ".";
+              } else if (char === "-20") {
+                return ",";
+              } else if (char === "-1") {
+                return "?";
+              } else if (char === "-31") {
+                return "!";
+              } else if (char === "0") {
+                return "@";
+              } else if (char === "-17") {
+                return "/";
+              } else if (char === "-6") {
+                return ":";
+              } else if (char === "-18") {
+                return ".";
+              } else if (char === "-29") {
+                return "#";
+              } else if (char === "-") {
+                return "=";
+        
+              } else if (char === "-16") {
+                return "0";
+              } else if (char === "-15") {
+                return "1";
+              } else if (char === "-14") {
+                return "2";
+              } else if (char === "-13") {
+                return "3";
+              } else if (char === "-12") {
+                return "4";
+              } else if (char === "-11") {
+                return "5";
+              } else if (char === "-10") {
+                return "6";
+              } else if (char === "-9") {
+                return "7";
+              } else if (char === "-8") {
+                return "8";
+              } else if (char === "-7") {
+                return "9";
+                
+           
+              } else {
+                return String.fromCharCode(96 + parseInt(char));
+              }
+            });
+        
+          numberToLetterResult.textContent = letters.join("");
+        
+          const copyButton = document.createElement("button");
+          copyButton.innerHTML = "Copy";
+          copyButton.addEventListener("click", function() {
+            navigator.clipboard.writeText(letters.join("")).then(
+              function() {
+                console.log("Text copied to clipboard");
+              },
+              function() {
+                console.error("Could not copy text");
+              }
+            );
+          });
+        
+          numberToLetterResult.appendChild(copyButton);
+        }
+        document.getElementById("number").addEventListener("input", convertNumberToLetter);
+        
+        
+        
+        
+        
+        
+        </script>
+    
         
 
         <br><br><br>
