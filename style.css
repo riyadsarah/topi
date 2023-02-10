@@ -262,7 +262,7 @@ h4 {
 }
 
 h2 {
-  color: rgb(0, 132, 255);
+  color: rgb(255, 255, 255);
 }
 
 
@@ -666,7 +666,7 @@ h3 {
 .card {
   width: 350px;
   height: 400px;
-  margin-top: 20px;
+ margin: 10px;
   
  
  
@@ -1201,5 +1201,37 @@ h3 {
 
 .photo-container-1::-webkit-scrollbar {
   display: none;
+}
+
+
+
+.container-photo {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 36px;
+  margin-top: 40px;
+}
+
+#deskripsiProduk {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 10px 0;
+  }
+@media (max-width: 767px) { /* Buat media query untuk ponsel */
+
+.container-photo img {
+    height: 200px; /* Ubah tinggi foto */
+    width: 200px; /* Ubah lebar foto */
+  }
 }
 
