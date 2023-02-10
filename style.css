@@ -948,7 +948,7 @@ h3 {
 
 .promo-price {
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
   color: #00bfa6;
   text-decoration: line-through;
@@ -958,7 +958,7 @@ h3 {
 
 .discounted-price {
   text-align: center;
-  font-size: 25px;
+  font-size: 18pxpx;
   font-weight: bold;
   color: #000000;
 }
@@ -1217,7 +1217,11 @@ img {
   border-radius: 10px;
 }
 
-
+#judulProduk {
+  font-size: 30px;
+  color: #ffffff;
+  margin: 10px 0;
+}
 
 #deskripsiProduk {
   font-size: 15px;
