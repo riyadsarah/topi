@@ -2522,13 +2522,21 @@ function convertHargaToKode(harga) {
   const puluhan = Math.floor((harga % 100) / 10);
   const satuan = harga % 10;
   
-  kode += getKeyByValue(kunci, ribuan.toString());
-  kode += getKeyByValue(kunci, ratusan.toString());
-  kode += getKeyByValue(kunci, puluhan.toString());
-  kode += getKeyByValue(kunci, satuan.toString());
+  // Check if the price is less than 1000
+  if (ribuan === 0) {
+    kode += getKeyByValue(kunci, ratusan.toString());
+    kode += getKeyByValue(kunci, puluhan.toString());
+    kode += getKeyByValue(kunci, satuan.toString());
+  } else {
+    kode += getKeyByValue(kunci, ribuan.toString());
+    kode += getKeyByValue(kunci, ratusan.toString());
+    kode += getKeyByValue(kunci, puluhan.toString());
+    kode += getKeyByValue(kunci, satuan.toString());
+  }
   
   return kode;
 }
+
 
 function convertKodeToHarga(kode) {
   let harga = "";
