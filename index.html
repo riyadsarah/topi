@@ -1939,10 +1939,10 @@ window.onclick = function(event) {
 
         
      
-      
-          <label  for="word"><i class="fa-solid fa-keyboard"></i> <i class="fa-solid fa-text-width"></i></label>
+      <div>
+        <p class="judul-utama">Transformasi Kata dan Angka</p>
           
-          <input type="text" id="word" placeholder="Masukan kalimah">
+          <input type="text" id="word" placeholder="text to code">
           <button type="button11" onclick="convertWordToNumber()"><i class="fa-solid fa-dna"></i></button>
         </div>
           <div class="card-description">
@@ -1950,68 +1950,187 @@ window.onclick = function(event) {
           <p id="wordToNumberResult"></p>
         </div>
       </div>
-        
-        
-          <label for="number" ><i class="fa-solid fa-keyboard"></i> <i class="fa-solid fa-code-compare"></i></label>
-          
-          <input type="text" id="number" placeholder="Masukan code">
-        
+          <input type="text" id="number" placeholder="Code to text">
           <button  type="button11" onclick="convertNumberToLetter()"><i class="fa-solid fa-dna"></i></button>
-    
           <div class="card-description">
             <div id="product">
           <p id="numberToLetterResult"></p>
         </div>
       </div>
         </div>
-    
-        
+        <button type="button11" id="reset1"> <i class="fa-solid fa-code-compare"></i></button>
+
+      </div>
         
         <script>
-        function convertWordToNumber() {
-          let word = document.querySelector("#word").value;
-          let result = "";
-          for (let i = 0; i < word.length; i++) {
-            if (word[i] === " ") {
-              result += "02%&$%$&**^%^&347528704riyad&%$%hack850275428__++__+_____+++_+_7203947 ";
-            } else {
-              let letter = word[i].toUpperCase();
-              let number = letter.charCodeAt(0) - 64;
-              result += number + " ";
-            }
-          }
-          
-          result = result.trim();
-          let wordToNumberResult = document.querySelector("#wordToNumberResult");
-          wordToNumberResult.innerHTML = result;
-          let copyButton = document.createElement("button");
-          copyButton.innerHTML = "Copy";
-          copyButton.addEventListener("click", function() {
-            navigator.clipboard.writeText(result).then(
-              function() {
-                console.log("Text copied to clipboard");
-              },
-              function() {
-                console.error("Could not copy text");
-              }
-            );
-          });
+          function convertWordToNumber() {
+    let word = document.querySelector("#word").value;
+    let result = "";
+    for (let i = 0; i < word.length; i++) {
+      if (word[i] === " ") {
+  result += "_ ";
+} else {
+  let letter = word[i].toLowerCase();
+  if (letter === "a") {
+    result += "__ ";
+  } else if (letter === "b") {
+    result += "___ ";
+  } else if (letter === "c") {
+    result += "____ ";
+  } else if (letter === "d") {
+    result += "_____ ";
+  } else if (letter === "e") {
+    result += "______ ";
+  } else if (letter === "f") {
+    result += "_______ ";
+  } else if (letter === "g") {
+    result += "________ ";
+  } else if (letter === "h") {
+    result += "_________ ";
+  } else if (letter === "i") {
+    result += "__________ ";
+  } else if (letter === "j") {
+    result += "___________ ";
+  } else if (letter === "k") {
+    result += "____________ ";
+  } else if (letter === "l") {
+    result += "_____________ ";
+  } else if (letter === "m") {
+    result += "______________ ";
+  } else if (letter === "n") {
+    result += "_______________ ";
+  } else if (letter === "o") {
+    result += "________________ ";
+  } else if (letter === "p") {
+    result += "_________________ ";
+  } else if (letter === "q") {
+    result += "__________________ ";
+  } else if (letter === "r") {
+    result += "___________________ ";
+  } else if (letter === "s") {
+    result += "____________________ ";
+  } else if (letter === "t") {
+    result += "_____________________ ";
+  } else if (letter === "u") {
+    result += "______________________ ";
+  } else if (letter === "v") {
+    result += "_______________________ ";
+  } else if (letter === "w") {
+    result += "________________________ ";
+  } else if (letter === "x") {
+    result += "_________________________ ";
+  } else if (letter === "y") {
+    result += "__________________________ ";
+  } else if (letter === "z") {
+    result += "___________________________ ";
+  
+        } else {
+          let number = letter.charCodeAt(0) - 96;
+          result += number + " ";
         
-          wordToNumberResult.appendChild(copyButton);
         }
-        
-        
-        
-        
-        function convertNumberToLetter() {
-          const number = document.getElementById("number").value;
-          const numberToLetterResult = document.getElementById("numberToLetterResult");
-        
-          const letters = number
-            .split(" ")
-            .map(function(char) {
-              if (char === "02%&$%$&**^%^&347528704riyad&%$%hack850275428__++__+_____+++_+_7203947") {
-                return " ";
+      }
+    }
+  
+  
+    result = result.trim();
+  let wordToNumberResult = document.querySelector("#wordToNumberResult");
+  wordToNumberResult.innerHTML = result;
+  
+  let copyIcon = document.createElement("i");
+  copyIcon.classList.add("fa", "fa-copy", "fa-2x", "text-black");
+  copyIcon.style.cursor = "pointer";
+  copyIcon.style.paddingRight = "30px";
+  copyIcon.style.transition = "all 0.2s";
+  copyIcon.addEventListener("mouseover", function() {
+    copyIcon.style.transform = "scale(1.2)";
+  });
+  copyIcon.addEventListener("mouseout", function() {
+    copyIcon.style.transform = "scale(1)";
+  });
+  
+  copyIcon.addEventListener("click", function() {
+    navigator.clipboard.writeText(result).then(
+      function() {
+        console.log("Text copied to clipboard");
+      },
+      function() {
+        console.error("Could not copy text");
+      }
+    );
+  });
+  
+  wordToNumberResult.insertBefore(copyIcon, wordToNumberResult.firstChild);
+          }
+         
+  
+          
+          function convertNumberToLetter() {
+            const number = document.getElementById("number").value;
+            const numberToLetterResult = document.getElementById("numberToLetterResult");
+          
+            const letters = number
+              .split(" ")
+              .map(function(char) {
+                if (char === "_") {
+  return " ";
+} else if (char === "__") {
+  return "a";
+} else if (char === "___") {
+  return "b";
+} else if (char === "____") {
+  return "c";
+} else if (char === "_____") {
+  return "d";
+} else if (char === "______") {
+  return "e";
+} else if (char === "_______") {
+  return "f";
+} else if (char === "________") {
+  return "g";
+} else if (char === "_________") {
+  return "h";
+} else if (char === "__________") {
+  return "i";
+} else if (char === "___________") {
+  return "j";
+} else if (char === "____________") {
+  return "k";
+} else if (char === "_____________") {
+  return "l";
+} else if (char === "______________") {
+  return "m";
+} else if (char === "_______________") {
+  return "n";
+} else if (char === "________________") {
+  return "o";
+} else if (char === "_________________") {
+  return "p";
+} else if (char === "__________________") {
+  return "q";
+} else if (char === "___________________") {
+  return "r";
+} else if (char === "____________________") {
+  return "s";
+} else if (char === "_____________________") {
+  return "t";
+} else if (char === "______________________") {
+  return "u";_
+} else if (char === "_______________________") {
+  return "v";
+} else if (char === "________________________") {
+  return "w";
+} else if (char === "_________________________") {
+  return "x";
+} else if (char === "__________________________") {
+  return "y";
+} else if (char === "___________________________") {
+  return "z";
+
+
+
+
+
               } else if (char === "-18") {
                 return ".";
               } else if (char === "-20") {
@@ -2054,39 +2173,48 @@ window.onclick = function(event) {
               } else if (char === "-7") {
                 return "9";
                 
-           
-              } else {
-                return String.fromCharCode(96 + parseInt(char));
-              }
-            });
+                
+             
+                } else {
+                  return String.fromCharCode(96 + parseInt(char));
+                }
+              });
+          
+            numberToLetterResult.textContent = letters.join("");
+          
+            
+          
+          }
+          document.getElementById("number").addEventListener("input", convertNumberToLetter);
+  
+          document.getElementById("reset1").addEventListener("click", function() {
+            document.querySelector("#word").value = "";
+            document.querySelector("#number").value = "";
+document.querySelector("#wordToNumberResult").innerHTML = "";
+document.querySelector("#numberToLetterResult").textContent = "";
+});
+
+document.getElementById("word").addEventListener("keydown", function(e) {
+if (e.key === "Enter") {
+convertWordToNumber();
+}
+});
+
+document.getElementById("number").addEventListener("keydown", function(e) {
+if (e.key === "Enter") {
+convertNumberToLetter();
+}
+});
+</script>
+  
+
         
-          numberToLetterResult.textContent = letters.join("");
-        
-          const copyButton = document.createElement("button");
-          copyButton.innerHTML = "Copy";
-          copyButton.addEventListener("click", function() {
-            navigator.clipboard.writeText(letters.join("")).then(
-              function() {
-                console.log("Text copied to clipboard");
-              },
-              function() {
-                console.error("Could not copy text");
-              }
-            );
-          });
-        
-          numberToLetterResult.appendChild(copyButton);
-        }
-        document.getElementById("number").addEventListener("input", convertNumberToLetter);
         
         
         
-        
-        
-        
-        </script>
+ 
     
-        
+    
 
         <br><br><br>
 
