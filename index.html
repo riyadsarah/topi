@@ -1935,14 +1935,14 @@ window.onclick = function(event) {
         </div><br><br><br>
 
 
-        
+
 
         
      
       <div>
         <p class="judul-utama">Transformasi Kata dan Angka</p>
           
-          <input type="text" id="word" placeholder="text to code">
+          <input type="text" id="word" placeholder="text to code" wrap="soft">
           <button type="button11" onclick="convertWordToNumber()"><i class="fa-solid fa-dna"></i></button>
         </div>
           <div class="card-description">
@@ -2208,7 +2208,275 @@ convertNumberToLetter();
 </script>
   
 
-        
+        <br><br><br><br><br><br>
+
+        <div>
+          <p class="judul-utama-1">Transformasi rumit</p>
+            
+            <input type="text" id="word1" placeholder="text to code" wrap="soft">
+            <button type="button11" onclick="convertWordToNumber1()"><i class="fa-solid fa-dna"></i></button>
+          </div>
+            <div class="card-description">
+              <div id="product">
+            <p id="wordToNumberResult1"></p>
+          </div>
+        </div>
+            <input type="text" id="number1" placeholder="Code to text">
+            <button  type="button11" onclick="convertNumberToLetter1()"><i class="fa-solid fa-dna"></i></button>
+            <div class="card-description">
+              <div id="product">
+            <p id="numberToLetterResult1"></p>
+          </div>
+        </div>
+          </div>
+          <button type="button11" id="reset11"> <i class="fa-solid fa-code-compare"></i></button>
+  
+        </div>
+          
+          <script>
+            function convertWordToNumber1() {
+      let word1 = document.querySelector("#word1").value;
+      let result = "";
+      for (let i = 0; i < word1.length; i++) {
+        if (word1[i] === " ") {
+    result += "%^%$^% ";
+  } else {
+    let letter = word1[i].toLowerCase();
+    if (letter === "a") {
+      result += "6786^%^&&() ";
+    } else if (letter === "b") {
+      result += "ghgk678%^^????/// ";
+    } else if (letter === "c") {
+      result += "++okj*)) ";
+    } else if (letter === "d") {
+      result += "gh796976^%&*( ";
+    } else if (letter === "e") {
+      result += "_==____+-+_ ";
+    } else if (letter === "f") {
+      result += "586564545646 ";
+    } else if (letter === "g") {
+      result += "xxxxxxxx ";
+    } else if (letter === "h") {
+      result += "6769&^&^&^&^& ";
+    } else if (letter === "i") {
+      result += "rey@hck&^&*^ ";
+    } else if (letter === "j") {
+      result += "hgkh#$############# ";
+    } else if (letter === "k") {
+      result += "_++90990#$#@vcvbc ";
+    } else if (letter === "l") {
+      result += "gvgvbvbfg  gh ";
+    } else if (letter === "m") {
+      result += "565gfjgjj97 ";
+    } else if (letter === "n") {
+      result += "hl673434$#$# ";
+    } else if (letter === "o") {
+      result += "00009898 ";
+    } else if (letter === "p") {
+      result += "YUO@#%@52@32 ";
+    } else if (letter === "q") {
+      result += "B@#@ ";
+    } else if (letter === "r") {
+      result += "HG563222@@@ ";
+    } else if (letter === "s") {
+      result += "9089+_+++++ ";
+    } else if (letter === "t") {
+      result += "nbnbnb7 ";
+    } else if (letter === "u") {
+      result += "987!!!!% ";
+    } else if (letter === "v") {
+      result += "nb@#@#@#@98 ";
+    } else if (letter === "w") {
+      result += ",L,L,.,.,.,. ";
+    } else if (letter === "x") {
+      result += "NMB2@$#@$%@%$@$%#@%$#@%$@^@^#%#^# ";
+    } else if (letter === "y") {
+      result += "bbv#Q#@#@#@ ";
+    } else if (letter === "z") {
+      result += "_nm++++++++++++++++++++++++++++++++++++++ ";
+    
+          } else {
+            let number1 = letter.charCodeAt(0) - 96;
+            result += number1 + " ";
+          
+          }
+        }
+      }
+    
+    
+      result = result.trim();
+    let wordToNumberResult1 = document.querySelector("#wordToNumberResult1");
+    wordToNumberResult1.innerHTML = result;
+    
+    let copyIcon = document.createElement("i");
+    copyIcon.classList.add("fa", "fa-copy", "fa-2x", "text-black");
+    copyIcon.style.cursor = "pointer";
+    copyIcon.style.paddingRight = "30px";
+    copyIcon.style.transition = "all 0.2s";
+    copyIcon.addEventListener("mouseover", function() {
+      copyIcon.style.transform = "scale(1.2)";
+    });
+    copyIcon.addEventListener("mouseout", function() {
+      copyIcon.style.transform = "scale(1)";
+    });
+    
+    copyIcon.addEventListener("click", function() {
+      navigator.clipboard.writeText(result).then(
+        function() {
+          console.log("Text copied to clipboard");
+        },
+        function() {
+          console.error("Could not copy text");
+        }
+      );
+    });
+    
+    wordToNumberResult1.insertBefore(copyIcon, wordToNumberResult1.firstChild);
+            }
+           
+    
+            
+            function convertNumberToLetter1() {
+              const number1 = document.getElementById("number1").value;
+              const numberToLetterResult1 = document.getElementById("numberToLetterResult1");
+            
+              const letters = number1
+                .split(" ")
+                .map(function(char) {
+                  if (char === "%^%$^%") {
+    return " ";
+  } else if (char === "6786^%^&&()") {
+    return "a";
+  } else if (char === "ghgk678%^^????///") {
+    return "b";
+  } else if (char === "++okj*))") {
+    return "c";
+  } else if (char === "gh796976^%&*(") {
+    return "d";
+  } else if (char === "_==____+-+_") {
+    return "e";
+  } else if (char === "586564545646") {
+    return "f";
+  } else if (char === "xxxxxxxx") {
+    return "g";
+  } else if (char === "6769&^&^&^&^&") {
+    return "h";
+  } else if (char === "rey@hck&^&*^") {
+    return "i";
+  } else if (char === "hgkh#$#############") {
+    return "j";
+  } else if (char === "_++90990#$#@vcvbc") {
+    return "k";
+  } else if (char === "gvgvbvbfg  gh") {
+    return "l";
+  } else if (char === "565gfjgjj97") {
+    return "m";
+  } else if (char === "hl673434$#$#") {
+    return "n";
+  } else if (char === "00009898") {
+    return "o";
+  } else if (char === "YUO@#%@52@32") {
+    return "p";
+  } else if (char === "B@#@") {
+    return "q";
+  } else if (char === "HG563222@@@") {
+    return "r";
+  } else if (char === "9089+_+++++") {
+    return "s";
+  } else if (char === "nbnbnb7") {
+    return "t";
+  } else if (char === "987!!!!%") {
+    return "u";_
+  } else if (char === "nb@#@#@#@98") {
+    return "v";
+  } else if (char === ",L,L,.,.,.,.") {
+    return "w";
+  } else if (char === "NMB2@$#@$%@%$@$%#@%$#@%$@^@^#%#^#") {
+    return "x";
+  } else if (char === "bbv#Q#@#@#@") {
+    return "y";
+  } else if (char === "_nm++++++++++++++++++++++++++++++++++++++") {
+    return "z";
+  
+  
+  
+  
+  
+                } else if (char === "-18") {
+                  return ".";
+                } else if (char === "-20") {
+                  return ",";
+                } else if (char === "-1") {
+                  return "?";
+                } else if (char === "-31") {
+                  return "!";
+                } else if (char === "0") {
+                  return "@";
+                } else if (char === "-17") {
+                  return "/";
+                } else if (char === "-6") {
+                  return ":";
+                } else if (char === "-18") {
+                  return ".";
+                } else if (char === "-29") {
+                  return "#";
+                } else if (char === "-") {
+                  return "=";
+          
+                } else if (char === "-16") {
+                  return "0";
+                } else if (char === "-15") {
+                  return "1";
+                } else if (char === "-14") {
+                  return "2";
+                } else if (char === "-13") {
+                  return "3";
+                } else if (char === "-12") {
+                  return "4";
+                } else if (char === "-11") {
+                  return "5";
+                } else if (char === "-10") {
+                  return "6";
+                } else if (char === "-9") {
+                  return "7";
+                } else if (char === "-8") {
+                  return "8";
+                } else if (char === "-7") {
+                  return "9";
+                  
+                  
+               
+                  } else {
+                    return String.fromCharCode(96 + parseInt(char));
+                  }
+                });
+            
+              numberToLetterResult1.textContent = letters.join("");
+            
+              
+            
+            }
+            document.getElementById("number1").addEventListener("input", convertNumberToLetter1);
+    
+            document.getElementById("reset11").addEventListener("click", function() {
+              document.querySelector("#word1").value = "";
+              document.querySelector("#number1").value = "";
+  document.querySelector("#wordToNumberResult1").innerHTML = "";
+  document.querySelector("#numberToLetterResult1").textContent = "";
+  });
+  
+  document.getElementById("word1").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+  convertWordToNumber1();
+  }
+  });
+  
+  document.getElementById("number1").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+  convertNumberToLetter1();
+  }
+  });
+  </script>
         
         
         
