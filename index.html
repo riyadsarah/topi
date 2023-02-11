@@ -1941,9 +1941,9 @@ window.onclick = function(event) {
      
       <div>
         <p class="judul-utama">Transformasi Kata ke underscore</p>
-        <p>( ____________ ________________ _____________________ ________________ ____________ )</p>
+        <p id="deskripsiProduk">( contoh : Hai = _________ __ __________ )</p>
           
-          <input type="text" id="word" placeholder="text to code" wrap="soft">
+          <input type="text" id="word" placeholder="Kalimat ke code" wrap="soft">
           <button type="button11" onclick="convertWordToNumber()"><i class="fa-solid fa-dna"></i></button>
         </div>
           <div class="card-description">
@@ -1951,7 +1951,7 @@ window.onclick = function(event) {
           <p id="wordToNumberResult"></p>
         </div>
       </div>
-          <input type="text" id="number" placeholder="Code to text">
+          <input type="text" id="number" placeholder="Code ke kalimat">
           <button  type="button11" onclick="convertNumberToLetter()"><i class="fa-solid fa-dna"></i></button>
           <div class="card-description">
             <div id="product">
@@ -2207,15 +2207,15 @@ convertNumberToLetter();
 }
 });
 </script>
-  
+  <br>
 
         <br><br><br><br><br><br>
 
         <div>
-          <p class="judul-utama-1">Transformasi rumit </p>
-          <p>( nbnbnb7 6786^%^&&() rey@hck&^&*^ )</p>
+          <p class="judul-utama-1">Rubah kalimat ke code acak </p>
+          <p id="deskripsiProduk"> ( contoh : Hai = 6769&^&^&^&^& 6786^%^&&() rey@hck&^&*^ )</p>
             
-            <input type="text" id="word1" placeholder="text to code" wrap="soft">
+            <input type="text" id="word1" placeholder="Kalimat ke code" wrap="soft">
             <button type="button11" onclick="convertWordToNumber1()"><i class="fa-solid fa-dna"></i></button>
           </div>
             <div class="card-description">
@@ -2223,7 +2223,7 @@ convertNumberToLetter();
             <p id="wordToNumberResult1"></p>
           </div>
         </div>
-            <input type="text" id="number1" placeholder="Code to text">
+            <input type="text" id="number1" placeholder="Code ke kalimat">
             <button  type="button11" onclick="convertNumberToLetter1()"><i class="fa-solid fa-dna"></i></button>
             <div class="card-description">
               <div id="product">
@@ -2479,6 +2479,78 @@ convertNumberToLetter();
   }
   });
   </script>
+  <br><br><BR><BR><BR>
+  
+  
+  <p class="judul-utama">Masukkan kode atau harga:</p>
+  <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
+  
+  <p id="outputText"></p>
+  <script>
+    const kunci = {
+  "B": "1",
+  "G": "2",
+  "R": "3",
+  "I": "4",
+  "Y": "5",
+  "A": "6",
+  "D": "7",
+  "N": "8",
+  "F": "9",
+  "S": "0"
+};
+
+function convertText() {
+  const inputText = document.getElementById("inputText").value.toUpperCase();
+  let outputText = "";
+  
+  // Check if input is a number
+  if (!isNaN(inputText)) {
+    const harga = parseInt(inputText);
+    outputText = convertHargaToKode(harga);
+  } else {
+    outputText = convertKodeToHarga(inputText);
+  }
+  
+  document.getElementById("outputText").innerHTML = outputText;
+}
+
+function convertHargaToKode(harga) {
+  let kode = "";
+  const ribuan = Math.floor(harga / 1000);
+  const ratusan = Math.floor((harga % 1000) / 100);
+  const puluhan = Math.floor((harga % 100) / 10);
+  const satuan = harga % 10;
+  
+  kode += getKeyByValue(kunci, ribuan.toString());
+  kode += getKeyByValue(kunci, ratusan.toString());
+  kode += getKeyByValue(kunci, puluhan.toString());
+  kode += getKeyByValue(kunci, satuan.toString());
+  
+  return kode;
+}
+
+function convertKodeToHarga(kode) {
+  let harga = "";
+  
+  harga += getValueByKey(kunci, kode.charAt(0));
+  harga += getValueByKey(kunci, kode.charAt(1));
+  harga += getValueByKey(kunci, kode.charAt(2));
+  harga += getValueByKey(kunci, kode.charAt(3));
+  
+  return harga + " RIBU";
+}
+
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value) || "";
+}
+
+function getValueByKey(object, key) {
+  return object[key] || "";
+}
+
+  </script>
+  
         
         
         

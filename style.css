@@ -1235,11 +1235,28 @@ img {
   font-size: 36px;
   font-weight: bold;
   text-align: center;
-  color: #008080;
+  color: #000000b8;
   }
   .judul-utama-1 {
     font-size: 36px;
     font-weight: bold;
     text-align: center;
     color: #000000a8;
+    }
+
+
+    input[type="text"] {
+      font-family: fantasy;
+      font-size: 18px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    
+ 
+    
+    #outputText {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: rgb(254, 254, 255);
     }
