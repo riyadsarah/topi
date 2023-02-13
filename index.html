@@ -164,6 +164,9 @@
   <div class="container">
 
 
+
+
+
     <button type="button11" id="myBtn3"><i class="fa-solid fa-dna"></i></button>
     <div id="myModal3" class="modal3">
       <div>
@@ -180,14 +183,14 @@
         </div>
         <input type="text" id="number" placeholder="Tempel (artikan code)">
         <button type="button11" id="reset1"> <i class="fas fa-undo"></i></button>
-        
+
         <div class="card-description">
           <div id="product">
             <p id="numberToLetterResult"></p>
           </div>
         </div>
 
-        
+
         <br><br><br><br><br><br>
 
         <div>
@@ -209,7 +212,7 @@
             <p id="numberToLetterResult1"></p>
           </div>
         </div>
-       
+
         <br><br><br><br><br><br>
 
 
@@ -217,7 +220,7 @@
           <p class="judul-utama">Rubah kalimat ke angka </p>
           <p id="deskripsiProduk"> ( contoh : Hai = 8 1 9 )</p>
 
-          <input  type="text" id="word2" placeholder="Kalimat ke code" wrap="soft">
+          <input type="text" id="word2" placeholder="Kalimat ke code" wrap="soft">
           <button type="button11" onclick="convertWordToNumber2()"><i class="fa-solid fa-dna"></i></button>
         </div>
         <div class="card-description">
@@ -232,10 +235,10 @@
             <p id="numberToLetterResult2"></p>
           </div>
         </div>
-       
+
         <br><br>
 
-        <div> <button type="button2" class="close3">Tutup</button></div>
+        <div> <button type="button2" class="close3"><i class="fas fa-close"></i></button></div>
         <br><br>
 
       </div>
@@ -352,7 +355,7 @@
       </script>
 
 
-      <div> <button type="button1" class="close2">Tutup</button></div>
+      <div> <button type="button1" class="close2"><i class="fas fa-close"></i></button></div>
       <script>
         // Get the modal
         // Mencari elemen tombol tutup
@@ -390,7 +393,7 @@
 
         <p id="deskripsiProduk">Jumlah batang roko/Hari</p>
 
-        <input type="number" id="jumlah" name="jumlah" placeholder="cth : 12 batang ">
+        <input type="number" id="jumlah" name="jumlah" placeholder="cth : 12 batang "><br>
         <p id="deskripsiProduk">Harga Perbungkus</p>
         <select id="harga" name="harga">
           <option value="20000">20.000</option>
@@ -401,9 +404,10 @@
         <input type="number" id="periode" name="periode" placeholder="cth : 365 hari">
 
         <div>
-          <input class="button" type="submit" value="Hitung">
-          <button type="button" id="reset"><i class="fas fa-undo"></i></button></div><br>
-        <div> <button type="button1" class="close1">Tutup</button></div><br>
+          <button type="button2" class="button" type="submit" value="Hitung">Hitung</button>
+          <button type="button" id="reset"><i class="fas fa-undo"></i></button>
+        </div><br>
+        <div> <button type="button1" class="close1"><i class="fas fa-close"></i></button></div><br>
 
       </form>
       <script>
@@ -455,7 +459,7 @@
           </div>
         </div>
 
-        <button type="button1" class="close">Tutup</button>
+        <button type="button1" class="close"><i class="fas fa-close"></i></button>
 
 
       </p>
@@ -2566,362 +2570,443 @@
         }
       });
     </script>
-       <script>
-        
-        function convertWordToNumber2() {
-          let word2 = document.querySelector("#word2").value;
-          let result = "";
-          for (let i = 0; i < word2.length; i++) {
-            if (word2[i] === " ") {
-              result += "77 ";
+    <script>
+      function convertWordToNumber2() {
+        let word2 = document.querySelector("#word2").value;
+        let result = "";
+        for (let i = 0; i < word2.length; i++) {
+          if (word2[i] === " ") {
+            result += "77 ";
+          } else {
+            let letter = word2[i].toLowerCase();
+            if (letter === "a") {
+              result += "1 ";
+            } else if (letter === "b") {
+              result += "2 ";
+            } else if (letter === "c") {
+              result += "3 ";
+            } else if (letter === "d") {
+              result += "4 ";
+            } else if (letter === "e") {
+              result += "5 ";
+            } else if (letter === "f") {
+              result += "6 ";
+            } else if (letter === "g") {
+              result += "7 ";
+            } else if (letter === "h") {
+              result += "8 ";
+            } else if (letter === "i") {
+              result += "9 ";
+            } else if (letter === "j") {
+              result += "10 ";
+            } else if (letter === "k") {
+              result += "11 ";
+            } else if (letter === "l") {
+              result += "12 ";
+            } else if (letter === "m") {
+              result += "13 ";
+            } else if (letter === "n") {
+              result += "14 ";
+            } else if (letter === "o") {
+              result += "15 ";
+            } else if (letter === "p") {
+              result += "16 ";
+            } else if (letter === "q") {
+              result += "17 ";
+            } else if (letter === "r") {
+              result += "18 ";
+            } else if (letter === "s") {
+              result += "19 ";
+            } else if (letter === "t") {
+              result += "20 ";
+            } else if (letter === "u") {
+              result += "21 ";
+            } else if (letter === "v") {
+              result += "22 ";
+            } else if (letter === "w") {
+              result += "23 ";
+            } else if (letter === "x") {
+              result += "24 ";
+            } else if (letter === "y") {
+              result += "25 ";
+            } else if (letter === "z") {
+              result += "26 ";
+
             } else {
-              let letter = word2[i].toLowerCase();
-              if (letter === "a") {
-                result += "1 ";
-              } else if (letter === "b") {
-                result += "2 ";
-              } else if (letter === "c") {
-                result += "3 ";
-              } else if (letter === "d") {
-                result += "4 ";
-              } else if (letter === "e") {
-                result += "5 ";
-              } else if (letter === "f") {
-                result += "6 ";
-              } else if (letter === "g") {
-                result += "7 ";
-              } else if (letter === "h") {
-                result += "8 ";
-              } else if (letter === "i") {
-                result += "9 ";
-              } else if (letter === "j") {
-                result += "10 ";
-              } else if (letter === "k") {
-                result += "11 ";
-              } else if (letter === "l") {
-                result += "12 ";
-              } else if (letter === "m") {
-                result += "13 ";
-              } else if (letter === "n") {
-                result += "14 ";
-              } else if (letter === "o") {
-                result += "15 ";
-              } else if (letter === "p") {
-                result += "16 ";
-              } else if (letter === "q") {
-                result += "17 ";
-              } else if (letter === "r") {
-                result += "18 ";
-              } else if (letter === "s") {
-                result += "19 ";
-              } else if (letter === "t") {
-                result += "20 ";
-              } else if (letter === "u") {
-                result += "21 ";
-              } else if (letter === "v") {
-                result += "22 ";
-              } else if (letter === "w") {
-                result += "23 ";
-              } else if (letter === "x") {
-                result += "24 ";
-              } else if (letter === "y") {
-                result += "25 ";
-              } else if (letter === "z") {
-                result += "26 ";
-  
-              } else {
-                let number2 = letter.charCodeAt(0) - 96;
-                result += number2 + " ";
-  
+              let number2 = letter.charCodeAt(0) - 96;
+              result += number2 + " ";
+
+            }
+          }
+        }
+
+
+        result = result.trim();
+        let wordToNumberResult2 = document.querySelector("#wordToNumberResult2");
+        wordToNumberResult2.innerHTML = result;
+
+        let copyIcon = document.createElement("i");
+        copyIcon.classList.add("fa", "fa-copy", "fa-2x", "text-black");
+        copyIcon.style.cursor = "pointer";
+        copyIcon.style.paddingRight = "30px";
+        copyIcon.style.transition = "all 0.2s";
+        copyIcon.addEventListener("mouseover", function () {
+          copyIcon.style.transform = "scale(1.2)";
+        });
+        copyIcon.addEventListener("mouseout", function () {
+          copyIcon.style.transform = "scale(1)";
+        });
+
+        copyIcon.addEventListener("click", function () {
+          navigator.clipboard.writeText(result).then(
+            function () {
+              console.log("Text copied to clipboard");
+            },
+            function () {
+              console.error("Could not copy text");
+            }
+          );
+        });
+
+        wordToNumberResult2.insertBefore(copyIcon, wordToNumberResult2.firstChild);
+      }
+
+
+
+      function convertNumberToLetter2() {
+        const number2 = document.getElementById("number2").value;
+        const numberToLetterResult2 = document.getElementById("numberToLetterResult2");
+
+        const letters = number2
+          .split(" ")
+          .map(function (char) {
+            if (char === "77") {
+              return " ";
+            } else if (char === "1") {
+              return "a";
+            } else if (char === "2") {
+              return "b";
+            } else if (char === "3") {
+              return "c";
+            } else if (char === "4") {
+              return "d";
+            } else if (char === "5") {
+              return "e";
+            } else if (char === "6") {
+              return "f";
+            } else if (char === "7") {
+              return "g";
+            } else if (char === "8") {
+              return "h";
+            } else if (char === "9") {
+              return "i";
+            } else if (char === "10") {
+              return "j";
+            } else if (char === "11") {
+              return "k";
+            } else if (char === "12") {
+              return "l";
+            } else if (char === "13") {
+              return "m";
+            } else if (char === "14") {
+              return "n";
+            } else if (char === "15") {
+              return "o";
+            } else if (char === "16") {
+              return "p";
+            } else if (char === "17") {
+              return "q";
+            } else if (char === "18") {
+              return "r";
+            } else if (char === "19") {
+              return "s";
+            } else if (char === "20") {
+              return "t";
+            } else if (char === "21") {
+              return "u";
+              _
+            } else if (char === "22") {
+              return "v";
+            } else if (char === "23") {
+              return "w";
+            } else if (char === "24") {
+              return "x";
+            } else if (char === "25") {
+              return "y";
+            } else if (char === "26") {
+              return "z";
+
+
+
+
+
+            } else if (char === "-18") {
+              return ".";
+            } else if (char === "-20") {
+              return ",";
+            } else if (char === "-1") {
+              return "?";
+            } else if (char === "-31") {
+              return "!";
+            } else if (char === "0") {
+              return "@";
+            } else if (char === "-17") {
+              return "/";
+            } else if (char === "-6") {
+              return ":";
+            } else if (char === "-18") {
+              return ".";
+            } else if (char === "-29") {
+              return "#";
+            } else if (char === "-") {
+              return "=";
+
+            } else if (char === "-16") {
+              return "0";
+            } else if (char === "-15") {
+              return "1";
+            } else if (char === "-14") {
+              return "2";
+            } else if (char === "-13") {
+              return "3";
+            } else if (char === "-12") {
+              return "4";
+            } else if (char === "-11") {
+              return "5";
+            } else if (char === "-10") {
+              return "6";
+            } else if (char === "-9") {
+              return "7";
+            } else if (char === "-8") {
+              return "8";
+            } else if (char === "-7") {
+              return "9";
+
+
+
+            } else {
+              return String.fromCharCode(96 + parseInt(char));
+            }
+          });
+
+        numberToLetterResult2.textContent = letters.join("");
+
+
+
+      }
+      document.getElementById("number2").addEventListener("input", convertNumberToLetter2);
+
+      document.getElementById("reset12").addEventListener("click", function () {
+        document.querySelector("#word2").value = "";
+        document.querySelector("#number2").value = "";
+        document.querySelector("#wordToNumberResult2").innerHTML = "";
+        document.querySelector("#numberToLetterResult2").textContent = "";
+      });
+
+      document.getElementById("word2").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          convertWordToNumber2();
+        }
+      });
+
+      document.getElementById("number2").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          convertNumberToLetter2();
+        }
+      });
+    </script>
+    <br><br><BR><BR><BR>
+
+    <br><br>
+    <script>
+      function modifikasiTeks() {
+        const inputText = document.getElementById("input-text").value;
+        const mode = document.getElementById("mode-select").value;
+
+        if (mode === "mode-1") {
+          const words = inputText.split(" ");
+          let outputText = "";
+          for (let i = 0; i < words.length; i++) {
+            outputText += words[i] + "\n";
+          }
+          document.getElementById("output-text").textContent = outputText;
+        } else if (mode === "mode-2") {
+          const paragraphs = inputText.split("\n");
+          let outputText = "";
+          for (let i = 0; i < paragraphs.length; i++) {
+            const sentences = paragraphs[i].split(". ");
+            for (let j = 0; j < sentences.length; j++) {
+              const words = sentences[j].split(" ");
+              for (let k = 0; k < words.length; k++) {
+                let wordOutput = "";
+                for (let l = 0; l < words[k].length; l++) {
+                  if (l % 2 === 0) {
+                    wordOutput += words[k].charAt(l).toUpperCase();
+                  } else {
+                    wordOutput += words[k].charAt(l).toLowerCase();
+                  }
+                }
+                if (k % 2 === 0) {
+                  outputText += "*" + wordOutput + "* ";
+                } else {
+                  outputText += "_" + wordOutput + "_ ";
+                }
+                if (k === words.length - 1 && j !== sentences.length - 1) {
+                  outputText += "\n";
+                }
+              }
+              if (j === sentences.length - 1 && i !== paragraphs.length - 1) {
+                outputText += "\n";
               }
             }
           }
-  
-  
-          result = result.trim();
-          let wordToNumberResult2 = document.querySelector("#wordToNumberResult2");
-          wordToNumberResult2.innerHTML = result;
-  
-          let copyIcon = document.createElement("i");
-          copyIcon.classList.add("fa", "fa-copy", "fa-2x", "text-black");
-          copyIcon.style.cursor = "pointer";
-          copyIcon.style.paddingRight = "30px";
-          copyIcon.style.transition = "all 0.2s";
-          copyIcon.addEventListener("mouseover", function () {
-            copyIcon.style.transform = "scale(1.2)";
-          });
-          copyIcon.addEventListener("mouseout", function () {
-            copyIcon.style.transform = "scale(1)";
-          });
-  
-          copyIcon.addEventListener("click", function () {
-            navigator.clipboard.writeText(result).then(
-              function () {
-                console.log("Text copied to clipboard");
-              },
-              function () {
-                console.error("Could not copy text");
-              }
-            );
-          });
-  
-          wordToNumberResult2.insertBefore(copyIcon, wordToNumberResult2.firstChild);
-        }
-  
-  
-  
-        function convertNumberToLetter2() {
-          const number2 = document.getElementById("number2").value;
-          const numberToLetterResult2 = document.getElementById("numberToLetterResult2");
-  
-          const letters = number2
-            .split(" ")
-            .map(function (char) {
-              if (char === "77") {
-                return " ";
-              } else if (char === "1") {
-                return "a";
-              } else if (char === "2") {
-                return "b";
-              } else if (char === "3") {
-                return "c";
-              } else if (char === "4") {
-                return "d";
-              } else if (char === "5") {
-                return "e";
-              } else if (char === "6") {
-                return "f";
-              } else if (char === "7") {
-                return "g";
-              } else if (char === "8") {
-                return "h";
-              } else if (char === "9") {
-                return "i";
-              } else if (char === "10") {
-                return "j";
-              } else if (char === "11") {
-                return "k";
-              } else if (char === "12") {
-                return "l";
-              } else if (char === "13") {
-                return "m";
-              } else if (char === "14") {
-                return "n";
-              } else if (char === "15") {
-                return "o";
-              } else if (char === "16") {
-                return "p";
-              } else if (char === "17") {
-                return "q";
-              } else if (char === "18") {
-                return "r";
-              } else if (char === "19") {
-                return "s";
-              } else if (char === "20") {
-                return "t";
-              } else if (char === "21") {
-                return "u";
-                _
-              } else if (char === "22") {
-                return "v";
-              } else if (char === "23") {
-                return "w";
-              } else if (char === "24") {
-                return "x";
-              } else if (char === "25") {
-                return "y";
-              } else if (char === "26") {
-                return "z";
-  
-  
-  
-  
-  
-              } else if (char === "-18") {
-                return ".";
-              } else if (char === "-20") {
-                return ",";
-              } else if (char === "-1") {
-                return "?";
-              } else if (char === "-31") {
-                return "!";
-              } else if (char === "0") {
-                return "@";
-              } else if (char === "-17") {
-                return "/";
-              } else if (char === "-6") {
-                return ":";
-              } else if (char === "-18") {
-                return ".";
-              } else if (char === "-29") {
-                return "#";
-              } else if (char === "-") {
-                return "=";
-  
-              } else if (char === "-16") {
-                return "0";
-              } else if (char === "-15") {
-                return "1";
-              } else if (char === "-14") {
-                return "2";
-              } else if (char === "-13") {
-                return "3";
-              } else if (char === "-12") {
-                return "4";
-              } else if (char === "-11") {
-                return "5";
-              } else if (char === "-10") {
-                return "6";
-              } else if (char === "-9") {
-                return "7";
-              } else if (char === "-8") {
-                return "8";
-              } else if (char === "-7") {
-                return "9";
-  
-  
-  
+          document.getElementById("output-text").textContent = outputText;
+
+        } else if (mode === "mode-3") {
+          const lines = inputText.split("\n");
+          let outputText = "";
+          for (let i = 0; i < lines.length; i++) {
+            const words = lines[i].split(" ");
+            for (let j = 0; j < words.length; j++) {
+              if (j === 0 || j % 2 === 0) {
+                outputText += "*" + words[j] + "* ";
               } else {
-                return String.fromCharCode(96 + parseInt(char));
+                outputText += "_" + words[j] + "_ ";
               }
-            });
-  
-          numberToLetterResult2.textContent = letters.join("");
-  
-  
-  
-        }
-        document.getElementById("number2").addEventListener("input", convertNumberToLetter2);
-  
-        document.getElementById("reset12").addEventListener("click", function () {
-          document.querySelector("#word2").value = "";
-          document.querySelector("#number2").value = "";
-          document.querySelector("#wordToNumberResult2").innerHTML = "";
-          document.querySelector("#numberToLetterResult2").textContent = "";
-        });
-  
-        document.getElementById("word2").addEventListener("keydown", function (e) {
-          if (e.key === "Enter") {
-            convertWordToNumber2();
+            }
+            outputText += "\n";
           }
-        });
-  
-        document.getElementById("number2").addEventListener("keydown", function (e) {
-          if (e.key === "Enter") {
-            convertNumberToLetter2();
+          document.getElementById("output-text").textContent = outputText;
+
+        } else if (mode === "mode-4") {
+          const lines = inputText.split('\n');
+          let outputText = '';
+          for (let i = 0; i < lines.length; i++) {
+            const words = lines[i].split(' ');
+            for (let j = 0; j < words.length; j++) {
+              if (j % 2 === 0) {
+                outputText += '*' + words[j] + '* ';
+              } else {
+                outputText += words[j] + ' ';
+              }
+            }
+            outputText += '\n';
           }
-        });
-      </script>
-    <br><br><BR><BR><BR>
+          document.getElementById('output-text').textContent = outputText;
+
+        } else if (mode === "mode-5") {
+          const inputText = document.getElementById("input-text").value;
+          const lines = inputText.split("\n");
+          let outputText = "";
+          for (let i = 0; i < lines.length; i++) {
+            const words = lines[i].split(" ");
+            for (let j = 0; j < words.length; j++) {
+              if (words[j] !== "") {
+                if (j % 4 === 0) {
+                  outputText += "*" + words[j] + "* ";
+                } else if (j % 4 === 1) {
+                  outputText += "_" + words[j] + "_ ";
+                } else if (j % 4 === 2) {
+                  outputText += "~" + words[j] + "~ ";
+                } else {
+                  outputText += "```" + words[j] + "``` ";
+                }
+              }
+            }
+            if (i !== lines.length - 1) {
+              outputText += "\n";
+            }
+          }
+          document.getElementById("output-text").textContent = outputText;
 
 
+        } else if (mode === "mode-6") {
 
+          const inputText = document.getElementById("input-text").value;
+          const words = inputText.split(" ");
+          let outputText = "";
+          for (let i = 0; i < words.length; i++) {
+            outputText += words[i] + " assiaaaaaaaaap😂 ";
+          }
+          document.getElementById("output-text").textContent = outputText;
 
+        } else if (mode === "mode-7") {
+          const inputText = document.getElementById("input-text").value;
+          let outputText = inputText.split(" ").map(function (word) {
+            let wordOutput = "";
+            for (let i = 0; i < word.length; i++) {
+              if (i % 2 === 0) {
+                wordOutput += word.charAt(i).toUpperCase();
+              } else {
+                wordOutput += word.charAt(i).toLowerCase();
+              }
+            }
+            return wordOutput;
+          }).join(" ");
+          document.getElementById("output-text").textContent = outputText;
 
-<script>
-  const inputTextArea = document.getElementById("input-text");
-  const outputText = document.getElementById("output-text");
+        } else if (mode === "mode-8") {
+          const inputText = document.getElementById("input-text").value;
+          const outputText = inputText.split(" ").map(function (word) {
+            const lastCharacter = word.slice(-1);
+            return word.slice(0, -1) + lastCharacter.repeat(10);
+          }).join(" ");
+          document.getElementById("output-text").textContent = outputText;
 
-  function modifikasiTeks() {
-    const inputText = inputTextArea.value;
-    const mode = document.getElementById("mode-select").value;
-    let output = "";
-
-    if (mode === "mode-1") {
-      const words = inputText.split(" ");
-      let outputText = "";
-      for (let i = 0; i < words.length; i++) {
-        outputText += words[i] + "\n";
-      }
-      output = inputText.toUpperCase();
-      outputText.textContent = outputText;
-    } else if (mode === "mode-2") {
-      const sentences = inputText.split(". ");
-  let outputText = "";
-  for (let i = 0; i < sentences.length; i++) {
-    const words = sentences[i].split(" ");
-    for (let j = 0; j < words.length; j++) {
-      let wordOutput = "";
-      for (let k = 0; k < words[j].length; k++) {
-        if (k % 2 === 0) {
-          wordOutput += words[j].charAt(k).toUpperCase();
-        } else {
-          wordOutput += words[j].charAt(k).toLowerCase();
         }
+
+
+        // Dan seterusnya untuk semua mode
       }
-      if (j % 2 === 0) {
-        outputText += "*" + wordOutput + "* ";
-      } else {
-        outputText += "_" + wordOutput + "_ ";
+    </script>
+
+
+    <script>
+      function salinTeks() {
+        const outputText = document.getElementById("output-text");
+        const range = document.createRange();
+        range.selectNode(outputText);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
       }
-    }
-    outputText += ". ";
-  }
- 
 
-      
-      output = inputText.toLowerCase();
-    } else if (mode === "mode-3") {
-      output = inputText.replace(/a/g, "@");
-    }
-
-    outputText.textContent = output;
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-    inputTextArea.addEventListener("keydown", function(event) {
-      if (event.key === "Enter") {
-        modifikasiTeks();
-        event.preventDefault();
+      function bagikanTeks() {
+        const outputText = document.getElementById("output-text").textContent;
+        const encodedText = encodeURIComponent(outputText);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
       }
-    });
+    </script>
 
-    const reloadButton = document.getElementById("reload-button");
-    reloadButton.addEventListener("click", function(event) {
-      location.reload();
-    });
-  });
+    <p class="judul-utama">Modifikasi teks </p>
+    <form onsubmit="modifikasiTeks(); return false;">
+      <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
+      <br>
+      <select id="mode-select">
+        <option value="mode-1">1 kalimat-1 paragraphs</option>
+        <option value="mode-2">Tebal-miring Besar-kecil</option>
+        <option value="mode-3">Tebal-miring</option>
+        <option value="mode-4">Tebal-biasa</option>
 
-  function salinTeks() {
-    const outputText = document.getElementById("output-text");
-    const range = document.createRange();
-    range.selectNode(outputText);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("copy");
-    navigator.vibrate(100);
-  }
+        <option value="mode-6">Spasi jadi asiiiap</option>
+        <option value="mode-7">Besar-kecil</option>
+        <option value="mode-8">Hurup terakir jadi 10 </option>
+      </select><br>
+      <div>
+        <button type="button11" type="submit">Modifikasi</button>
+        <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
+      </div>
 
-  function bagikanTeks() {
-    const outputText = document.getElementById("output-text").textContent;
-    const encodedText = encodeURIComponent(outputText);
-    const shareUrl = `whatsapp://send?text=${encodedText}`;
-    window.location.href = shareUrl;
-  }
-</script>
+    </form>
 
-
-<form onsubmit="modifikasiTeks(); return false;">
-  <input id="input-text" placeholder="Masukkan teks..."></input>
-  <select id="mode-select">
-      <option value="mode-1">Modifikasi Teks 1</option>
-      <option value="mode-2">Modifikasi Teks 2</option>
-      <option value="mode-3">Modifikasi Teks 3</option>
-  </select>
- 
-  <button id="reload-button">Reload</button>
-
-</form>
-<br><br><br>
-<div>
-  
-  <button onclick="salinTeks()">Salin</button>
-  <button onclick="bagikanTeks()">Bagikan</button>
-</div>
-<pre id="output-text"> </pre>
-
-
+    <div>
+      <pre id="output-text"></pre>
+      <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
+      <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button>
+    </div>
 
 
     <br><br><br>

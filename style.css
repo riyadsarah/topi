@@ -1146,6 +1146,7 @@ h3 {
 }
 
 
+
 .product-image {
   width: 60%;
   margin: 0 auto;
@@ -1344,3 +1345,76 @@ img {
     #font {
       font-family: fantasy;
     }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    textarea {
+      width: 400px;
+      height: 200px;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+/* Gaya untuk output */
+#output-text {
+  background-color: #0000003c;
+  color: #ffffff;
+  font-family: fantasy;
+  padding: 10px;
+  margin: 40px;
+  font-size: 20px;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+#output-text:hover {
+  background-color: #282828;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+#output-text:focus {
+  outline: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+select {
+  background-color: #0000003c;
+  color: #ffffff;
+  width: 300px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* style untuk dropdown */
+select:focus option {
+  display: block;
+}
+
+select option {
+  display: none;
+  background-color: #00000091;
+}
+
+/* style untuk option */
+select:hover option {
+  display: block;
+}
+
+select option:hover {
+  background-color: #55ff00;
+}
