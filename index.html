@@ -2895,31 +2895,65 @@
           document.getElementById('output-text').textContent = outputText;
 
         } else if (mode === "mode-5") {
-          const inputText = document.getElementById("input-text").value;
-          const lines = inputText.split("\n");
-          let outputText = "";
-          for (let i = 0; i < lines.length; i++) {
-            const words = lines[i].split(" ");
-            for (let j = 0; j < words.length; j++) {
-              if (words[j] !== "") {
-                if (j % 4 === 0) {
-                  outputText += "*" + words[j] + "* ";
-                } else if (j % 4 === 1) {
-                  outputText += "_" + words[j] + "_ ";
-                } else if (j % 4 === 2) {
-                  outputText += "~" + words[j] + "~ ";
-                } else {
-                  outputText += "```" + words[j] + "``` ";
-                }
-              }
-            }
-            if (i !== lines.length - 1) {
-              outputText += "\n";
-            }
-          }
-          document.getElementById("output-text").textContent = outputText;
+          const inputText = document.getElementById("input-text").value.trim();
+
+// Mendapatkan tanggal dan waktu sekarang
+const now = new Date();
+const dateTime = now.toLocaleString("en-US", {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  hour12: false
+});
+
+// Membuat format surat
+const letter = `                     SR FASHION
+           
+    Jalan Raya No. 123, Majalengka
+              Telp. (089) 83813800
+
+   
+
+Kepada Yth.,
+
+Bapak/Ibu/Saudara/i
+
+di Tempat
+
+Dengan hormat, saya menyatakan :
 
 
+
+
+*${inputText}*
+
+
+
+
+
+Hormat kami,
+
+SR FASHION
+
+MUHAMMAD FIRD
+         
+______________________________
+Tanda tangan
+
+
+Muhammad.Fird
+Direktur Utama
+
+Majalengka
+*${dateTime}*
+`;
+
+
+// Menampilkan hasil surat pada elemen output
+document.getElementById("output-text").textContent = letter;
         } else if (mode === "mode-6") {
 
           const inputText = document.getElementById("input-text").value;
@@ -2952,6 +2986,30 @@
             return word.slice(0, -1) + lastCharacter.repeat(10);
           }).join(" ");
           document.getElementById("output-text").textContent = outputText;
+        } else if (mode === "mode-9") {
+          const inputText = document.getElementById("input-text").value;
+const lines = inputText.split("\n");
+let outputText = "";
+for (let i = 0; i < lines.length; i++) {
+  const words = lines[i].split(" ");
+  for (let j = 0; j < words.length; j++) {
+    if (words[j] !== "") {
+      if (j % 4 === 0) {
+        outputText += "*" + words[j] + "* ";
+      } else if (j % 4 === 1) {
+        outputText += "_" + words[j] + "_ ";
+      } else if (j % 4 === 2) {
+        outputText += "~" + words[j] + "~ ";
+      } else {
+        outputText += "```" + words[j] + "``` ";
+      }
+    }
+  }
+  if (i !== lines.length - 1) {
+    outputText += "\n";
+  }
+}
+document.getElementById("output-text").textContent = outputText;
 
         }
 
@@ -2990,22 +3048,26 @@
         <option value="mode-2">Tebal-miring Besar-kecil</option>
         <option value="mode-3">Tebal-miring</option>
         <option value="mode-4">Tebal-biasa</option>
-
+        <option value="mode-5">Surat</option>
         <option value="mode-6">Spasi jadi asiiiap</option>
         <option value="mode-7">Besar-kecil</option>
         <option value="mode-8">Hurup terakir jadi 10 </option>
+        <option value="mode-9">Hurup terakir jadi 10 </option>
+        
       </select><br>
       <div>
-        <button type="button11" type="submit">Modifikasi</button>
         <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
+        <button type="button11" type="submit">Modifikasi</button>
+      </div>
+      <div>
+        <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
+        <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button> 
       </div>
 
     </form>
 
     <div>
       <pre id="output-text"></pre>
-      <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
-      <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button>
     </div>
 
 
