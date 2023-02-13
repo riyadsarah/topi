@@ -2898,6 +2898,7 @@
           const inputText = document.getElementById("input-text").value.trim();
 
 // Mendapatkan tanggal dan waktu sekarang
+const inputAddress = document.getElementById("input-address").value.trim();
 const now = new Date();
 const dateTime = now.toLocaleString("en-US", {
   year: 'numeric',
@@ -2911,8 +2912,8 @@ const dateTime = now.toLocaleString("en-US", {
 
 // Membuat format surat
 const letter = `                    
-                   *SURAT PENTING*
-     Jalan Raya No. 123, Indonesia
+                  *SURAT PENTING*
+           Jalan Raya No. 123, ${inputAddress}
               Telp. (089) 83813800
 
    
@@ -2945,7 +2946,7 @@ Tanda tangan
 *Saya*
 Direktur Utama
 
-Majalengka
+*${inputAddress}*
 *${dateTime}*
 `;
 
@@ -3040,6 +3041,10 @@ document.getElementById("output-text").textContent = outputText;
     <p class="judul-utama">Modifikasi teks </p>
     <form onsubmit="modifikasiTeks(); return false;">
       <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
+     
+      
+      
+
       <br>
       <select id="mode-select">
         <option value="mode-1">1 kalimat-1 paragraphs</option>
@@ -3051,8 +3056,14 @@ document.getElementById("output-text").textContent = outputText;
         <option value="mode-8">Hurup terakir jadi 10 </option>
         <option value="mode-5">Teks menjadi Surat</option>
         <option value="mode-9">Gabungkan semua </option>
+        <div id="address-input" >
+          
+          <input id="input-address" type="text" placeholder="Masukkan alamat...">
+          <p id="deskripsiProduk" >Ini hanya untuk Teks menjadi surat</p>
+        </div>
         
       </select><br>
+     
       <div>
         <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
         <button type="button11" type="submit">Modifikasi</button>
@@ -3065,7 +3076,7 @@ document.getElementById("output-text").textContent = outputText;
     </form>
 
     <div>
-      <pre id="output-text"></pre>
+      <pre id="output-text" ></pre>
     </div>
 
 
