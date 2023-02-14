@@ -163,10 +163,7 @@
 
   <div class="container">
 
-
-
-
-
+   
     <button type="button11" id="myBtn3"><i class="fa-solid fa-dna"></i></button>
     <div id="myModal3" class="modal3">
       <div>
@@ -2911,8 +2908,8 @@ const dateTime = now.toLocaleString("en-US", {
 });
 
 // Membuat format surat
-const letter = `                    
-        *SURAT PENTING*
+const letter = `                   
+ *SURAT PENTING*
 
 Jalan Raya No. 123, *${inputAddress}*
 Telp. (089) 83813800
@@ -3041,14 +3038,12 @@ document.getElementById("output-text").textContent = outputText;
         <option value="mode-6">Spasi jadi asiiiap</option>
         <option value="mode-8">Hurup terakir jadi 10 </option>
         <option value="mode-5">Teks menjadi Surat</option>
-        <option value="mode-9">Gabungkan semua </option>
-        <div id="address-input" >
-          
-          <input id="input-address" type="text" placeholder="Masukkan alamat...">
-          <p id="deskripsiProduk" >Ini hanya untuk Teks menjadi surat</p>
-        </div>
-        
+        <option value="mode-9">Gabungkan semua </option>  
       </select><br>
+      <div id="address-input" >
+        <input id="input-address" type="text" placeholder="Masukkan alamat...">
+        <p id="deskripsiProduk" >Alamat hanya untuk Teks menjadi surat</p>
+      </div>
      
       <div>
         <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
@@ -3064,6 +3059,30 @@ document.getElementById("output-text").textContent = outputText;
     <div>
       <pre id="output-text" ></pre>
     </div>
+
+
+    <button  type="button11" id="show-form-btn">Tampilkan Form</button>
+    <div id="form-container12" style="display:none;">
+      <form>
+
+
+        <button type="button" id="close-form">Close</button>
+      </form>
+    </div>
+    <script>
+      const showFormButton = document.getElementById("show-form-btn");
+const formContainer12 = document.getElementById("form-container12");
+const closeFormButton = document.getElementById("close-form");
+
+showFormButton.addEventListener("click", function() {
+  formContainer12.style.display = "block";
+});
+closeFormButton.addEventListener("click", function() {
+  formContainer12.style.display = "none";
+});
+
+    </script>
+
 
 
     <br><br><br>

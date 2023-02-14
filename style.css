@@ -1304,7 +1304,7 @@ img {
 
 
 .judul-utama {
-  font-family: cursive;
+  
   font-size: 36px;
   font-weight: bold;
   text-align: center;
@@ -1425,12 +1425,16 @@ select option:hover {
 @media only screen and (max-width: 600px) {
   /* Aturan CSS untuk layar dengan lebar maksimum 600px */
   .judul-utama {
-    font-size: 24px;
+    font-size: 30px;
   }
 
   #input-text {
     font-size: 14px;
     padding: 10px;
+  }
+  #text {
+    font-size: 14px;
+    margin-top: 10px;
   }
 
   #mode-select {
