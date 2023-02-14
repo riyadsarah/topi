@@ -1288,7 +1288,7 @@ img {
 }
 
 #deskripsiProduk {
-  font-family: monospace;
+  
   font-size: 15px;
   color: #ffffff;
   margin: 10px 0;
@@ -1352,6 +1352,7 @@ img {
       align-items: center;
       margin-bottom: 20px;
     }
+
     
     textarea {
       width: 100%;
@@ -1362,6 +1363,7 @@ img {
       border: 1px solid #ccc;
       border-radius: 10px;
     }
+ 
     
 
 /* Gaya untuk output */
@@ -1423,10 +1425,6 @@ select option:hover {
 
 
 @media only screen and (max-width: 600px) {
-  /* Aturan CSS untuk layar dengan lebar maksimum 600px */
-  .judul-utama {
-    font-size: 30px;
-  }
 
   #input-text {
     font-size: 14px;
