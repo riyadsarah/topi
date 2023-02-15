@@ -16,8 +16,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-
-
+  
+	<script src="https://cdn.jsdelivr.net/g/filesaver.js"></script>
+	<script src="https://cdn.jsdelivr.net/g/canvas-toBlob.js"></script>
+  <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
 
 </head>
@@ -53,8 +56,10 @@
 
   @media only screen and (max-width: 1080px) {
     h1 {
-      font-size: 2px;
+      font-size: 40px;
       text-align: center;
+      color: aliceblue;
+      margin: 20px;
     }
   }
 
@@ -275,6 +280,83 @@
     <button type="button11" id="myBtn2"><i class="fa-sharp fa-solid fa-calculator"></i> <i
         class="fa-sharp fa-solid fa-cart-shopping"></i></button>
     <div id="myModal2" class="modal2">
+      <br>
+      <p class="judul-utama">Masukkan kode atau harga:</p>
+      <div class="content">
+        
+        
+
+        <div id="form-qr">
+            <input type="text"  id="qr-input">
+            <button type="button11" id="qr-btn">Generate</button>
+            <input type="text" id="text-input" name="text-input">
+            <button type="button11" id="generate-button">Generate</button>
+        </div>
+
+    </div><br>
+    <div>
+    <canvas id="qr-panel"></canvas>
+        <canvas id="barcode"></canvas>
+      </div>
+
+    <script>
+        let qrPanel = document.querySelector("#qr-panel");
+        let qrInput = document.querySelector("#qr-input");
+        let qrBtn = document.querySelector("#qr-btn");
+
+        (function () {
+            let qr = new QRious({
+                element: qrPanel,
+                value: "https://riyadsarah.github.io/topi/",
+                size: 300
+            });
+        })();
+
+        // action generate qr
+
+        qrBtn.addEventListener("click", () => {
+            new QRious({
+                element: qrPanel,
+                value: qrInput.value,
+                size: 300
+            });
+        })
+    </script>
+
+
+
+      <br><br>
+
+      
+      <script>
+        var generateButton = document.getElementById("generate-button");
+      var textInput = document.getElementById("text-input");
+      var barcode = document.getElementById("barcode");
+      
+      
+      generateButton.addEventListener("click", function() {
+        var text = textInput.value;
+      
+        if (text) {
+          // Generate barcode
+          JsBarcode(barcode, text, {
+            
+            format: "CODE128",
+            lineColor: "#000",
+            width: 3,
+            height: 100,
+            displayValue: true,
+            fontSize: 0,
+            textAlign: "center"
+          });
+        }
+      });
+     
+      
+      </script>
+
+
+  <br><br><br>
       <p class="judul-utama">Masukkan kode atau harga:</p>
       <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
 
@@ -351,8 +433,9 @@
         }
       </script>
 
-
-      <div> <button type="button1" class="close2"><i class="fas fa-close"></i></button></div>
+<br><br>
+      <div> <button type="button11" class="close2"><i class="fas fa-close"></i></button></div>
+      <br><br><br>
       <script>
         // Get the modal
         // Mencari elemen tombol tutup
@@ -3111,8 +3194,12 @@ document.getElementById("hasil").innerHTML = hasil;
 }
     </script>
 
-
     <br><br><br>
+
+    
+    
+
+    <br><br>
 
     <footer id="footerSection">
       <div class="container">
