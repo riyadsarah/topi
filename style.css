@@ -1531,6 +1531,39 @@ canvas {
   margin-top: 20px;
 }
 
+/* Style untuk layar HP */
+@media screen and (max-width: 480px) {
+  .container-b {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.title-container {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  border-bottom: 2px solid #ccc;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 5s linear infinite;
+}
+
+.input-container-a {
+  margin-bottom: 20px;
+}
+
+.output-container {
+  text-align: center;
+  margin-top: 20px;
+}
 
 
 
