@@ -352,7 +352,7 @@
     
       <div class="container-b">
         <div class="title-container">
-          <h1 class="title">Generate ke Barcode <i class="fa-solid fa-barcode"></i> & QRious <i class="fa-solid fa-qrcode"></i> </h1>
+          <h1 class="title">Teks ke Barcode <i class="fa-solid fa-barcode"></i> & QRious <i class="fa-solid fa-qrcode"></i> </h1>
         </div>
         <div id="form-barcode">
           <input type="text" id="barcode-input" placeholder="Masukan brand kamu">
@@ -389,12 +389,12 @@
               lineColor: "#000", // warna garis
               background: "#FFFFFF", // warna background
               margin: 10, // margin antara barcode dan border
-              height: 100, // tinggi barcode
+              height: 30, // tinggi barcode
               displayValue: true, // menampilkan nilai barcode di bawahnya
               fontOptions: "bold", // opsi font
               font: "monospace", // jenis font
               fontSize: 0, // ukuran font
-              textMargin: 6 // margin antara nilai barcode dan barcode
+             
             });
 
             // Generate barcode 2
@@ -403,7 +403,7 @@ new QRious({
   value: text,
   size: 200,
   background: 'transparent', // warna background
-  foreground: 'red', // warna QR code
+  foreground: 'black', // warna QR code
 }).toCanvas(barcode2, { 
   errorCorrectionLevel: 'M', 
   margin: 200,

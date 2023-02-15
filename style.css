@@ -1502,41 +1502,9 @@ canvas {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
-.title-container {
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 10px 0;
-  border-bottom: 2px solid #ccc;
-}
-
-.title {
-  color: #ffffff;
-  font-size: 24px;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: marquee 5s linear infinite;
-}
-
-
-.input-container-a {
-  margin-bottom: 20px;
-}
-
-
-
-.output-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* Style untuk layar HP */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 767px) {
   .container-b {
-    width: 100%;
-    padding: 10px;
-    margin: 20px;
+    width: 90%;
   }
 }
 
@@ -1556,7 +1524,16 @@ canvas {
   overflow: hidden;
   animation: marquee 5s linear infinite;
 }
+@media only screen and (max-width: 768px) {
+  .title-container {
+    padding: 5px 0;
+    margin-bottom: 10px;
+  }
 
+  .title {
+    font-size: 20px;
+  }
+} 
 .input-container-a {
   margin-bottom: 20px;
 }
@@ -1565,9 +1542,3 @@ canvas {
   text-align: center;
   margin-top: 20px;
 }
-
-
-
-
-
-
