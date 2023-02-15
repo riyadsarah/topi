@@ -1482,6 +1482,15 @@ button:hover {
 
 
 
+canvas {
+  background-color: #ffffff;
+  padding: 20px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
 
 
 

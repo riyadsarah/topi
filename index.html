@@ -16,9 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-  
-	<script src="https://cdn.jsdelivr.net/g/filesaver.js"></script>
-	<script src="https://cdn.jsdelivr.net/g/canvas-toBlob.js"></script>
+
   <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
@@ -168,17 +166,18 @@
 
   <div class="container">
 
-   
-    <button type="button11" id="myBtn3"><i class="fa-solid fa-calculator"></i> <i class="fa-solid fa-superscript"></i></button>
+
+    <button type="button11" id="myBtn3"><i class="fa-solid fa-calculator"></i> <i
+        class="fa-solid fa-superscript"></i></button>
     <div id="myModal3" class="modal3">
 
       <p class="judul-utama">Modifikasi teks </p>
       <form onsubmit="modifikasiTeks(); return false;">
         <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
-       
-        
-        
-  
+
+
+
+
         <br>
         <select id="mode-select">
           <option value="mode-1">1 kalimat-1 paragraphs</option>
@@ -189,35 +188,35 @@
           <option value="mode-6">Spasi jadi asiiiap</option>
           <option value="mode-8">Hurup terakir jadi 10 </option>
           <option value="mode-5">Teks menjadi Surat</option>
-          <option value="mode-9">Gabungkan semua </option>  
+          <option value="mode-9">Gabungkan semua </option>
         </select><br>
-        <div id="address-input" >
-          <p id="deskripsiProduk" >Alamat hanya untuk Teks menjadi surat</p>
+        <div id="address-input">
+          <p id="deskripsiProduk">Alamat hanya untuk Teks menjadi surat</p>
           <input id="input-address" type="text" placeholder="Masukkan alamat...">
-         
+
         </div><br><br>
-       
+
         <div>
           <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
           <button type="button11" type="submit">Modifikasi</button>
         </div>
         <div>
           <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
-          <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button> 
+          <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button>
         </div>
         <div>
-          <pre id="output-text" ></pre>
+          <pre id="output-text"></pre>
         </div>
       </form><br><br><br>
-  
-  
-  
-  
-      
-    
+
+
+
+
+
+
       <p class="judul-utama">Masukkan kalimat dan pilih huruf vokal untuk mengganti konsonan:</p>
-  
-      <textarea id="kalimat"placeholder="Masukkan teks..."></textarea><br>
+
+      <textarea id="kalimat" placeholder="Masukkan teks..."></textarea><br>
       <select id="pilihan">
         <option value="a">a</option>
         <option value="i">i</option>
@@ -226,12 +225,12 @@
         <option value="o">o</option>
       </select>
       <button type="button11" onclick="gantiKonsonan()">Ganti Konsonan</button>
-      
+
       <pre id="hasil"></pre>
 
 
 
-<br><br><br>
+      <br><br><br>
 
 
       <div>
@@ -344,82 +343,110 @@
         class="fa-sharp fa-solid fa-cart-shopping"></i></button>
     <div id="myModal2" class="modal2">
       <br>
-      <p class="judul-utama">Masukkan kode atau harga:</p>
+      <p class="judul-utama">Rubah teks ke barcode</p>
       <div class="content">
-        
-        
-
-        <div id="form-qr">
-            <input type="text"  id="qr-input">
-            <button type="button11" id="qr-btn">Generate</button>
-            <input type="text" id="text-input" name="text-input">
-            <button type="button11" id="generate-button">Generate</button>
+        <div id="form-barcode">
+          <input type="text" id="barcode-input">
         </div>
 
-    </div><br>
-    <div>
-    <canvas id="qr-panel"></canvas>
-        <canvas id="barcode"></canvas>
-      </div>
+        <button type="button" id="generate-button">Generate</button>
+        <button type="button" id="save-button">Save</button>
+        <button type="button" id="share-button">Share</button>
+      </div><br>
+      <div>
+        <canvas id="barcode1"></canvas>
+        <canvas id="barcode2"></canvas>
+      </div><br>
 
-    <script>
-        let qrPanel = document.querySelector("#qr-panel");
-        let qrInput = document.querySelector("#qr-input");
-        let qrBtn = document.querySelector("#qr-btn");
-
-        (function () {
-            let qr = new QRious({
-                element: qrPanel,
-                value: "https://riyadsarah.github.io/topi/",
-                size: 300
-            });
-        })();
-
-        // action generate qr
-
-        qrBtn.addEventListener("click", () => {
-            new QRious({
-                element: qrPanel,
-                value: qrInput.value,
-                size: 300
-            });
-        })
-    </script>
-
-
-
-      <br><br>
-
-      
       <script>
+        var barcode1 = document.getElementById("barcode1");
+        var barcode2 = document.getElementById("barcode2");
+        var barcodeInput = document.getElementById("barcode-input");
         var generateButton = document.getElementById("generate-button");
-      var textInput = document.getElementById("text-input");
-      var barcode = document.getElementById("barcode");
-      
-      
-      generateButton.addEventListener("click", function() {
-        var text = textInput.value;
-      
-        if (text) {
-          // Generate barcode
-          JsBarcode(barcode, text, {
-            
-            format: "CODE128",
-            lineColor: "#000",
-            width: 3,
-            height: 100,
-            displayValue: true,
-            fontSize: 0,
-            textAlign: "center"
-          });
-        }
-      });
-     
-      
+        var saveButton = document.getElementById("save-button");
+        var shareButton = document.getElementById("share-button");
+
+        generateButton.addEventListener("click", function () {
+          var text = barcodeInput.value;
+
+          if (text) {
+            // Generate barcode 1
+            JsBarcode(barcode1, text, {
+              format: "CODE128",
+              lineColor: "#000", // warna garis
+              background: "#FFFFFF", // warna background
+              margin: 10, // margin antara barcode dan border
+              height: 100, // tinggi barcode
+              displayValue: true, // menampilkan nilai barcode di bawahnya
+              fontOptions: "bold", // opsi font
+              font: "monospace", // jenis font
+              fontSize: 18, // ukuran font
+              textMargin: 6 // margin antara nilai barcode dan barcode
+            });
+
+            // Generate barcode 2
+            new QRious({
+              element: barcode2,
+              value: text,
+              size: 300,
+              background: 'transparent', // warna background
+              foreground: 'black' // warna QR code
+            });
+          }
+        });
+
+        // Save button
+        saveButton.addEventListener("click", function () {
+          var barcode1DataURL = barcode1.toDataURL("image/png");
+          var barcode2DataURL = barcode2.toDataURL("image/png");
+
+          // Create a link for each barcode and download it
+          var link1 = document.createElement("a");
+          link1.href = barcode1DataURL;
+          link1.download = "barcode1.png";
+          document.body.appendChild(link1);
+          link1.click();
+          document.body.removeChild(link1);
+
+          var link2 = document.createElement("a");
+          link2.href = barcode2DataURL;
+          link2.download = "barcode2.png";
+          document.body.appendChild(link2);
+          link2.click();
+          document.body.removeChild(link2);
+        });
+
+        // Share button
+        shareButton.addEventListener("click", function () {
+          var barcode1DataURL = barcode1.toDataURL("image/png");
+          var barcode2DataURL = barcode2.toDataURL("image/png");
+
+          // Share each barcode
+          if (navigator.share) {
+            window.navigator.share({
+              title: "Barcode",
+              text: "Check out these barcodes!",
+              files: [
+                new File([barcode1DataURL], "barcode1.png", {
+                  type: "image/png",
+                }),
+                new File([barcode2DataURL], "barcode2.png", {
+                  type: "image/png",
+                }),
+              ],
+            });
+          } else {
+            var whatsappUrl = "https://api.whatsapp.com/send?text=Check%20out%20these%20barcodes!%0A%0A";
+            var encodedBarcode1DataUrl = encodeURIComponent(barcode1DataURL);
+            var encodedBarcode2DataUrl = encodeURIComponent(barcode2DataURL);
+            var whatsappMessage = whatsappUrl + encodedBarcode1DataUrl + "%0A%0A" + encodedBarcode2DataUrl;
+            window.open(whatsappMessage, "_blank");
+          }
+        });
       </script>
 
 
-  <br><br><br>
+      <br><br><br>
       <p class="judul-utama">Masukkan kode atau harga:</p>
       <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
 
@@ -427,32 +454,8 @@
 
       <br><br>
 
- 
-        <p class="judul-utama">kalkulator diskon strategi</p>
-        <div id="form-qr">
-      
-          <p id="deskripsiProduk">Harga barang kamu:</p>
-          <input type="text" id="harga-setelah-diskon" placeholder="HARGA BARANG">
-        
-          <p id="deskripsiProduk">Diskon (%):</p>
-          <input type="text" id="diskon" placeholder="Tentukan angka diskon">
-          <div>
-      
-          <button type="button11" id="hitung-harga-awal">Hitung Harga Awal</button>
-        </div>
-      </div>
-    
-        <p id="hasil"></p>
-  
-      <script>
-        const hitungHargaAwalBtn = document.getElementById("hitung-harga-awal");
-        hitungHargaAwalBtn.addEventListener("click", function () {
-          const hargaSetelahDiskon = document.getElementById("harga-setelah-diskon").value;
-          const diskon = document.getElementById("diskon").value;
-          const hargaAwal = hargaSetelahDiskon / (1 - diskon / 100);
-          document.getElementById("hasil").innerHTML = "Harga Awal: Rp " + hargaAwal;
-        });
-      </script>
+
+
       <script>
         const kunci = {
           "B": "1",
@@ -525,7 +528,7 @@
         }
       </script>
 
-<br><br>
+      <br><br>
       <div> <button type="button11" class="close2"><i class="fas fa-close"></i></button></div>
       <br><br><br>
       <script>
@@ -2997,12 +3000,12 @@
 
         if (mode === "mode-1") {
           const words = inputText.split(" ");
-let outputText = "*==========*\n";
-for (let i = 0; i < words.length; i++) {
-  outputText += `${i+1}. ${words[i]}\n`;
-}
-outputText += "*==========*";
-document.getElementById("output-text").textContent = outputText;
+          let outputText = "*==========*\n";
+          for (let i = 0; i < words.length; i++) {
+            outputText += `${i+1}. ${words[i]}\n`;
+          }
+          outputText += "*==========*";
+          document.getElementById("output-text").textContent = outputText;
 
         } else if (mode === "mode-2") {
           const paragraphs = inputText.split("\n");
@@ -3071,21 +3074,21 @@ document.getElementById("output-text").textContent = outputText;
         } else if (mode === "mode-5") {
           const inputText = document.getElementById("input-text").value.trim();
 
-// Mendapatkan tanggal dan waktu sekarang
-const inputAddress = document.getElementById("input-address").value.trim();
-const now = new Date();
-const dateTime = now.toLocaleString("en-US", {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-  second: 'numeric',
-  hour12: false
-});
+          // Mendapatkan tanggal dan waktu sekarang
+          const inputAddress = document.getElementById("input-address").value.trim();
+          const now = new Date();
+          const dateTime = now.toLocaleString("en-US", {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: false
+          });
 
-// Membuat format surat
-const letter = `                   
+          // Membuat format surat
+          const letter = `                   
  *SURAT PENTING*
 
 Jalan Raya No. 123, *${inputAddress}*
@@ -3111,8 +3114,8 @@ Direktur Utama
 `;
 
 
-// Menampilkan hasil surat pada elemen output
-document.getElementById("output-text").textContent = letter;
+          // Menampilkan hasil surat pada elemen output
+          document.getElementById("output-text").textContent = letter;
         } else if (mode === "mode-6") {
 
           const inputText = document.getElementById("input-text").value;
@@ -3147,28 +3150,28 @@ document.getElementById("output-text").textContent = letter;
           document.getElementById("output-text").textContent = outputText;
         } else if (mode === "mode-9") {
           const inputText = document.getElementById("input-text").value;
-const lines = inputText.split("\n");
-let outputText = "";
-for (let i = 0; i < lines.length; i++) {
-  const words = lines[i].split(" ");
-  for (let j = 0; j < words.length; j++) {
-    if (words[j] !== "") {
-      if (j % 4 === 0) {
-        outputText += "*" + words[j] + "* ";
-      } else if (j % 4 === 1) {
-        outputText += "_" + words[j] + "_ ";
-      } else if (j % 4 === 2) {
-        outputText += "~" + words[j] + "~ ";
-      } else {
-        outputText += "```" + words[j] + "``` ";
-      }
-    }
-  }
-  if (i !== lines.length - 1) {
-    outputText += "\n";
-  }
-}
-document.getElementById("output-text").textContent = outputText;
+          const lines = inputText.split("\n");
+          let outputText = "";
+          for (let i = 0; i < lines.length; i++) {
+            const words = lines[i].split(" ");
+            for (let j = 0; j < words.length; j++) {
+              if (words[j] !== "") {
+                if (j % 4 === 0) {
+                  outputText += "*" + words[j] + "* ";
+                } else if (j % 4 === 1) {
+                  outputText += "_" + words[j] + "_ ";
+                } else if (j % 4 === 2) {
+                  outputText += "~" + words[j] + "~ ";
+                } else {
+                  outputText += "```" + words[j] + "``` ";
+                }
+              }
+            }
+            if (i !== lines.length - 1) {
+              outputText += "\n";
+            }
+          }
+          document.getElementById("output-text").textContent = outputText;
 
         }
 
@@ -3198,43 +3201,41 @@ document.getElementById("output-text").textContent = outputText;
       }
     </script>
 
-   
+
 
     <script>
-     function gantiKonsonan() {
-var kalimat = document.getElementById("kalimat").value;
-var pilihan = document.getElementById("pilihan").value;
-var konsonan = "";
-if (pilihan == "a") {
-konsonan = "[eioquEIOQU]";
-} else if (pilihan == "i") {
-konsonan = "[aeouAEIOU]";
-} else if (pilihan == "u") {
-konsonan = "[aeioAEIO]";
-} else if (pilihan == "e") {
-konsonan = "[aiouAIOU]";
-} else if (pilihan == "o") {
-konsonan = "[aeiuAEIU]";
-} else {
-alert("Pilihan tidak valid");
-return;
-}
-var pola = new RegExp(konsonan, "g");
-var hasil = kalimat.replace(pola, function(match) {
-if (/[A-Z]/.test(match)) {
-return pilihan.toUpperCase();
-} else {
-return pilihan;
-}
-});
-document.getElementById("hasil").innerHTML = hasil;
-}
+      function gantiKonsonan() {
+        var kalimat = document.getElementById("kalimat").value;
+        var pilihan = document.getElementById("pilihan").value;
+        var konsonan = "";
+        if (pilihan == "a") {
+          konsonan = "[eioquEIOQU]";
+        } else if (pilihan == "i") {
+          konsonan = "[aeouAEIOU]";
+        } else if (pilihan == "u") {
+          konsonan = "[aeioAEIO]";
+        } else if (pilihan == "e") {
+          konsonan = "[aiouAIOU]";
+        } else if (pilihan == "o") {
+          konsonan = "[aeiuAEIU]";
+        } else {
+          alert("Pilihan tidak valid");
+          return;
+        }
+        var pola = new RegExp(konsonan, "g");
+        var hasil = kalimat.replace(pola, function (match) {
+          if (/[A-Z]/.test(match)) {
+            return pilihan.toUpperCase();
+          } else {
+            return pilihan;
+          }
+        });
+        document.getElementById("hasil").innerHTML = hasil;
+      }
     </script>
 
     <br><br><br>
 
-    
-    
 
     <br><br>
 
