@@ -169,8 +169,71 @@
   <div class="container">
 
    
-    <button type="button11" id="myBtn3"><i class="fa-solid fa-dna"></i></button>
+    <button type="button11" id="myBtn3"><i class="fa-solid fa-calculator"></i> <i class="fa-solid fa-superscript"></i></button>
     <div id="myModal3" class="modal3">
+
+      <p class="judul-utama">Modifikasi teks </p>
+      <form onsubmit="modifikasiTeks(); return false;">
+        <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
+       
+        
+        
+  
+        <br>
+        <select id="mode-select">
+          <option value="mode-1">1 kalimat-1 paragraphs</option>
+          <option value="mode-2">Tebal-miring Besar-kecil</option>
+          <option value="mode-3">Tebal-miring</option>
+          <option value="mode-4">Tebal-biasa</option>
+          <option value="mode-7">Besar-kecil</option>
+          <option value="mode-6">Spasi jadi asiiiap</option>
+          <option value="mode-8">Hurup terakir jadi 10 </option>
+          <option value="mode-5">Teks menjadi Surat</option>
+          <option value="mode-9">Gabungkan semua </option>  
+        </select><br>
+        <div id="address-input" >
+          <p id="deskripsiProduk" >Alamat hanya untuk Teks menjadi surat</p>
+          <input id="input-address" type="text" placeholder="Masukkan alamat...">
+         
+        </div><br><br>
+       
+        <div>
+          <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
+          <button type="button11" type="submit">Modifikasi</button>
+        </div>
+        <div>
+          <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button> 
+        </div>
+        <div>
+          <pre id="output-text" ></pre>
+        </div>
+      </form><br><br><br>
+  
+  
+  
+  
+      
+    
+      <p class="judul-utama">Masukkan kalimat dan pilih huruf vokal untuk mengganti konsonan:</p>
+  
+      <textarea id="kalimat"placeholder="Masukkan teks..."></textarea><br>
+      <select id="pilihan">
+        <option value="a">a</option>
+        <option value="i">i</option>
+        <option value="u">u</option>
+        <option value="e">e</option>
+        <option value="o">o</option>
+      </select>
+      <button type="button11" onclick="gantiKonsonan()">Ganti Konsonan</button>
+      
+      <pre id="hasil"></pre>
+
+
+
+<br><br><br>
+
+
       <div>
         <p class="judul-utama"> Rubah kalimat ke underscore</p>
         <p id="deskripsiProduk">( contoh : Hai = _________ __ __________ )</p>
@@ -240,7 +303,7 @@
 
         <br><br>
 
-        <div> <button type="button2" class="close3"><i class="fas fa-close"></i></button></div>
+        <div> <button type="button11" class="close3"><i class="fas fa-close"></i></button></div>
         <br><br>
 
       </div>
@@ -361,6 +424,35 @@
       <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
 
       <p id="outputText"></p>
+
+      <br><br>
+
+ 
+        <p class="judul-utama">kalkulator diskon strategi</p>
+        <div id="form-qr">
+      
+          <p id="deskripsiProduk">Harga barang kamu:</p>
+          <input type="text" id="harga-setelah-diskon" placeholder="HARGA BARANG">
+        
+          <p id="deskripsiProduk">Diskon (%):</p>
+          <input type="text" id="diskon" placeholder="Tentukan angka diskon">
+          <div>
+      
+          <button type="button11" id="hitung-harga-awal">Hitung Harga Awal</button>
+        </div>
+      </div>
+    
+        <p id="hasil"></p>
+  
+      <script>
+        const hitungHargaAwalBtn = document.getElementById("hitung-harga-awal");
+        hitungHargaAwalBtn.addEventListener("click", function () {
+          const hargaSetelahDiskon = document.getElementById("harga-setelah-diskon").value;
+          const diskon = document.getElementById("diskon").value;
+          const hargaAwal = hargaSetelahDiskon / (1 - diskon / 100);
+          document.getElementById("hasil").innerHTML = "Harga Awal: Rp " + hargaAwal;
+        });
+      </script>
       <script>
         const kunci = {
           "B": "1",
@@ -3106,62 +3198,7 @@ document.getElementById("output-text").textContent = outputText;
       }
     </script>
 
-    <p class="judul-utama">Modifikasi teks </p>
-    <form onsubmit="modifikasiTeks(); return false;">
-      <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
-     
-      
-      
-
-      <br>
-      <select id="mode-select">
-        <option value="mode-1">1 kalimat-1 paragraphs</option>
-        <option value="mode-2">Tebal-miring Besar-kecil</option>
-        <option value="mode-3">Tebal-miring</option>
-        <option value="mode-4">Tebal-biasa</option>
-        <option value="mode-7">Besar-kecil</option>
-        <option value="mode-6">Spasi jadi asiiiap</option>
-        <option value="mode-8">Hurup terakir jadi 10 </option>
-        <option value="mode-5">Teks menjadi Surat</option>
-        <option value="mode-9">Gabungkan semua </option>  
-      </select><br>
-      <div id="address-input" >
-        <p id="deskripsiProduk" >Alamat hanya untuk Teks menjadi surat</p>
-        <input id="input-address" type="text" placeholder="Masukkan alamat...">
-       
-      </div><br><br>
-     
-      <div>
-        <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
-        <button type="button11" type="submit">Modifikasi</button>
-      </div>
-      <div>
-        <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
-        <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button> 
-      </div>
-      <div>
-        <pre id="output-text" ></pre>
-      </div>
-    </form>
-
-
-
-
-    
-  
-    <p class="judul-utama">Masukkan kalimat dan pilih huruf vokal untuk mengganti konsonan:</p>
-
-    <textarea id="kalimat"placeholder="Masukkan teks..."></textarea><br>
-    <select id="pilihan">
-      <option value="a">a</option>
-      <option value="i">i</option>
-      <option value="u">u</option>
-      <option value="e">e</option>
-      <option value="o">o</option>
-    </select>
-    <button type="button11" onclick="gantiKonsonan()">Ganti Konsonan</button>
-    
-    <pre id="hasil"></pre>
+   
 
     <script>
      function gantiKonsonan() {
