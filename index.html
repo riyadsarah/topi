@@ -389,7 +389,8 @@
               element: barcode2,
               value: text,
               size: 300,
-              background: 'transparent', // warna background
+             
+              background: 'white', // warna background
               foreground: 'black' // warna QR code
             });
           }
@@ -416,35 +417,26 @@
           document.body.removeChild(link2);
         });
 
-        // Share button
-        shareButton.addEventListener("click", function () {
-          var barcode1DataURL = barcode1.toDataURL("image/png");
-          var barcode2DataURL = barcode2.toDataURL("image/png");
+      // Share button
+      shareButton.addEventListener("click", function () {
+        var barcode1DataURL = barcode1.toDataURL("image/png");
+        var barcode2DataURL = barcode2.toDataURL("image/png");
 
-          // Share each barcode
-          if (navigator.share) {
-            window.navigator.share({
-              title: "Barcode",
-              text: "Check out these barcodes!",
-              files: [
-                new File([barcode1DataURL], "barcode1.png", {
-                  type: "image/png",
-                }),
-                new File([barcode2DataURL], "barcode2.png", {
-                  type: "image/png",
-                }),
-              ],
-            });
-          } else {
-            var whatsappUrl = "https://api.whatsapp.com/send?text=Check%20out%20these%20barcodes!%0A%0A";
-            var encodedBarcode1DataUrl = encodeURIComponent(barcode1DataURL);
-            var encodedBarcode2DataUrl = encodeURIComponent(barcode2DataURL);
-            var whatsappMessage = whatsappUrl + encodedBarcode1DataUrl + "%0A%0A" + encodedBarcode2DataUrl;
-            window.open(whatsappMessage, "_blank");
-          }
+        // Share each barcode
+        window.navigator.share({
+          title: "Barcode",
+          text: "Check out these barcodes!",
+          files: [
+            new File([barcode1DataURL], "barcode1.png", {
+              type: "image/png",
+            }),
+            new File([barcode2DataURL], "barcode2.png", {
+              type: "image/png",
+            }),
+          ],
         });
-      </script>
-
+      });
+    </script>
 
       <br><br><br>
       <p class="judul-utama">Masukkan kode atau harga:</p>
