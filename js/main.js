@@ -79,3 +79,15 @@ $(document).ready(function() {
 
 
 
+html2canvas(document.querySelector("#barcode2")).then(canvas => {
+  // Convert canvas to image
+  var img = canvas.toDataURL("image/png");
+
+  // Create a link and trigger download
+  var link = document.createElement('a');
+  link.download = 'barcode.png';
+  link.href = img;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});

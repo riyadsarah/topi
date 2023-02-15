@@ -19,7 +19,7 @@
 
   <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
-
+ 
 
 </head>
 
@@ -234,8 +234,13 @@
 
 
       <div>
-        <p class="judul-utama"> Rubah kalimat ke underscore</p>
-        <p id="deskripsiProduk">( contoh : Hai = _________ __ __________ )</p>
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Rubah kalimat ke underscore</h1>
+            <p id="deskripsiProduk">( contoh : Hai = _________ __ __________ )</p>
+          </div>
+       
+        
 
         <input type="text" id="word" placeholder="Kalimat ke code" wrap="soft">
         <button type="button11" onclick="convertWordToNumber()"><i class="fa-solid fa-dna"></i></button>
@@ -253,6 +258,7 @@
             <p id="numberToLetterResult"></p>
           </div>
         </div>
+      </div>
 
 
         <br><br><br><br><br><br>
@@ -342,22 +348,29 @@
     <button type="button11" id="myBtn2"><i class="fa-sharp fa-solid fa-calculator"></i> <i
         class="fa-sharp fa-solid fa-cart-shopping"></i></button>
     <div id="myModal2" class="modal2">
-      <br>
-      <p class="judul-utama">Rubah teks ke barcode</p>
-      <div class="content">
+      
+    
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Generate ke Barcode <i class="fa-solid fa-barcode"></i> & QRious <i class="fa-solid fa-qrcode"></i> </h1>
+        </div>
         <div id="form-barcode">
-          <input type="text" id="barcode-input">
+          <input type="text" id="barcode-input" placeholder="Masukan brand kamu">
         </div>
 
-        <button type="button" id="generate-button">Generate</button>
-        <button type="button" id="save-button">Save</button>
-        <button type="button" id="share-button">Share</button>
-      </div><br>
+        <button type="button11" id="generate-button">Generate</button>
+        <button type="button11" id="save-button"><i class="fa-solid fa-download"></i></button>
+        <button type="button11" id="share-button"><i class="fa-solid fa-share-from-square"></i></button>
+      <br>
       <div>
+        
         <canvas id="barcode1"></canvas>
         <canvas id="barcode2"></canvas>
-      </div><br>
+       
+      </div>
+    </div><br>
 
+     
       <script>
         var barcode1 = document.getElementById("barcode1");
         var barcode2 = document.getElementById("barcode2");
@@ -380,21 +393,34 @@
               displayValue: true, // menampilkan nilai barcode di bawahnya
               fontOptions: "bold", // opsi font
               font: "monospace", // jenis font
-              fontSize: 18, // ukuran font
+              fontSize: 0, // ukuran font
               textMargin: 6 // margin antara nilai barcode dan barcode
             });
 
             // Generate barcode 2
-            new QRious({
-              element: barcode2,
-              value: text,
-              size: 300,
-             
-              background: 'white', // warna background
-              foreground: 'black' // warna QR code
-            });
+new QRious({
+  element: barcode2,
+  value: text,
+  size: 200,
+  background: 'transparent', // warna background
+  foreground: 'white', // warna QR code
+}).toCanvas(barcode2, { 
+  errorCorrectionLevel: 'M', 
+  margin: 200,
+  scale: 4
+});
+
+barcode2.style.borderRadius = '20px'; // menambahkan border radius
+
+
+           
+
+
           }
         });
+
+
+
 
         // Save button
         saveButton.addEventListener("click", function () {
@@ -417,33 +443,43 @@
           document.body.removeChild(link2);
         });
 
-      // Share button
-      shareButton.addEventListener("click", function () {
-        var barcode1DataURL = barcode1.toDataURL("image/png");
-        var barcode2DataURL = barcode2.toDataURL("image/png");
+        // Share button
+        shareButton.addEventListener("click", function () {
+          var barcode1DataURL = barcode1.toDataURL("image/png");
+          var barcode2DataURL = barcode2.toDataURL("image/png");
 
-        // Share each barcode
-        window.navigator.share({
-          title: "Barcode",
-          text: "Check out these barcodes!",
-          files: [
-            new File([barcode1DataURL], "barcode1.png", {
-              type: "image/png",
-            }),
-            new File([barcode2DataURL], "barcode2.png", {
-              type: "image/png",
-            }),
-          ],
+          // Share each barcode
+          window.navigator.share({
+            title: "Barcode",
+            text: "Check out these barcodes!",
+            files: [
+              new File([barcode1DataURL], "barcode1.png", {
+                type: "image/png",
+              }),
+              new File([barcode2DataURL], "barcode2.png", {
+                type: "image/png",
+              }),
+            ],
+          });
         });
-      });
-    </script>
+      </script>
 
       <br><br><br>
-      <p class="judul-utama">Masukkan kode atau harga:</p>
-      <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Masukkan kode atau harga</h1>
+        </div>
+        <div class="input-container-a">
+          <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
+        </div>
+        <div class="output-container">
+          <p id="outputText"></p>
+        </div>
+      </div>
+      
 
-      <p id="outputText"></p>
-
+   
+      
       <br><br>
 
 
