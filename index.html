@@ -19,6 +19,7 @@
 
   <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  
 
 
 </head>
@@ -411,6 +412,7 @@
 
           <canvas id="barcode1"></canvas>
           <canvas id="barcode2"></canvas>
+         
 
         </div>
       </div><br>
@@ -418,6 +420,7 @@
       <script>
         var barcode1 = document.getElementById("barcode1");
         var barcode2 = document.getElementById("barcode2");
+       
         var barcodeInput = document.getElementById("barcode-input");
         var generateButton = document.getElementById("generate-button");
         var saveButton = document.getElementById("save-button");
@@ -450,9 +453,11 @@
               foreground: 'black', // warna QR code
             }).toCanvas(barcode2, {
               errorCorrectionLevel: 'M',
-              margin: 200,
+              margin: 400,
               scale: 4
             });
+
+
 
             barcode2.style.borderRadius = '20px'; // menambahkan border radius
           }
@@ -481,25 +486,26 @@
           document.body.removeChild(link2);
         });
 
-        // Share button
-        shareButton.addEventListener("click", function () {
-          var barcode1DataURL = barcode1.toDataURL("image/png");
-          var barcode2DataURL = barcode2.toDataURL("image/png");
+    // Share button
+shareButton.addEventListener("click", function () {
+  var barcode1DataURL = barcode1.toDataURL("image/jpeg", 0.8); // ubah ke format JPG dan sesuaikan kualitas
+  var barcode2DataURL = barcode2.toDataURL("image/jpeg", 0.8);
 
-          // Share each barcode
-          window.navigator.share({
-            title: "Barcode",
-            text: "Check out these barcodes!",
-            files: [
-              new File([barcode1DataURL], "barcode1.png", {
-                type: "image/png",
-              }),
-              new File([barcode2DataURL], "barcode2.png", {
-                type: "image/png",
-              }),
-            ],
-          });
-        });
+  // Share each barcode
+  window.navigator.share({
+    title: "Barcode",
+    text: "Check out these barcodes!",
+    files: [
+      new File([barcode1DataURL], "barcode1.jpg", { // ubah nama file dan tipe file menjadi JPG
+        type: "image/jpeg",
+      }),
+      new File([barcode2DataURL], "barcode2.jpg", {
+        type: "image/jpeg",
+      }),
+    ],
+  });
+});
+
 
         function resetRiwayat1() {
           document.getElementById("barcode-input").value = "";
@@ -3333,8 +3339,10 @@ Direktur Utama
 
 
     <br><br><br>
-
-
+    <script>
+      // Menentukan konfigurasi barcode Aztec
+     
+    </script>
     <br><br>
 
     <footer id="footerSection">
@@ -3408,6 +3416,9 @@ Direktur Utama
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
   <script src="js/main.js"></script>
+ 
+
+
 </body>
 
 </html>

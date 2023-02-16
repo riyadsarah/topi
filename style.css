@@ -1482,12 +1482,12 @@ button:hover {
 
 
 
-canvas {
+#barcode1 {
   
   padding: 20px;
   display: block;
   margin: 0 auto;
-  width: 60%;
+  width: 50%;
 
   height: auto;
   margin-top: 20px;
@@ -1574,7 +1574,7 @@ select {
 
 .close3 {
   position: fixed;
-  top: 94%;
+  top: 95%;
   right: 0;
   transform: translateY(-50%);
   border-radius: 50%;
@@ -1586,14 +1586,11 @@ select {
 
 button[type="button10"] {
   
-  color: rgba(255, 244, 244, 0.516);
+  color: rgba(142, 37, 37, 0.292);
  background-color: #00000000;
  font-size: 40px;
  
   border: none;
   border-radius: 50px;
   cursor: pointer;
-}
-button[type="button10"] {
-  margin: 5px;
 }
