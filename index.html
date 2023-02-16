@@ -175,44 +175,34 @@
           <h1 class="title">Modifikasi teks</h1>
         </div>
         <form onsubmit="modifikasiTeks(); return false;">
-          <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
-
-
-
-
-
-<div>
-          <select id="mode-select">
-            <option value="mode-1">1 kalimat-1 paragraphs</option>
-            <option value="mode-2">Tebal-miring Besar-kecil</option>
-            <option value="mode-3">Tebal-miring</option>
-            <option value="mode-4">Tebal-biasa</option>
-            <option value="mode-7">Besar-kecil</option>
-            <option value="mode-6">Spasi jadi asiiiap</option>
-            <option value="mode-8">Hurup terakir jadi 10 </option>
-            <option value="mode-5">Teks menjadi Surat</option>
-            <option value="mode-9">Gabungkan semua </option>
-          </select>
-        </div><br>
-        <div class="container-b">
-          <div id="address-input">
-            <p id="deskripsiProduk">Alamat hanya untuk Teks menjadi surat</p>
-            <input id="input-address" type="text" placeholder="Masukkan alamat...">
-
-          </div>
-        </div><br><br>
-
+          <textarea id="input-text" placeholder="Masukkan teks..."></textarea><br>
           <div>
-            
+            <select id="mode-select">
+              <option value="mode-1">1 kalimat-1 paragraphs</option>
+              <option value="mode-2">Tebal-miring Besar-kecil</option>
+              <option value="mode-3">Tebal-miring</option>
+              <option value="mode-4">Tebal-biasa</option>
+              <option value="mode-7">Besar-kecil</option>
+              <option value="mode-6">Spasi jadi asiiiap</option>
+              <option value="mode-8">Hurup terakir jadi 10 </option>
+              <option value="mode-5">Teks menjadi Surat</option>
+              <option value="mode-9">Gabungkan semua </option>
+            </select>
+          </div><br>
+          <div>
             <button type="button11" type="submit">Modifikasi</button>
           </div>
           <div>
-            <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
+            <button type="button11" onclick="reloadwae()"><i class="fas fa-undo"></i></button>
             <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
             <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button>
           </div>
-          <div>
-            <pre  id="output-text"></pre>
+       
+            <pre id="output-text"></pre>
+        
+          <div id="address-input">
+            <p id="deskripsiProduk">Alamat hanya untuk Teks menjadi surat</p>
+            <input id="input-address" type="text" placeholder="Masukkan alamat...">
           </div>
         </form>
       </div><br><br><br>
@@ -226,20 +216,20 @@
         <div class="title-container">
           <h1 class="title">Rubah hurup vokal</h1>
         </div><br>
+        <div>
+          <textarea id="kalimat" placeholder="Masukkan teks..."></textarea><br>
 
-        <textarea id="kalimat" placeholder="Masukkan teks..."></textarea><br>
+          <select id="pilihan">
+            <option value="a">a</option>
+            <option value="i">i</option>
+            <option value="u">u</option>
+            <option value="e">e</option>
+            <option value="o">o</option>
+          </select>
+        </div><br>
         <div>
-        <select id="pilihan">
-          <option value="a">a</option>
-          <option value="i">i</option>
-          <option value="u">u</option>
-          <option value="e">e</option>
-          <option value="o">o</option>
-        </select>
-      </div><br>
-        <div>
-         
-         
+
+
           <button type="button11" onclick="gantiKonsonan()">Ganti Konsonan</button>
         </div>
 
@@ -248,7 +238,7 @@
           <button type="button11" onclick="salinTeks2()"><i class="fa fa-copy"></i></button>
           <button type="button11" onclick="bagikanTeks2()"><i class="fa fa-share"></i></button>
         </div>
-        <pre  id="hasil"></pre>
+        <pre id="hasil"></pre>
 
       </div>
 
@@ -257,114 +247,114 @@
       <br><br><br>
 
 
-   
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Rubah kalimat ke underscore</h1>
-           
-          </div><br>
-          <textarea type="text" id="word" placeholder="Masukan kalimat" wrap="soft"></textarea>
-          <div>
-            
+
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Rubah kalimat ke underscore</h1>
+
+        </div><br>
+        <textarea type="text" id="word" placeholder="Masukan kalimat" wrap="soft"></textarea>
+        <div>
+
           <button type="button11" onclick="convertWordToNumber()">Rubah <i class="fa-solid fa-dna"></i></button>
         </div>
-          <div>
-            <button type="button11" id="reset1"> <i class="fas fa-undo"></i></button>
-            <button type="button11" onclick="salinTeks1()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks1()"><i class="fa fa-share"></i></button>
-          </div>
-          <p id="wordToNumberResult"></p>
-          <br><br><br>
-          <div class="title-container">
-            <h1 class="title">Artikan underscore ke kalimat </h1>
-          </div>
-          <input type="text" id="number" placeholder="Tempel (artikan code)"></input>
-          <br>
-          <pre id="numberToLetterResult"></pre>
+        <div>
+          <button type="button11" id="reset1"> <i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks1()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks1()"><i class="fa fa-share"></i></button>
         </div>
+        <p id="wordToNumberResult"></p>
+        <br><br><br>
+        <div class="title-container">
+          <h1 class="title">Artikan underscore ke kalimat </h1>
+        </div>
+        <input type="text" id="number" placeholder="Tempel (artikan code)"></input>
+        <br>
+        <pre id="numberToLetterResult"></pre>
+      </div>
 
 
-        <br><br><br><br><br><br>
+      <br><br><br><br><br><br>
 
 
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Rubah kalimat ke code acak</h1>
-           
-          </div><br>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Rubah kalimat ke code acak</h1>
+
+        </div><br>
 
 
-          <textarea type="text" id="word1" placeholder="Kalimat ke code" wrap="soft"></textarea>
-          <div>
+        <textarea type="text" id="word1" placeholder="Kalimat ke code" wrap="soft"></textarea>
+        <div>
 
           <button type="button11" onclick="convertWordToNumber1()"><i class="fa-solid fa-dna"></i></button>
-          
+
         </div>
         <div>
           <button type="button11" id="reset11"> <i class="fas fa-undo"></i></button>
           <button type="button11" onclick="salinTeks4()"><i class="fa fa-copy"></i></button>
           <button type="button11" onclick="bagikanTeks4()"><i class="fa fa-share"></i></button>
         </div><br>
-      
-              <p id="wordToNumberResult1"></p>
-              <br><br><br>
 
-              <div class="title-container">
-                <h1 class="title">Artikan code acak ke kalimat </h1>
-              </div>
-            
-          <input type="text" id="number1" placeholder="Tempel (artikan code)"><br>
-          
-          <div>
-              <pre id="numberToLetterResult1"></pre>
-            </div>
-          
+        <p id="wordToNumberResult1"></p>
+        <br><br><br>
+
+        <div class="title-container">
+          <h1 class="title">Artikan code acak ke kalimat </h1>
         </div>
-           
 
-        <br><br><br><br><br><br>
+        <input type="text" id="number1" placeholder="Tempel (artikan code)"><br>
 
+        <div>
+          <pre id="numberToLetterResult1"></pre>
+        </div>
 
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Rubah kamlimat ke angka</h1>
-            
-          </div><br>
+      </div>
 
 
-          <textarea type="text" id="word2" placeholder="Kalimat ke code" wrap="soft"></textarea>
-          <div>
+      <br><br><br><br><br><br>
+
+
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Rubah kamlimat ke angka</h1>
+
+        </div><br>
+
+
+        <textarea type="text" id="word2" placeholder="Kalimat ke code" wrap="soft"></textarea>
+        <div>
 
           <button type="button11" onclick="convertWordToNumber2()"><i class="fa-solid fa-dna"></i></button>
-          
+
         </div>
         <div>
           <button type="button11" id="reset12"> <i class="fas fa-undo"></i></button>
           <button type="button11" onclick="salinTeks3()"><i class="fa fa-copy"></i></button>
           <button type="button11" onclick="bagikanTeks3()"><i class="fa fa-share"></i></button>
         </div><br>
-      
-              <p id="wordToNumberResult2"></p>
-              <br><br><br>
 
-              <div class="title-container">
-                <h1 class="title">Artikan angka ke kalimat </h1>
-              </div>
-            
-          <input type="text" id="number2" placeholder="Tempel (artikan code)"><br>
-          
-          <div>
-              <pre id="numberToLetterResult2"></pre>
-            </div>
-          
+        <p id="wordToNumberResult2"></p>
+        <br><br><br>
+
+        <div class="title-container">
+          <h1 class="title">Artikan angka ke kalimat </h1>
         </div>
 
-        <br><br>
+        <input type="text" id="number2" placeholder="Tempel (artikan code)"><br>
 
-        <div> <button type="button11" class="close3"><i class="fas fa-close"></i></button></div>
-        <br><br>
+        <div>
+          <pre id="numberToLetterResult2"></pre>
+        </div>
 
-  
+      </div>
+
+      <br><br>
+
+      <div> <button type="button10" class="close3"><i class="fa-solid fa-circle-xmark"></i></button></div>
+      <br><br>
+
+
 
 
 
@@ -652,7 +642,7 @@
           <h1 class="title">Masukkan kode atau harga</h1>
         </div>
         <p id="result"></p>
-        <form id="form">
+        <form id="form34">
 
 
           <p id="deskripsiProduk">Jumlah batang roko/Hari</p>
@@ -2417,7 +2407,7 @@
         let wordToNumberResult = document.querySelector("#wordToNumberResult");
         wordToNumberResult.innerHTML = result;
 
-        
+
 
         wordToNumberResult.insertBefore(copyIcon, wordToNumberResult.firstChild);
       }
@@ -2658,7 +2648,7 @@
         let wordToNumberResult1 = document.querySelector("#wordToNumberResult1");
         wordToNumberResult1.innerHTML = result;
 
-       
+
 
         wordToNumberResult1.insertBefore(copyIcon, wordToNumberResult1.firstChild);
       }
@@ -2795,7 +2785,7 @@
         document.querySelector("#numberToLetterResult1").textContent = "";
       });
 
-    
+
 
       document.getElementById("number1").addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
@@ -2804,25 +2794,25 @@
       });
     </script>
 
-<script>
-  function salinTeks4() {
-    const wordToNumberResult1 = document.getElementById("wordToNumberResult1");
-    const range = document.createRange();
-    range.selectNode(wordToNumberResult1);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("copy");
-    navigator.vibrate(100); // Menambahkan getar selama 100ms
-  }
+    <script>
+      function salinTeks4() {
+        const wordToNumberResult1 = document.getElementById("wordToNumberResult1");
+        const range = document.createRange();
+        range.selectNode(wordToNumberResult1);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+      }
 
-  function bagikanTeks4() {
-    const wordToNumberResult1 = document.getElementById("wordToNumberResult1").textContent;
-    const encodedText = encodeURIComponent(wordToNumberResult1);
-    const shareUrl = `whatsapp://send?text=${encodedText}`;
-    window.location.href = shareUrl;
-  }
-</script>
+      function bagikanTeks4() {
+        const wordToNumberResult1 = document.getElementById("wordToNumberResult1").textContent;
+        const encodedText = encodeURIComponent(wordToNumberResult1);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
 
     <script>
@@ -2900,7 +2890,7 @@
         let wordToNumberResult2 = document.querySelector("#wordToNumberResult2");
         wordToNumberResult2.innerHTML = result;
 
-        
+
         wordToNumberResult2.insertBefore(copyIcon, wordToNumberResult2.firstChild);
       }
 
@@ -3249,8 +3239,17 @@ Direktur Utama
         }
 
 
-        // Dan seterusnya untuk semua mode
+        // Dan seterusnya untuk semua mode 
       }
+      function reloadwae() {
+  document.getElementById("input-text").value = "";
+  document.getElementById("input-address").value = "";
+  
+  document.getElementById("mode-select").selectedIndex = 0;
+  document.getElementById("output-text").innerHTML = "";
+}
+
+
     </script>
 
 
@@ -3331,7 +3330,7 @@ Direktur Utama
         window.location.href = shareUrl;
       }
     </script>
-    
+
 
     <br><br><br>
 
