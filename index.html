@@ -19,7 +19,7 @@
 
   <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
- 
+
 
 </head>
 
@@ -167,173 +167,199 @@
   <div class="container">
 
 
-    <button type="button11" id="myBtn3"><i class="fa-solid fa-calculator"></i> <i
-        class="fa-solid fa-superscript"></i></button>
+    <button type="button11" id="myBtn3"><i class="fa-solid fa-calculator"></i> <i class="fa-solid fa-font"></i></button>
     <div id="myModal3" class="modal3">
 
       <div class="container-b">
         <div class="title-container">
-          <h1 class="title">Masukkan kode atau harga</h1>
+          <h1 class="title">Modifikasi teks</h1>
         </div>
-      <form onsubmit="modifikasiTeks(); return false;">
-        <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
+        <div onsubmit="modifikasiTeks(); return false;">
+          <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
 
 
 
 
-        <br>
 
-        <select id="mode-select">
-          <option value="mode-1">1 kalimat-1 paragraphs</option>
-          <option value="mode-2">Tebal-miring Besar-kecil</option>
-          <option value="mode-3">Tebal-miring</option>
-          <option value="mode-4">Tebal-biasa</option>
-          <option value="mode-7">Besar-kecil</option>
-          <option value="mode-6">Spasi jadi asiiiap</option>
-          <option value="mode-8">Hurup terakir jadi 10 </option>
-          <option value="mode-5">Teks menjadi Surat</option>
-          <option value="mode-9">Gabungkan semua </option>
+
+          <select id="mode-select">
+            <option value="mode-1">1 kalimat-1 paragraphs</option>
+            <option value="mode-2">Tebal-miring Besar-kecil</option>
+            <option value="mode-3">Tebal-miring</option>
+            <option value="mode-4">Tebal-biasa</option>
+            <option value="mode-7">Besar-kecil</option>
+            <option value="mode-6">Spasi jadi asiiiap</option>
+            <option value="mode-8">Hurup terakir jadi 10 </option>
+            <option value="mode-5">Teks menjadi Surat</option>
+            <option value="mode-9">Gabungkan semua </option>
+          </select><br>
+          <div id="address-input">
+            <p id="deskripsiProduk">Alamat hanya untuk Teks menjadi surat</p>
+            <input id="input-address" type="text" placeholder="Masukkan alamat...">
+
+          </div><br><br>
+
+          <div>
+            
+            <button type="button11" type="submit">Modifikasi</button>
+          </div>
+          <div>
+            <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
+            <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
+            <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button>
+          </div>
+          <div>
+            <pre  id="output-text"></pre>
+          </div>
+        </div>
+      </div><br><br><br>
+
+
+
+
+
+
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Rubah hurup vokal</h1>
+        </div><br>
+
+        <textarea id="kalimat" placeholder="Masukkan teks..."></textarea><br>
+        <select id="pilihan">
+          <option value="a">a</option>
+          <option value="i">i</option>
+          <option value="u">u</option>
+          <option value="e">e</option>
+          <option value="o">o</option>
         </select><br>
-        <div id="address-input">
-          <p id="deskripsiProduk">Alamat hanya untuk Teks menjadi surat</p>
-          <input id="input-address" type="text" placeholder="Masukkan alamat...">
-
-        </div><br><br>
+        <div>
+         
+         
+          <button type="button11" onclick="gantiKonsonan()">Ganti Konsonan</button>
+        </div>
 
         <div>
-          <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
-          <button type="button11" type="submit">Modifikasi</button>
+          <button type="button11" onclick="resetvokal()"><i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks2()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks2()"><i class="fa fa-share"></i></button>
         </div>
-        <div>
-          <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
-          <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button>
-        </div>
-        <div>
-          <pre id="output-text"></pre>
-        </div>
-      </form>
-    </div><br><br><br>
+        <pre  id="hasil"></pre>
 
-
-
-
-
-
-    <div class="container-b">
-      <div class="title-container">
-        <h1 class="title">Masukkan kode atau harga</h1>
       </div>
-
-      <textarea id="kalimat" placeholder="Masukkan teks..."></textarea><br>
-      <select id="pilihan">
-        <option value="a">a</option>
-        <option value="i">i</option>
-        <option value="u">u</option>
-        <option value="e">e</option>
-        <option value="o">o</option>
-      </select>
-      <button type="button11" onclick="gantiKonsonan()">Ganti Konsonan</button>
-
-      <pre id="hasil"></pre>
-    </div>
 
 
 
       <br><br><br>
 
 
-      <div>
+   
         <div class="container-b">
           <div class="title-container">
             <h1 class="title">Rubah kalimat ke underscore</h1>
-            <p id="deskripsiProduk">( contoh : Hai = _________ __ __________ )</p>
-          </div>
-       
-       
-
-        <textarea type="text" id="word" placeholder="Masukan kalimat" wrap="soft"></textarea>
-        <button type="button11" onclick="convertWordToNumber()">Rubah <i class="fa-solid fa-dna"></i></button>
-        <button type="button11" id="reset1"> <i class="fas fa-undo"></i></button>
-
-     
-            <p id="wordToNumberResult"></p>
-            <div>
-              <button type="button11" onclick="salinTeks1()"><i class="fa fa-copy"></i></button>
-              <button type="button11" onclick="bagikanTeks1()"><i class="fa fa-share"></i></button>
-            </div><br><br><br>
-
-            <div class="title-container">
-              <h1 class="title">Artikan underscore ke kalimat  </h1>
-              
-            </div>
-          
-        <input type="text" id="number" placeholder="Tempel (artikan code)"></input>
-        
-
-    <br>
-            <pre id="numberToLetterResult"></pre>
-       
-      </div>
-
-
-        <br><br><br><br><br><br>
-
-   
-          <div class="container-b">
-            <div class="title-container">
-              <h1 class="title">Masukkan kode atau harga</h1>
-            </div>
-          <p id="deskripsiProduk"> ( contoh : Hai = 6769&^&^&^&^& 6786^%^&&() rey@hck&^&*^ )</p>
-
-          <input type="text" id="word1" placeholder="Kalimat ke code" wrap="soft">
-          <button type="button11" onclick="convertWordToNumber1()"><i class="fa-solid fa-dna"></i></button>
-     
-        <div class="card-description">
-          <div id="product">
-            <p id="wordToNumberResult1"></p>
-          </div>
+           
+          </div><br>
+          <textarea type="text" id="word" placeholder="Masukan kalimat" wrap="soft"></textarea>
+          <div>
+            
+          <button type="button11" onclick="convertWordToNumber()">Rubah <i class="fa-solid fa-dna"></i></button>
         </div>
-        <input type="text" id="number1" placeholder="Tempel (artikan code)">
-        <button type="button11" id="reset11"> <i class="fas fa-undo"></i></button>
-        <div class="card-description">
-          <div id="product">
-            <p id="numberToLetterResult1"></p>
+          <div>
+            <button type="button11" id="reset1"> <i class="fas fa-undo"></i></button>
+            <button type="button11" onclick="salinTeks1()"><i class="fa fa-copy"></i></button>
+            <button type="button11" onclick="bagikanTeks1()"><i class="fa fa-share"></i></button>
           </div>
+          <p id="wordToNumberResult"></p>
+          <br><br><br>
+          <div class="title-container">
+            <h1 class="title">Artikan underscore ke kalimat </h1>
+          </div>
+          <input type="text" id="number" placeholder="Tempel (artikan code)"></input>
+          <br>
+          <pre id="numberToLetterResult"></pre>
         </div>
-      </div>
+
 
         <br><br><br><br><br><br>
 
 
         <div class="container-b">
           <div class="title-container">
-            <h1 class="title">Masukkan kode atau harga</h1>
-          </div>
-          <p id="deskripsiProduk"> ( contoh : Hai = 8 1 9 )</p>
+            <h1 class="title">Rubah kamlimat ke angka</h1>
+           
+          </div><br>
 
-          <input type="text" id="word2" placeholder="Kalimat ke code" wrap="soft">
+
+          <textarea type="text" id="word1" placeholder="Kalimat ke code" wrap="soft"></textarea>
+          <div>
+
+          <button type="button11" onclick="convertWordToNumber1()"><i class="fa-solid fa-dna"></i></button>
+          
+        </div>
+        <div>
+          <button type="button11" id="reset11"> <i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks4()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks4()"><i class="fa fa-share"></i></button>
+        </div><br>
+      
+              <p id="wordToNumberResult1"></p>
+              <br><br><br>
+
+              <div class="title-container">
+                <h1 class="title">Artikan code acak ke kalimat </h1>
+              </div>
+            
+          <input type="text" id="number1" placeholder="Tempel (artikan code)"><br>
+          
+          <div>
+              <pre id="numberToLetterResult1"></pre>
+            </div>
+          
+        </div>
+           
+
+        <br><br><br><br><br><br>
+
+
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Rubah kamlimat ke angka</h1>
+            
+          </div><br>
+
+
+          <textarea type="text" id="word2" placeholder="Kalimat ke code" wrap="soft"></textarea>
+          <div>
+
           <button type="button11" onclick="convertWordToNumber2()"><i class="fa-solid fa-dna"></i></button>
-   
-        <div class="card-description">
-          <div id="product">
-            <pre id="wordToNumberResult2"></pre>
-          </div>
+          
         </div>
-        <input type="text" id="number2" placeholder="Tempel (artikan code)">
-        <button type="button11" id="reset12"> <i class="fas fa-undo"></i></button>
-        <div class="card-description">
-          <div id="product">
-            <p id="numberToLetterResult2"></p>
-          </div>
+        <div>
+          <button type="button11" id="reset12"> <i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks3()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks3()"><i class="fa fa-share"></i></button>
+        </div><br>
+      
+              <p id="wordToNumberResult2"></p>
+              <br><br><br>
+
+              <div class="title-container">
+                <h1 class="title">Artikan underscore ke kalimat </h1>
+              </div>
+            
+          <input type="text" id="number2" placeholder="Tempel (artikan code)"><br>
+          
+          <div>
+              <pre id="numberToLetterResult2"></pre>
+            </div>
+          
         </div>
-      </div>
 
         <br><br>
 
         <div> <button type="button11" class="close3"><i class="fas fa-close"></i></button></div>
         <br><br>
 
-      </div>
+  
 
 
 
@@ -370,11 +396,12 @@
     <button type="button11" id="myBtn2"><i class="fa-sharp fa-solid fa-calculator"></i> <i
         class="fa-sharp fa-solid fa-cart-shopping"></i></button>
     <div id="myModal2" class="modal2">
-      
-    
+
+
       <div class="container-b">
         <div class="title-container">
-          <h1 class="title">Teks ke Barcode <i class="fa-solid fa-barcode"></i> & QRious <i class="fa-solid fa-qrcode"></i> </h1>
+          <h1 class="title">Teks ke Barcode <i class="fa-solid fa-barcode"></i> & QRious <i
+              class="fa-solid fa-qrcode"></i> </h1>
         </div>
         <div id="form-barcode">
           <textarea type="text" id="barcode-input" placeholder="Masukan brand kamu"></textarea>
@@ -384,112 +411,111 @@
         <button type="button11" onclick="resetRiwayat1()"><i class="fas fa-undo"></i></button>
         <button type="button11" id="save-button"><i class="fa-solid fa-download"></i></button>
         <button type="button11" id="share-button"><i class="fa-solid fa-share-from-square"></i></button>
-      <br>
-      <div>
-        
-        <canvas id="barcode1"></canvas>
-        <canvas id="barcode2"></canvas>
-       
-      </div>
-    </div><br>
+        <br>
+        <div>
 
-    <script>
-      var barcode1 = document.getElementById("barcode1");
-      var barcode2 = document.getElementById("barcode2");
-      var barcodeInput = document.getElementById("barcode-input");
-      var generateButton = document.getElementById("generate-button");
-      var saveButton = document.getElementById("save-button");
-      var shareButton = document.getElementById("share-button");
-    
-      function generateBarcode() {
-        var text = barcodeInput.value;
-    
-        if (text) {
-          // Generate barcode 1
-          JsBarcode(barcode1, text, {
-            format: "CODE128",
-            lineColor: "#000", // warna garis
-            background: "#FFFFFF", // warna background
-            margin: 10, // margin antara barcode dan border
-            height: 150, // tinggi barcode
-            
-            displayValue: true, // menampilkan nilai barcode di bawahnya
-            fontOptions: "bold", // opsi font
-            font: "monospace", // jenis font
-            fontSize: 0, // ukuran font
-          });
-    
-          // Generate barcode 2
-          new QRious({
-            element: barcode2,
-            value: text,
-            size: 200,
-            background: 'transparent', // warna background
-            foreground: 'black', // warna QR code
-          }).toCanvas(barcode2, {
-            errorCorrectionLevel: 'M',
-            margin: 200,
-            scale: 4
-          });
-    
-          barcode2.style.borderRadius = '20px'; // menambahkan border radius
+          <canvas id="barcode1"></canvas>
+          <canvas id="barcode2"></canvas>
+
+        </div>
+      </div><br>
+
+      <script>
+        var barcode1 = document.getElementById("barcode1");
+        var barcode2 = document.getElementById("barcode2");
+        var barcodeInput = document.getElementById("barcode-input");
+        var generateButton = document.getElementById("generate-button");
+        var saveButton = document.getElementById("save-button");
+        var shareButton = document.getElementById("share-button");
+
+        function generateBarcode() {
+          var text = barcodeInput.value;
+
+          if (text) {
+            // Generate barcode 1
+            JsBarcode(barcode1, text, {
+              format: "CODE128",
+              lineColor: "#000", // warna garis
+              background: "#FFFFFF", // warna background
+              margin: 10, // margin antara barcode dan border
+              height: 150, // tinggi barcode
+
+              displayValue: true, // menampilkan nilai barcode di bawahnya
+              fontOptions: "bold", // opsi font
+              font: "monospace", // jenis font
+              fontSize: 0, // ukuran font
+            });
+
+            // Generate barcode 2
+            new QRious({
+              element: barcode2,
+              value: text,
+              size: 200,
+              background: 'transparent', // warna background
+              foreground: 'black', // warna QR code
+            }).toCanvas(barcode2, {
+              errorCorrectionLevel: 'M',
+              margin: 200,
+              scale: 4
+            });
+
+            barcode2.style.borderRadius = '20px'; // menambahkan border radius
+          }
         }
-      }
-    
-      generateButton.addEventListener("click", generateBarcode);
-    
-      // Save button
-      saveButton.addEventListener("click", function () {
-        var barcode1DataURL = barcode1.toDataURL("image/png");
-        var barcode2DataURL = barcode2.toDataURL("image/png");
-    
-        // Create a link for each barcode and download it
-        var link1 = document.createElement("a");
-        link1.href = barcode1DataURL;
-        link1.download = "barcode1.png";
-        document.body.appendChild(link1);
-        link1.click();
-        document.body.removeChild(link1);
-    
-        var link2 = document.createElement("a");
-        link2.href = barcode2DataURL;
-        link2.download = "barcode2.png";
-        document.body.appendChild(link2);
-        link2.click();
-        document.body.removeChild(link2);
-      });
-    
-      // Share button
-      shareButton.addEventListener("click", function () {
-        var barcode1DataURL = barcode1.toDataURL("image/png");
-        var barcode2DataURL = barcode2.toDataURL("image/png");
-    
-        // Share each barcode
-        window.navigator.share({
-          title: "Barcode",
-          text: "Check out these barcodes!",
-          files: [
-            new File([barcode1DataURL], "barcode1.png", {
-              type: "image/png",
-            }),
-            new File([barcode2DataURL], "barcode2.png", {
-              type: "image/png",
-            }),
-          ],
+
+        generateButton.addEventListener("click", generateBarcode);
+
+        // Save button
+        saveButton.addEventListener("click", function () {
+          var barcode1DataURL = barcode1.toDataURL("image/png");
+          var barcode2DataURL = barcode2.toDataURL("image/png");
+
+          // Create a link for each barcode and download it
+          var link1 = document.createElement("a");
+          link1.href = barcode1DataURL;
+          link1.download = "barcode1.png";
+          document.body.appendChild(link1);
+          link1.click();
+          document.body.removeChild(link1);
+
+          var link2 = document.createElement("a");
+          link2.href = barcode2DataURL;
+          link2.download = "barcode2.png";
+          document.body.appendChild(link2);
+          link2.click();
+          document.body.removeChild(link2);
         });
-      });
-    
-      function resetRiwayat1() {
-  document.getElementById("barcode-input").value = "";
 
-  barcode1.textContent = '';
+        // Share button
+        shareButton.addEventListener("click", function () {
+          var barcode1DataURL = barcode1.toDataURL("image/png");
+          var barcode2DataURL = barcode2.toDataURL("image/png");
 
-  var context = barcode2.getContext('2d');
-  context.clearRect(0, 0, barcode2.width, barcode2.height);
-}
+          // Share each barcode
+          window.navigator.share({
+            title: "Barcode",
+            text: "Check out these barcodes!",
+            files: [
+              new File([barcode1DataURL], "barcode1.png", {
+                type: "image/png",
+              }),
+              new File([barcode2DataURL], "barcode2.png", {
+                type: "image/png",
+              }),
+            ],
+          });
+        });
 
-    </script>
-    
+        function resetRiwayat1() {
+          document.getElementById("barcode-input").value = "";
+
+          barcode1.textContent = '';
+
+          var context = barcode2.getContext('2d');
+          context.clearRect(0, 0, barcode2.width, barcode2.height);
+        }
+      </script>
+
 
       <br><br><br>
       <div class="container-b">
@@ -503,10 +529,10 @@
           <p id="outputText"></p>
         </div>
       </div>
-      
 
-   
-      
+
+
+
       <br><br>
 
 
@@ -620,31 +646,31 @@
         <div class="title-container">
           <h1 class="title">Masukkan kode atau harga</h1>
         </div>
-      <p id="result"></p>
-      <form id="form">
+        <p id="result"></p>
+        <form id="form">
 
 
-        <p id="deskripsiProduk">Jumlah batang roko/Hari</p>
+          <p id="deskripsiProduk">Jumlah batang roko/Hari</p>
 
-        <input type="number" id="jumlah" name="jumlah" placeholder="cth : 12 batang "><br>
-        <p id="deskripsiProduk">Harga Perbungkus</p>
-        <select id="harga" name="harga">
-          <option value="20000">20.000</option>
-          <option value="25000">25.000</option>
-          <option value="30000">30.000</option>
-        </select><br><br>
-        <p id="deskripsiProduk">Total waktu meroko </p>
-        <input type="number" id="periode" name="periode" placeholder="cth : 365 hari">
+          <input type="number" id="jumlah" name="jumlah" placeholder="cth : 12 batang "><br>
+          <p id="deskripsiProduk">Harga Perbungkus</p>
+          <select id="harga" name="harga">
+            <option value="20000">20.000</option>
+            <option value="25000">25.000</option>
+            <option value="30000">30.000</option>
+          </select><br><br>
+          <p id="deskripsiProduk">Total waktu meroko </p>
+          <input type="number" id="periode" name="periode" placeholder="cth : 365 hari">
 
-        <div>
-          <button type="button11" class="button" type="submit" value="Hitung">Hitung</button>
-          <button type="button11" id="reset"><i class="fas fa-undo"></i></button>
-        </div><br>
-       
+          <div>
+            <button type="button11" class="button" type="submit" value="Hitung">Hitung</button>
+            <button type="button11" id="reset"><i class="fas fa-undo"></i></button>
+          </div><br>
 
-      </form>
-    </div><br><br>
-    <div> <button type="button11" class="close1"><i class="fas fa-close"></i></button></div><br>
+
+        </form>
+      </div><br><br>
+      <div> <button type="button11" class="close1"><i class="fas fa-close"></i></button></div><br>
       <script>
         // Get the modal
         // Mencari elemen tombol tutup
@@ -683,16 +709,16 @@
         <div class="title-container">
           <h1 class="title">Masukkan kode atau harga</h1>
         </div>
-          <p id="output"></p>
+        <p id="output"></p>
 
-          <P id="deskripsiProduk">Masukan Tanggal lahir, bulan, tahun</P>
-          <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
-          <input type="text" id="bulan-lahir" placeholder="Bulan lahir">
-          <input type="text" id="tahun-lahir" placeholder="Tahun lahir">
-          <div>
-            <button type="button11" onclick="hitungUmur()">Hitung</button>
-            <button type="button11" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
-          </div><br><br>
+        <P id="deskripsiProduk">Masukan Tanggal lahir, bulan, tahun</P>
+        <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
+        <input type="text" id="bulan-lahir" placeholder="Bulan lahir">
+        <input type="text" id="tahun-lahir" placeholder="Tahun lahir">
+        <div>
+          <button type="button11" onclick="hitungUmur()">Hitung</button>
+          <button type="button11" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
+        </div><br><br>
 
       </div><br><br>
 
@@ -2544,7 +2570,7 @@
         document.querySelector("#numberToLetterResult").textContent = "";
       });
 
- 
+
 
       document.getElementById("number").addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
@@ -2553,25 +2579,25 @@
       });
     </script>
 
-<script>
-  function salinTeks1() {
-    const wordToNumberResult = document.getElementById("wordToNumberResult");
-    const range = document.createRange();
-    range.selectNode(wordToNumberResult);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("copy");
-    navigator.vibrate(100); // Menambahkan getar selama 100ms
-  }
+    <script>
+      function salinTeks1() {
+        const wordToNumberResult = document.getElementById("wordToNumberResult");
+        const range = document.createRange();
+        range.selectNode(wordToNumberResult);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+      }
 
-  function bagikanTeks1() {
-    const wordToNumberResult = document.getElementById("wordToNumberResult").textContent;
-    const encodedText = encodeURIComponent(wordToNumberResult);
-    const shareUrl = `whatsapp://send?text=${encodedText}`;
-    window.location.href = shareUrl;
-  }
-</script>
+      function bagikanTeks1() {
+        const wordToNumberResult = document.getElementById("wordToNumberResult").textContent;
+        const encodedText = encodeURIComponent(wordToNumberResult);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
     <script>
       function convertWordToNumber1() {
@@ -2806,11 +2832,7 @@
         document.querySelector("#numberToLetterResult1").textContent = "";
       });
 
-      document.getElementById("word1").addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          convertWordToNumber1();
-        }
-      });
+    
 
       document.getElementById("number1").addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
@@ -2818,6 +2840,28 @@
         }
       });
     </script>
+
+<script>
+  function salinTeks4() {
+    const wordToNumberResult1 = document.getElementById("wordToNumberResult1");
+    const range = document.createRange();
+    range.selectNode(wordToNumberResult1);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("copy");
+    navigator.vibrate(100); // Menambahkan getar selama 100ms
+  }
+
+  function bagikanTeks4() {
+    const wordToNumberResult1 = document.getElementById("wordToNumberResult1").textContent;
+    const encodedText = encodeURIComponent(wordToNumberResult1);
+    const shareUrl = `whatsapp://send?text=${encodedText}`;
+    window.location.href = shareUrl;
+  }
+</script>
+
+
     <script>
       function convertWordToNumber2() {
         let word2 = document.querySelector("#word2").value;
@@ -2893,29 +2937,7 @@
         let wordToNumberResult2 = document.querySelector("#wordToNumberResult2");
         wordToNumberResult2.innerHTML = result;
 
-        let copyIcon = document.createElement("i");
-        copyIcon.classList.add("fa", "fa-copy", "fa-2x", "text-black");
-        copyIcon.style.cursor = "pointer";
-        copyIcon.style.paddingRight = "30px";
-        copyIcon.style.transition = "all 0.2s";
-        copyIcon.addEventListener("mouseover", function () {
-          copyIcon.style.transform = "scale(1.2)";
-        });
-        copyIcon.addEventListener("mouseout", function () {
-          copyIcon.style.transform = "scale(1)";
-        });
-
-        copyIcon.addEventListener("click", function () {
-          navigator.clipboard.writeText(result).then(
-            function () {
-              console.log("Text copied to clipboard");
-            },
-            function () {
-              console.error("Could not copy text");
-            }
-          );
-        });
-
+        
         wordToNumberResult2.insertBefore(copyIcon, wordToNumberResult2.firstChild);
       }
 
@@ -3051,17 +3073,32 @@
         document.querySelector("#numberToLetterResult2").textContent = "";
       });
 
-      document.getElementById("word2").addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          convertWordToNumber2();
-        }
-      });
+
 
       document.getElementById("number2").addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
           convertNumberToLetter2();
         }
       });
+    </script>
+    <script>
+      function salinTeks3() {
+        const wordToNumberResult2 = document.getElementById("wordToNumberResult2");
+        const range = document.createRange();
+        range.selectNode(wordToNumberResult2);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+      }
+
+      function bagikanTeks3() {
+        const wordToNumberResult2 = document.getElementById("wordToNumberResult2").textContent;
+        const encodedText = encodeURIComponent(wordToNumberResult2);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
     </script>
     <br><br><BR><BR><BR>
 
@@ -3305,7 +3342,33 @@ Direktur Utama
         });
         document.getElementById("hasil").innerHTML = hasil;
       }
+
+      function resetvokal() {
+        document.getElementById("kalimat").value = "";
+        document.getElementById("pilihan").value = "a";
+        document.getElementById("hasil").innerHTML = "";
+      }
     </script>
+    <script>
+      function salinTeks2() {
+        const hasil = document.getElementById("hasil");
+        const range = document.createRange();
+        range.selectNode(hasil);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+      }
+
+      function bagikanTeks2() {
+        const hasil = document.getElementById("hasil").textContent;
+        const encodedText = encodeURIComponent(hasil);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
+    
 
     <br><br><br>
 
@@ -3367,7 +3430,9 @@ Direktur Utama
         </div>
       </div>
       <div class="copyright">
-        Copyright &copy; 2023 SR Fashion-Muhammad Riyad Firdaus. All rights reserved.
+        <p>
+          Copyright &copy; 2023 SR Fashion-Muhammad Riyad Firdaus. All rights reserved.
+        </p>
       </div>
     </footer>
 
