@@ -517,11 +517,24 @@ shareButton.addEventListener("click", function () {
         }
       </script>
 
+<br><br>
+<div class="container-b">
+  <div class="title-container">
+    <h1 class="title">Rubah kalimat menjadi singkat</h1>
+  </div>
+<input type="text" id="input-text1" placeholder="Masukkan kata">
+    <button type="button11" onclick="generateAbbreviations()">Cari singkatan</button>
+    <br><br>
+    
+    <select id="dropdown-menu"></select>
+    <button type="button11" onclick="copyToClipboard()">Copy <i class="fa-regular fa-clipboard"></i></button>
+  </div>
+
 
       <br><br><br>
       <div class="container-b">
         <div class="title-container">
-          <h1 class="title">Masukkan kode atau harga</h1>
+          <h1 class="title">Rubah harga ke hurup</h1>
         </div>
         <div class="input-container-a">
           <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
@@ -611,7 +624,7 @@ shareButton.addEventListener("click", function () {
       </script>
 
       <br><br>
-      <div> <button type="button11" class="close2"><i class="fas fa-close"></i></button></div>
+      <div> <button type="button10" class="close2"><i class="fa-solid fa-circle-xmark"></i></button></div>
       <br><br><br>
       <script>
         // Get the modal
@@ -647,31 +660,9 @@ shareButton.addEventListener("click", function () {
         <div class="title-container">
           <h1 class="title">Masukkan kode atau harga</h1>
         </div>
-        <p id="result"></p>
-        <form id="form34">
-
-
-          <p id="deskripsiProduk">Jumlah batang roko/Hari</p>
-
-          <input type="number" id="jumlah" name="jumlah" placeholder="cth : 12 batang "><br>
-          <p id="deskripsiProduk">Harga Perbungkus</p>
-          <select id="harga" name="harga">
-            <option value="20000">20.000</option>
-            <option value="25000">25.000</option>
-            <option value="30000">30.000</option>
-          </select><br><br>
-          <p id="deskripsiProduk">Total waktu meroko </p>
-          <input type="number" id="periode" name="periode" placeholder="cth : 365 hari">
-
-          <div>
-            <button type="button11" class="button" type="submit" value="Hitung">Hitung</button>
-            <button type="button11" id="reset"><i class="fas fa-undo"></i></button>
-          </div><br>
-
-
-        </form>
+      
       </div><br><br>
-      <div> <button type="button11" class="close1"><i class="fas fa-close"></i></button></div><br>
+      <div> <button type="button10" class="close1"><i class="fa-solid fa-circle-xmark"></i></button></div><br>
       <script>
         // Get the modal
         // Mencari elemen tombol tutup
@@ -708,7 +699,7 @@ shareButton.addEventListener("click", function () {
 
       <div class="container-b">
         <div class="title-container">
-          <h1 class="title">Masukkan kode atau harga</h1>
+          <h1 class="title">Hitung detail umur sekarang</h1>
         </div>
         <p id="output"></p>
 
@@ -723,7 +714,7 @@ shareButton.addEventListener("click", function () {
 
       </div><br><br>
 
-      <button type="button11" class="close"><i class="fas fa-close"></i></button><br><br>
+      <div> <button type="button10" class="close"><i class="fa-solid fa-circle-xmark"></i></button></div><br><br>
 
 
     </div>
@@ -976,69 +967,7 @@ shareButton.addEventListener("click", function () {
 
 
 
-      <script>
-        const result = document.getElementById("result");
-        const jumlah = document.getElementById("jumlah");
-        const harga = document.getElementById("harga");
-        const periode = document.getElementById("periode");
-
-        const hasil = document.getElementById("result");
-
-
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          hitungRoko();
-        });
-
-        function hitungRoko() {
-          const total = jumlah.value * harga.value * periode.value;
-          hasil.textContent = "Total: Rp " + total;
-        }
-        document.querySelector("form").addEventListener("submit", function (event) {
-          event.preventDefault();
-          const jumlahValue = parseInt(jumlah.value);
-          const hargaValue = parseInt(harga.value);
-          const periodeValue = parseInt(periode.value);
-
-          if (!jumlahValue || !hargaValue || !periodeValue) {
-            alert("Mohon isi semua field");
-            return;
-          }
-
-          const result = calculateCigaretteConsumption(hargaValue, null, jumlahValue, 1, periodeValue);
-          hasil.textContent =
-            ` Kamu telah meroko sebanyak : ${result.totalConsumptionInSticks} batang. jika sebungkus 20 batang maka kamu telah menghabiskan${result.totalConsumptionInPacks.toFixed(2)} bungkus. dengan total biaya sekitar Rp ${result.totalConsumptionAmount.toLocaleString(0)}. Total panjang roko sekitar ${result.totalConsumptionInCentimeters} cm atau ${result.totalConsumptionInMeters.toFixed(2)} meter dan total berat roko sekitar ${result.totalConsumptionWeight} kg.`;
-        });
-
-        function calculateCigaretteConsumption(packPrice, stickPrice, quantity, frequency, duration) {
-          let packs = (packPrice === 20000) ? (quantity / 20) : (quantity / 12);
-          let sticks = quantity;
-          let totalAmount = (packPrice === 20000) ? (packs * 20000) : (packs * 25000);
-          let totalConsumptionInSticks = quantity * frequency * duration;
-          let totalConsumptionInPacks = totalConsumptionInSticks / ((packPrice === 20000) ? 20 : 12);
-          let totalConsumptionAmount = totalConsumptionInPacks * packPrice;
-          let totalConsumptionInCentimeters = totalConsumptionInSticks * 8; // 1 batang rokok memiliki panjang 8 cm
-          let totalConsumptionInMeters = totalConsumptionInCentimeters / 100;
-          let totalConsumptionWeight = totalConsumptionInSticks * 1.9 /
-            1000; // 1 batang rokok memiliki berat 1.9 gram, dikonversikan ke kilogram
-
-          return {
-            totalConsumptionInSticks: totalConsumptionInSticks,
-            totalConsumptionInPacks: totalConsumptionInPacks,
-            totalConsumptionAmount: totalConsumptionAmount,
-            totalConsumptionInCentimeters: totalConsumptionInCentimeters,
-            totalConsumptionInMeters: totalConsumptionInMeters,
-            totalConsumptionWeight: totalConsumptionWeight
-          };
-        }
-        document.querySelector("#reset").addEventListener("click", function () {
-          jumlah.value = "";
-          harga.value = "";
-          periode.value = "";
-          hasil.textContent = "";
-        });
-      </script>
-
+    
       <script>
         const input1 = document.getElementById("input-1");
         const input2 = document.getElementById("input-2");
@@ -3339,10 +3268,60 @@ Direktur Utama
 
 
     <br><br><br>
+    
+    
     <script>
-      // Menentukan konfigurasi barcode Aztec
-     
+     function generateAbbreviations() {
+      var input = document.getElementById("input-text1").value;
+      var abbreviations = [];
+    
+      // Generate all possible combinations of abbreviations
+      for (var i = 1; i < Math.pow(2, input.length); i++) {
+        var abbreviation = "";
+        var count = 0; // to keep track of the number of characters in the abbreviation
+        for (var j = 0; j < input.length; j++) {
+          if ((i >> j) & 1) {
+            abbreviation += input[j];
+            count++;
+          }
+        }
+        
+        // Check if the abbreviation is too long or contains consecutive identical letters
+        if (count == 2 || count == 3 && !/(.)\1/.test(abbreviation)) {
+          abbreviations.push(abbreviation);
+        }
+      }
+    
+      // Sort the abbreviations alphabetically and display them in the dropdown menu
+      abbreviations.sort();
+      var dropdown = document.getElementById("dropdown-menu");
+      dropdown.innerHTML = "";
+      for (var i = 0; i < abbreviations.length; i++) {
+        var option = document.createElement("option");
+        option.text = abbreviations[i];
+        dropdown.add(option);
+      }
+    }
+    
+    function copyToClipboard() {
+      var dropdown = document.getElementById("dropdown-menu");
+      var abbreviation = dropdown.options[dropdown.selectedIndex].text;
+    
+      var textarea = document.createElement("textarea");
+      textarea.value = abbreviation;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+    
+    
     </script>
+    
+
+
+
+
     <br><br>
 
     <footer id="footerSection">

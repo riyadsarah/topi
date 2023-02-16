@@ -1583,6 +1583,39 @@ select {
  
   
 }
+.close2 {
+  position: fixed;
+  top: 95%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+ 
+  
+}
+.close1 {
+  position: fixed;
+  top: 95%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+ 
+  
+}
+.close {
+  position: fixed;
+  top: 95%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+ 
+  
+}
 
 button[type="button10"] {
   
@@ -1594,3 +1627,38 @@ button[type="button10"] {
   border-radius: 50px;
   cursor: pointer;
 }
+
+
+select {
+  width: 100px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 5px;
+ 
+}
+
+/* style untuk dropdown */
+select:focus option {
+  display: block;
+}
+
+select option {
+  font-size: 20px;
+ font-family: Georgia, 'Times New Roman', Times, serif;
+  display: none;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* style untuk option */
+select:hover option {
+  display: block;
+}
+
+select option:hover {
+  background-color: #55ff00;
+}
+.option {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
