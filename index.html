@@ -174,14 +174,14 @@
         <div class="title-container">
           <h1 class="title">Modifikasi teks</h1>
         </div>
-        <div onsubmit="modifikasiTeks(); return false;">
+        <form onsubmit="modifikasiTeks(); return false;">
           <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
 
 
 
 
 
-
+<div>
           <select id="mode-select">
             <option value="mode-1">1 kalimat-1 paragraphs</option>
             <option value="mode-2">Tebal-miring Besar-kecil</option>
@@ -192,12 +192,15 @@
             <option value="mode-8">Hurup terakir jadi 10 </option>
             <option value="mode-5">Teks menjadi Surat</option>
             <option value="mode-9">Gabungkan semua </option>
-          </select><br>
+          </select>
+        </div><br>
+        <div class="container-b">
           <div id="address-input">
             <p id="deskripsiProduk">Alamat hanya untuk Teks menjadi surat</p>
             <input id="input-address" type="text" placeholder="Masukkan alamat...">
 
-          </div><br><br>
+          </div>
+        </div><br><br>
 
           <div>
             
@@ -211,7 +214,7 @@
           <div>
             <pre  id="output-text"></pre>
           </div>
-        </div>
+        </form>
       </div><br><br><br>
 
 
@@ -225,13 +228,15 @@
         </div><br>
 
         <textarea id="kalimat" placeholder="Masukkan teks..."></textarea><br>
+        <div>
         <select id="pilihan">
           <option value="a">a</option>
           <option value="i">i</option>
           <option value="u">u</option>
           <option value="e">e</option>
           <option value="o">o</option>
-        </select><br>
+        </select>
+      </div><br>
         <div>
          
          
@@ -284,7 +289,7 @@
 
         <div class="container-b">
           <div class="title-container">
-            <h1 class="title">Rubah kamlimat ke angka</h1>
+            <h1 class="title">Rubah kalimat ke code acak</h1>
            
           </div><br>
 
@@ -343,7 +348,7 @@
               <br><br><br>
 
               <div class="title-container">
-                <h1 class="title">Artikan underscore ke kalimat </h1>
+                <h1 class="title">Artikan angka ke kalimat </h1>
               </div>
             
           <input type="text" id="number2" placeholder="Tempel (artikan code)"><br>
@@ -402,7 +407,7 @@
         <div class="title-container">
           <h1 class="title">Teks ke Barcode <i class="fa-solid fa-barcode"></i> & QRious <i
               class="fa-solid fa-qrcode"></i> </h1>
-        </div>
+        </div><br>
         <div id="form-barcode">
           <textarea type="text" id="barcode-input" placeholder="Masukan brand kamu"></textarea>
         </div>
@@ -2412,28 +2417,7 @@
         let wordToNumberResult = document.querySelector("#wordToNumberResult");
         wordToNumberResult.innerHTML = result;
 
-        let copyIcon = document.createElement("i");
-        copyIcon.classList.add("fa", "fa-copy", "fa-2x", "text-black");
-        copyIcon.style.cursor = "pointer";
-        copyIcon.style.paddingRight = "30px";
-        copyIcon.style.transition = "all 0.2s";
-        copyIcon.addEventListener("mouseover", function () {
-          copyIcon.style.transform = "scale(1.2)";
-        });
-        copyIcon.addEventListener("mouseout", function () {
-          copyIcon.style.transform = "scale(1)";
-        });
-
-        copyIcon.addEventListener("click", function () {
-          navigator.clipboard.writeText(result).then(
-            function () {
-              console.log("Text copied to clipboard");
-            },
-            function () {
-              console.error("Could not copy text");
-            }
-          );
-        });
+        
 
         wordToNumberResult.insertBefore(copyIcon, wordToNumberResult.firstChild);
       }
@@ -2674,28 +2658,7 @@
         let wordToNumberResult1 = document.querySelector("#wordToNumberResult1");
         wordToNumberResult1.innerHTML = result;
 
-        let copyIcon = document.createElement("i");
-        copyIcon.classList.add("fa", "fa-copy", "fa-2x", "text-black");
-        copyIcon.style.cursor = "pointer";
-        copyIcon.style.paddingRight = "30px";
-        copyIcon.style.transition = "all 0.2s";
-        copyIcon.addEventListener("mouseover", function () {
-          copyIcon.style.transform = "scale(1.2)";
-        });
-        copyIcon.addEventListener("mouseout", function () {
-          copyIcon.style.transform = "scale(1)";
-        });
-
-        copyIcon.addEventListener("click", function () {
-          navigator.clipboard.writeText(result).then(
-            function () {
-              console.log("Text copied to clipboard");
-            },
-            function () {
-              console.error("Could not copy text");
-            }
-          );
-        });
+       
 
         wordToNumberResult1.insertBefore(copyIcon, wordToNumberResult1.firstChild);
       }
