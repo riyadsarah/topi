@@ -171,7 +171,10 @@
         class="fa-solid fa-superscript"></i></button>
     <div id="myModal3" class="modal3">
 
-      <p class="judul-utama">Modifikasi teks </p>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Masukkan kode atau harga</h1>
+        </div>
       <form onsubmit="modifikasiTeks(); return false;">
         <textarea id="input-text" placeholder="Masukkan teks..."></textarea>
 
@@ -179,6 +182,7 @@
 
 
         <br>
+
         <select id="mode-select">
           <option value="mode-1">1 kalimat-1 paragraphs</option>
           <option value="mode-2">Tebal-miring Besar-kecil</option>
@@ -207,14 +211,18 @@
         <div>
           <pre id="output-text"></pre>
         </div>
-      </form><br><br><br>
+      </form>
+    </div><br><br><br>
 
 
 
 
 
 
-      <p class="judul-utama">Masukkan kalimat dan pilih huruf vokal untuk mengganti konsonan:</p>
+    <div class="container-b">
+      <div class="title-container">
+        <h1 class="title">Masukkan kode atau harga</h1>
+      </div>
 
       <textarea id="kalimat" placeholder="Masukkan teks..."></textarea><br>
       <select id="pilihan">
@@ -227,6 +235,7 @@
       <button type="button11" onclick="gantiKonsonan()">Ganti Konsonan</button>
 
       <pre id="hasil"></pre>
+    </div>
 
 
 
@@ -269,13 +278,16 @@
 
         <br><br><br><br><br><br>
 
-        <div>
-          <p class="judul-utama">Rubah kalimat ke code acak </p>
+   
+          <div class="container-b">
+            <div class="title-container">
+              <h1 class="title">Masukkan kode atau harga</h1>
+            </div>
           <p id="deskripsiProduk"> ( contoh : Hai = 6769&^&^&^&^& 6786^%^&&() rey@hck&^&*^ )</p>
 
           <input type="text" id="word1" placeholder="Kalimat ke code" wrap="soft">
           <button type="button11" onclick="convertWordToNumber1()"><i class="fa-solid fa-dna"></i></button>
-        </div>
+     
         <div class="card-description">
           <div id="product">
             <p id="wordToNumberResult1"></p>
@@ -288,17 +300,20 @@
             <p id="numberToLetterResult1"></p>
           </div>
         </div>
+      </div>
 
         <br><br><br><br><br><br>
 
 
-        <div>
-          <p class="judul-utama">Rubah kalimat ke angka </p>
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Masukkan kode atau harga</h1>
+          </div>
           <p id="deskripsiProduk"> ( contoh : Hai = 8 1 9 )</p>
 
           <input type="text" id="word2" placeholder="Kalimat ke code" wrap="soft">
           <button type="button11" onclick="convertWordToNumber2()"><i class="fa-solid fa-dna"></i></button>
-        </div>
+   
         <div class="card-description">
           <div id="product">
             <pre id="wordToNumberResult2"></pre>
@@ -311,6 +326,7 @@
             <p id="numberToLetterResult2"></p>
           </div>
         </div>
+      </div>
 
         <br><br>
 
@@ -395,7 +411,7 @@
             lineColor: "#000", // warna garis
             background: "#FFFFFF", // warna background
             margin: 10, // margin antara barcode dan border
-            height: 200, // tinggi barcode
+            height: 150, // tinggi barcode
             
             displayValue: true, // menampilkan nilai barcode di bawahnya
             fontOptions: "bold", // opsi font
@@ -600,7 +616,10 @@
     <button type="button11" id="myBtn1"><i class="fa-sharp fa-solid fa-calculator"></i> <i
         class="fa-sharp fa-solid fa-smoking"></i></button>
     <div id="myModal1" class="modal1">
-      <p class="judul-utama">Kalkulator penghitung pengeluaran roko</p>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Masukkan kode atau harga</h1>
+        </div>
       <p id="result"></p>
       <form id="form">
 
@@ -618,12 +637,14 @@
         <input type="number" id="periode" name="periode" placeholder="cth : 365 hari">
 
         <div>
-          <button type="button2" class="button" type="submit" value="Hitung">Hitung</button>
-          <button type="button" id="reset"><i class="fas fa-undo"></i></button>
+          <button type="button11" class="button" type="submit" value="Hitung">Hitung</button>
+          <button type="button11" id="reset"><i class="fas fa-undo"></i></button>
         </div><br>
-        <div> <button type="button1" class="close1"><i class="fas fa-close"></i></button></div><br>
+       
 
       </form>
+    </div><br><br>
+    <div> <button type="button11" class="close1"><i class="fas fa-close"></i></button></div><br>
       <script>
         // Get the modal
         // Mencari elemen tombol tutup
@@ -658,9 +679,10 @@
 
     <div id="myModal" class="modal">
 
-      <p>
-        <div id="riyad">
-          <p class="judul-utama">Hitung umur kamu secara detail</p>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Masukkan kode atau harga</h1>
+        </div>
           <p id="output"></p>
 
           <P id="deskripsiProduk">Masukan Tanggal lahir, bulan, tahun</P>
@@ -668,15 +690,13 @@
           <input type="text" id="bulan-lahir" placeholder="Bulan lahir">
           <input type="text" id="tahun-lahir" placeholder="Tahun lahir">
           <div>
-            <button type="button2" onclick="hitungUmur()">Hitung</button>
-            <button type="button1" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
-          </div>
-        </div>
+            <button type="button11" onclick="hitungUmur()">Hitung</button>
+            <button type="button11" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
+          </div><br><br>
 
-        <button type="button1" class="close"><i class="fas fa-close"></i></button>
+      </div><br><br>
 
-
-      </p>
+      <button type="button11" class="close"><i class="fas fa-close"></i></button><br><br>
 
 
     </div>
