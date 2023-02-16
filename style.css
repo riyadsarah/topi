@@ -1492,16 +1492,14 @@ canvas {
 
   height: auto;
   margin-top: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.104);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.104);
   border-radius: 10px;
+ 
+
 
 }
 
-@media only screen and (max-width: 600px) {
-  canvas {
-    transform: scale(0.9);
-  }
-}
+
 
 .container-b {
   width: 700px;
@@ -1517,7 +1515,7 @@ canvas {
     width: 90%;
   }
   .canvas {
-    width: 90%;
+    width: 100%;
   }
 }
 
