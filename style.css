@@ -1482,19 +1482,29 @@ button:hover {
 
 
 
-canvas {
 
+canvas {
+  
   padding: 20px;
   display: block;
   margin: 0 auto;
+  width: 60%;
+
+  height: auto;
   margin-top: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.104);
   border-radius: 10px;
+
 }
 
+@media only screen and (max-width: 600px) {
+  canvas {
+    transform: scale(0.9);
+  }
+}
 
 .container-b {
-  width: 500px;
+  width: 700px;
   margin: 0 auto;
   background-color: #0000002d;
   padding: 20px;
@@ -1504,6 +1514,9 @@ canvas {
 
 @media screen and (max-width: 767px) {
   .container-b {
+    width: 90%;
+  }
+  .canvas {
     width: 90%;
   }
 }
@@ -1531,7 +1544,7 @@ canvas {
   }
 
   .title {
-    font-size: 20px;
+    font-size: 17px;
   }
 } 
 .input-container-a {

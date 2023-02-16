@@ -240,24 +240,30 @@
             <p id="deskripsiProduk">( contoh : Hai = _________ __ __________ )</p>
           </div>
        
-        
+       
 
-        <input type="text" id="word" placeholder="Kalimat ke code" wrap="soft">
-        <button type="button11" onclick="convertWordToNumber()"><i class="fa-solid fa-dna"></i></button>
-
-        <div class="card-description">
-          <div id="product">
-            <p id="wordToNumberResult"></p>
-          </div>
-        </div>
-        <input type="text" id="number" placeholder="Tempel (artikan code)">
+        <textarea type="text" id="word" placeholder="Masukan kalimat" wrap="soft"></textarea>
+        <button type="button11" onclick="convertWordToNumber()">Rubah <i class="fa-solid fa-dna"></i></button>
         <button type="button11" id="reset1"> <i class="fas fa-undo"></i></button>
 
-        <div class="card-description">
-          <div id="product">
-            <p id="numberToLetterResult"></p>
-          </div>
-        </div>
+     
+            <p id="wordToNumberResult"></p>
+            <div>
+              <button type="button11" onclick="salinTeks1()"><i class="fa fa-copy"></i></button>
+              <button type="button11" onclick="bagikanTeks1()"><i class="fa fa-share"></i></button>
+            </div><br><br><br>
+
+            <div class="title-container">
+              <h1 class="title">Artikan underscore ke kalimat  </h1>
+              
+            </div>
+          
+        <input type="text" id="number" placeholder="Tempel (artikan code)"></input>
+        
+
+    <br>
+            <pre id="numberToLetterResult"></pre>
+       
       </div>
 
 
@@ -355,10 +361,11 @@
           <h1 class="title">Teks ke Barcode <i class="fa-solid fa-barcode"></i> & QRious <i class="fa-solid fa-qrcode"></i> </h1>
         </div>
         <div id="form-barcode">
-          <input type="text" id="barcode-input" placeholder="Masukan brand kamu">
+          <textarea type="text" id="barcode-input" placeholder="Masukan brand kamu"></textarea>
         </div>
 
         <button type="button11" id="generate-button">Generate</button>
+        <button type="button11" onclick="resetRiwayat1()"><i class="fas fa-undo"></i></button>
         <button type="button11" id="save-button"><i class="fa-solid fa-download"></i></button>
         <button type="button11" id="share-button"><i class="fa-solid fa-share-from-square"></i></button>
       <br>
@@ -370,99 +377,103 @@
       </div>
     </div><br>
 
-     
-      <script>
-        var barcode1 = document.getElementById("barcode1");
-        var barcode2 = document.getElementById("barcode2");
-        var barcodeInput = document.getElementById("barcode-input");
-        var generateButton = document.getElementById("generate-button");
-        var saveButton = document.getElementById("save-button");
-        var shareButton = document.getElementById("share-button");
-
-        generateButton.addEventListener("click", function () {
-          var text = barcodeInput.value;
-
-          if (text) {
-            // Generate barcode 1
-            JsBarcode(barcode1, text, {
-              format: "CODE128",
-              lineColor: "#000", // warna garis
-              background: "#FFFFFF", // warna background
-              margin: 10, // margin antara barcode dan border
-              height: 30, // tinggi barcode
-              displayValue: true, // menampilkan nilai barcode di bawahnya
-              fontOptions: "bold", // opsi font
-              font: "monospace", // jenis font
-              fontSize: 0, // ukuran font
-             
-            });
-
-            // Generate barcode 2
-new QRious({
-  element: barcode2,
-  value: text,
-  size: 200,
-  background: 'transparent', // warna background
-  foreground: 'black', // warna QR code
-}).toCanvas(barcode2, { 
-  errorCorrectionLevel: 'M', 
-  margin: 200,
-  scale: 4
-});
-
-barcode2.style.borderRadius = '20px'; // menambahkan border radius
-
-
-           
-
-
-          }
-        });
-
-
-
-
-        // Save button
-        saveButton.addEventListener("click", function () {
-          var barcode1DataURL = barcode1.toDataURL("image/png");
-          var barcode2DataURL = barcode2.toDataURL("image/png");
-
-          // Create a link for each barcode and download it
-          var link1 = document.createElement("a");
-          link1.href = barcode1DataURL;
-          link1.download = "barcode1.png";
-          document.body.appendChild(link1);
-          link1.click();
-          document.body.removeChild(link1);
-
-          var link2 = document.createElement("a");
-          link2.href = barcode2DataURL;
-          link2.download = "barcode2.png";
-          document.body.appendChild(link2);
-          link2.click();
-          document.body.removeChild(link2);
-        });
-
-        // Share button
-        shareButton.addEventListener("click", function () {
-          var barcode1DataURL = barcode1.toDataURL("image/png");
-          var barcode2DataURL = barcode2.toDataURL("image/png");
-
-          // Share each barcode
-          window.navigator.share({
-            title: "Barcode",
-            text: "Check out these barcodes!",
-            files: [
-              new File([barcode1DataURL], "barcode1.png", {
-                type: "image/png",
-              }),
-              new File([barcode2DataURL], "barcode2.png", {
-                type: "image/png",
-              }),
-            ],
+    <script>
+      var barcode1 = document.getElementById("barcode1");
+      var barcode2 = document.getElementById("barcode2");
+      var barcodeInput = document.getElementById("barcode-input");
+      var generateButton = document.getElementById("generate-button");
+      var saveButton = document.getElementById("save-button");
+      var shareButton = document.getElementById("share-button");
+    
+      function generateBarcode() {
+        var text = barcodeInput.value;
+    
+        if (text) {
+          // Generate barcode 1
+          JsBarcode(barcode1, text, {
+            format: "CODE128",
+            lineColor: "#000", // warna garis
+            background: "#FFFFFF", // warna background
+            margin: 10, // margin antara barcode dan border
+            height: 200, // tinggi barcode
+            
+            displayValue: true, // menampilkan nilai barcode di bawahnya
+            fontOptions: "bold", // opsi font
+            font: "monospace", // jenis font
+            fontSize: 0, // ukuran font
           });
+    
+          // Generate barcode 2
+          new QRious({
+            element: barcode2,
+            value: text,
+            size: 200,
+            background: 'transparent', // warna background
+            foreground: 'black', // warna QR code
+          }).toCanvas(barcode2, {
+            errorCorrectionLevel: 'M',
+            margin: 200,
+            scale: 4
+          });
+    
+          barcode2.style.borderRadius = '20px'; // menambahkan border radius
+        }
+      }
+    
+      generateButton.addEventListener("click", generateBarcode);
+    
+      // Save button
+      saveButton.addEventListener("click", function () {
+        var barcode1DataURL = barcode1.toDataURL("image/png");
+        var barcode2DataURL = barcode2.toDataURL("image/png");
+    
+        // Create a link for each barcode and download it
+        var link1 = document.createElement("a");
+        link1.href = barcode1DataURL;
+        link1.download = "barcode1.png";
+        document.body.appendChild(link1);
+        link1.click();
+        document.body.removeChild(link1);
+    
+        var link2 = document.createElement("a");
+        link2.href = barcode2DataURL;
+        link2.download = "barcode2.png";
+        document.body.appendChild(link2);
+        link2.click();
+        document.body.removeChild(link2);
+      });
+    
+      // Share button
+      shareButton.addEventListener("click", function () {
+        var barcode1DataURL = barcode1.toDataURL("image/png");
+        var barcode2DataURL = barcode2.toDataURL("image/png");
+    
+        // Share each barcode
+        window.navigator.share({
+          title: "Barcode",
+          text: "Check out these barcodes!",
+          files: [
+            new File([barcode1DataURL], "barcode1.png", {
+              type: "image/png",
+            }),
+            new File([barcode2DataURL], "barcode2.png", {
+              type: "image/png",
+            }),
+          ],
         });
-      </script>
+      });
+    
+      function resetRiwayat1() {
+  document.getElementById("barcode-input").value = "";
+
+  barcode1.textContent = '';
+
+  var context = barcode2.getContext('2d');
+  context.clearRect(0, 0, barcode2.width, barcode2.height);
+}
+
+    </script>
+    
 
       <br><br><br>
       <div class="container-b">
@@ -2513,11 +2524,7 @@ barcode2.style.borderRadius = '20px'; // menambahkan border radius
         document.querySelector("#numberToLetterResult").textContent = "";
       });
 
-      document.getElementById("word").addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          convertWordToNumber();
-        }
-      });
+ 
 
       document.getElementById("number").addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
@@ -2526,7 +2533,25 @@ barcode2.style.borderRadius = '20px'; // menambahkan border radius
       });
     </script>
 
+<script>
+  function salinTeks1() {
+    const wordToNumberResult = document.getElementById("wordToNumberResult");
+    const range = document.createRange();
+    range.selectNode(wordToNumberResult);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("copy");
+    navigator.vibrate(100); // Menambahkan getar selama 100ms
+  }
 
+  function bagikanTeks1() {
+    const wordToNumberResult = document.getElementById("wordToNumberResult").textContent;
+    const encodedText = encodeURIComponent(wordToNumberResult);
+    const shareUrl = `whatsapp://send?text=${encodedText}`;
+    window.location.href = shareUrl;
+  }
+</script>
 
     <script>
       function convertWordToNumber1() {
