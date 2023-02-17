@@ -451,6 +451,7 @@
               size: 200,
               background: 'transparent', // warna background
               foreground: 'black', // warna QR code
+              
             }).toCanvas(barcode2, {
               errorCorrectionLevel: 'M',
               margin: 400,
@@ -736,17 +737,20 @@ shareButton.addEventListener("click", function () {
         <div class="title-container">
           <h1 class="title">Hitung detail umur sekarang</h1>
         </div>
-        <p id="output"></p>
+       
 
         <P id="deskripsiProduk">Masukan Tanggal lahir, bulan, tahun</P>
         <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
         <input type="text" id="bulan-lahir" placeholder="Bulan lahir">
         <input type="text" id="tahun-lahir" placeholder="Tahun lahir">
+        <div><button type="button11" onclick="hitungUmur()">Hitung</button></div>
         <div>
-          <button type="button11" onclick="hitungUmur()">Hitung</button>
+          
           <button type="button11" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
-        </div><br><br>
-
+          <button type="button11" onclick="salinTeks6()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks6()"><i class="fa fa-share"></i></button>
+        </div><br>
+        <p id="output"></p>
       </div><br><br>
 
       <div> <button type="button10" class="close"><i class="fa-solid fa-circle-xmark"></i></button></div><br><br>
@@ -930,17 +934,23 @@ shareButton.addEventListener("click", function () {
           var sisaHari = Math.ceil(selisihHari);
 
           totalDetik += waktuTidur;
-          document.getElementById("output").innerHTML = "🔹Umur Anda Sekarang " + umurTahun + " tahun " +
-            umurBulan + " bulan " + umurTanggal + " hari. " + "<br>" + "<br>" + " Atau anda telah hidup selama : " +
-            "<br>" + " 🔹" + totalJam + " Jam atau " + "<br>" + " 🔹" + totalMenit + " Menit atau " + "<br>" +
-            " 🔹" + totalDetik + " Detik atau " + "<br>" + "🔹" + totalMilidetik + " Milidetik atau " + "<br>" +
-            "🔹" + totalMikrodetik + " Mikrodetik atau " + "<br>" + "🔹" + totalNanodetik + " Nanodetik " + "<br>" +
-            "<br>" + "Jika anda tidur 8 jam sehari total waktu tidur adalah " + waktuTidur / 3600 + " jam." +
-            "<br>" + "<br>" + "Jika rambut Anda tidak dipotong, panjang rambut Anda sekarang sekitar " +
-            panjangRambut + " cm." + "<br>" + "Jika kuku Anda tidak dipotong, panjang kuku Anda sekarang sekitar " +
-            panjangKuku + " mm." + "<br>" + "<br>" + "<br>" +
-            "Sumber: Rambut tumbuh sekitar 0,3–0.4mm per hari atau 15cm per tahun. Kuku tangan tumbuh sekitar 0,1mm per hari atau 3mm per bulan (American Academy of Dermatology)" +
-            "<br>" + "<br>" + " Tinggal " + sisaHari + " hari lagi menuju ulang tahun Anda.";
+          document.getElementById("output").innerHTML = 
+    `<p>🔹 Umur Anda Sekarang ${umurTahun} tahun ${umurBulan} bulan ${umurTanggal} hari.</p>
+     <p>Atau anda telah hidup selama:</p>
+     <ul>
+         <li>🔹 ${totalJam} Jam</li>
+         <li>🔹 ${totalMenit} Menit</li>
+         <li>🔹 ${totalDetik} Detik</li>
+         <li>🔹 ${totalMilidetik} Milidetik</li>
+         <li>🔹 ${totalMikrodetik} Mikrodetik</li>
+         <li>🔹 ${totalNanodetik} Nanodetik</li>
+     </ul>
+     <p>Jika anda tidur 8 jam sehari total waktu tidur adalah ${waktuTidur / 3600} jam.</p>
+     <p>Jika rambut Anda tidak dipotong, panjang rambut Anda sekarang sekitar ${panjangRambut} cm.</p>
+     <p>Jika kuku Anda tidak dipotong, panjang kuku Anda sekarang sekitar ${panjangKuku} mm.</p>
+     <p>Sumber: Rambut tumbuh sekitar 0,3–0.4mm per hari atau 15cm per tahun. Kuku tangan tumbuh sekitar 0,1mm per hari atau 3mm per bulan (American Academy of Dermatology)</p>
+     <p>Tinggal ${sisaHari} hari lagi menuju ulang tahun Anda.</p>`;
+
 
 
           if (umurTahun >= 20) {
@@ -3515,6 +3525,25 @@ resetButton112.addEventListener("click", function() {
   function bagikanTeks5() {
     const result = document.getElementById("result").textContent;
     const encodedText = encodeURIComponent(result);
+    const shareUrl = `whatsapp://send?text=${encodedText}`;
+    window.location.href = shareUrl;
+  }
+</script>
+<script>
+  function salinTeks6() {
+    const output = document.getElementById("output");
+    const range = document.createRange();
+    range.selectNode(output);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("copy");
+    navigator.vibrate(100); // Menambahkan getar selama 100ms
+  }
+
+  function bagikanTeks6() {
+    const output = document.getElementById("output").textContent;
+    const encodedText = encodeURIComponent(output);
     const shareUrl = `whatsapp://send?text=${encodedText}`;
     window.location.href = shareUrl;
   }
