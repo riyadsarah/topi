@@ -658,10 +658,45 @@ shareButton.addEventListener("click", function () {
     <div id="myModal1" class="modal1">
       <div class="container-b">
         <div class="title-container">
-          <h1 class="title">Masukkan kode atau harga</h1>
+          <h1 class="title">Hitung pengeluaran roko <i class="fa-solid fa-joint"></i></h1>
+  
+        </div><br>
+      <form id="form3">
+   <div>
+        <input type="number" id="jumlahPerHari" name="jumlahPerHari" placeholder="jumlah batang/hari ">
+       
+        <select id="harga" name="harga">
+          <option value="500">Rp 500</option>
+          <option value="1000">Rp 1.000</option>
+          <option value="1500">Rp 1.500</option>
+          <option value="2000">Rp 2.000 </option>
+        </select>
+      </div>
+        
+        <div>
+          <input type="number" id="periode" name="periode" placeholder="Total waktu" >
+        <select id="periodeType" name="periodeType" >
+          <option value="hari">hari</option>
+          <option value="minggu">minggu</option>
+          <option value="bulan">bulan</option>
+          <option value="tahun">tahun</option>
+        </select>
+       
+      </div>
+        
+        <div>
+          <button type="button11" class="button" type="submit" value="Hitung">Hitung</button>
+         
         </div>
-      
-      </div><br><br>
+        <div>
+           <button  type="button11" id="resetButton112"><i class="fas fa-undo"></i></button>
+           <button type="button11" onclick="salinTeks5()"><i class="fa fa-copy"></i></button>
+           <button type="button11" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
+        </div>
+        <br>
+        <p id="result"></p>
+      </form>
+    </div><br><br>
       <div> <button type="button10" class="close1"><i class="fa-solid fa-circle-xmark"></i></button></div><br>
       <script>
         // Get the modal
@@ -3319,7 +3354,172 @@ Direktur Utama
     </script>
     
 
+   
+   
+    
+    <script>
+const form = document.getElementById("form3");
 
+// Informasi tentang 1 batang rokok
+const beratSatuan = 1.9; // gram
+const panjangSatuan = 8; // cm
+const nikotinSatuan = 2.3; // miligram
+const tarSatuan = 39; // miligram
+// Informasi tentang 1 bungkus rokok
+const batangPerBungkus = 20;
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const jumlahPerHari = document.getElementById("jumlahPerHari").value;
+  const harga = document.getElementById("harga").value;
+  const periodeType = document.getElementById("periodeType").value;
+  const periode = document.getElementById("periode").value;
+
+  let totalRokok = jumlahPerHari;
+  if (periodeType === "hari") {
+    totalRokok *= periode;
+  } else if (periodeType === "minggu") {
+    totalRokok *= periode * 7;
+  } else if (periodeType === "bulan") {
+    totalRokok *= periode * 30;
+  } else if (periodeType === "tahun") {
+    totalRokok *= periode * 365;
+  }
+
+  const totalBerat = totalRokok * beratSatuan / 1000; // Konversi ke kg
+  const totalPanjang = totalRokok * panjangSatuan / 100;
+  const totalNikotin = totalRokok * nikotinSatuan;
+  const totalTar = totalRokok * tarSatuan;
+
+  const totalPengeluaran = totalRokok * harga;
+  const formattedTotalPengeluaran = totalPengeluaran.toLocaleString("id-ID", { style: "currency", currency: "IDR" });
+
+  const panjangKilometer = totalPanjang / 1000;
+  const formattedPanjang = panjangKilometer >= 1
+    ? panjangKilometer.toLocaleString("id-ID", { maximumFractionDigits: 2 }) + " km"
+    : totalPanjang.toLocaleString("id-ID", { maximumFractionDigits: 2 }) + " m";
+
+let totalSticks = totalRokok;
+let formattedSticks = `${totalRokok} batang`;
+if (batangPerBungkus) {
+  const bungkusRokok = Math.floor(totalRokok / batangPerBungkus);
+  const sisaRokok = totalRokok % batangPerBungkus;
+  if (bungkusRokok > 0) {
+    if (sisaRokok > 0) {
+      formattedSticks = `${bungkusRokok} bungkus ${sisaRokok} batang (sisa ${batangPerBungkus - sisaRokok} batang)`;
+    } else {
+      formattedSticks = `${bungkusRokok} bungkus`;
+    }
+  } else {
+    formattedSticks = `${sisaRokok} batang (sisa ${batangPerBungkus - sisaRokok} batang)`;
+  }
+}
+
+const sticks12 = Math.floor(totalRokok / 12);
+const sticks12Sisa = totalRokok % 12;
+const sticks16 = Math.floor(totalRokok / 16);
+const sticks16Sisa = totalRokok % 16;
+const sticks20 = Math.floor(totalRokok / 20);
+const sticks20Sisa = totalRokok % 20;
+
+const result = document.getElementById("result");
+result.innerHTML = `
+
+  <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
+
+  Data kamu
+   <p>Sehari meroko ${jumlahPerHari} batang.
+   Harga : Rp.${harga}/batang. 
+   Waktu: ${periode} ${periodeType}</p>
+ <br>
+berikut hasilnya :
+
+<p>Jumlah batang rokok yang dikonsumsi: ${totalRokok} batang</p>
+<p>Setara dengan:</p>
+  
+ <p> ●  ${sticks12} bungkus ${sticks12Sisa} batang  (isi 12)</p>
+ <p> ●  ${sticks16} bungkus ${sticks16Sisa} batang  (isi 16)</p>
+ <p> ●  ${sticks20} bungkus ${sticks20Sisa} batang  (isi 20)</p><br>
+  
+<p>Berat rokok yang dikonsumsi: ${totalBerat.toFixed(2)} kg</p>
+<p>Panjang roko jika di sambungkan: ${formattedPanjang}</p><br>
+
+<p>Nikotin yang dikonsumsi: ${totalNikotin} mg</p>
+<p>Tar yang dikonsumsi: ${totalTar} mg</p><br>
+
+<p>Total pengeluaran: ${formattedTotalPengeluaran.replace(".", ",").replace("Rp", "Rp ")} (${toWords(totalPengeluaran)} rupiah)</p><br><br>
+
+
+  <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p>
+
+`;
+
+
+});
+
+    function toWords(s) {
+const words = [
+"", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"
+];
+if (s < 12) return words[s];
+if (s < 20) return toWords(s - 10) + " belas";
+if (s < 100) return toWords(Math.floor(s / 10)) + " puluh " + toWords(s % 10);
+if (s < 200) return "seratus " + toWords(s - 100);
+if (s < 1000) return toWords(Math.floor(s / 100)) + " ratus " + toWords(s % 100);
+if (s < 2000) return "seribu " + toWords(s - 1000);
+if (s < 1000000) return toWords(Math.floor(s / 1000)) + " ribu " + toWords(s % 1000);
+if (s < 1000000000) return toWords(Math.floor(s / 1000000)) + " juta " + toWords(s % 1000000);
+if (s < 1000000000000) return toWords(Math.floor(s / 1000000000)) + " milyar " + toWords(s % 1000000000);
+if (s < 1000000000000000) return toWords(Math.floor(s / 1000000000000)) + " triliun " + toWords(s % 1000000000000);
+if (s < 1000000000000000000) return toWords(Math.floor(s / 1000000000000000)) + " kuadriliun " + toWords(s % 1000000000000000);
+if (s < 1000000000000000000000) return toWords(Math.floor(s / 1000000000000000000)) + " kuintiliun " + toWords(s % 1000000000000000000);
+if (s < 1000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000)) + " sekstiliun " + toWords(s % 1000000000000000000000);
+if (s < 1000000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000000)) + " septiliun " + toWords(s % 1000000000000000000000000);
+if (s < 1000000000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000000000)) + " oktiliun " + toWords(s % 1000000000000000000000000000);
+if (s < 1000000000000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000000000000)) + " noniliun " + toWords(s % 1000000000000000000000000000000);
+if (s < 1000000000000000000000000000000000000000000000000000000000000000) {
+  const desiliun = Math.floor(s / 1000000000000000000000000000000000000000000000000000000000000);
+  const remainder = s % 1000000000000000000000000000000000000000000000000000000000000;
+  return toWords(desiliun) + " desiliun " + toWords(remainder);
+}
+
+    }
+
+const resetButton112 = document.getElementById("resetButton112");
+
+resetButton112.addEventListener("click", function() {
+ document.getElementById("jumlahPerHari").value = "";
+
+  document.getElementById("harga").selectedIndex = 0;
+  document.getElementById("periodeType").selectedIndex = 0;
+  document.getElementById("periode").value = "";
+  document.getElementById("result").innerHTML = "";
+});
+
+
+</script>
+
+<script>
+  function salinTeks5() {
+    const result = document.getElementById("result");
+    const range = document.createRange();
+    range.selectNode(result);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("copy");
+    navigator.vibrate(100); // Menambahkan getar selama 100ms
+  }
+
+  function bagikanTeks5() {
+    const result = document.getElementById("result").textContent;
+    const encodedText = encodeURIComponent(result);
+    const shareUrl = `whatsapp://send?text=${encodedText}`;
+    window.location.href = shareUrl;
+  }
+</script>
+    
 
 
     <br><br>
