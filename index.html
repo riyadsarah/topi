@@ -62,26 +62,7 @@
     }
   }
 
-  #carouselExampleIndicators {
-    border-radius: 20px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-
-  }
-
-  .carousel-inner {
-    border-radius: 20px;
-
-  }
-
-  .carousel-item {
-    border-radius: 20px;
-  }
-
-  img {
-    border-radius: 20px;
-  }
+ 
 </style>
 
 
@@ -131,7 +112,7 @@
     </div>
   </div>
   <br>
-
+ 
   <br><br>
 
   <div class="photo-container">
@@ -936,20 +917,21 @@ shareButton.addEventListener("click", function () {
           totalDetik += waktuTidur;
           document.getElementById("output").innerHTML = 
     `<p>🔹 Umur Anda Sekarang ${umurTahun} tahun ${umurBulan} bulan ${umurTanggal} hari.</p>
+    <p>Tinggal ${sisaHari} hari lagi menuju ulang tahun Anda.</p>
      <p>Atau anda telah hidup selama:</p>
-     <ul>
-         <li>🔹 ${totalJam} Jam</li>
-         <li>🔹 ${totalMenit} Menit</li>
-         <li>🔹 ${totalDetik} Detik</li>
-         <li>🔹 ${totalMilidetik} Milidetik</li>
-         <li>🔹 ${totalMikrodetik} Mikrodetik</li>
-         <li>🔹 ${totalNanodetik} Nanodetik</li>
-     </ul>
+
+         <p>🔹 ${totalJam} Jam</p>
+         <p>🔹 ${totalMenit} Menit</p>
+         <p>🔹 ${totalDetik} Detik</p>
+         <p>🔹 ${totalMilidetik} Milidetik</p>
+         <p>🔹 ${totalMikrodetik} Mikrodetik</p>
+         <p>🔹 ${totalNanodetik} Nanodetik</p>
+   
      <p>Jika anda tidur 8 jam sehari total waktu tidur adalah ${waktuTidur / 3600} jam.</p>
      <p>Jika rambut Anda tidak dipotong, panjang rambut Anda sekarang sekitar ${panjangRambut} cm.</p>
      <p>Jika kuku Anda tidak dipotong, panjang kuku Anda sekarang sekitar ${panjangKuku} mm.</p>
      <p>Sumber: Rambut tumbuh sekitar 0,3–0.4mm per hari atau 15cm per tahun. Kuku tangan tumbuh sekitar 0,1mm per hari atau 3mm per bulan (American Academy of Dermatology)</p>
-     <p>Tinggal ${sisaHari} hari lagi menuju ulang tahun Anda.</p>`;
+     `;
 
 
 
