@@ -1698,7 +1698,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   /* Style untuk semua input number */
 input[type=number] {
-  width: 80%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -1707,9 +1707,4 @@ input[type=number] {
   font-size: 16px;
 }
 
-/* Style responsif */
-@media screen and (max-width: 600px) {
-  input[type=number] {
-    width: 100%;
-  }
-}
+
