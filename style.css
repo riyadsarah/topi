@@ -324,7 +324,7 @@ button[type="button1"] {
   cursor: pointer;
 }
 button[type="button11"] {
-  background-color:#0bbffb;
+  background-color:#31ae2394;
   color: rgb(255, 255, 255);
   padding: 5px 20px;
  
@@ -1503,7 +1503,7 @@ button:hover {
 .container-b {
   width: 700px;
   margin: 0 auto;
-  background-color: #0000002d;
+  background-color: #ffffff2e;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
