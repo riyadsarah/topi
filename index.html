@@ -916,21 +916,24 @@ shareButton.addEventListener("click", function () {
 
           totalDetik += waktuTidur;
           document.getElementById("output").innerHTML = 
-    `<p>🔹 Umur Anda Sekarang ${umurTahun} tahun ${umurBulan} bulan ${umurTanggal} hari.</p>
+          
+    `<p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
+    <p>Umur Anda Sekarang : ${umurTahun} tahun ${umurBulan} bulan ${umurTanggal} hari.</p>
     <p>Tinggal ${sisaHari} hari lagi menuju ulang tahun Anda.</p>
      <p>Atau anda telah hidup selama:</p>
 
-         <p>🔹 ${totalJam} Jam</p>
-         <p>🔹 ${totalMenit} Menit</p>
-         <p>🔹 ${totalDetik} Detik</p>
-         <p>🔹 ${totalMilidetik} Milidetik</p>
-         <p>🔹 ${totalMikrodetik} Mikrodetik</p>
-         <p>🔹 ${totalNanodetik} Nanodetik</p>
+         <p> ● ${totalJam} Jam</p>
+         <p> ● ${totalMenit} Menit</p>
+         <p> ● ${totalDetik} Detik</p>
+         <p> ● ${totalMilidetik} Milidetik</p>
+         <p> ● ${totalMikrodetik} Mikrodetik</p>
+         <p> ● ${totalNanodetik} Nanodetik</p>
    
      <p>Jika anda tidur 8 jam sehari total waktu tidur adalah ${waktuTidur / 3600} jam.</p>
      <p>Jika rambut Anda tidak dipotong, panjang rambut Anda sekarang sekitar ${panjangRambut} cm.</p>
      <p>Jika kuku Anda tidak dipotong, panjang kuku Anda sekarang sekitar ${panjangKuku} mm.</p>
      <p>Sumber: Rambut tumbuh sekitar 0,3–0.4mm per hari atau 15cm per tahun. Kuku tangan tumbuh sekitar 0,1mm per hari atau 3mm per bulan (American Academy of Dermatology)</p>
+     <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
      `;
 
 
@@ -938,7 +941,15 @@ shareButton.addEventListener("click", function () {
           if (umurTahun >= 20) {
             setTimeout(function () {
               document.getElementById("output").innerHTML += "<br>" + "<br>" +
-                "Wah, umur kamu sudah 20 keatas!!! Emang masa-masa paling sulit🥲 ";
+              
+                "Wah, sepertinya kamu masih bocil ";
+            }, 1000);
+          }
+          
+          if (umurTahun >= 10) {
+            setTimeout(function () {
+              document.getElementById("output").innerHTML += "<br>" + "<br>" +
+                "Wah, seperti nya kamu masih bocil ";
             }, 1000);
           }
         }
@@ -3419,6 +3430,10 @@ const baksoPrice = 10000;
 const totalMangkok = Math.floor(totalPengeluaran / baksoPrice);
 const iphonePrice = 20130000;
 const totalIphone = Math.floor(totalPengeluaran / iphonePrice);
+const permenPrice = 200;
+const totalPermen = Math.floor(totalPengeluaran / permenPrice);
+const nasipadangPrice = 15000;
+const totalNasipadang = Math.floor(totalPengeluaran / nasipadangPrice);
 
 
 const result = document.getElementById("result");
@@ -3449,9 +3464,13 @@ berikut hasilnya :
 <p>Total pengeluaran: ${formattedTotalPengeluaran.replace(".", ",").replace("Rp", "Rp ")} (${toWords(totalPengeluaran)} rupiah)</p><br><br>
 
 <p>Setara dengan:</p>
-<p> ${totalMangkok}  mangkok baso </p>
+<p> ● ${totalMangkok}  mangkok baso </p>
 
-<p> ${totalIphone}  iphone 13 pro max .</p>
+<p> ● ${totalIphone}  iphone 13 pro max </p>
+
+<p> ● ${totalPermen}  butir permen .</p>
+
+<p> ● Bisa ngasih makan nasi padang ke ${totalNasipadang} orang .</p>
 
 
   <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p>
