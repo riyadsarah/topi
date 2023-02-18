@@ -3415,6 +3415,12 @@ const sticks16Sisa = totalRokok % 16;
 const sticks20 = Math.floor(totalRokok / 20);
 const sticks20Sisa = totalRokok % 20;
 
+const baksoPrice = 10000;
+const totalMangkok = Math.floor(totalPengeluaran / baksoPrice);
+const iphonePrice = 20130000;
+const totalIphone = Math.floor(totalPengeluaran / iphonePrice);
+
+
 const result = document.getElementById("result");
 result.innerHTML = `
 
@@ -3441,6 +3447,11 @@ berikut hasilnya :
 <p>Tar yang dikonsumsi: ${totalTar} mg</p><br>
 
 <p>Total pengeluaran: ${formattedTotalPengeluaran.replace(".", ",").replace("Rp", "Rp ")} (${toWords(totalPengeluaran)} rupiah)</p><br><br>
+
+<p>Setara dengan:</p>
+<p> ${totalMangkok}  mangkok baso </p>
+
+<p> ${totalIphone}  iphone 13 pro max .</p>
 
 
   <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p>
