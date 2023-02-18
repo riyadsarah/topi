@@ -1669,13 +1669,23 @@ select option:hover {
   label {
 
     color: #ffffff;
-   display: inline-table;
+  
     font-size: 16px;
-    margin-bottom: 8px;
+   
     font-weight: bold;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
   }
   
   #hasil20 {
+    font-size: 18px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.5;
+    margin: 1em 0;
+    color: #fcfcfc;
+  }
+  #hasil000 {
     font-size: 18px;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     line-height: 1.5;

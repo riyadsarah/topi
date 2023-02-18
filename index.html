@@ -743,7 +743,41 @@ shareButton.addEventListener("click", function () {
           <button type="button11" onclick="bagikanTeks6()"><i class="fa fa-share"></i></button>
         </div><br>
         <p id="output"></p>
-      </div><br><br>
+      </div><br><br><br><br>
+
+      
+<div class="container-b">
+  <div class="title-container">
+    <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
+
+  </div><br>
+<label for="panjang">Panjang dinding (m):</label>
+<input type="number" id="panjang">
+<br><br>
+<label for="lebar">Lebar dinding (m):</label>
+<input type="number" id="lebar">
+<br><br>
+<label for="tinggi" >Tinggi dinding (m):</label>
+<input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
+<br><br>
+<label for="satuan">Satuan:</label>
+<select id="satuan">
+  <option value="m2">Meter Persegi (m2)</option>
+  <option value="m3">Meter Kubik (m3)</option>
+</select>
+<br><br>
+<div>
+<button type="button11" onclick="hitungJumlahHebel()">Hitung</button>
+</div>
+<div>
+          
+  <button type="button11" onclick="resetForm4()"><i class="fas fa-undo"></i></button>
+  <button type="button11" onclick="salinTeks7()"><i class="fa fa-copy"></i></button>
+  <button type="button11" onclick="bagikanTeks7()"><i class="fa fa-share"></i></button>
+</div><br>
+
+<p id="hasil20"></p>
+</div>
 
       <div> <button type="button10" class="close"><i class="fa-solid fa-circle-xmark"></i></button></div><br><br>
 
@@ -3589,38 +3623,6 @@ resetButton112.addEventListener("click", function() {
 </script>
 
 
-<div class="container-b">
-  <div class="title-container">
-    <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
-
-  </div><br>
-<label for="panjang">Panjang dinding (m):</label>
-<input type="number" id="panjang">
-<br><br>
-<label for="lebar">Lebar dinding (m):</label>
-<input type="number" id="lebar">
-<br><br>
-<label for="tinggi" >Tinggi dinding (m):</label>
-<input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
-<br><br>
-<label for="satuan">Satuan:</label>
-<select id="satuan">
-  <option value="m2">Meter Persegi (m2)</option>
-  <option value="m3">Meter Kubik (m3)</option>
-</select>
-<br><br>
-<div>
-<button type="button11" onclick="hitungJumlahHebel()">Hitung</button>
-</div>
-<div>
-          
-  <button type="button11" onclick="resetForm4()"><i class="fas fa-undo"></i></button>
-  <button type="button11" onclick="salinTeks7()"><i class="fa fa-copy"></i></button>
-  <button type="button11" onclick="bagikanTeks7()"><i class="fa fa-share"></i></button>
-</div><br>
-
-<p id="hasil20"></p>
-</div>
 <script>
  function hitungJumlahHebel() {
   var panjang = document.getElementById("panjang").value;
