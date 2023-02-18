@@ -19,7 +19,7 @@
 
   <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
-  
+
 
 
 </head>
@@ -61,8 +61,6 @@
       margin: 20px;
     }
   }
-
- 
 </style>
 
 
@@ -112,7 +110,7 @@
     </div>
   </div>
   <br>
- 
+
   <br><br>
 
   <div class="photo-container">
@@ -179,9 +177,9 @@
             <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
             <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button>
           </div>
-       
-            <pre id="output-text"></pre>
-        
+
+          <pre id="output-text"></pre>
+
           <div id="address-input">
             <p id="deskripsiProduk">Alamat hanya untuk Teks menjadi surat</p>
             <input id="input-address" type="text" placeholder="Masukkan alamat...">
@@ -393,7 +391,7 @@
 
           <canvas id="barcode1"></canvas>
           <canvas id="barcode2"></canvas>
-         
+
 
         </div>
       </div><br>
@@ -401,7 +399,7 @@
       <script>
         var barcode1 = document.getElementById("barcode1");
         var barcode2 = document.getElementById("barcode2");
-       
+
         var barcodeInput = document.getElementById("barcode-input");
         var generateButton = document.getElementById("generate-button");
         var saveButton = document.getElementById("save-button");
@@ -432,7 +430,7 @@
               size: 200,
               background: 'transparent', // warna background
               foreground: 'black', // warna QR code
-              
+
             }).toCanvas(barcode2, {
               errorCorrectionLevel: 'M',
               margin: 400,
@@ -468,25 +466,25 @@
           document.body.removeChild(link2);
         });
 
-    // Share button
-shareButton.addEventListener("click", function () {
-  var barcode1DataURL = barcode1.toDataURL("image/jpeg", 0.8); // ubah ke format JPG dan sesuaikan kualitas
-  var barcode2DataURL = barcode2.toDataURL("image/jpeg", 0.8);
+        // Share button
+        shareButton.addEventListener("click", function () {
+          var barcode1DataURL = barcode1.toDataURL("image/jpeg", 0.8); // ubah ke format JPG dan sesuaikan kualitas
+          var barcode2DataURL = barcode2.toDataURL("image/jpeg", 0.8);
 
-  // Share each barcode
-  window.navigator.share({
-    title: "Barcode",
-    text: "Check out these barcodes!",
-    files: [
-      new File([barcode1DataURL], "barcode1.jpg", { // ubah nama file dan tipe file menjadi JPG
-        type: "image/jpeg",
-      }),
-      new File([barcode2DataURL], "barcode2.jpg", {
-        type: "image/jpeg",
-      }),
-    ],
-  });
-});
+          // Share each barcode
+          window.navigator.share({
+            title: "Barcode",
+            text: "Check out these barcodes!",
+            files: [
+              new File([barcode1DataURL], "barcode1.jpg", { // ubah nama file dan tipe file menjadi JPG
+                type: "image/jpeg",
+              }),
+              new File([barcode2DataURL], "barcode2.jpg", {
+                type: "image/jpeg",
+              }),
+            ],
+          });
+        });
 
 
         function resetRiwayat1() {
@@ -499,19 +497,19 @@ shareButton.addEventListener("click", function () {
         }
       </script>
 
-<br><br>
-<div class="container-b">
-  <div class="title-container">
-    <h1 class="title">Buat kode barang</h1>
-  </div>
-<input type="text" id="input-text1" placeholder="Masukkan kata">
-    <button type="button11" onclick="generateAbbreviations()">Cari singkatan</button>
-    <br><br>
-    
-    <select id="dropdown-menu"></select>
-    <button type="button11" onclick="copyToClipboard()">Copy <i class="fa-regular fa-clipboard"></i></button>
-    <button type="button11" onclick="resetForm5()"><i class="fas fa-undo"></i></button>
-  </div>
+      <br><br>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Buat kode barang</h1>
+        </div>
+        <input type="text" id="input-text1" placeholder="Masukkan kata">
+        <button type="button11" onclick="generateAbbreviations()">Cari singkatan</button>
+        <br><br>
+
+        <select id="dropdown-menu"></select>
+        <button type="button11" onclick="copyToClipboard()">Copy <i class="fa-regular fa-clipboard"></i></button>
+        <button type="button11" onclick="resetForm5()"><i class="fas fa-undo"></i></button>
+      </div>
 
 
       <br><br><br>
@@ -528,7 +526,7 @@ shareButton.addEventListener("click", function () {
         </div>
       </div>
 
-      
+
 
 
       <br><br>
@@ -607,13 +605,13 @@ shareButton.addEventListener("click", function () {
         }
 
         function resetForm6() {
-  // mengatur nilai elemen input kembali ke nilai default atau kosong
-  document.getElementById("inputText").value = "";
-  
-  
-  // menghapus hasil perhitungan yang ada pada elemen p
-  document.getElementById("outputText").innerHTML = "";
-}
+          // mengatur nilai elemen input kembali ke nilai default atau kosong
+          document.getElementById("inputText").value = "";
+
+
+          // menghapus hasil perhitungan yang ada pada elemen p
+          document.getElementById("outputText").innerHTML = "";
+        }
       </script>
 
       <br><br>
@@ -652,44 +650,44 @@ shareButton.addEventListener("click", function () {
       <div class="container-b">
         <div class="title-container">
           <h1 class="title">Hitung pengeluaran roko <i class="fa-solid fa-joint"></i></h1>
-  
+
         </div><br>
-      <form id="form3">
-   <div>
-        <input type="number" id="jumlahPerHari" name="jumlahPerHari" placeholder="jumlah batang/hari ">
-       
-        <select id="harga" name="harga">
-          <option value="500">Rp 500</option>
-          <option value="1000">Rp 1.000</option>
-          <option value="1500">Rp 1.500</option>
-          <option value="2000">Rp 2.000 </option>
-        </select>
-      </div>
-        
-        <div>
-          <input type="number" id="periode" name="periode" placeholder="Total waktu" >
-        <select id="periodeType" name="periodeType" >
-          <option value="hari">hari</option>
-          <option value="minggu">minggu</option>
-          <option value="bulan">bulan</option>
-          <option value="tahun">tahun</option>
-        </select>
-       
-      </div>
-        
-        <div>
-          <button type="button11" class="button" type="submit" value="Hitung">Hitung</button>
-         
-        </div>
-        <div>
-           <button  type="button11" id="resetButton112"><i class="fas fa-undo"></i></button>
-           <button type="button11" onclick="salinTeks5()"><i class="fa fa-copy"></i></button>
-           <button type="button11" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
-        </div>
-        <br>
-        <p id="result"></p>
-      </form>
-    </div><br><br>
+        <form id="form3">
+          <div>
+            <input type="number" id="jumlahPerHari" name="jumlahPerHari" placeholder="jumlah batang/hari ">
+
+            <select id="harga" name="harga">
+              <option value="500">Rp 500</option>
+              <option value="1000">Rp 1.000</option>
+              <option value="1500">Rp 1.500</option>
+              <option value="2000">Rp 2.000 </option>
+            </select>
+          </div><br>
+
+          <div>
+            <input type="number" id="periode" name="periode" placeholder="Total waktu">
+            <select id="periodeType" name="periodeType">
+              <option value="hari">hari</option>
+              <option value="minggu">minggu</option>
+              <option value="bulan">bulan</option>
+              <option value="tahun">tahun</option>
+            </select>
+
+          </div><br>
+
+          <div>
+            <button type="button11" class="button" type="submit" value="Hitung">Hitung</button>
+
+          </div>
+          <div>
+            <button type="button11" id="resetButton112"><i class="fas fa-undo"></i></button>
+            <button type="button11" onclick="salinTeks5()"><i class="fa fa-copy"></i></button>
+            <button type="button11" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
+          </div>
+          <br>
+          <p id="result"></p>
+        </form>
+      </div><br><br>
       <div> <button type="button10" class="close1"><i class="fa-solid fa-circle-xmark"></i></button></div><br>
       <script>
         // Get the modal
@@ -729,7 +727,7 @@ shareButton.addEventListener("click", function () {
         <div class="title-container">
           <h1 class="title">Hitung detail umur sekarang</h1>
         </div>
-       
+
 
         <P id="deskripsiProduk">Masukan Tanggal lahir, bulan, tahun</P>
         <input type="text" id="tanggal-lahir" placeholder="Tanggal lahir">
@@ -737,7 +735,7 @@ shareButton.addEventListener("click", function () {
         <input type="text" id="tahun-lahir" placeholder="Tahun lahir">
         <div><button type="button11" onclick="hitungUmur()">Hitung</button></div>
         <div>
-          
+
           <button type="button11" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
           <button type="button11" onclick="salinTeks6()"><i class="fa fa-copy"></i></button>
           <button type="button11" onclick="bagikanTeks6()"><i class="fa fa-share"></i></button>
@@ -745,39 +743,39 @@ shareButton.addEventListener("click", function () {
         <p id="output"></p>
       </div><br><br><br><br>
 
-      
-<div class="container-b">
-  <div class="title-container">
-    <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
 
-  </div><br>
-<label for="panjang">Panjang dinding (m):</label>
-<input type="number" id="panjang">
-<br><br>
-<label for="lebar">Lebar dinding (m):</label>
-<input type="number" id="lebar">
-<br><br>
-<label for="tinggi" >Tinggi dinding (m):</label>
-<input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
-<br><br>
-<label for="satuan">Satuan:</label>
-<select id="satuan">
-  <option value="m2">Meter Persegi (m2)</option>
-  <option value="m3">Meter Kubik (m3)</option>
-</select>
-<br><br>
-<div>
-<button type="button11" onclick="hitungJumlahHebel()">Hitung</button>
-</div>
-<div>
-          
-  <button type="button11" onclick="resetForm4()"><i class="fas fa-undo"></i></button>
-  <button type="button11" onclick="salinTeks7()"><i class="fa fa-copy"></i></button>
-  <button type="button11" onclick="bagikanTeks7()"><i class="fa fa-share"></i></button>
-</div><br>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
 
-<p id="hasil20"></p>
-</div>
+        </div><br>
+        <label for="panjang">Panjang dinding (m):</label>
+        <input type="number" id="panjang">
+        <br><br>
+        <label for="lebar">Lebar dinding (m):</label>
+        <input type="number" id="lebar">
+        <br><br>
+        <label for="tinggi">Tinggi dinding (m):</label>
+        <input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
+        <br><br>
+        <label for="satuan">Satuan:</label>
+        <select id="satuan">
+          <option value="m2">Meter Persegi (m2)</option>
+          <option value="m3">Meter Kubik (m3)</option>
+        </select>
+        <br><br>
+        <div>
+          <button type="button11" onclick="hitungJumlahHebel()">Hitung</button>
+        </div>
+        <div>
+
+          <button type="button11" onclick="resetForm4()"><i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks7()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks7()"><i class="fa fa-share"></i></button>
+        </div><br>
+
+        <p id="hasil20"></p>
+      </div>
 
       <div> <button type="button10" class="close"><i class="fa-solid fa-circle-xmark"></i></button></div><br><br>
 
@@ -910,61 +908,61 @@ shareButton.addEventListener("click", function () {
 
 
       <script>
-     function hitungUmur() {
-  var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
-  var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
-  var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
-  var sekarang = new Date();
-  var tanggalSekarang = sekarang.getDate();
-  var bulanSekarang = sekarang.getMonth() + 1;
-  var tahunSekarang = sekarang.getFullYear();
-  var umurTahun = tahunSekarang - tahunLahir;
-  var umurBulan = bulanSekarang - bulanLahir;
-  var umurTanggal = tanggalSekarang - tanggalLahir;
-  if (umurBulan < 0) {
-    umurTahun--;
-    umurBulan = 12 + umurBulan;
-  }
-  if (umurTanggal < 0) {
-    var bulanSekarangSebelumnya = bulanSekarang - 1;
-    var jumlahHariBulanSekarangSebelumnya = new Date(tahunSekarang, bulanSekarangSebelumnya, 0).getDate();
-    umurBulan--;
-    umurTanggal = jumlahHariBulanSekarangSebelumnya + umurTanggal;
-  }
-  totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
-  totalDetik = totalMenit * 60;
-  var totalJam = umurTahun * 365 * 24;
-  var panjangRambut = umurTahun * 15;
-  var panjangKuku = umurTahun * 3 * 12;
-  var totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
-  var totalDetik = totalMenit * 60;
-  var waktuTidur = umurTahun * 365 * 8 * 3600;
-  var totalMilidetik = totalDetik * 1000;
-  var totalMikrodetik = totalMilidetik * 1000;
-  var totalNanodetik = totalMikrodetik * 1000;
+        function hitungUmur() {
+          var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
+          var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
+          var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
+          var sekarang = new Date();
+          var tanggalSekarang = sekarang.getDate();
+          var bulanSekarang = sekarang.getMonth() + 1;
+          var tahunSekarang = sekarang.getFullYear();
+          var umurTahun = tahunSekarang - tahunLahir;
+          var umurBulan = bulanSekarang - bulanLahir;
+          var umurTanggal = tanggalSekarang - tanggalLahir;
+          if (umurBulan < 0) {
+            umurTahun--;
+            umurBulan = 12 + umurBulan;
+          }
+          if (umurTanggal < 0) {
+            var bulanSekarangSebelumnya = bulanSekarang - 1;
+            var jumlahHariBulanSekarangSebelumnya = new Date(tahunSekarang, bulanSekarangSebelumnya, 0).getDate();
+            umurBulan--;
+            umurTanggal = jumlahHariBulanSekarangSebelumnya + umurTanggal;
+          }
+          totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
+          totalDetik = totalMenit * 60;
+          var totalJam = umurTahun * 365 * 24;
+          var panjangRambut = umurTahun * 15;
+          var panjangKuku = umurTahun * 3 * 12;
+          var totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
+          var totalDetik = totalMenit * 60;
+          var waktuTidur = umurTahun * 365 * 8 * 3600;
+          var totalMilidetik = totalDetik * 1000;
+          var totalMikrodetik = totalMilidetik * 1000;
+          var totalNanodetik = totalMikrodetik * 1000;
 
-  // Penghitungan tanggal ulang tahun
-  var tanggalUlangTahun = tanggalLahir;
-  var bulanUlangTahun = bulanLahir;
-  var tahunUlangTahun = tahunSekarang;
+          // Penghitungan tanggal ulang tahun
+          var tanggalUlangTahun = tanggalLahir;
+          var bulanUlangTahun = bulanLahir;
+          var tahunUlangTahun = tahunSekarang;
 
           if (bulanLahir < bulanSekarang || (bulanLahir == bulanSekarang && tanggalLahir <= tanggalSekarang)) {
             tahunUlangTahun = tahunSekarang + 1;
           }
-          
+
 
           // Penghitungan hari sampai ulang tahun
           var tanggalSampaiUlangTahun = new Date(tahunUlangTahun, bulanUlangTahun - 1, tanggalUlangTahun);
           var selisihHari = (tanggalSampaiUlangTahun - sekarang) / (24 * 60 * 60 * 1000);
           var sisaHari = Math.ceil(selisihHari);
 
-          
-          
+
+
 
           totalDetik += waktuTidur;
-          document.getElementById("output").innerHTML = 
-          
-    `<p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
+          document.getElementById("output").innerHTML =
+
+            `<p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
     <p>Umur Anda Sekarang : ${umurTahun} tahun ${umurBulan} bulan ${umurTanggal} hari.</p>
     <p>Tinggal ${sisaHari} hari lagi menuju ulang tahun Anda.</p>
      <p>Atau anda telah hidup selama:</p>
@@ -985,7 +983,7 @@ shareButton.addEventListener("click", function () {
 
 
 
-          
+
         }
 
         function resetRiwayat() {
@@ -1039,7 +1037,7 @@ shareButton.addEventListener("click", function () {
 
 
 
-    
+
       <script>
         const input1 = document.getElementById("input-1");
         const input2 = document.getElementById("input-2");
@@ -3248,15 +3246,14 @@ Direktur Utama
 
         // Dan seterusnya untuk semua mode 
       }
+
       function reloadwae() {
-  document.getElementById("input-text").value = "";
-  document.getElementById("input-address").value = "";
-  
-  document.getElementById("mode-select").selectedIndex = 0;
-  document.getElementById("output-text").innerHTML = "";
-}
+        document.getElementById("input-text").value = "";
+        document.getElementById("input-address").value = "";
 
-
+        document.getElementById("mode-select").selectedIndex = 0;
+        document.getElementById("output-text").innerHTML = "";
+      }
     </script>
 
 
@@ -3340,145 +3337,153 @@ Direktur Utama
 
 
     <br><br><br>
-    
-    
+
+
     <script>
-     function generateAbbreviations() {
-      var input = document.getElementById("input-text1").value;
-      var abbreviations = [];
-    
-      // Generate all possible combinations of abbreviations
-      for (var i = 1; i < Math.pow(2, input.length); i++) {
-        var abbreviation = "";
-        var count = 0; // to keep track of the number of characters in the abbreviation
-        for (var j = 0; j < input.length; j++) {
-          if ((i >> j) & 1) {
-            abbreviation += input[j];
-            count++;
+      function generateAbbreviations() {
+        var input = document.getElementById("input-text1").value;
+        var abbreviations = [];
+
+        // Generate all possible combinations of abbreviations
+        for (var i = 1; i < Math.pow(2, input.length); i++) {
+          var abbreviation = "";
+          var count = 0; // to keep track of the number of characters in the abbreviation
+          for (var j = 0; j < input.length; j++) {
+            if ((i >> j) & 1) {
+              abbreviation += input[j];
+              count++;
+            }
+          }
+
+          // Check if the abbreviation is too long or contains consecutive identical letters
+          if (count == 2 || count == 3 && !/(.)\1/.test(abbreviation)) {
+            abbreviations.push(abbreviation);
           }
         }
-        
-        // Check if the abbreviation is too long or contains consecutive identical letters
-        if (count == 2 || count == 3 && !/(.)\1/.test(abbreviation)) {
-          abbreviations.push(abbreviation);
+
+        // Sort the abbreviations alphabetically and display them in the dropdown menu
+        abbreviations.sort();
+        var dropdown = document.getElementById("dropdown-menu");
+        dropdown.innerHTML = "";
+        for (var i = 0; i < abbreviations.length; i++) {
+          var option = document.createElement("option");
+          option.text = abbreviations[i];
+          dropdown.add(option);
         }
       }
-    
-      // Sort the abbreviations alphabetically and display them in the dropdown menu
-      abbreviations.sort();
-      var dropdown = document.getElementById("dropdown-menu");
-      dropdown.innerHTML = "";
-      for (var i = 0; i < abbreviations.length; i++) {
-        var option = document.createElement("option");
-        option.text = abbreviations[i];
-        dropdown.add(option);
+
+      function copyToClipboard() {
+        var dropdown = document.getElementById("dropdown-menu");
+        var abbreviation = dropdown.options[dropdown.selectedIndex].text;
+
+        var textarea = document.createElement("textarea");
+        textarea.value = abbreviation;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
       }
-    }
-    
-    function copyToClipboard() {
-      var dropdown = document.getElementById("dropdown-menu");
-      var abbreviation = dropdown.options[dropdown.selectedIndex].text;
-    
-      var textarea = document.createElement("textarea");
-      textarea.value = abbreviation;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-    }
-    
-    function resetForm5() {
-  // mengatur nilai elemen input kembali ke nilai default atau kosong
-  document.getElementById("input-text1").value = "";
- 
-  
-  // menghapus hasil perhitungan yang ada pada elemen p
-  document.getElementById("dropdown-menu").innerHTML = "";
-}
+
+      function resetForm5() {
+        // mengatur nilai elemen input kembali ke nilai default atau kosong
+        document.getElementById("input-text1").value = "";
+
+
+        // menghapus hasil perhitungan yang ada pada elemen p
+        document.getElementById("dropdown-menu").innerHTML = "";
+      }
     </script>
-    
 
-   
-   
-    
+
+
+
+
     <script>
-const form = document.getElementById("form3");
+      const form = document.getElementById("form3");
 
-// Informasi tentang 1 batang rokok
-const beratSatuan = 1.9; // gram
-const panjangSatuan = 8; // cm
-const nikotinSatuan = 2.3; // miligram
-const tarSatuan = 39; // miligram
-// Informasi tentang 1 bungkus rokok
-const batangPerBungkus = 20;
+      // Informasi tentang 1 batang rokok
+      const beratSatuan = 1.9; // gram
+      const panjangSatuan = 8; // cm
+      const nikotinSatuan = 2.3; // miligram
+      const tarSatuan = 39; // miligram
+      // Informasi tentang 1 bungkus rokok
+      const batangPerBungkus = 20;
 
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-  const jumlahPerHari = document.getElementById("jumlahPerHari").value;
-  const harga = document.getElementById("harga").value;
-  const periodeType = document.getElementById("periodeType").value;
-  const periode = document.getElementById("periode").value;
+        const jumlahPerHari = document.getElementById("jumlahPerHari").value;
+        const harga = document.getElementById("harga").value;
+        const periodeType = document.getElementById("periodeType").value;
+        const periode = document.getElementById("periode").value;
 
-  let totalRokok = jumlahPerHari;
-  if (periodeType === "hari") {
-    totalRokok *= periode;
-  } else if (periodeType === "minggu") {
-    totalRokok *= periode * 7;
-  } else if (periodeType === "bulan") {
-    totalRokok *= periode * 30;
-  } else if (periodeType === "tahun") {
-    totalRokok *= periode * 365;
-  }
+        let totalRokok = jumlahPerHari;
+        if (periodeType === "hari") {
+          totalRokok *= periode;
+        } else if (periodeType === "minggu") {
+          totalRokok *= periode * 7;
+        } else if (periodeType === "bulan") {
+          totalRokok *= periode * 30;
+        } else if (periodeType === "tahun") {
+          totalRokok *= periode * 365;
+        }
 
-  const totalBerat = totalRokok * beratSatuan / 1000; // Konversi ke kg
-  const totalPanjang = totalRokok * panjangSatuan / 100;
-  const totalNikotin = totalRokok * nikotinSatuan;
-  const totalTar = totalRokok * tarSatuan;
+        const totalBerat = totalRokok * beratSatuan / 1000; // Konversi ke kg
+        const totalPanjang = totalRokok * panjangSatuan / 100;
+        const totalNikotin = totalRokok * nikotinSatuan;
+        const totalTar = totalRokok * tarSatuan;
 
-  const totalPengeluaran = totalRokok * harga;
-  const formattedTotalPengeluaran = totalPengeluaran.toLocaleString("id-ID", { style: "currency", currency: "IDR" });
+        const totalPengeluaran = totalRokok * harga;
+        const formattedTotalPengeluaran = totalPengeluaran.toLocaleString("id-ID", {
+          style: "currency",
+          currency: "IDR"
+        });
 
-  const panjangKilometer = totalPanjang / 1000;
-  const formattedPanjang = panjangKilometer >= 1
-    ? panjangKilometer.toLocaleString("id-ID", { maximumFractionDigits: 2 }) + " km"
-    : totalPanjang.toLocaleString("id-ID", { maximumFractionDigits: 2 }) + " m";
+        const panjangKilometer = totalPanjang / 1000;
+        const formattedPanjang = panjangKilometer >= 1 ?
+          panjangKilometer.toLocaleString("id-ID", {
+            maximumFractionDigits: 2
+          }) + " km" :
+          totalPanjang.toLocaleString("id-ID", {
+            maximumFractionDigits: 2
+          }) + " m";
 
-let totalSticks = totalRokok;
-let formattedSticks = `${totalRokok} batang`;
-if (batangPerBungkus) {
-  const bungkusRokok = Math.floor(totalRokok / batangPerBungkus);
-  const sisaRokok = totalRokok % batangPerBungkus;
-  if (bungkusRokok > 0) {
-    if (sisaRokok > 0) {
-      formattedSticks = `${bungkusRokok} bungkus ${sisaRokok} batang (sisa ${batangPerBungkus - sisaRokok} batang)`;
-    } else {
-      formattedSticks = `${bungkusRokok} bungkus`;
-    }
-  } else {
-    formattedSticks = `${sisaRokok} batang (sisa ${batangPerBungkus - sisaRokok} batang)`;
-  }
-}
+        let totalSticks = totalRokok;
+        let formattedSticks = `${totalRokok} batang`;
+        if (batangPerBungkus) {
+          const bungkusRokok = Math.floor(totalRokok / batangPerBungkus);
+          const sisaRokok = totalRokok % batangPerBungkus;
+          if (bungkusRokok > 0) {
+            if (sisaRokok > 0) {
+              formattedSticks =
+                `${bungkusRokok} bungkus ${sisaRokok} batang (sisa ${batangPerBungkus - sisaRokok} batang)`;
+            } else {
+              formattedSticks = `${bungkusRokok} bungkus`;
+            }
+          } else {
+            formattedSticks = `${sisaRokok} batang (sisa ${batangPerBungkus - sisaRokok} batang)`;
+          }
+        }
 
-const sticks12 = Math.floor(totalRokok / 12);
-const sticks12Sisa = totalRokok % 12;
-const sticks16 = Math.floor(totalRokok / 16);
-const sticks16Sisa = totalRokok % 16;
-const sticks20 = Math.floor(totalRokok / 20);
-const sticks20Sisa = totalRokok % 20;
+        const sticks12 = Math.floor(totalRokok / 12);
+        const sticks12Sisa = totalRokok % 12;
+        const sticks16 = Math.floor(totalRokok / 16);
+        const sticks16Sisa = totalRokok % 16;
+        const sticks20 = Math.floor(totalRokok / 20);
+        const sticks20Sisa = totalRokok % 20;
 
-const baksoPrice = 10000;
-const totalMangkok = Math.floor(totalPengeluaran / baksoPrice);
-const iphonePrice = 20130000;
-const totalIphone = Math.floor(totalPengeluaran / iphonePrice);
-const permenPrice = 200;
-const totalPermen = Math.floor(totalPengeluaran / permenPrice);
-const nasipadangPrice = 15000;
-const totalNasipadang = Math.floor(totalPengeluaran / nasipadangPrice);
+        const baksoPrice = 10000;
+        const totalMangkok = Math.floor(totalPengeluaran / baksoPrice);
+        const iphonePrice = 20130000;
+        const totalIphone = Math.floor(totalPengeluaran / iphonePrice);
+        const permenPrice = 200;
+        const totalPermen = Math.floor(totalPengeluaran / permenPrice);
+        const nasipadangPrice = 15000;
+        const totalNasipadang = Math.floor(totalPengeluaran / nasipadangPrice);
 
 
-const result = document.getElementById("result");
-result.innerHTML = `
+        const result = document.getElementById("result");
+        result.innerHTML = `
 
   <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
 
@@ -3519,160 +3524,163 @@ berikut hasilnya :
 `;
 
 
-});
+      });
 
-    function toWords(s) {
-const words = [
-"", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"
-];
-if (s < 12) return words[s];
-if (s < 20) return toWords(s - 10) + " belas";
-if (s < 100) return toWords(Math.floor(s / 10)) + " puluh " + toWords(s % 10);
-if (s < 200) return "seratus " + toWords(s - 100);
-if (s < 1000) return toWords(Math.floor(s / 100)) + " ratus " + toWords(s % 100);
-if (s < 2000) return "seribu " + toWords(s - 1000);
-if (s < 1000000) return toWords(Math.floor(s / 1000)) + " ribu " + toWords(s % 1000);
-if (s < 1000000000) return toWords(Math.floor(s / 1000000)) + " juta " + toWords(s % 1000000);
-if (s < 1000000000000) return toWords(Math.floor(s / 1000000000)) + " milyar " + toWords(s % 1000000000);
-if (s < 1000000000000000) return toWords(Math.floor(s / 1000000000000)) + " triliun " + toWords(s % 1000000000000);
-if (s < 1000000000000000000) return toWords(Math.floor(s / 1000000000000000)) + " kuadriliun " + toWords(s % 1000000000000000);
-if (s < 1000000000000000000000) return toWords(Math.floor(s / 1000000000000000000)) + " kuintiliun " + toWords(s % 1000000000000000000);
-if (s < 1000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000)) + " sekstiliun " + toWords(s % 1000000000000000000000);
-if (s < 1000000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000000)) + " septiliun " + toWords(s % 1000000000000000000000000);
-if (s < 1000000000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000000000)) + " oktiliun " + toWords(s % 1000000000000000000000000000);
-if (s < 1000000000000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000000000000)) + " noniliun " + toWords(s % 1000000000000000000000000000000);
-if (s < 1000000000000000000000000000000000000000000000000000000000000000) {
-  const desiliun = Math.floor(s / 1000000000000000000000000000000000000000000000000000000000000);
-  const remainder = s % 1000000000000000000000000000000000000000000000000000000000000;
-  return toWords(desiliun) + " desiliun " + toWords(remainder);
-}
+      function toWords(s) {
+        const words = [
+          "", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"
+        ];
+        if (s < 12) return words[s];
+        if (s < 20) return toWords(s - 10) + " belas";
+        if (s < 100) return toWords(Math.floor(s / 10)) + " puluh " + toWords(s % 10);
+        if (s < 200) return "seratus " + toWords(s - 100);
+        if (s < 1000) return toWords(Math.floor(s / 100)) + " ratus " + toWords(s % 100);
+        if (s < 2000) return "seribu " + toWords(s - 1000);
+        if (s < 1000000) return toWords(Math.floor(s / 1000)) + " ribu " + toWords(s % 1000);
+        if (s < 1000000000) return toWords(Math.floor(s / 1000000)) + " juta " + toWords(s % 1000000);
+        if (s < 1000000000000) return toWords(Math.floor(s / 1000000000)) + " milyar " + toWords(s % 1000000000);
+        if (s < 1000000000000000) return toWords(Math.floor(s / 1000000000000)) + " triliun " + toWords(s %
+          1000000000000);
+        if (s < 1000000000000000000) return toWords(Math.floor(s / 1000000000000000)) + " kuadriliun " + toWords(s %
+          1000000000000000);
+        if (s < 1000000000000000000000) return toWords(Math.floor(s / 1000000000000000000)) + " kuintiliun " + toWords(
+          s % 1000000000000000000);
+        if (s < 1000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000)) + " sekstiliun " +
+          toWords(s % 1000000000000000000000);
+        if (s < 1000000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000000)) +
+          " septiliun " + toWords(s % 1000000000000000000000000);
+        if (s < 1000000000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000000000)) +
+          " oktiliun " + toWords(s % 1000000000000000000000000000);
+        if (s < 1000000000000000000000000000000000) return toWords(Math.floor(s / 1000000000000000000000000000000)) +
+          " noniliun " + toWords(s % 1000000000000000000000000000000);
+        if (s < 1000000000000000000000000000000000000000000000000000000000000000) {
+          const desiliun = Math.floor(s / 1000000000000000000000000000000000000000000000000000000000000);
+          const remainder = s % 1000000000000000000000000000000000000000000000000000000000000;
+          return toWords(desiliun) + " desiliun " + toWords(remainder);
+        }
 
-    }
+      }
 
-const resetButton112 = document.getElementById("resetButton112");
+      const resetButton112 = document.getElementById("resetButton112");
 
-resetButton112.addEventListener("click", function() {
- document.getElementById("jumlahPerHari").value = "";
+      resetButton112.addEventListener("click", function () {
+        document.getElementById("jumlahPerHari").value = "";
 
-  document.getElementById("harga").selectedIndex = 0;
-  document.getElementById("periodeType").selectedIndex = 0;
-  document.getElementById("periode").value = "";
-  document.getElementById("result").innerHTML = "";
-});
+        document.getElementById("harga").selectedIndex = 0;
+        document.getElementById("periodeType").selectedIndex = 0;
+        document.getElementById("periode").value = "";
+        document.getElementById("result").innerHTML = "";
+      });
+    </script>
 
+    <script>
+      function salinTeks5() {
+        const result = document.getElementById("result");
+        const range = document.createRange();
+        range.selectNode(result);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+      }
 
-</script>
+      function bagikanTeks5() {
+        const result = document.getElementById("result").textContent;
+        const encodedText = encodeURIComponent(result);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
+    <script>
+      function salinTeks6() {
+        const output = document.getElementById("output");
+        const range = document.createRange();
+        range.selectNode(output);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+      }
 
-<script>
-  function salinTeks5() {
-    const result = document.getElementById("result");
-    const range = document.createRange();
-    range.selectNode(result);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("copy");
-    navigator.vibrate(100); // Menambahkan getar selama 100ms
-  }
+      function bagikanTeks6() {
+        const output = document.getElementById("output").textContent;
+        const encodedText = encodeURIComponent(output);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
-  function bagikanTeks5() {
-    const result = document.getElementById("result").textContent;
-    const encodedText = encodeURIComponent(result);
-    const shareUrl = `whatsapp://send?text=${encodedText}`;
-    window.location.href = shareUrl;
-  }
-</script>
-<script>
-  function salinTeks6() {
-    const output = document.getElementById("output");
-    const range = document.createRange();
-    range.selectNode(output);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("copy");
-    navigator.vibrate(100); // Menambahkan getar selama 100ms
-  }
+    <script>
+      function salinTeks7() {
+        const hasil20 = document.getElementById("hasil20");
+        const range = document.createRange();
+        range.selectNode(hasil20);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+      }
 
-  function bagikanTeks6() {
-    const output = document.getElementById("output").textContent;
-    const encodedText = encodeURIComponent(output);
-    const shareUrl = `whatsapp://send?text=${encodedText}`;
-    window.location.href = shareUrl;
-  }
-</script>
-
-<script>
-  function salinTeks7() {
-    const hasil20 = document.getElementById("hasil20");
-    const range = document.createRange();
-    range.selectNode(hasil20);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("copy");
-    navigator.vibrate(100); // Menambahkan getar selama 100ms
-  }
-
-  function bagikanTeks7() {
-    const hasil20= document.getElementById("hasil20").textContent;
-    const encodedText = encodeURIComponent(hasil20);
-    const shareUrl = `whatsapp://send?text=${encodedText}`;
-    window.location.href = shareUrl;
-  }
-</script>
-
-
-<script>
- function hitungJumlahHebel() {
-  var panjang = document.getElementById("panjang").value;
-  var lebar = document.getElementById("lebar").value;
-  var tinggi = document.getElementById("tinggi").value;
-  var satuan = document.getElementById("satuan").value;
-
-  var luasDinding;
-  if (tinggi) {
-    // perhitungan luas dinding dengan tinggi yang diinputkan
-    luasDinding = panjang * tinggi * 2 + lebar * tinggi * 2;
-  } else {
-    // perhitungan luas dinding tanpa tinggi
-    luasDinding = panjang * lebar;
-  }
-
-  var jumlahHebel;
-  if (satuan == "m2") {
-    // hitung jumlah hebel berdasarkan meter persegi
-    jumlahHebel = Math.ceil(luasDinding / 0.12); // asumsi ukuran hebel 60cm x 20cm
-  } else if (satuan == "m3") {
-    // hitung jumlah hebel berdasarkan meter kubik
-    var volumeDinding = panjang * lebar;
-    if (tinggi) {
-      volumeDinding *= tinggi;
-    } else {
-      volumeDinding *= 2.4; // asumsi tinggi dinding 2,4 m jika tinggi tidak diinputkan
-    }
-    jumlahHebel = Math.ceil(volumeDinding / 0.03); // asumsi ukuran hebel 60cm x 20cm x 7,5cm
-  }
-
-  var hasil20 = "Jumlah hebel yang dibutuhkan: " + jumlahHebel + " buah.";
-  document.getElementById("hasil20").innerHTML = hasil20;
-
-  
- }
-
- function resetForm4() {
-  // mengatur nilai elemen input kembali ke nilai default atau kosong
-  document.getElementById("panjang").value = "";
-  document.getElementById("lebar").value = "";
-  document.getElementById("tinggi").value = "";
-  document.getElementById("satuan").value = "m2"; // mengatur nilai default untuk elemen select
-  
-  // menghapus hasil perhitungan yang ada pada elemen p
-  document.getElementById("hasil20").innerHTML = "";
-}
+      function bagikanTeks7() {
+        const hasil20 = document.getElementById("hasil20").textContent;
+        const encodedText = encodeURIComponent(hasil20);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
 
-</script>
+    <script>
+      function hitungJumlahHebel() {
+        var panjang = document.getElementById("panjang").value;
+        var lebar = document.getElementById("lebar").value;
+        var tinggi = document.getElementById("tinggi").value;
+        var satuan = document.getElementById("satuan").value;
+
+        var luasDinding;
+        if (tinggi) {
+          // perhitungan luas dinding dengan tinggi yang diinputkan
+          luasDinding = panjang * tinggi * 2 + lebar * tinggi * 2;
+        } else {
+          // perhitungan luas dinding tanpa tinggi
+          luasDinding = panjang * lebar;
+        }
+
+        var jumlahHebel;
+        if (satuan == "m2") {
+          // hitung jumlah hebel berdasarkan meter persegi
+          jumlahHebel = Math.ceil(luasDinding / 0.12); // asumsi ukuran hebel 60cm x 20cm
+        } else if (satuan == "m3") {
+          // hitung jumlah hebel berdasarkan meter kubik
+          var volumeDinding = panjang * lebar;
+          if (tinggi) {
+            volumeDinding *= tinggi;
+          } else {
+            volumeDinding *= 2.4; // asumsi tinggi dinding 2,4 m jika tinggi tidak diinputkan
+          }
+          jumlahHebel = Math.ceil(volumeDinding / 0.03); // asumsi ukuran hebel 60cm x 20cm x 7,5cm
+        }
+
+        var hasil20 = "Jumlah hebel yang dibutuhkan: " + jumlahHebel + " buah.";
+        document.getElementById("hasil20").innerHTML = hasil20;
+
+
+      }
+
+      function resetForm4() {
+        // mengatur nilai elemen input kembali ke nilai default atau kosong
+        document.getElementById("panjang").value = "";
+        document.getElementById("lebar").value = "";
+        document.getElementById("tinggi").value = "";
+        document.getElementById("satuan").value = "m2"; // mengatur nilai default untuk elemen select
+
+        // menghapus hasil perhitungan yang ada pada elemen p
+        document.getElementById("hasil20").innerHTML = "";
+      }
+    </script>
 
 
 
@@ -3749,7 +3757,7 @@ resetButton112.addEventListener("click", function() {
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
   <script src="js/main.js"></script>
- 
+
 
 
 </body>
