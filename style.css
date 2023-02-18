@@ -1630,20 +1630,22 @@ button[type="button10"] {
 
 
 select {
-  width: 100px;
-  height: 50px;
+  width: 170px;
+  height: 40px;
   padding: 5px;
   border-radius: 5px;
+ 
  
 }
 
 /* style untuk dropdown */
 select:focus option {
   display: block;
+  
 }
 
 select option {
-  font-size: 20px;
+  font-size: 17px;
  font-family: Georgia, 'Times New Roman', Times, serif;
   display: none;
   color: #000000;
@@ -1664,5 +1666,20 @@ select option:hover {
   }
 
 
+  label {
 
+    color: #ffffff;
+   display: inline-table;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  #hasil20 {
+    font-size: 18px;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.5;
+    margin: 1em 0;
+    color: #fcfcfc;
+  }
   

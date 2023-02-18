@@ -502,7 +502,7 @@ shareButton.addEventListener("click", function () {
 <br><br>
 <div class="container-b">
   <div class="title-container">
-    <h1 class="title">Rubah kalimat menjadi singkat</h1>
+    <h1 class="title">Buat kode barang</h1>
   </div>
 <input type="text" id="input-text1" placeholder="Masukkan kata">
     <button type="button11" onclick="generateAbbreviations()">Cari singkatan</button>
@@ -510,6 +510,7 @@ shareButton.addEventListener("click", function () {
     
     <select id="dropdown-menu"></select>
     <button type="button11" onclick="copyToClipboard()">Copy <i class="fa-regular fa-clipboard"></i></button>
+    <button type="button11" onclick="resetForm5()"><i class="fas fa-undo"></i></button>
   </div>
 
 
@@ -520,13 +521,14 @@ shareButton.addEventListener("click", function () {
         </div>
         <div class="input-container-a">
           <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
+          <button type="button11" onclick="resetForm6()"><i class="fas fa-undo"></i></button>
         </div>
         <div class="output-container">
           <p id="outputText"></p>
         </div>
       </div>
 
-
+      
 
 
       <br><br>
@@ -603,6 +605,15 @@ shareButton.addEventListener("click", function () {
         function getValueByKey(object, key) {
           return object[key] || "";
         }
+
+        function resetForm6() {
+  // mengatur nilai elemen input kembali ke nilai default atau kosong
+  document.getElementById("inputText").value = "";
+  
+  
+  // menghapus hasil perhitungan yang ada pada elemen p
+  document.getElementById("outputText").innerHTML = "";
+}
       </script>
 
       <br><br>
@@ -865,54 +876,56 @@ shareButton.addEventListener("click", function () {
 
 
       <script>
-        function hitungUmur() {
-          var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
-          var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
-          var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
-          var sekarang = new Date();
-          var tanggalSekarang = sekarang.getDate();
-          var bulanSekarang = sekarang.getMonth() + 1;
-          var tahunSekarang = sekarang.getFullYear();
-          var umurTahun = tahunSekarang - tahunLahir;
-          var umurBulan = bulanSekarang - bulanLahir;
-          var umurTanggal = tanggalSekarang - tanggalLahir;
-          if (umurBulan < 0) {
-            umurTahun--;
-            umurBulan = 12 + umurBulan;
-          }
-          if (umurTanggal < 0) {
-            umurBulan--;
-            umurTanggal = 30 + umurTanggal;
-          }
-          totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
-          totalDetik = totalMenit * 60;
-          var totalJam = umurTahun * 365 * 24;
-          var panjangRambut = umurTahun * 15;
-          var panjangKuku = umurTahun * 3 * 12;
-          var totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
-          var totalDetik = totalMenit * 60;
-          var waktuTidur = umurTahun * 365 * 8 * 3600;
-          var totalMilidetik = totalDetik * 1000;
-          var totalMikrodetik = totalMilidetik * 1000;
-          var totalNanodetik = totalMikrodetik * 1000;
-          var sekarang = new Date();
-          var tanggalSekarang = sekarang.getDate();
-          var bulanSekarang = sekarang.getMonth() + 1;
-          var tahunSekarang = sekarang.getFullYear();
+     function hitungUmur() {
+  var tanggalLahir = parseInt(document.getElementById("tanggal-lahir").value);
+  var bulanLahir = parseInt(document.getElementById("bulan-lahir").value);
+  var tahunLahir = parseInt(document.getElementById("tahun-lahir").value);
+  var sekarang = new Date();
+  var tanggalSekarang = sekarang.getDate();
+  var bulanSekarang = sekarang.getMonth() + 1;
+  var tahunSekarang = sekarang.getFullYear();
+  var umurTahun = tahunSekarang - tahunLahir;
+  var umurBulan = bulanSekarang - bulanLahir;
+  var umurTanggal = tanggalSekarang - tanggalLahir;
+  if (umurBulan < 0) {
+    umurTahun--;
+    umurBulan = 12 + umurBulan;
+  }
+  if (umurTanggal < 0) {
+    var bulanSekarangSebelumnya = bulanSekarang - 1;
+    var jumlahHariBulanSekarangSebelumnya = new Date(tahunSekarang, bulanSekarangSebelumnya, 0).getDate();
+    umurBulan--;
+    umurTanggal = jumlahHariBulanSekarangSebelumnya + umurTanggal;
+  }
+  totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
+  totalDetik = totalMenit * 60;
+  var totalJam = umurTahun * 365 * 24;
+  var panjangRambut = umurTahun * 15;
+  var panjangKuku = umurTahun * 3 * 12;
+  var totalMenit = umurTahun * 525600 + umurBulan * 43800 + umurTanggal * 1440;
+  var totalDetik = totalMenit * 60;
+  var waktuTidur = umurTahun * 365 * 8 * 3600;
+  var totalMilidetik = totalDetik * 1000;
+  var totalMikrodetik = totalMilidetik * 1000;
+  var totalNanodetik = totalMikrodetik * 1000;
 
-          // Penghitungan tanggal ulang tahun
-          var tanggalUlangTahun = tanggalLahir;
-          var bulanUlangTahun = bulanLahir;
-          var tahunUlangTahun = tahunSekarang;
+  // Penghitungan tanggal ulang tahun
+  var tanggalUlangTahun = tanggalLahir;
+  var bulanUlangTahun = bulanLahir;
+  var tahunUlangTahun = tahunSekarang;
 
           if (bulanLahir < bulanSekarang || (bulanLahir == bulanSekarang && tanggalLahir <= tanggalSekarang)) {
             tahunUlangTahun = tahunSekarang + 1;
           }
+          
 
           // Penghitungan hari sampai ulang tahun
           var tanggalSampaiUlangTahun = new Date(tahunUlangTahun, bulanUlangTahun - 1, tanggalUlangTahun);
           var selisihHari = (tanggalSampaiUlangTahun - sekarang) / (24 * 60 * 60 * 1000);
           var sisaHari = Math.ceil(selisihHari);
+
+          
+          
 
           totalDetik += waktuTidur;
           document.getElementById("output").innerHTML = 
@@ -938,20 +951,7 @@ shareButton.addEventListener("click", function () {
 
 
 
-          if (umurTahun >= 20) {
-            setTimeout(function () {
-              document.getElementById("output").innerHTML += "<br>" + "<br>" +
-              
-                "Wah, sepertinya kamu masih bocil ";
-            }, 1000);
-          }
           
-          if (umurTahun >= 10) {
-            setTimeout(function () {
-              document.getElementById("output").innerHTML += "<br>" + "<br>" +
-                "Wah, seperti nya kamu masih bocil ";
-            }, 1000);
-          }
         }
 
         function resetRiwayat() {
@@ -3353,7 +3353,14 @@ Direktur Utama
       document.body.removeChild(textarea);
     }
     
-    
+    function resetForm5() {
+  // mengatur nilai elemen input kembali ke nilai default atau kosong
+  document.getElementById("input-text1").value = "";
+ 
+  
+  // menghapus hasil perhitungan yang ada pada elemen p
+  document.getElementById("dropdown-menu").innerHTML = "";
+}
     </script>
     
 
@@ -3560,7 +3567,111 @@ resetButton112.addEventListener("click", function() {
     window.location.href = shareUrl;
   }
 </script>
-    
+
+<script>
+  function salinTeks7() {
+    const hasil20 = document.getElementById("hasil20");
+    const range = document.createRange();
+    range.selectNode(hasil20);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("copy");
+    navigator.vibrate(100); // Menambahkan getar selama 100ms
+  }
+
+  function bagikanTeks7() {
+    const hasil20= document.getElementById("hasil20").textContent;
+    const encodedText = encodeURIComponent(hasil20);
+    const shareUrl = `whatsapp://send?text=${encodedText}`;
+    window.location.href = shareUrl;
+  }
+</script>
+
+
+<div class="container-b">
+  <div class="title-container">
+    <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
+
+  </div><br>
+<label for="panjang">Panjang dinding (m):</label>
+<input type="number" id="panjang">
+<br><br>
+<label for="lebar">Lebar dinding (m):</label>
+<input type="number" id="lebar">
+<br><br>
+<label for="tinggi" >Tinggi dinding (m):</label>
+<input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
+<br><br>
+<label for="satuan">Satuan:</label>
+<select id="satuan">
+  <option value="m2">Meter Persegi (m2)</option>
+  <option value="m3">Meter Kubik (m3)</option>
+</select>
+<br><br>
+<div>
+<button type="button11" onclick="hitungJumlahHebel()">Hitung</button>
+</div>
+<div>
+          
+  <button type="button11" onclick="resetForm4()"><i class="fas fa-undo"></i></button>
+  <button type="button11" onclick="salinTeks7()"><i class="fa fa-copy"></i></button>
+  <button type="button11" onclick="bagikanTeks7()"><i class="fa fa-share"></i></button>
+</div><br>
+
+<p id="hasil20"></p>
+</div>
+<script>
+ function hitungJumlahHebel() {
+  var panjang = document.getElementById("panjang").value;
+  var lebar = document.getElementById("lebar").value;
+  var tinggi = document.getElementById("tinggi").value;
+  var satuan = document.getElementById("satuan").value;
+
+  var luasDinding;
+  if (tinggi) {
+    // perhitungan luas dinding dengan tinggi yang diinputkan
+    luasDinding = panjang * tinggi * 2 + lebar * tinggi * 2;
+  } else {
+    // perhitungan luas dinding tanpa tinggi
+    luasDinding = panjang * lebar;
+  }
+
+  var jumlahHebel;
+  if (satuan == "m2") {
+    // hitung jumlah hebel berdasarkan meter persegi
+    jumlahHebel = Math.ceil(luasDinding / 0.12); // asumsi ukuran hebel 60cm x 20cm
+  } else if (satuan == "m3") {
+    // hitung jumlah hebel berdasarkan meter kubik
+    var volumeDinding = panjang * lebar;
+    if (tinggi) {
+      volumeDinding *= tinggi;
+    } else {
+      volumeDinding *= 2.4; // asumsi tinggi dinding 2,4 m jika tinggi tidak diinputkan
+    }
+    jumlahHebel = Math.ceil(volumeDinding / 0.03); // asumsi ukuran hebel 60cm x 20cm x 7,5cm
+  }
+
+  var hasil20 = "Jumlah hebel yang dibutuhkan: " + jumlahHebel + " buah.";
+  document.getElementById("hasil20").innerHTML = hasil20;
+
+  
+ }
+
+ function resetForm4() {
+  // mengatur nilai elemen input kembali ke nilai default atau kosong
+  document.getElementById("panjang").value = "";
+  document.getElementById("lebar").value = "";
+  document.getElementById("tinggi").value = "";
+  document.getElementById("satuan").value = "m2"; // mengatur nilai default untuk elemen select
+  
+  // menghapus hasil perhitungan yang ada pada elemen p
+  document.getElementById("hasil20").innerHTML = "";
+}
+
+
+</script>
+
 
 
     <br><br>
