@@ -742,40 +742,46 @@
         </div><br>
         <p id="output"></p>
       </div><br><br><br><br>
+      
+<div class="container-b">
+  <div class="title-container">
+    <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
+
+  </div><br>
+  <label for="panjang">Panjang dinding (m):</label>
+<input type="number" id="panjang">
+<br><br>
+<label for="lebar">Lebar dinding (m):</label>
+<input type="number" id="lebar">
+<br><br>
+<label for="tinggi">Tinggi dinding (m):</label>
+<input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
+<br><br>
+<label for="satuan">Satuan:</label>
+<select id="satuan">
+<option value="m2">Meter Persegi (m2)</option>
+<option value="m3">Meter Kubik (m3)</option>
+</select>
+<br><br>
+<label for="jenismaterial">Jenis bahan:</label>
+<select id="jenismaterial">
+<option value="hebel">Hebel</option>
+<option value="bata_merah">Bata Merah</option>
+<option value="batako">Batako</option>
+</select>
+<br><br>
+<div>
+<button type="button11" onclick="hitungJumlahBahan()">Hitung</button>
+</div>
+<div>
+<button type="button11" onclick="resetForm()">Reset</button>
+</div><br>
+<p id="hasil01"></p>
+</div>
 
 
-      <div class="container-b">
-        <div class="title-container">
-          <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
 
-        </div><br>
-        <label for="panjang">Panjang dinding (m):</label>
-        <input type="number" id="panjang">
-        <br><br>
-        <label for="lebar">Lebar dinding (m):</label>
-        <input type="number" id="lebar">
-        <br><br>
-        <label for="tinggi">Tinggi dinding (m):</label>
-        <input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
-        <br><br>
-        <label for="satuan">Satuan:</label>
-        <select id="satuan">
-          <option value="m2">Meter Persegi (m2)</option>
-          <option value="m3">Meter Kubik (m3)</option>
-        </select>
-        <br><br>
-        <div>
-          <button type="button11" onclick="hitungJumlahHebel()">Hitung</button>
-        </div>
-        <div>
-
-          <button type="button11" onclick="resetForm4()"><i class="fas fa-undo"></i></button>
-          <button type="button11" onclick="salinTeks7()"><i class="fa fa-copy"></i></button>
-          <button type="button11" onclick="bagikanTeks7()"><i class="fa fa-share"></i></button>
-        </div><br>
-
-        <p id="hasil20"></p>
-      </div>
+     
 
       <div> <button type="button10" class="close"><i class="fa-solid fa-circle-xmark"></i></button></div><br><br>
 
@@ -3633,60 +3639,70 @@ berikut hasilnya :
     </script>
 
 
+
     <script>
-      function hitungJumlahHebel() {
-        var panjang = document.getElementById("panjang").value;
-        var lebar = document.getElementById("lebar").value;
-        var tinggi = document.getElementById("tinggi").value;
-        var satuan = document.getElementById("satuan").value;
+function hitungJumlahBahan() {
+  // Ambil nilai input dari form
+  let panjang = parseFloat(document.getElementById('panjang').value);
+  let lebar = parseFloat(document.getElementById('lebar').value);
+  let tinggi = parseFloat(document.getElementById('tinggi').value);
+  let satuan = document.getElementById('satuan').value;
+  let jenismaterial = document.getElementById('jenismaterial').value;
+  let volume = 0;
 
-        var luasDinding;
-        if (tinggi) {
-          // perhitungan luas dinding dengan tinggi yang diinputkan
-          luasDinding = panjang * tinggi * 2 + lebar * tinggi * 2;
-        } else {
-          // perhitungan luas dinding tanpa tinggi
-          luasDinding = panjang * lebar;
-        }
+  // Hitung volume berdasarkan satuan yang dipilih
+  if (satuan === 'm2') {
+    volume = panjang * lebar;
+  } else if (satuan === 'm3') {
+    if (tinggi) {
+      volume = panjang * lebar * tinggi;
+    } else {
+      alert('Silakan isi tinggi dinding untuk menghitung volume dalam meter kubik (m3)');
+      return;
+    }
+  }
 
-        var jumlahHebel;
-        if (satuan == "m2") {
-          // hitung jumlah hebel berdasarkan meter persegi
-          jumlahHebel = Math.ceil(luasDinding / 0.12); // asumsi ukuran hebel 60cm x 20cm
-        } else if (satuan == "m3") {
-          // hitung jumlah hebel berdasarkan meter kubik
-          var volumeDinding = panjang * lebar;
-          if (tinggi) {
-            volumeDinding *= tinggi;
-          } else {
-            volumeDinding *= 2.4; // asumsi tinggi dinding 2,4 m jika tinggi tidak diinputkan
-          }
-          jumlahHebel = Math.ceil(volumeDinding / 0.03); // asumsi ukuran hebel 60cm x 20cm x 7,5cm
-        }
+  // Hitung jumlah bahan berdasarkan volume dan jenis bahan yang dipilih
+  let jumlahBahan = 0;
+  if (jenismaterial === 'hebel') {
+    jumlahBahan = Math.ceil(volume / (0.6 * 0.2));
+  } else if (jenismaterial === 'bata_merah') {
+    // Hitung volume bata merah dengan ketebalan semen 2 cm
+    let volumeBataMerah = volume * 1.02;
+    jumlahBahan = Math.ceil(volumeBataMerah / (0.2 * 0.05));
+  } else if (jenismaterial === 'batako') {
+    // Hitung volume batako dengan ketebalan semen 2 cm
+    let volumeBatako = volume * 1.02;
+    jumlahBahan = Math.ceil(volumeBatako / (0.4 * 0.2));
+  }
 
-        var hasil20 = "Jumlah hebel yang dibutuhkan: " + jumlahHebel + " buah.";
-        document.getElementById("hasil20").innerHTML = hasil20;
+  // Tampilkan hasil
+  let hasilText = `Anda membutuhkan ${jumlahBahan} buah ${jenismaterial} dengan total volume ${volume} ${satuan}.`;
+  document.getElementById('hasil01').textContent = hasilText;
+}
 
 
-      }
 
-      function resetForm4() {
-        // mengatur nilai elemen input kembali ke nilai default atau kosong
-        document.getElementById("panjang").value = "";
-        document.getElementById("lebar").value = "";
-        document.getElementById("tinggi").value = "";
-        document.getElementById("satuan").value = "m2"; // mengatur nilai default untuk elemen select
 
-        // menghapus hasil perhitungan yang ada pada elemen p
-        document.getElementById("hasil20").innerHTML = "";
-      }
+function resetForm() {
+  // Reset nilai input pada form
+  document.getElementById('panjang').value = '';
+  document.getElementById('lebar').value = '';
+  document.getElementById('tinggi').value = '';
+  document.getElementById('satuan').value = 'm2';
+  document.getElementById('jenismaterial').value = 'hebel';
+  document.getElementById('hasil01').textContent = '';
+}
+
+
+     
     </script>
 
 
 
     <br>
-    
-    
+
+
     <br>
 
     <footer id="footerSection">
