@@ -147,7 +147,9 @@
   <div class="container">
 
 
-    <button type="button11" id="myBtn3"><i class="fa-solid fa-calculator"></i> <i class="fa-solid fa-font"></i></button>
+    <button type="button11" id="myBtn3"><div>Modifikasi kalimat</div>
+      <div><i class="fa-solid fa-calculator"></i> <i class="fa-solid fa-font"></div></i>
+    </button>
     <div id="myModal3" class="modal3">
 
       <div class="container-b">
@@ -368,8 +370,8 @@
 
 
 
-    <button type="button11" id="myBtn2"><i class="fa-sharp fa-solid fa-calculator"></i> <i
-        class="fa-sharp fa-solid fa-cart-shopping"></i></button>
+    <button type="button11" id="myBtn2"><div>Alat untuk dagang </div><div><i class="fa-sharp fa-solid fa-calculator"></i> <i
+        class="fa-sharp fa-solid fa-cart-shopping"></i></div></button>
     <div id="myModal2" class="modal2">
 
 
@@ -644,8 +646,8 @@
       </script>
     </div>
 
-    <button type="button11" id="myBtn1"><i class="fa-sharp fa-solid fa-calculator"></i> <i
-        class="fa-sharp fa-solid fa-smoking"></i></button>
+    <button type="button11" id="myBtn1"><div>Kalkulator pengeluaran detail</div><div><i class="fa-sharp fa-solid fa-calculator"></i> <i
+        class="fa-sharp fa-solid fa-smoking"></i></div></button>
     <div id="myModal1" class="modal1">
       <div class="container-b">
         <div class="title-container">
@@ -687,87 +689,8 @@
           <br>
           <p id="result"></p>
         </form>
-      </div><br><br>
-      <div> <button type="button10" class="close1"><i class="fa-solid fa-circle-xmark"></i></button></div><br>
-      <script>
-        // Get the modal
-        // Mencari elemen tombol tutup
-        var tutup = document.getElementsByClassName("close1")[0];
-
-        // Mencari elemen modal
-        var modal1 = document.getElementById("myModal1");
-
-        // Menampilkan modal saat tombol diklik
-        document.getElementById("myBtn1").onclick = function () {
-          modal1.style.display = "block";
-        }
-
-        // Menutup modal saat tombol tutup diklik
-        tutup.onclick = function () {
-          modal1.style.display = "none";
-        }
-
-        // Menutup modal saat klik diluar area modal
-        window.onclick = function (event) {
-          if (event.target == modal1) {
-            modal1.style.display = "none";
-          }
-        }
-      </script>
-    </div>
-
-
-
-    <button type="button11" id="myBtn"><i class="fa-sharp fa-solid fa-calculator"></i> <i
-        class="fa-solid fa-fingerprint"></i></button>
-
-    <div id="myModal" class="modal">
-
-      <div class="container-b">
-        <div class="title-container">
-          <h1 class="title">Hitung detail umur sekarang</h1>
-        </div>
-
-
-        <P id="deskripsiProduk">Masukan Tanggal lahir, bulan, tahun</P>
-        <input type="number" id="tanggal-lahir" placeholder="Tanggal lahir">
-        <input type="number" id="bulan-lahir" placeholder="Bulan lahir">
-        <input type="number" id="tahun-lahir" placeholder="Tahun lahir">
-        <div><button type="button11" onclick="hitungUmur()">Hitung</button></div>
-        <div>
-
-          <button type="button11" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
-          <button type="button11" onclick="salinTeks6()"><i class="fa fa-copy"></i></button>
-          <button type="button11" onclick="bagikanTeks6()"><i class="fa fa-share"></i></button>
-        </div><br>
-        <p id="output"></p>
-      </div><br><br><br><br>
-      <div class="container-b">
-        <div class="title-container">
-          <h1 class="title">Kalkulator Sisa Waktu Hidup</h1>
-        </div><br>
+      </div><br><br><br>
       
-      
-      <p id="deskripsiProduk" >Masukkan tanggal lahir Anda:</p>
-      <input type="date" id="birthdate">
-      <br><br>
-      <p id="deskripsiProduk">Masukkan perkiran hidup (tahun)  :</p>
-      <input type="number" id="ageLimit" placeholder="masukan tahun">
-      <br><br>
-      <button type="button11" onclick="calculateAge()">Hitung Sisa Waktu</button>
-      <div>
-      
-        <button type="button11" onclick="reset090()"><i class="fas fa-undo"></i></button>
-        <button type="button11" onclick="salinTeks9()"><i class="fa fa-copy"></i></button>
-        <button type="button11" onclick="bagikanTeks9()"><i class="fa fa-share"></i></button>
-      </div><br>
-      <br>
-      
-      <p id="remaining"></p>
-      
-      </div><br><br><br><br>
-      
-
       <div class="container-b">
         <div class="title-container">
           <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
@@ -805,6 +728,86 @@
       </div>
 
 
+
+      <div> <button type="button10" class="close1"><i class="fa-solid fa-circle-xmark"></i></button></div><br>
+      <script>
+        // Get the modal
+        // Mencari elemen tombol tutup
+        var tutup = document.getElementsByClassName("close1")[0];
+
+        // Mencari elemen modal
+        var modal1 = document.getElementById("myModal1");
+
+        // Menampilkan modal saat tombol diklik
+        document.getElementById("myBtn1").onclick = function () {
+          modal1.style.display = "block";
+        }
+
+        // Menutup modal saat tombol tutup diklik
+        tutup.onclick = function () {
+          modal1.style.display = "none";
+        }
+
+        // Menutup modal saat klik diluar area modal
+        window.onclick = function (event) {
+          if (event.target == modal1) {
+            modal1.style.display = "none";
+          }
+        }
+      </script>
+    </div>
+
+
+
+    <button type="button11" id="myBtn"><div>Hitung umur detail</div><div><i class="fa-sharp fa-solid fa-calculator"></i> <i
+        class="fa-solid fa-fingerprint"></i></div></button>
+
+    <div id="myModal" class="modal">
+
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Hitung detail umur sekarang</h1>
+        </div>
+
+
+        <P id="deskripsiProduk">Masukan Tanggal lahir, bulan, tahun</P>
+        <input type="number" id="tanggal-lahir" placeholder="Tanggal lahir">
+        <input type="number" id="bulan-lahir" placeholder="Bulan lahir">
+        <input type="number" id="tahun-lahir" placeholder="Tahun lahir">
+        <div><button type="button11" onclick="hitungUmur()">Hitung</button></div>
+        <div>
+
+          <button type="button11" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks6()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks6()"><i class="fa fa-share"></i></button>
+        </div><br>
+        <p id="output"></p>
+      </div><br><br><br><br>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator Sisa Waktu Hidup</h1>
+        </div><br>
+      
+      
+      <p id="deskripsiProduk" >Masukkan tanggal lahir Anda:</p>
+      <input type="date" id="birthdate">
+      <br><br>
+      <p id="deskripsiProduk">Masukkan perkiraan hidup (tahun)  :</p>
+      <input type="number" id="ageLimit" placeholder="masukan tahun">
+      <br><br>
+      <button type="button11" onclick="calculateAge()">Hitung Sisa Waktu</button>
+      <div>
+      
+        <button type="button11" onclick="reset090()"><i class="fas fa-undo"></i></button>
+        <button type="button11" onclick="salinTeks9()"><i class="fa fa-copy"></i></button>
+        <button type="button11" onclick="bagikanTeks9()"><i class="fa fa-share"></i></button>
+      </div><br>
+      <br>
+      
+      <p id="remaining"></p>
+      
+      </div><br><br><br><br>
+      
 
 
 
@@ -3752,9 +3755,9 @@ function calculateAge() {
   }
   var remainingText = "Data kamu: <br>" + 
                      "Lahir tahun  " + document.getElementById("birthdate").value + "<br>" + 
-                     "Perkiraan hidup  " + ageLimit + " tahun<br><br><br>" + 
+                     "Jika perkiraan hidup  " + ageLimit + " tahun<br><br><br>" + 
                      "Sisa umur kamu 😭 " + remainingYears + " tahun, " + remainingMonths + " bulan, " + remainingDays + " hari";
-document.getElementById("remaining").innerHTML =  remainingText ;
+                     document.getElementById("remaining").innerHTML = "<p>" + remainingText + "</p>";
 
 
  
