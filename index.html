@@ -753,10 +753,10 @@
            
           </div><br>
        
-          <p id="deskripsiProduk">Hasil Perhitungan</p>
+         
 
         
-          
+          <div id="reyo">
           <div id="copy-target">  
             <p id="input-value"></p> 
             <p ><span id="makan"></span></p>
@@ -774,7 +774,7 @@
       
          <br>
           <canvas id="myChart"></canvas>
-     
+        </div>
       
         </div>
 
@@ -3861,7 +3861,7 @@ berikut hasilnya :
         var sisa = uang - makan - jajan - sedekah - tabung - lain;
 
        
-        document.getElementById("input-value").innerHTML = "Total uang " + formatNumber(uang);
+        document.getElementById("input-value").innerHTML = "Total uang Rp. " + formatNumber(uang);
         document.getElementById("makan").innerHTML = "Makan : Rp " + formatNumber(makan);
         document.getElementById("jajan").innerHTML = "Jajan : Rp " + formatNumber(jajan);
         document.getElementById("sedekah").innerHTML = "Sedekah : Rp " + formatNumber(sedekah);

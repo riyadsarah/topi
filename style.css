@@ -1764,26 +1764,26 @@ input[type="date"]:focus {
 
 #makan {
   font-size: 15px;
-  color: #46d100;
+  color: #ffffff;
  font-weight: bold;
 }
 #jajan {
-color: #00bfa6;
+color: #ffffff;
 font-size: 15px;
 font-weight: bold;
 }
 #sedekah {
-  color: #cc65fe;
+  color: #ffffff;
   font-size: 15px;
   font-weight: bold;
   }
   #tabung {
-    color: #fd6b19;
+    color: #ffffff;
     font-size: 15px;
     font-weight: bold;
     }
     #lain{
-      color: #f98c6a;
+      color: #ffffff;
       font-size: 15px;
       font-weight: bold;
       }
@@ -1801,8 +1801,11 @@ font-weight: bold;
 
    #reyo {
     
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(102, 78, 78, 0.564);
-    background-color: #ffffffc0;
+    box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.266);
+    background-color: #00ffd511;
    }     
+   h2 {
+    font-weight: bold;
+   }
