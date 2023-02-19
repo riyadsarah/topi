@@ -19,6 +19,8 @@
 
   <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
 
 
 
@@ -147,7 +149,8 @@
   <div class="container">
 
 
-    <button type="button11" id="myBtn3"><div>Modifikasi kalimat</div>
+    <button type="button11" id="myBtn3">
+      <div>Modifikasi kalimat</div>
       <div><i class="fa-solid fa-calculator"></i> <i class="fa-solid fa-font"></div></i>
     </button>
     <div id="myModal3" class="modal3">
@@ -370,8 +373,10 @@
 
 
 
-    <button type="button11" id="myBtn2"><div>Alat untuk dagang </div><div><i class="fa-sharp fa-solid fa-calculator"></i> <i
-        class="fa-sharp fa-solid fa-cart-shopping"></i></div></button>
+    <button type="button11" id="myBtn2">
+      <div>Alat untuk dagang </div>
+      <div><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-sharp fa-solid fa-cart-shopping"></i></div>
+    </button>
     <div id="myModal2" class="modal2">
 
 
@@ -646,8 +651,10 @@
       </script>
     </div>
 
-    <button type="button11" id="myBtn1"><div>Kalkulator pengeluaran detail</div><div><i class="fa-sharp fa-solid fa-calculator"></i> <i
-        class="fa-sharp fa-solid fa-smoking"></i></div></button>
+    <button type="button11" id="myBtn1">
+      <div>Kalkulator pengeluaran detail</div>
+      <div><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-sharp fa-solid fa-smoking"></i></div>
+    </button>
     <div id="myModal1" class="modal1">
       <div class="container-b">
         <div class="title-container">
@@ -690,7 +697,7 @@
           <p id="result"></p>
         </form>
       </div><br><br><br>
-      
+
       <div class="container-b">
         <div class="title-container">
           <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
@@ -723,9 +730,51 @@
         </div>
         <div>
           <button type="button11" onclick="resetForm()">Reset</button>
+          <button type="button11" onclick="salinTeks12()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks12()"><i class="fa fa-share"></i></button>
         </div><br>
         <p id="hasil01"></p>
-      </div>
+      </div><br><br><br><br>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator Pengeluaran uang</h1>
+        </div><br>
+      
+            <p id="deskripsiProduk">Jumlah uang</p>
+            <input type="number" id="uang" placeholder="Masukan jumlah uang"><br>
+            <div>
+              <button type="button11" onclick="hitung()">Hitung</button>
+            </div>
+            <div>
+           
+            <button type="button11" onclick="reset454()"><i class="fas fa-undo"></i></button>
+            <button type="button11" class="btn" data-clipboard-target="#copy-target"><i class="fa fa-copy"></i></button>
+             
+           
+          </div><br>
+       
+          <p id="deskripsiProduk">Hasil Perhitungan</p>
+
+         <div id="reyo">
+
+          <div id="copy-target">  <p ><span id="makan"></span></p>
+            <p><span id="jajan"></span></p>
+            <p><span id="sedekah"></span></p>
+            <p><span id="tabung"></span></p>
+            <p> <span id="lain"></span></p>
+            <p><span id="sisa"></span></p>
+          </div>
+         
+          
+        
+         
+        
+      
+         <br>
+          <canvas id="myChart"></canvas>
+        </div>
+      
+        </div>
 
 
 
@@ -759,8 +808,10 @@
 
 
 
-    <button type="button11" id="myBtn"><div>Hitung umur detail</div><div><i class="fa-sharp fa-solid fa-calculator"></i> <i
-        class="fa-solid fa-fingerprint"></i></div></button>
+    <button type="button11" id="myBtn">
+      <div>Hitung umur detail</div>
+      <div><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-solid fa-fingerprint"></i></div>
+    </button>
 
     <div id="myModal" class="modal">
 
@@ -787,27 +838,27 @@
         <div class="title-container">
           <h1 class="title">Kalkulator Sisa Waktu Hidup</h1>
         </div><br>
-      
-      
-      <p id="deskripsiProduk" >Masukkan tanggal lahir Anda:</p>
-      <input type="date" id="birthdate">
-      <br><br>
-      <p id="deskripsiProduk">Masukkan perkiraan hidup (tahun)  :</p>
-      <input type="number" id="ageLimit" placeholder="masukan tahun">
-      <br><br>
-      <button type="button11" onclick="calculateAge()">Hitung Sisa Waktu</button>
-      <div>
-      
-        <button type="button11" onclick="reset090()"><i class="fas fa-undo"></i></button>
-        <button type="button11" onclick="salinTeks9()"><i class="fa fa-copy"></i></button>
-        <button type="button11" onclick="bagikanTeks9()"><i class="fa fa-share"></i></button>
-      </div><br>
-      <br>
-      
-      <p id="remaining"></p>
-      
+
+
+        <p id="deskripsiProduk">Masukkan tanggal lahir Anda:</p>
+        <input type="date" id="birthdate">
+        <br><br>
+        <p id="deskripsiProduk">Masukkan perkiraan hidup (tahun) :</p>
+        <input type="number" id="ageLimit" placeholder="masukan tahun">
+        <br><br>
+        <button type="button11" onclick="calculateAge()">Hitung Sisa Waktu</button>
+        <div>
+
+          <button type="button11" onclick="reset090()"><i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks9()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks9()"><i class="fa fa-share"></i></button>
+        </div><br>
+        <br>
+
+        <p id="remaining"></p>
+
       </div><br><br><br><br>
-      
+
 
 
 
@@ -3702,7 +3753,7 @@ berikut hasilnya :
 
         // Tampilkan hasil
         let hasilText =
-        `Anda membutuhkan ${jumlahBahan} buah ${jenismaterial} dengan total volume ${volume} ${satuan}.`;
+          `Anda membutuhkan ${jumlahBahan} buah ${jenismaterial} dengan total volume ${volume} ${satuan}.`;
         document.getElementById('hasil01').textContent = hasilText;
       }
 
@@ -3721,79 +3772,157 @@ berikut hasilnya :
     </script>
 
 
-<script>
-function calculateAge() {
-  var birthdate = new Date(document.getElementById("birthdate").value);
-  var now = new Date();
-  var age = now.getFullYear() - birthdate.getFullYear();
-  var month = now.getMonth() - birthdate.getMonth();
-  if (month < 0 || (month === 0 && now.getDate() < birthdate.getDate())) {
-    age--;
-    month += 12;
-  }
-  var day = now.getDate() - birthdate.getDate();
-  if (day < 0) {
-    month--;
-    var daysInMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-    day += daysInMonth;
-  }
-  var ageLimit = document.getElementById("ageLimit").value;
-  var remainingYears = ageLimit - age - 1;
-  var remainingMonths = 12 - month - 1;
-  var remainingDays = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate() - day;
-  var daysInRemainingMonths = 0;
-  for (var i = 1; i <= remainingMonths; i++) {
-    daysInRemainingMonths += new Date(now.getFullYear(), now.getMonth() - i, 0).getDate();
-  }
-  if (remainingDays > daysInRemainingMonths) {
-    remainingMonths++;
-    remainingDays -= daysInRemainingMonths;
-  }
-  if (remainingMonths === 12) {
-    remainingYears++;
-    remainingMonths = 0;
-  }
-  var remainingText = "Data kamu: <br>" + 
-                     "Lahir tahun  " + document.getElementById("birthdate").value + "<br>" + 
-                     "Jika perkiraan hidup  " + ageLimit + " tahun<br><br><br>" + 
-                     "Sisa umur kamu 😭 " + remainingYears + " tahun, " + remainingMonths + " bulan, " + remainingDays + " hari";
-                     document.getElementById("remaining").innerHTML = "<p>" + remainingText + "</p>";
+    <script>
+      function calculateAge() {
+        var birthdate = new Date(document.getElementById("birthdate").value);
+        var now = new Date();
+        var age = now.getFullYear() - birthdate.getFullYear();
+        var month = now.getMonth() - birthdate.getMonth();
+        if (month < 0 || (month === 0 && now.getDate() < birthdate.getDate())) {
+          age--;
+          month += 12;
+        }
+        var day = now.getDate() - birthdate.getDate();
+        if (day < 0) {
+          month--;
+          var daysInMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+          day += daysInMonth;
+        }
+        var ageLimit = document.getElementById("ageLimit").value;
+        var remainingYears = ageLimit - age - 1;
+        var remainingMonths = 12 - month - 1;
+        var remainingDays = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate() - day;
+        var daysInRemainingMonths = 0;
+        for (var i = 1; i <= remainingMonths; i++) {
+          daysInRemainingMonths += new Date(now.getFullYear(), now.getMonth() - i, 0).getDate();
+        }
+        if (remainingDays > daysInRemainingMonths) {
+          remainingMonths++;
+          remainingDays -= daysInRemainingMonths;
+        }
+        if (remainingMonths === 12) {
+          remainingYears++;
+          remainingMonths = 0;
+        }
+        var remainingText = "Data kamu: <br>" +
+          "Lahir tahun  " + document.getElementById("birthdate").value + "<br>" +
+          "Jika perkiraan hidup  " + ageLimit + " tahun<br><br><br>" +
+          "Sisa umur kamu 😭 " + remainingYears + " tahun, " + remainingMonths + " bulan, " + remainingDays + " hari";
+        document.getElementById("remaining").innerHTML = "<p>" + remainingText + "</p>";
 
 
- 
-}
 
-function reset090() {
-  // Menghapus nilai pada elemen input dan elemen output
-  document.getElementById("birthdate").value = "";
-  document.getElementById("ageLimit").value = "";
-  document.getElementById("remaining").innerHTML = "";
- 
-}
+      }
 
-</script>
+      function reset090() {
+        // Menghapus nilai pada elemen input dan elemen output
+        document.getElementById("birthdate").value = "";
+        document.getElementById("ageLimit").value = "";
+        document.getElementById("remaining").innerHTML = "";
 
-<script>
-  function salinTeks9() {
-    const remaining = document.getElementById("remaining");
-    const range = document.createRange();
-    range.selectNode(remaining);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("copy");
-    navigator.vibrate(100); // Menambahkan getar selama 100ms
+      }
+    </script>
+
+    <script>
+      function salinTeks9() {
+        const remaining = document.getElementById("remaining");
+        const range = document.createRange();
+        range.selectNode(remaining);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+
+      }
+
+      function bagikanTeks9() {
+        const remaining = document.getElementById("remaining").textContent;
+        const encodedText = encodeURIComponent(remaining);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
+
+
+
+    <script>
+       var clipboard = new Clipboard('.btn');
+      var chart;
+      function hitung() {
+        var uang = document.getElementById("uang").value;
+        var makan = 0.2 * uang;
+        var jajan = 0.1 * uang;
+        var sedekah = 0.05 * uang;
+        var tabung = 0.4 * uang;
+        var lain = 0.25 * uang;
+        var sisa = uang - makan - jajan - sedekah - tabung - lain;
+
+        document.getElementById("makan").innerHTML = "Makan : Rp " + formatNumber(makan);
+        document.getElementById("jajan").innerHTML = "Jajan : Rp " + formatNumber(jajan);
+        document.getElementById("sedekah").innerHTML = "Sedekah : Rp " + formatNumber(sedekah);
+        document.getElementById("tabung").innerHTML = "Tabung : Rp " + formatNumber(tabung);
+        document.getElementById("lain").innerHTML = "lain-lain : Rp " + formatNumber(lain);
+        document.getElementById("sisa").innerHTML = "Sisa : Rp " + formatNumber(sisa);
+
+       
+
+        var ctx = document.getElementById("myChart").getContext('2d');
+ chart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Makan', 'Jajan', 'Sedekah', 'Tabung', 'Lain-lain', 'Sisa'],
+    datasets: [{
+      backgroundColor: ['#55ff00', '#00bfa6', '#cc65fe', '#fd6b19', '#f98c6a', '#f30000'],
+      data: [makan, jajan, sedekah, tabung, lain, sisa]
+    }]
+  },
+  options: {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Pembagian Pengeluaran',
+      fontColor: '#55ff00'
+    },
+    legend: {
+      display: true,
+      labels: {
+        fontColor: '#55ff00'
+      }
+    },
+    layout: {
+      padding: {
+        left: 50,
+        right: 50,
+        top: 0,
+        bottom: 0
+      }
+    }
+  }
+});
+
+      }
+      
+      function reset454() {
     
+    document.getElementById("makan").innerHTML = "";
+    document.getElementById("jajan").innerHTML = "";
+    document.getElementById("sedekah").innerHTML = "";
+    document.getElementById("tabung").innerHTML = "";
+    document.getElementById("lain").innerHTML = "";
+    document.getElementById("sisa").innerHTML = "";
+    var ctx = document.getElementById("myChart").getContext('2d');
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    chart.destroy();
   }
-
-  function bagikanTeks9() {
-    const remaining = document.getElementById("remaining").textContent;
-    const encodedText = encodeURIComponent(remaining);
-    const shareUrl = `whatsapp://send?text=${encodedText}`;
-    window.location.href = shareUrl;
-  }
-</script>
-    <br>
+ 
+      function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+      }
+    
+      
+    </script>
+    <br><br>
 
     <footer id="footerSection">
       <div class="container">
@@ -3862,6 +3991,9 @@ function reset090() {
   </div>
   </div>
   </div>
+
+    
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
