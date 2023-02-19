@@ -1793,6 +1793,12 @@ font-weight: bold;
         font-weight: bold;
         }
 
+        #input-value {
+          color: #ffffff;
+          font-size: 20px;
+          font-weight: bold;
+        }
+
    #reyo {
     
     padding: 20px;
