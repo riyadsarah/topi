@@ -742,46 +742,71 @@
         </div><br>
         <p id="output"></p>
       </div><br><br><br><br>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator Sisa Waktu Hidup</h1>
+        </div><br>
       
-<div class="container-b">
-  <div class="title-container">
-    <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
+      
+      <p id="deskripsiProduk" >Masukkan tanggal lahir Anda:</p>
+      <input type="date" id="birthdate">
+      <br><br>
+      <p id="deskripsiProduk">Masukkan perkiran hidup (tahun)  :</p>
+      <input type="number" id="ageLimit" placeholder="masukan tahun">
+      <br><br>
+      <button type="button11" onclick="calculateAge()">Hitung Sisa Waktu</button>
+      <div>
+      
+        <button type="button11" onclick="reset090()"><i class="fas fa-undo"></i></button>
+        <button type="button11" onclick="salinTeks9()"><i class="fa fa-copy"></i></button>
+        <button type="button11" onclick="bagikanTeks9()"><i class="fa fa-share"></i></button>
+      </div><br>
+      <br>
+      
+      <p id="remaining"></p>
+      
+      </div><br><br><br><br>
+      
 
-  </div><br>
-  <label for="panjang">Panjang dinding (m):</label>
-<input type="number" id="panjang">
-<br><br>
-<label for="lebar">Lebar dinding (m):</label>
-<input type="number" id="lebar">
-<br><br>
-<label for="tinggi">Tinggi dinding (m):</label>
-<input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
-<br><br>
-<label for="satuan">Satuan:</label>
-<select id="satuan">
-<option value="m2">Meter Persegi (m2)</option>
-<option value="m3">Meter Kubik (m3)</option>
-</select>
-<br><br>
-<label for="jenismaterial">Jenis bahan:</label>
-<select id="jenismaterial">
-<option value="hebel">Hebel</option>
-<option value="bata_merah">Bata Merah</option>
-<option value="batako">Batako</option>
-</select>
-<br><br>
-<div>
-<button type="button11" onclick="hitungJumlahBahan()">Hitung</button>
-</div>
-<div>
-<button type="button11" onclick="resetForm()">Reset</button>
-</div><br>
-<p id="hasil01"></p>
-</div>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Hitung jumlah hebel (bata putih)</h1>
+
+        </div><br>
+        <label for="panjang">Panjang dinding (m):</label>
+        <input type="number" id="panjang">
+        <br><br>
+        <label for="lebar">Lebar dinding (m):</label>
+        <input type="number" id="lebar">
+        <br><br>
+        <label for="tinggi">Tinggi dinding (m):</label>
+        <input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
+        <br><br>
+        <label for="satuan">Satuan:</label>
+        <select id="satuan">
+          <option value="m2">Meter Persegi (m2)</option>
+          <option value="m3">Meter Kubik (m3)</option>
+        </select>
+        <br><br>
+        <label for="jenismaterial">Jenis bahan:</label>
+        <select id="jenismaterial">
+          <option value="hebel">Hebel</option>
+          <option value="bata_merah">Bata Merah</option>
+          <option value="batako">Batako</option>
+        </select>
+        <br><br>
+        <div>
+          <button type="button11" onclick="hitungJumlahBahan()">Hitung</button>
+        </div>
+        <div>
+          <button type="button11" onclick="resetForm()">Reset</button>
+        </div><br>
+        <p id="hasil01"></p>
+      </div>
 
 
 
-     
+
 
       <div> <button type="button10" class="close"><i class="fa-solid fa-circle-xmark"></i></button></div><br><br>
 
@@ -955,21 +980,17 @@
           if (bulanLahir < bulanSekarang || (bulanLahir == bulanSekarang && tanggalLahir <= tanggalSekarang)) {
             tahunUlangTahun = tahunSekarang + 1;
           }
-
-
           // Penghitungan hari sampai ulang tahun
           var tanggalSampaiUlangTahun = new Date(tahunUlangTahun, bulanUlangTahun - 1, tanggalUlangTahun);
           var selisihHari = (tanggalSampaiUlangTahun - sekarang) / (24 * 60 * 60 * 1000);
           var sisaHari = Math.ceil(selisihHari);
-
-
-
 
           totalDetik += waktuTidur;
           document.getElementById("output").innerHTML =
 
             `<p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
     <p>Umur Anda Sekarang : ${umurTahun} tahun ${umurBulan} bulan ${umurTanggal} hari.</p>
+
     <p>Tinggal ${sisaHari} hari lagi menuju ulang tahun Anda.</p>
      <p>Atau anda telah hidup selama:</p>
 
@@ -3641,68 +3662,134 @@ berikut hasilnya :
 
 
     <script>
-function hitungJumlahBahan() {
-  // Ambil nilai input dari form
-  let panjang = parseFloat(document.getElementById('panjang').value);
-  let lebar = parseFloat(document.getElementById('lebar').value);
-  let tinggi = parseFloat(document.getElementById('tinggi').value);
-  let satuan = document.getElementById('satuan').value;
-  let jenismaterial = document.getElementById('jenismaterial').value;
-  let volume = 0;
+      function hitungJumlahBahan() {
+        // Ambil nilai input dari form
+        let panjang = parseFloat(document.getElementById('panjang').value);
+        let lebar = parseFloat(document.getElementById('lebar').value);
+        let tinggi = parseFloat(document.getElementById('tinggi').value);
+        let satuan = document.getElementById('satuan').value;
+        let jenismaterial = document.getElementById('jenismaterial').value;
+        let volume = 0;
 
-  // Hitung volume berdasarkan satuan yang dipilih
-  if (satuan === 'm2') {
-    volume = panjang * lebar;
-  } else if (satuan === 'm3') {
-    if (tinggi) {
-      volume = panjang * lebar * tinggi;
-    } else {
-      alert('Silakan isi tinggi dinding untuk menghitung volume dalam meter kubik (m3)');
-      return;
-    }
-  }
+        // Hitung volume berdasarkan satuan yang dipilih
+        if (satuan === 'm2') {
+          volume = panjang * lebar;
+        } else if (satuan === 'm3') {
+          if (tinggi) {
+            volume = panjang * lebar * tinggi;
+          } else {
+            alert('Silakan isi tinggi dinding untuk menghitung volume dalam meter kubik (m3)');
+            return;
+          }
+        }
 
-  // Hitung jumlah bahan berdasarkan volume dan jenis bahan yang dipilih
-  let jumlahBahan = 0;
-  if (jenismaterial === 'hebel') {
-    jumlahBahan = Math.ceil(volume / (0.6 * 0.2));
-  } else if (jenismaterial === 'bata_merah') {
-    // Hitung volume bata merah dengan ketebalan semen 2 cm
-    let volumeBataMerah = volume * 1.02;
-    jumlahBahan = Math.ceil(volumeBataMerah / (0.2 * 0.05));
-  } else if (jenismaterial === 'batako') {
-    // Hitung volume batako dengan ketebalan semen 2 cm
-    let volumeBatako = volume * 1.02;
-    jumlahBahan = Math.ceil(volumeBatako / (0.4 * 0.2));
-  }
+        // Hitung jumlah bahan berdasarkan volume dan jenis bahan yang dipilih
+        let jumlahBahan = 0;
+        if (jenismaterial === 'hebel') {
+          jumlahBahan = Math.ceil(volume / (0.6 * 0.2));
+        } else if (jenismaterial === 'bata_merah') {
+          // Hitung volume bata merah dengan ketebalan semen 2 cm
+          let volumeBataMerah = volume * 1.02;
+          jumlahBahan = Math.ceil(volumeBataMerah / (0.2 * 0.05));
+        } else if (jenismaterial === 'batako') {
+          // Hitung volume batako dengan ketebalan semen 2 cm
+          let volumeBatako = volume * 1.02;
+          jumlahBahan = Math.ceil(volumeBatako / (0.4 * 0.2));
+        }
 
-  // Tampilkan hasil
-  let hasilText = `Anda membutuhkan ${jumlahBahan} buah ${jenismaterial} dengan total volume ${volume} ${satuan}.`;
-  document.getElementById('hasil01').textContent = hasilText;
-}
-
-
-
-
-function resetForm() {
-  // Reset nilai input pada form
-  document.getElementById('panjang').value = '';
-  document.getElementById('lebar').value = '';
-  document.getElementById('tinggi').value = '';
-  document.getElementById('satuan').value = 'm2';
-  document.getElementById('jenismaterial').value = 'hebel';
-  document.getElementById('hasil01').textContent = '';
-}
+        // Tampilkan hasil
+        let hasilText =
+        `Anda membutuhkan ${jumlahBahan} buah ${jenismaterial} dengan total volume ${volume} ${satuan}.`;
+        document.getElementById('hasil01').textContent = hasilText;
+      }
 
 
-     
+
+
+      function resetForm() {
+        // Reset nilai input pada form
+        document.getElementById('panjang').value = '';
+        document.getElementById('lebar').value = '';
+        document.getElementById('tinggi').value = '';
+        document.getElementById('satuan').value = 'm2';
+        document.getElementById('jenismaterial').value = 'hebel';
+        document.getElementById('hasil01').textContent = '';
+      }
     </script>
 
 
+<script>
+function calculateAge() {
+  var birthdate = new Date(document.getElementById("birthdate").value);
+  var now = new Date();
+  var age = now.getFullYear() - birthdate.getFullYear();
+  var month = now.getMonth() - birthdate.getMonth();
+  if (month < 0 || (month === 0 && now.getDate() < birthdate.getDate())) {
+    age--;
+    month += 12;
+  }
+  var day = now.getDate() - birthdate.getDate();
+  if (day < 0) {
+    month--;
+    var daysInMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+    day += daysInMonth;
+  }
+  var ageLimit = document.getElementById("ageLimit").value;
+  var remainingYears = ageLimit - age - 1;
+  var remainingMonths = 12 - month - 1;
+  var remainingDays = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate() - day;
+  var daysInRemainingMonths = 0;
+  for (var i = 1; i <= remainingMonths; i++) {
+    daysInRemainingMonths += new Date(now.getFullYear(), now.getMonth() - i, 0).getDate();
+  }
+  if (remainingDays > daysInRemainingMonths) {
+    remainingMonths++;
+    remainingDays -= daysInRemainingMonths;
+  }
+  if (remainingMonths === 12) {
+    remainingYears++;
+    remainingMonths = 0;
+  }
+  var remainingText = "Data kamu: <br>" + 
+                     "Lahir tahun  " + document.getElementById("birthdate").value + "<br>" + 
+                     "Perkiraan hidup  " + ageLimit + " tahun<br><br><br>" + 
+                     "Sisa umur kamu 😭 " + remainingYears + " tahun, " + remainingMonths + " bulan, " + remainingDays + " hari";
+document.getElementById("remaining").innerHTML =  remainingText ;
 
-    <br>
 
+ 
+}
 
+function reset090() {
+  // Menghapus nilai pada elemen input dan elemen output
+  document.getElementById("birthdate").value = "";
+  document.getElementById("ageLimit").value = "";
+  document.getElementById("remaining").innerHTML = "";
+ 
+}
+
+</script>
+
+<script>
+  function salinTeks9() {
+    const remaining = document.getElementById("remaining");
+    const range = document.createRange();
+    range.selectNode(remaining);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("copy");
+    navigator.vibrate(100); // Menambahkan getar selama 100ms
+    
+  }
+
+  function bagikanTeks9() {
+    const remaining = document.getElementById("remaining").textContent;
+    const encodedText = encodeURIComponent(remaining);
+    const shareUrl = `whatsapp://send?text=${encodedText}`;
+    window.location.href = shareUrl;
+  }
+</script>
     <br>
 
     <footer id="footerSection">

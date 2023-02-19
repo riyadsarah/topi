@@ -1714,3 +1714,50 @@ input::placeholder {
 }
 
 
+
+
+input[type="date"] {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-datetime-edit-year-field:focus,
+input[type="date"]::-webkit-datetime-edit-month-field:focus,
+input[type="date"]::-webkit-datetime-edit-day-field:focus {
+  color: #000;
+  background-color: #f8f8f8;
+  border-color: #555;
+}
+
+input[type="date"]:focus {
+  border-bottom: 2px solid #fffcfc;
+}
+#remaining {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+  padding: 30px;
+  margin: 0 auto;
+  border: 5px solid red;
+  box-shadow: 0 0 50px #ff0000;
+  border-radius: 10px;
+}
+#input-data {
+  color: #fff4f4;
+  font-style: italic;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
