@@ -1698,7 +1698,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   /* Style untuk semua input number */
 input[type=number] {
-  width: 30%;
+  width: 70%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
