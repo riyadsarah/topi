@@ -1698,7 +1698,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
   /* Style untuk semua input number */
 input[type=number] {
-  width: 70%;
+  width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -1755,6 +1755,18 @@ input[type="date"]:focus {
   box-shadow: 0 0 50px #ff0000;
   border-radius: 10px;
 }
+#hasil65 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0000001f;
+  text-align: center;
+  padding: 30px;
+  margin: 0 auto;
+  
+  box-shadow: 0 0 50px #ffffff45;
+  border-radius: 10px;
+}
 #input-data {
   color: #fff4f4;
   font-style: italic;
@@ -1809,3 +1821,71 @@ font-weight: bold;
    h2 {
     font-weight: bold;
    }
+
+   @media only screen and (max-width: 600px) {
+    label, input[type="number"], select {
+      font-size: 14px;
+    }
+    button {
+      font-size: 14px;
+    }
+  }
+  #satuanPanjang {
+    font-size: 15px;
+    height: 50px;
+    width: 50px;
+  }
+  #satuanLebar {
+    font-size: 15px;
+    height: 50px;
+    width: 50px;
+  }
+  #satuanPanjangKeramik {
+    font-size: 15px;
+    height: 50px;
+    width: 50px;
+  }
+  #satuanLebarKeramik
+  {
+    font-size: 15px;
+    height: 50px;
+    width: 50px;
+  }
+  #satuanJarak {
+    font-size: 15px;
+    height: 50px;
+    width: 50px;
+  }
+  #jarakKeramik
+  {
+    font-size: 15px;
+    height: 40px;
+    width: 120px;
+  }
+  #lebarKeramik
+  {
+    font-size: 15px;
+    height: 40px;
+    width: 120px;
+  }
+  #panjangKeramik
+  {
+    font-size: 15px;
+    height: 40px;
+    width: 120px;
+  }
+  #lebarRuangan
+  {
+    font-size: 15px;
+    height: 40px;
+    width: 120px;
+  }
+  #panjangRuangan
+  {
+    font-size: 15px;
+    height: 40px;
+    width: 120px;
+  }
+
+
+  

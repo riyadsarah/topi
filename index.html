@@ -508,7 +508,7 @@
       <div class="container-b">
         <div class="title-container">
           <h1 class="title">Buat kode barang</h1>
-        </div>
+        </div><br>
         <input type="text" id="input-text1" placeholder="Masukkan kata">
         <button type="button11" onclick="generateAbbreviations()">Cari singkatan</button>
         <br><br>
@@ -734,7 +734,74 @@
           <button type="button11" onclick="bagikanTeks12()"><i class="fa fa-share"></i></button>
         </div><br>
         <p id="hasil01"></p>
-      </div><br><br><br><br>
+      </div><br><br>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator Jumlah Keramik</h1>
+        </div><br>
+  
+        <div>
+          <div>
+        <label for="panjangRuangan">Panjang Ruangan:</label>
+        <input type="number" id="panjangRuangan" name="panjangRuangan">
+        <select id="satuanPanjang" name="satuanPanjang">
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+        </select>
+      </div>
+      <div>
+        <label for="lebarRuangan">Lebar Ruangan:</label>
+        <input type="number" id="lebarRuangan" name="lebarRuangan">
+        <select id="satuanLebar" name="satuanLebar">
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+        </select>
+      </div>
+      </div>
+        
+        <br><br>
+      <div>
+        <div>
+        <label for="panjangKeramik">Panjang Keramik:</label>
+        <input type="number" id="panjangKeramik" name="panjangKeramik">
+        <select id="satuanPanjangKeramik" name="satuanPanjangKeramik">
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+        </select>
+      </div>
+      <div>
+        <label for="lebarKeramik">Lebar Keramik:</label>
+        <input type="number" id="lebarKeramik" name="lebarKeramik">
+        <select id="satuanLebarKeramik" name="satuanLebarKeramik">
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+        </select>
+      </div>
+      </div>
+        <br><br>
+      
+        <label for="jarakKeramik">Jarak antar Keramik:</label>
+        <input type="number" id="jarakKeramik" name="jarakKeramik">
+        <select id="satuanJarak" name="satuanJarak">
+          <option value="mm">mm</option>
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+        </select><br><br>
+        <div>
+      
+        <button type="button11" onclick="hitungJumlahKeramik()">Hitung</button>
+      </div>
+        <div>
+  
+          <button type="button11" onclick="resetRiwayat55()"><i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks11()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks11()"><i class="fa fa-share"></i></button>
+        </div><br>
+  
+      
+      <div id="hasil65"></div>
+    </div>
+      <br><br>
       <div class="container-b">
         <div class="title-container">
           <h1 class="title">Kalkulator Pengeluaran uang</h1>
@@ -3845,6 +3912,26 @@ berikut hasilnya :
         window.location.href = shareUrl;
       }
     </script>
+    <script>
+      function salinTeks11() {
+        const hasil65 = document.getElementById("hasil65");
+        const range = document.createRange();
+        range.selectNode(hasil65);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+
+      }
+
+      function bagikanTeks11() {
+        const hasil65 = document.getElementById("hasil65").textContent;
+        const encodedText = encodeURIComponent(hasil65);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
 
 
@@ -3928,7 +4015,76 @@ berikut hasilnya :
       
     </script>
     <br><br>
+    
 
+   
+    <script type="text/javascript">
+      function hitungJumlahKeramik() {
+        // Ambil nilai panjang dan lebar ruangan dari inputan
+        var panjangRuangan = document.getElementById("panjangRuangan").value;
+        var lebarRuangan = document.getElementById("lebarRuangan").value;
+
+        // Konversi nilai panjang dan lebar ruangan ke dalam meter jika satuan yang dipilih adalah cm
+        if (document.getElementById("satuanPanjang").value == "cm") {
+          panjangRuangan = panjangRuangan / 100;
+        }
+        if (document.getElementById("satuanLebar").value == "cm") {
+          lebarRuangan = lebarRuangan / 100;
+        }
+
+        // Ambil nilai ukuran keramik dari inputan
+        var panjangKeramik = document.getElementById("panjangKeramik").value;
+        var lebarKeramik = document.getElementById("lebarKeramik").value;
+
+        // Konversi nilai ukuran keramik ke dalam meter jika satuan yang dipilih adalah cm
+        if (document.getElementById("satuanPanjangKeramik").value == "cm") {
+          panjangKeramik = panjangKeramik / 100;
+        }
+        if (document.getElementById("satuanLebarKeramik").value == "cm") {
+          lebarKeramik = lebarKeramik / 100;
+        }
+
+        // Ambil nilai jarak antar keramik dari inputan
+        var jarakKeramik = document.getElementById("jarakKeramik").value;
+
+        // Konversi nilai jarak antar keramik ke dalam meter jika satuan yang dipilih adalah mm
+        if (document.getElementById("satuanJarak").value == "mm") {
+          jarakKeramik = jarakKeramik / 1000;
+        }
+
+        // Hitung luas ruangan
+        var luasRuangan = panjangRuangan * lebarRuangan;
+
+        // Hitung luas satu keramik
+        var luasKeramik = (panjangKeramik + jarakKeramik) * (lebarKeramik + jarakKeramik);
+
+        // Hitung jumlah keramik yang dibutuhkan
+        var jumlahKeramik = Math.ceil(luasRuangan / luasKeramik);
+
+        // Tampilkan hasil
+        document.getElementById("hasil65").innerHTML = "Jumlah keramik yang dibutuhkan: " + jumlahKeramik;
+      }
+      function resetRiwayat55() {
+  // Mengosongkan nilai inputan
+  document.getElementById("panjangRuangan").value = "";
+  document.getElementById("lebarRuangan").value = "";
+  document.getElementById("satuanPanjang").selectedIndex = 0;
+  document.getElementById("satuanLebar").selectedIndex = 0;
+  document.getElementById("panjangKeramik").value = "";
+  document.getElementById("lebarKeramik").value = "";
+  document.getElementById("satuanPanjangKeramik").selectedIndex = 0;
+  document.getElementById("satuanLebarKeramik").selectedIndex = 0;
+  document.getElementById("jarakKeramik").value = "";
+  document.getElementById("satuanJarak").selectedIndex = 0;
+
+  // Mengosongkan hasil perhitungan
+  document.getElementById("hasil65").innerHTML = "";
+}
+
+    </script>
+
+    
+<br><br>
     <footer id="footerSection">
       <div class="container">
         <div class="row">
