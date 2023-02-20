@@ -416,19 +416,21 @@
           var text = barcodeInput.value;
 
           if (text) {
-            // Generate barcode 1
-            JsBarcode(barcode1, text, {
-              format: "CODE128",
-              lineColor: "#000", // warna garis
-              background: "#FFFFFF", // warna background
-              margin: 10, // margin antara barcode dan border
-              height: 150, // tinggi barcode
-              size: 1200,
-              displayValue: true, // menampilkan nilai barcode di bawahnya
-              fontOptions: "bold", // opsi font
-              font: "monospace", // jenis font
-              fontSize: 0, // ukuran font
-            });
+  // Generate barcode 1
+  JsBarcode(barcode1, text, {
+    format: "CODE128",
+    lineColor: "#000",
+    background: "#FFFFFF",
+    margin: 10,
+    height: 300, // set the height to 300 for a larger barcode
+
+    displayValue: true,
+    fontOptions: "bold",
+    font: "monospace",
+    fontSize: 0,
+  });
+
+
 
             // Generate barcode 2
             new QRious({
