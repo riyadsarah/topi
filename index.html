@@ -423,7 +423,7 @@
               background: "#FFFFFF", // warna background
               margin: 10, // margin antara barcode dan border
               height: 150, // tinggi barcode
-
+              size: 1200,
               displayValue: true, // menampilkan nilai barcode di bawahnya
               fontOptions: "bold", // opsi font
               font: "monospace", // jenis font
@@ -434,7 +434,7 @@
             new QRious({
               element: barcode2,
               value: text,
-              size: 200,
+              size: 1200,
               background: 'turquoise', // warna background
               foreground: 'white', // warna QR code
 
@@ -451,27 +451,28 @@
         }
 
         generateButton.addEventListener("click", generateBarcode);
+// Save button
+saveButton.addEventListener("click", function () {
+  
+  var barcode1DataURL = barcode1.toDataURL("image/jpeg");
+  var barcode2DataURL = barcode2.toDataURL("image/jpeg");
 
-        // Save button
-        saveButton.addEventListener("click", function () {
-          var barcode1DataURL = barcode1.toDataURL("image/png");
-          var barcode2DataURL = barcode2.toDataURL("image/png");
+  // Create a link for each barcode and download it
+  var link1 = document.createElement("a");
+  link1.href = barcode1DataURL;
+  link1.download = "barcode1.jpg";
+  document.body.appendChild(link1);
+  link1.click();
+  document.body.removeChild(link1);
 
-          // Create a link for each barcode and download it
-          var link1 = document.createElement("a");
-          link1.href = barcode1DataURL;
-          link1.download = "barcode1.png";
-          document.body.appendChild(link1);
-          link1.click();
-          document.body.removeChild(link1);
+  var link2 = document.createElement("a");
+  link2.href = barcode2DataURL;
+  link2.download = "barcode2.jpg";
+  document.body.appendChild(link2);
+  link2.click();
+  document.body.removeChild(link2);
+});
 
-          var link2 = document.createElement("a");
-          link2.href = barcode2DataURL;
-          link2.download = "barcode2.png";
-          document.body.appendChild(link2);
-          link2.click();
-          document.body.removeChild(link2);
-        });
 
         // Share button
         shareButton.addEventListener("click", function () {
