@@ -1189,6 +1189,10 @@ document.body.removeChild(link3);
           var sisaHari = Math.ceil(selisihHari);
 
           totalDetik += waktuTidur;
+
+
+
+          
           document.getElementById("output").innerHTML =
 
             `<p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
@@ -4146,7 +4150,53 @@ let lebar_jendela = parseFloat(document.getElementById('lebar_jendela').value) |
         var jumlahKeramik = Math.ceil(luasRuangan / luasKeramik);
 
         // Tampilkan hasil
-        document.getElementById("hasil65").innerHTML = "Jumlah keramik yang dibutuhkan: " + jumlahKeramik;
+        var text = "Jumlah keramik yang dibutuhkan adalah " + jumlahKeramik + " buah";
+document.getElementById("hasil65").innerHTML = text;
+
+
+// Ambil elemen output
+var outputDiv = document.getElementById("hasil65");
+
+
+
+// Bersihkan output sebelumnya
+outputDiv.innerHTML = '';
+
+// Tampilkan teks ke output satu karakter per interval 10ms
+var i = 0;
+var intervalId = setInterval(function() {
+  var char = text.charAt(i);
+  var color = '';
+  if (/\d/.test(char)) {
+    // Jika karakter adalah angka, berikan warna merah
+    color = 'red';
+  } else if (text.charAt(i-2) === ':' && /\d/.test(char)) {
+    // Jika karakter setelah titik dua adalah angka, berikan warna biru
+    color = 'blue';
+  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau
+    color = 'green';
+  }
+
+  // Buat elemen span untuk karakter
+  var span = document.createElement('span');
+  span.textContent = char;
+  span.style.color = color;
+  outputDiv.appendChild(span);
+
+  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+  outputDiv.scrollTop = outputDiv.scrollHeight;
+
+  i++;
+
+  // Hentikan interval ketika semua karakter telah ditampilkan
+  if (i >= text.length) {
+    clearInterval(intervalId);
+  }
+}, 100);
+
+        
+
       }
 
       function resetRiwayat55() {
@@ -4167,7 +4217,10 @@ let lebar_jendela = parseFloat(document.getElementById('lebar_jendela').value) |
       }
     </script>
 
-    <br><br>
+    <br>
+   
+    
+    <br>
     <footer id="footerSection">
       <div class="container">
         <div class="row">
