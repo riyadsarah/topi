@@ -753,7 +753,7 @@ document.body.removeChild(link3);
             <button type="button11" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
           </div>
           <br>
-          <p id="result"></p>
+          <div id="result"></div>
         </form>
       </div><br><br><br>
 
@@ -3910,9 +3910,54 @@ let lebar_jendela = parseFloat(document.getElementById('lebar_jendela').value) |
         }
 
         // Tampilkan hasil
-        let hasilText =
+        var text =
           `Anda membutuhkan ${jumlahBahan} buah ${jenismaterial} dengan total volume ${volume} ${satuan}.`;
-        document.getElementById('hasil01').textContent = hasilText;
+        document.getElementById('hasil01').textContent = text;
+
+
+// Ambil elemen output
+var outputDiv = document.getElementById("hasil01");
+
+
+
+// Bersihkan output sebelumnya
+outputDiv.innerHTML = '';
+
+// Tampilkan teks ke output satu karakter per interval 10ms
+var i = 0;
+var intervalId = setInterval(function() {
+  var char = text.charAt(i);
+  var color = '';
+  if (/\d/.test(char)) {
+    // Jika karakter adalah angka, berikan warna merah
+    color = 'yellow';
+  } else if (text.charAt(i-2) === ':' && /\d/.test(char)) {
+    // Jika karakter setelah titik dua adalah angka, berikan warna biru
+    color = 'blue';
+  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau
+    color = 'green';
+  }
+
+  // Buat elemen span untuk karakter
+  var span = document.createElement('span');
+  span.textContent = char;
+  span.style.color = color;
+  outputDiv.appendChild(span);
+
+  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+  outputDiv.scrollTop = outputDiv.scrollHeight;
+
+  i++;
+
+  // Hentikan interval ketika semua karakter telah ditampilkan
+  if (i >= text.length) {
+    clearInterval(intervalId);
+  }
+}, 20);
+
+      
+
       }
 
       function resetForm() {
@@ -4021,6 +4066,26 @@ let lebar_jendela = parseFloat(document.getElementById('lebar_jendela').value) |
         window.location.href = shareUrl;
       }
     </script>
+     <script>
+      function salinTeks12() {
+        const hasil01 = document.getElementById("hasil01");
+        const range = document.createRange();
+        range.selectNode(hasil01);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+
+      }
+
+      function bagikanTeks12() {
+        const hasil01 = document.getElementById("hasil01").textContent;
+        const encodedText = encodeURIComponent(hasil01);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
 
 
@@ -4081,6 +4146,8 @@ let lebar_jendela = parseFloat(document.getElementById('lebar_jendela').value) |
             }
           }
         });
+
+        
 
       }
 
@@ -4169,7 +4236,7 @@ var intervalId = setInterval(function() {
   var color = '';
   if (/\d/.test(char)) {
     // Jika karakter adalah angka, berikan warna merah
-    color = 'red';
+    color = 'yellow';
   } else if (text.charAt(i-2) === ':' && /\d/.test(char)) {
     // Jika karakter setelah titik dua adalah angka, berikan warna biru
     color = 'blue';
@@ -4193,7 +4260,7 @@ var intervalId = setInterval(function() {
   if (i >= text.length) {
     clearInterval(intervalId);
   }
-}, 100);
+}, 20);
 
         
 

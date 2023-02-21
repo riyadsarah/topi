@@ -91,3 +91,5 @@ html2canvas(document.querySelector("#barcode2")).then(canvas => {
   link.click();
   document.body.removeChild(link);
 });
+
+
