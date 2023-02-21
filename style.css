@@ -1469,6 +1469,25 @@ button:hover {
 
 
 }
+#barcode3 {
+  
+  padding: 20px;
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+
+  height: auto;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.104);
+  border-radius: 10px;
+ 
+
+
+}
+
+#barcode1, #barcode2, #barcode3 {
+  display: none;
+}
 
 input[type=color] {
  
