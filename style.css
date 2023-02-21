@@ -16,7 +16,11 @@ body {
 
 
 
-
+#mode-select {
+  border-radius: 10px;
+  padding: 3px;
+  font-size: 17px;
+}
 
 
 footer {
@@ -213,15 +217,6 @@ input[type="text"] {
   margin: 10px;
 }
 
-select {
-  
-  font-size: 20px;
-  text-align: center;
-  border: 2px solid rgba(0, 0, 0, 0.24);
-  border-radius: 10px;
-  margin: 10px;
-  background-color: rgb(255, 251, 251);
-}
 
 
 
@@ -588,22 +583,6 @@ input[type="number"]:focus {
   box-shadow: 0 0 10px #1ebdb5;
 }
 
-select {
-  width: 50%;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-  padding-left: 10px;
-  font-size: 18px;
-  outline: none;
-  margin-bottom: 20px;
-  transition: all 0.3s ease-in-out;
-  background-color: rgb(255, 255, 255);
-}
-
-select:focus {
-  box-shadow: 0 0 10px #7f7f7f;
-}
 
 input[type="submit"] {
   width: 23%;
@@ -1404,34 +1383,6 @@ img {
 
 
 
-select {
-  background-color: #ff3c00;
-  color: #ffffff;
-
-  padding: 5px;
-  border-radius: 10px;
-}
-
-/* style untuk dropdown */
-select:focus option {
-  display: block;
-}
-
-select option {
-  display: none;
-  background-color: #ff3c00;
-}
-
-/* style untuk option */
-select:hover option {
-  display: block;
-}
-
-select option:hover {
-  background-color: #55ff00;
-}
-
-
 
 @media only screen and (max-width: 600px) {
 
@@ -1444,10 +1395,7 @@ select option:hover {
     margin-top: 10px;
   }
 
-  #mode-select {
-    font-size: 14px;
-    
-  }
+
 
   button[type="button11"], button[type="submit"] {
     font-size: 10px;
@@ -1465,10 +1413,6 @@ select option:hover {
     padding: 8px;
   }
 
-  #select {
-    font-size: 12px;
-    
-  }
 
   button[type="button11"], button[type="submit"] {
     font-size: 12px;
@@ -1583,21 +1527,6 @@ button:hover {
   text-align: center;
   margin-top: 20px;
 }
-select {
-  width: 50%;
-}
-
-#pilihan {
- width: 100px;
- height: 35px;
-  font-size: 15px;
-  text-align: center;
-  border: none;
-  border-radius: 5px;
- 
-  background-color: #0000003a;
-  transition: all 0.3s ease;
-}
 
 
 
@@ -1657,44 +1586,6 @@ button[type="button10"] {
   cursor: pointer;
 }
 
-
-select {
-  width: 120px;
-  height: 40px;
-  padding: 5px;
-  border-radius: 10px;
- font-size: 15px;
- background-color: #ff3c00;
- 
-}
-
-/* style untuk dropdown */
-select:focus option {
-  display: block;
-  
-}
-
-select option {
-  font-size: 17px;
- font-family: Georgia, 'Times New Roman', Times, serif;
-  display: none;
-  color: #ffffff;
-  background-color: #ff3c00;
- 
-}
-
-/* style untuk option */
-select:hover option {
-  display: block;
-}
-
-select option:hover {
-  background-color: #55ff00;
-}
-.option {
-    margin-bottom: 10px;
-    font-size: 18px;
-  }
 
 
   label {
@@ -1855,7 +1746,7 @@ font-weight: bold;
    }
 
    @media only screen and (max-width: 600px) {
-    label, input[type="number"], select {
+    label, input[type="number"] {
       font-size: 14px;
     }
     button {
@@ -1940,6 +1831,34 @@ font-weight: bold;
     width: 120px;
   }
 
+  .title{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
 
 
+  
+ 
+  
+
+  .custom-select {
+    font-size: 16px; /* ukuran font */
+    padding: 2px; /* padding */
+    border-radius: 5px; /* sudut melengkung */
+    border: 1px solid #ccc; /* border */
+    
+    max-width: 400px; /* maksimal lebar 400px */
+    box-sizing: border-box; /* menghitung ukuran dengan padding dan border */
+  }
+  
+  @media (max-width: 768px) {
+    /* untuk tampilan layar dengan lebar maksimal 768px */
+    .custom-select {
+      font-size: 14px; /* ukuran font lebih kecil */
+      height: 30px;
+      width: 30%; /* lebar 100% */
+    }
+  }
   
