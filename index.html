@@ -150,8 +150,8 @@
 
 
     <button type="button11" id="myBtn3">
-      <div>Modifikasi kalimat</div>
-      <div><i class="fa-solid fa-calculator"></i> <i class="fa-solid fa-font"></div></i>
+      <div> Fitur 1</div>
+
     </button>
     <div id="myModal3" class="modal3">
 
@@ -374,8 +374,8 @@
 
 
     <button type="button11" id="myBtn2">
-      <div>Alat untuk dagang </div>
-      <div><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-sharp fa-solid fa-cart-shopping"></i></div>
+      <div>Fitur 2</div>
+
     </button>
     <div id="myModal2" class="modal2">
 
@@ -416,64 +416,60 @@
           var text = barcodeInput.value;
 
           if (text) {
-  // Generate barcode 1
-  JsBarcode(barcode1, text, {
-    format: "CODE128",
-    lineColor: "#000",
-    background: "#FFFFFF",
-    margin: 10,
-    height: 300, // set the height to 300 for a larger barcode
+            // Generate barcode 1
+            JsBarcode(barcode1, text, {
+              format: "CODE128",
+              lineColor: "#000",
+              background: "#FFFFFF",
+              margin: 10,
+              height: 300, // set the height to 300 for a larger barcode
 
-    displayValue: true,
-    fontOptions: "bold",
-    font: "monospace",
-    fontSize: 0,
-  });
+              displayValue: true,
+              fontOptions: "bold",
+              font: "monospace",
+              fontSize: 0,
+            });
 
 
 
             // Generate barcode 2
             new QRious({
+
               element: barcode2,
               value: text,
               size: 2000,
               background: 'turquoise', // warna background
               foreground: 'white', // warna QR code
 
-            }).toCanvas(barcode2, {
-              errorCorrectionLevel: 'M',
-              margin: 100,
-              scale: 4
-            });
+            })
 
 
-
-            barcode2.style.borderRadius = '20px'; // menambahkan border radius
           }
+
         }
 
         generateButton.addEventListener("click", generateBarcode);
-// Save button
-saveButton.addEventListener("click", function () {
-  
-  var barcode1DataURL = barcode1.toDataURL("image/jpeg");
-  var barcode2DataURL = barcode2.toDataURL("image/jpeg");
+        // Save button
+        saveButton.addEventListener("click", function () {
 
-  // Create a link for each barcode and download it
-  var link1 = document.createElement("a");
-  link1.href = barcode1DataURL;
-  link1.download = "barcode1.jpg";
-  document.body.appendChild(link1);
-  link1.click();
-  document.body.removeChild(link1);
+          var barcode1DataURL = barcode1.toDataURL("image/jpeg");
+          var barcode2DataURL = barcode2.toDataURL("image/jpeg");
 
-  var link2 = document.createElement("a");
-  link2.href = barcode2DataURL;
-  link2.download = "barcode2.jpg";
-  document.body.appendChild(link2);
-  link2.click();
-  document.body.removeChild(link2);
-});
+          // Create a link for each barcode and download it
+          var link1 = document.createElement("a");
+          link1.href = barcode1DataURL;
+          link1.download = "barcode1.jpg";
+          document.body.appendChild(link1);
+          link1.click();
+          document.body.removeChild(link1);
+
+          var link2 = document.createElement("a");
+          link2.href = barcode2DataURL;
+          link2.download = "barcode2.jpg";
+          document.body.appendChild(link2);
+          link2.click();
+          document.body.removeChild(link2);
+        });
 
 
         // Share button
@@ -655,8 +651,8 @@ saveButton.addEventListener("click", function () {
     </div>
 
     <button type="button11" id="myBtn1">
-      <div>Kalkulator pengeluaran detail</div>
-      <div><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-sharp fa-solid fa-smoking"></i></div>
+      <div>Fitur 3</div>
+
     </button>
     <div id="myModal1" class="modal1">
       <div class="container-b">
@@ -709,18 +705,30 @@ saveButton.addEventListener("click", function () {
         <label for="panjang">Panjang dinding (m):</label>
         <input type="number" id="panjang">
         <br><br>
+
         <label for="lebar">Lebar dinding (m):</label>
         <input type="number" id="lebar">
         <br><br>
+
         <label for="tinggi">Tinggi dinding (m):</label>
         <input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
         <br><br>
+
+        <label for="panjang_jendela">Panjang jendela (m):</label>
+        <input type="number" id="panjang_jendela">
+        <br><br>
+
+        <label for="lebar_jendela">Lebar jendela (m):</label>
+        <input type="number" id="lebar_jendela">
+        <br><br>
+
         <label for="satuan">Satuan:</label>
         <select id="satuan">
           <option value="m2">Meter Persegi (m2)</option>
           <option value="m3">Meter Kubik (m3)</option>
         </select>
         <br><br>
+
         <label for="jenismaterial">Jenis bahan:</label>
         <select id="jenismaterial">
           <option value="hebel">Hebel</option>
@@ -881,8 +889,8 @@ saveButton.addEventListener("click", function () {
 
 
     <button type="button11" id="myBtn">
-      <div>Hitung umur detail</div>
-      <div><i class="fa-sharp fa-solid fa-calculator"></i> <i class="fa-solid fa-fingerprint"></i></div>
+      <div>Fitur 4</div>
+
     </button>
 
     <div id="myModal" class="modal">
@@ -912,7 +920,11 @@ saveButton.addEventListener("click", function () {
         </div><br>
 
 
-        <p id="deskripsiProduk">Rasulullah SAW sendiri pernah mengabarkan usia kebanyakan umatnya yang berkisar antara 60-70 tahun. عن أبي هريرة رضي الله تعالى عنه قال قال رسول الله صلى الله عليه وسلم أَعْمَارُ أُمَّتِي مَا بَيْنَ السِّتِّينَ إلَى السَّبْعِينَ وَأَقَلُّهُمْ مَنْ يَجُوْزُ ذَلِكَ رواه الترمذي  Artinya, “Dari Abu Hurairah RA. Ia berkata, Rasulullah SAW bersabda, ‘Usia umatku (umumnya berkisar) antara 60 sampai 70 tahun. Jarang sekali di antara mereka melewati (angka) itu.’” (HR At-Tirmidzi).
+        <p id="deskripsiProduk">Rasulullah SAW sendiri pernah mengabarkan usia kebanyakan umatnya yang berkisar antara
+          60-70 tahun. عن أبي هريرة رضي الله تعالى عنه قال قال رسول الله صلى الله عليه وسلم أَعْمَارُ أُمَّتِي مَا
+          بَيْنَ السِّتِّينَ إلَى السَّبْعِينَ وَأَقَلُّهُمْ مَنْ يَجُوْزُ ذَلِكَ رواه الترمذي Artinya, “Dari Abu
+          Hurairah RA. Ia berkata, Rasulullah SAW bersabda, ‘Usia umatku (umumnya berkisar) antara 60 sampai 70 tahun.
+          Jarang sekali di antara mereka melewati (angka) itu.’” (HR At-Tirmidzi).
         </p><br><br>
         <p id="deskripsiProduk">Masukan tanggal lahir</p>
         <input type="date" id="birthdate">
@@ -3795,16 +3807,21 @@ berikut hasilnya :
         let panjang = parseFloat(document.getElementById('panjang').value);
         let lebar = parseFloat(document.getElementById('lebar').value);
         let tinggi = parseFloat(document.getElementById('tinggi').value);
+        let panjang_jendela = parseFloat(document.getElementById('panjang_jendela').value) || 0;
+let lebar_jendela = parseFloat(document.getElementById('lebar_jendela').value) || 0;
+
         let satuan = document.getElementById('satuan').value;
         let jenismaterial = document.getElementById('jenismaterial').value;
         let volume = 0;
 
+       
+
         // Hitung volume berdasarkan satuan yang dipilih
         if (satuan === 'm2') {
-          volume = panjang * lebar;
+          volume = (panjang * lebar) - (panjang_jendela * lebar_jendela);
         } else if (satuan === 'm3') {
           if (tinggi) {
-            volume = panjang * lebar * tinggi;
+            volume = (panjang * lebar * tinggi) - (panjang_jendela * lebar_jendela * tinggi);
           } else {
             alert('Silakan isi tinggi dinding untuk menghitung volume dalam meter kubik (m3)');
             return;
@@ -3831,14 +3848,13 @@ berikut hasilnya :
         document.getElementById('hasil01').textContent = hasilText;
       }
 
-
-
-
       function resetForm() {
         // Reset nilai input pada form
         document.getElementById('panjang').value = '';
         document.getElementById('lebar').value = '';
         document.getElementById('tinggi').value = '';
+        document.getElementById('panjang_jendela').value = '';
+        document.getElementById('lebar_jendela').value = '';
         document.getElementById('satuan').value = 'm2';
         document.getElementById('jenismaterial').value = 'hebel';
         document.getElementById('hasil01').textContent = '';
@@ -3881,7 +3897,8 @@ berikut hasilnya :
         var remainingText = "Data kamu: <br>" +
           "Lahir tahun  " + document.getElementById("birthdate").value + "<br>" +
           "Jika kisaran hidup  " + ageLimit + " tahun<br><br><br>" +
-          "Hasil kisaran hidup di kurangi umur kamu sekarang adalah " + remainingYears + " tahun, " + remainingMonths + " bulan, " + remainingDays + " hari";
+          "Hasil kisaran hidup di kurangi umur kamu sekarang adalah " + remainingYears + " tahun, " + remainingMonths +
+          " bulan, " + remainingDays + " hari";
         document.getElementById("remaining").innerHTML = "<p>" + remainingText + "</p>";
 
 
@@ -4086,8 +4103,6 @@ berikut hasilnya :
         document.getElementById("hasil65").innerHTML = "";
       }
     </script>
-
-    <br><br>
 
     <br><br>
     <footer id="footerSection">
