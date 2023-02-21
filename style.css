@@ -31,6 +31,16 @@ footer {
 
 }
 
+.container-g {
+  width: 700px;
+  margin: 0 auto;
+  background-color: #ffffff1f;
+  padding: 20px;
+ 
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -324,7 +334,7 @@ button[type="button1"] {
   cursor: pointer;
 }
 button[type="button11"] {
-  background-color:#ff4400fa;
+  background-color:#ff3c00;
   color: rgb(255, 255, 255);
   padding: 5px 20px;
  
@@ -582,7 +592,7 @@ select {
   width: 50%;
   height: 40px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   padding-left: 10px;
   font-size: 18px;
   outline: none;
@@ -1395,11 +1405,11 @@ img {
 
 
 select {
-  background-color: #0000003c;
+  background-color: #ff3c00;
   color: #ffffff;
 
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 /* style untuk dropdown */
@@ -1409,7 +1419,7 @@ select:focus option {
 
 select option {
   display: none;
-  background-color: #000000a8;
+  background-color: #ff3c00;
 }
 
 /* style untuk option */
@@ -1515,6 +1525,7 @@ button:hover {
 
 
 
+
 .container-b {
   width: 700px;
   margin: 0 auto;
@@ -1526,6 +1537,9 @@ button:hover {
 
 @media screen and (max-width: 767px) {
   .container-b {
+    width: 90%;
+  }
+  .container-g {
     width: 90%;
   }
   .canvas {
@@ -1570,7 +1584,7 @@ button:hover {
   margin-top: 20px;
 }
 select {
-  width: 90%;
+  width: 50%;
 }
 
 #pilihan {
@@ -1648,8 +1662,8 @@ select {
   width: 120px;
   height: 40px;
   padding: 5px;
-  border-radius: 5px;
- 
+  border-radius: 10px;
+ font-size: 15px;
  background-color: #ff3c00;
  
 }
@@ -1664,8 +1678,9 @@ select option {
   font-size: 17px;
  font-family: Georgia, 'Times New Roman', Times, serif;
   display: none;
-  color: #000000;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #ff3c00;
+ 
 }
 
 /* style untuk option */
@@ -1845,6 +1860,16 @@ font-weight: bold;
     button {
       font-size: 14px;
     }
+  }
+  #panjang {
+    font-size: 15px;
+    height:30%;
+    width: 30%;
+  }
+  #lebar {
+    font-size: 15px;
+    height:30%;
+    width: 30%;
   }
   #satuanPanjang {
     font-size: 15px;
