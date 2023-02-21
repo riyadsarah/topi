@@ -387,12 +387,24 @@
         </div><br>
         <div id="form-barcode">
           <textarea type="text" id="barcode-input" placeholder="Masukan brand kamu"></textarea>
-        </div>
+        </div><br>
+        <div>
+        <label for="barcode-color">Barcode Color:</label>
+        <input type="color" id="barcode-color" value="#000000">
+
+        <label for="qr-color">QR Code Color:</label>
+        <input type="color" id="qr-color" value="#000000">
+
+        <label for="bg-color">Background Color:</label>
+        <input type="color" id="bg-color" value="#ffffff">
+      </div><br>
+
+        <div>
 
         <button type="button11" id="generate-button">Generate</button>
         <button type="button11" onclick="resetRiwayat1()"><i class="fas fa-undo"></i></button>
-        <button type="button11" id="save-button"><i class="fa-solid fa-download"></i></button>
-        <button type="button11" id="share-button"><i class="fa-solid fa-share-from-square"></i></button>
+        <button type="button" id="save-button"><i class="fa-solid fa-download"></i></button>
+      </div>
         <br>
         <div>
 
@@ -404,93 +416,72 @@
       </div><br>
 
       <script>
-        var barcode1 = document.getElementById("barcode1");
-        var barcode2 = document.getElementById("barcode2");
+         var barcode1 = document.getElementById("barcode1");
+    var barcode2 = document.getElementById("barcode2");
 
-        var barcodeInput = document.getElementById("barcode-input");
-        var generateButton = document.getElementById("generate-button");
-        var saveButton = document.getElementById("save-button");
-        var shareButton = document.getElementById("share-button");
+    var barcodeInput = document.getElementById("barcode-input");
+    var generateButton = document.getElementById("generate-button");
+    var saveButton = document.getElementById("save-button");
+    
 
-        function generateBarcode() {
-          var text = barcodeInput.value;
+    function generateBarcode() {
+      var text = barcodeInput.value;
 
-          if (text) {
-            // Generate barcode 1
-            JsBarcode(barcode1, text, {
-              format: "CODE128",
-              lineColor: "#000",
-              background: "#FFFFFF",
-              margin: 10,
-              height: 300, // set the height to 300 for a larger barcode
-
-              displayValue: true,
-              fontOptions: "bold",
-              font: "monospace",
-              fontSize: 0,
-            });
-
-
-
-            // Generate barcode 2
-            new QRious({
-
-              element: barcode2,
-              value: text,
-              size: 2000,
-              background: 'turquoise', // warna background
-              foreground: 'white', // warna QR code
-
-            })
-
-
-          }
-
-        }
-
-        generateButton.addEventListener("click", generateBarcode);
-        // Save button
-        saveButton.addEventListener("click", function () {
-
-          var barcode1DataURL = barcode1.toDataURL("image/jpeg");
-          var barcode2DataURL = barcode2.toDataURL("image/jpeg");
-
-          // Create a link for each barcode and download it
-          var link1 = document.createElement("a");
-          link1.href = barcode1DataURL;
-          link1.download = "barcode1.jpg";
-          document.body.appendChild(link1);
-          link1.click();
-          document.body.removeChild(link1);
-
-          var link2 = document.createElement("a");
-          link2.href = barcode2DataURL;
-          link2.download = "barcode2.jpg";
-          document.body.appendChild(link2);
-          link2.click();
-          document.body.removeChild(link2);
+      if (text) {
+        var qrColor = document.getElementById("qr-color").value;
+        var bgColor = document.getElementById("bg-color").value;
+        var barcodeColor = document.getElementById("barcode-color").value;
+       
+        // Generate barcode 1
+        JsBarcode(barcode1, text, {
+          format: "CODE128",
+          lineColor: barcodeColor,
+          background: bgColor,
+          margin: 10,
+          height: 300,
+          displayValue: true,
+          fontOptions: "bold",
+          font: "monospace",
+          fontSize: 20,
         });
 
-
-        // Share button
-        shareButton.addEventListener("click", function () {
-          var barcode1DataURL = barcode1.toDataURL("image/jpeg", 0.8); // ubah ke format JPG dan sesuaikan kualitas
-          var barcode2DataURL = barcode2.toDataURL("image/jpeg", 0.8);
-
-          // Share each barcode
-          window.navigator.share({
-            title: "Barcode",
-            text: "Check out these barcodes!",
-            files: [
-              new File([barcode1DataURL], "barcode1.jpg", { // ubah nama file dan tipe file menjadi JPG
-                type: "image/jpeg",
-              }),
-              new File([barcode2DataURL], "barcode2.jpg", {
-                type: "image/jpeg",
-              }),
-            ],
-          });
+        // Generate barcode 2
+        new QRious({
+          element: barcode2,
+          value: text,
+          size: 4000,
+         
+          background: bgColor,
+          foreground: qrColor,
         });
+      }
+    }
+
+
+  generateButton.addEventListener("click", generateBarcode);
+
+  // Save button
+  saveButton.addEventListener("click", function () {
+  var barcode1DataURL = barcode1.toDataURL("image/jpeg");
+  var barcode2DataURL = barcode2.toDataURL("image/jpeg");
+
+
+  // Create a link for each barcode and download it
+  var link1 = document.createElement("a");
+  link1.href = barcode1DataURL;
+  link1.download = "barcode1.jpg";
+  document.body.appendChild(link1);
+  link1.click();
+  document.body.removeChild(link1);
+
+  var link2 = document.createElement("a");
+  link2.href = barcode2DataURL;
+  link2.download = "barcode2.jpg";
+  document.body.appendChild(link2);
+  link2.click();
+  document.body.removeChild(link2);
+});
+        
 
 
         function resetRiwayat1() {
@@ -701,7 +692,14 @@
         <div class="title-container">
           <h1 class="title">Kalkulator bangunan</h1>
 
+
         </div><br>
+         <label for="jenismaterial">Jenis bahan:</label>
+        <select id="jenismaterial" class="custom-select">
+          <option value="hebel">Hebel</option>
+          <option value="bata_merah">Bata Merah</option>
+          <option value="batako">Batako</option>
+        </select>
         <div><p class="title">Dinding (m): </p>
         <input type="number" id="panjang" placeholder="Panjang">
        
@@ -730,13 +728,8 @@
         </select>
         <br><br>
 
-        <label for="jenismaterial">Jenis bahan:</label>
-        <select id="jenismaterial" class="custom-select">
-          <option value="hebel">Hebel</option>
-          <option value="bata_merah">Bata Merah</option>
-          <option value="batako">Batako</option>
-        </select>
-        <br><br>
+       
+ 
         <div>
           <button type="button11" onclick="hitungJumlahBahan()">Hitung</button>
         </div>
