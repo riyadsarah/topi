@@ -1739,8 +1739,9 @@ input[type=number] {
 }
 input::placeholder {
  
-  color: #00000047;
+  color: #0000007c;
   text-align: center;
+  font-weight: bold;
   font-size: 14px;
 }
 
@@ -1871,6 +1872,17 @@ font-weight: bold;
     height:30%;
     width: 30%;
   }
+   #panjang_jendela {
+    font-size: 15px;
+    height:30%;
+    width: 30%;
+  }
+  #lebar_jendela {
+    font-size: 15px;
+    height:30%;
+    width: 30%;
+  }
+
   #satuanPanjang {
     font-size: 15px;
     height: 50px;
