@@ -695,7 +695,7 @@
 
   </div>
 
-<div>
+
 
 <div>
 <textarea  id="inputKalkulator"  name="" id="" cols="30" rows="10" placeholder="Masukkan perhitungan matematika"></textarea>
@@ -742,14 +742,14 @@
   </div>
   <div>
     <tr>
-      <input type="text" id="inputUang" placeholder="Masukkan uang pembeli" min="0">
+      <input type="number" id="inputUang" placeholder="Masukkan uang pembeli" min="0">
       <td><button class="button-na " type="button-ng" onclick="hapusSatu()"><i
         class="fa-solid fa-delete-left"></i></button></td>
      
     </tr>
   </div>
-    
-    </div> </div>
+  <button type="button11" onclick="reset76()"><i class="fas fa-undo"></i></button>
+</div>
       <div> <button type="button10" class="close2"><i class="fa-solid fa-circle-xmark"></i></button></div>
       <br><br><br>
       <script>
@@ -4563,16 +4563,28 @@ berikut hasilnya :
    <br><br><br><br><br><br><br><br><br><br>
 
       <script>
+         const riwayatKalkulator = [];
+
+function hapusSatu() {
+  const inputKalkulator = document.getElementById("inputKalkulator");
+  inputKalkulator.value = inputKalkulator.value.slice(0, -1);
+  hitung();
+  navigator.vibrate(100);
+}
         function hapusSatu() {
           const inputKalkulator = document.getElementById("inputKalkulator");
           inputKalkulator.value = inputKalkulator.value.slice(0, -1);
           hitung();
+          navigator.vibrate(100);
+
         }
 
         function hapusSemua() {
           const inputKalkulator = document.getElementById("inputKalkulator");
           inputKalkulator.value = "";
           hitung();
+          navigator.vibrate(100);
+
         }
 
         function hitung() {
@@ -4590,6 +4602,31 @@ berikut hasilnya :
 }
 
         }
+        function tambahKeRiwayat() {
+    const inputKalkulator = document.getElementById("inputKalkulator").value;
+    const inputUang = document.getElementById("inputUang").value;
+    const hasil47 = document.getElementById("hasil47").value;
+
+    if (inputKalkulator && inputUang) {
+      riwayatKalkulator.push({
+        inputKalkulator: inputKalkulator,
+        inputUang: inputUang,
+        hasil47: hasil47
+      });
+      tampilkanRiwayat();
+    }
+  }
+
+  function tampilkanRiwayat() {
+    const riwayatElement = document.getElementById("riwayat");
+    riwayatElement.innerHTML = "";
+    for (let i = 0; i < riwayatKalkulator.length; i++) {
+      const riwayat = riwayatKalkulator[i];
+      const riwayatElementItem = document.createElement("li");
+      riwayatElementItem.innerText = `${riwayat.inputKalkulator} = ${riwayat.hasil47} (uang: ${riwayat.inputUang})`;
+      riwayatElement.appendChild(riwayatElementItem);
+    }
+  }
 
         const buttons = document.getElementsByTagName("button");
         for (let i = 0; i < buttons.length; i++) {
@@ -4618,6 +4655,18 @@ berikut hasilnya :
        
 
         }
+        function reset76() {
+  const inputKalkulator = document.getElementById("inputKalkulator");
+  const inputUang = document.getElementById("inputUang");
+  const hasil47 = document.getElementById("hasil47");
+
+  inputKalkulator.value = "";
+  inputUang.value = "";
+  hasil47.value = "";
+
+  hitung();
+}
+
       </script>
 
 
