@@ -319,7 +319,7 @@
           <button type="button11" onclick="bagikanTeks3()"><i class="fa fa-share"></i></button>
         </div><br>
 
-        <p id="wordToNumberResult2"></p>
+        <div id="wordToNumberResult2"></div>
         <br><br><br>
 
         <div class="title-container">
@@ -3133,7 +3133,7 @@ var intervalId = setInterval(function() {
         let result = "";
         for (let i = 0; i < word2.length; i++) {
           if (word2[i] === " ") {
-            result += "kamu_gila ";
+            result += "00 ";
           } else {
             let letter = word2[i].toLowerCase();
             if (letter === "a") {
@@ -3197,13 +3197,71 @@ var intervalId = setInterval(function() {
           }
         }
 
+        
+        var text = result.trim();
+  document.getElementById("wordToNumberResult2").innerHTML = text;
+       
 
-        result = result.trim();
-        let wordToNumberResult2 = document.querySelector("#wordToNumberResult2");
-        wordToNumberResult2.innerHTML = result;
+
+// Ambil elemen output
+var outputDiv = document.getElementById("wordToNumberResult2");
 
 
-        wordToNumberResult2.insertBefore(copyIcon, wordToNumberResult2.firstChild);
+
+// Bersihkan output sebelumnya
+outputDiv.innerHTML = '';
+// Tampilkan teks ke output satu karakter per interval 10ms
+var i = 0;
+var intervalId = setInterval(function() {
+  var char = text.charAt(i);
+  var color = '';
+  var size = '';
+  if (/\d/.test(char)) {
+    // Jika karakter adalah angka, berikan warna merah
+    color = 'yellow';
+  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
+    color = '#00eeff';
+    
+  }
+
+ 
+  if (text.substring(i, i+3) === '<p>') {
+    // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
+    outputDiv.appendChild(document.createElement('p'));
+    i += 2; // lewati karakter '<' dan 'p'
+  } else if (text.substring(i, i+4) === '</p>') {
+    // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
+    outputDiv.appendChild(document.createElement('p'));
+    i += 3; // lewati karakter '<', '/', 'p'
+  } else if (text.substring(i, i+4) === '<br>') {
+    // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
+    outputDiv.appendChild(document.createElement('br'));
+    i += 3; // lewati karakter '<', 'b', 'r'
+  } else if (text.substring(i, i+5) === '</br>') {
+    // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
+    outputDiv.appendChild(document.createElement('br'));
+    i += 4; // lewati karakter '<', '/', 'b', 'r'
+  } else {
+    // Jika karakter biasa, tambahkan ke dalam elemen output
+    var span = document.createElement('span');
+    span.textContent = char;
+    span.style.color = color;
+    span.style.fontSize = size;
+    outputDiv.appendChild(span);
+  }
+
+  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+  outputDiv.scrollTop = outputDiv.scrollHeight;
+
+  i++;
+
+  // Hentikan interval ketika semua karakter telah ditampilkan
+  if (i >= text.length) {
+    clearInterval(intervalId);
+  }
+}, 3);
+
       }
 
 
@@ -3215,7 +3273,7 @@ var intervalId = setInterval(function() {
         const letters = number2
           .split(" ")
           .map(function (char) {
-            if (char === "kamu_gila") {
+            if (char === "00") {
               return " ";
             } else if (char === "ا") {
               return "a";
