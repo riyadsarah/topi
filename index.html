@@ -720,7 +720,7 @@ document.body.removeChild(link3);
           <h1 class="title">Hitung pengeluaran roko <i class="fa-solid fa-joint"></i></h1>
 
         </div><br>
-        <form id="form3">
+        <form id="form">
           <div>
             <input type="number" id="jumlahPerHari" name="jumlahPerHari" placeholder="jumlah batang/hari ">
 
@@ -748,9 +748,9 @@ document.body.removeChild(link3);
 
           </div>
           <div>
-            <button type="button11" id="resetButton112"><i class="fas fa-undo"></i></button>
-            <button type="button11" onclick="salinTeks5()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
+            <button type="button" id="resetButton112"><i class="fas fa-undo"></i></button>
+            <button type="button" onclick="salinTeks5()"><i class="fa fa-copy"></i></button>
+            <button type="button" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
           </div>
           <br>
           <div id="result"></div>
@@ -975,7 +975,7 @@ document.body.removeChild(link3);
           <button type="button11" onclick="salinTeks6()"><i class="fa fa-copy"></i></button>
           <button type="button11" onclick="bagikanTeks6()"><i class="fa fa-share"></i></button>
         </div><br>
-        <p id="output"></p>
+        <div id="output"></div>
       </div><br><br><br><br>
       <div class="container-b">
         <div class="title-container">
@@ -1192,11 +1192,14 @@ document.body.removeChild(link3);
 
 
 
-          
-          document.getElementById("output").innerHTML =
 
-            `<p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
-    <p>Umur Anda Sekarang : ${umurTahun} tahun ${umurBulan} bulan ${umurTanggal} hari.</p>
+          
+          var text =
+
+            `   
+           <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p>
+
+    <p>Umur Anda Sekarang adalah ${umurTahun} tahun ${umurBulan} bulan ${umurTanggal} hari.</p>
 
     <p>Tinggal ${sisaHari} hari lagi menuju ulang tahun Anda.</p>
      <p>Atau anda telah hidup selama:</p>
@@ -1212,11 +1215,81 @@ document.body.removeChild(link3);
      <p>Jika rambut Anda tidak dipotong, panjang rambut Anda sekarang sekitar ${panjangRambut} cm.</p>
      <p>Jika kuku Anda tidak dipotong, panjang kuku Anda sekarang sekitar ${panjangKuku} mm.</p>
      <p>Sumber: Rambut tumbuh sekitar 0,3–0.4mm per hari atau 15cm per tahun. Kuku tangan tumbuh sekitar 0,1mm per hari atau 3mm per bulan (American Academy of Dermatology)</p>
-     <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
+           <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
      `;
+     document.getElementById("output").innerHTML = text;
+
+
+// Ambil elemen output
+var outputDiv = document.getElementById("output");
 
 
 
+// Bersihkan output sebelumnya
+outputDiv.innerHTML = '';
+// Tampilkan teks ke output satu karakter per interval 10ms
+var i = 0;
+var intervalId = setInterval(function() {
+  var char = text.charAt(i);
+  var color = '';
+  var size = '';
+  if (/\d/.test(char)) {
+    // Jika karakter adalah angka, berikan warna merah
+    color = '#00ff08';
+  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
+    color = '#00eeff';
+    
+  } 
+ // Cari kalimat "Ini adalah kalimat penting"
+ var pattern = /sisaHari(.+?)([.?!]|$)/g;
+  var match = pattern.exec(text.substring(0, i+1));
+  if (match) {
+    var start = match.index;
+    var end = start + match[0].length - 1;
+    if (i >= start && i <= end) {
+      color = 'red';
+    }
+  }
+  
+  if (text.substring(i, i+3) === '<p>') {
+    // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
+    outputDiv.appendChild(document.createElement('p'));
+    i += 2; // lewati karakter '<' dan 'p'
+  } else if (text.substring(i, i+4) === '</p>') {
+    // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
+    outputDiv.appendChild(document.createElement('p'));
+    i += 3; // lewati karakter '<', '/', 'p'
+  } else if (text.substring(i, i+4) === '<br>') {
+    // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
+    outputDiv.appendChild(document.createElement('br'));
+    i += 3; // lewati karakter '<', 'b', 'r'
+  } else if (text.substring(i, i+5) === '</br>') {
+    // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
+    outputDiv.appendChild(document.createElement('br'));
+    i += 4; // lewati karakter '<', '/', 'b', 'r'
+  } else {
+    // Jika karakter biasa, tambahkan ke dalam elemen output
+    var span = document.createElement('span');
+    span.textContent = char;
+    span.style.color = color;
+    span.style.fontSize = size;
+    outputDiv.appendChild(span);
+  }
+
+  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+  outputDiv.scrollTop = outputDiv.scrollHeight;
+
+  i++;
+
+  // Hentikan interval ketika semua karakter telah ditampilkan
+  if (i >= text.length) {
+    clearInterval(intervalId);
+  }
+}, 20);
+
+
+      
 
         }
 
@@ -3633,7 +3706,7 @@ Direktur Utama
 
 
     <script>
-      const form = document.getElementById("form3");
+      const form = document.getElementById("form");
 
       // Informasi tentang 1 batang rokok
       const beratSatuan = 1.9; // gram
@@ -3716,8 +3789,7 @@ Direktur Utama
         const totalNasipadang = Math.floor(totalPengeluaran / nasipadangPrice);
 
 
-        const result = document.getElementById("result");
-        result.innerHTML = `
+        var text =  `
 
   <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
 
@@ -3755,8 +3827,75 @@ berikut hasilnya :
 
   <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p>
 
-`;
+`; 
+document.getElementById("result").innerHTML = text;
+// Ambil elemen output
+var outputDiv = document.getElementById("result");
 
+
+
+// Bersihkan output sebelumnya
+outputDiv.innerHTML = '';
+// Tampilkan teks ke output satu karakter per interval 10ms
+var i = 0;
+var intervalId = setInterval(function() {
+  var char = text.charAt(i);
+  var color = '';
+  var size = '';
+  if (/\d/.test(char)) {
+    // Jika karakter adalah angka, berikan warna merah
+    color = '#00ff08';
+  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
+    color = '#00eeff';
+    
+  } 
+ // Cari kalimat "Ini adalah kalimat penting"
+ var pattern = /sisaHari(.+?)([.?!]|$)/g;
+  var match = pattern.exec(text.substring(0, i+1));
+  if (match) {
+    var start = match.index;
+    var end = start + match[0].length - 1;
+    if (i >= start && i <= end) {
+      color = 'red';
+    }
+  }
+  
+  if (text.substring(i, i+3) === '<p>') {
+    // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
+    outputDiv.appendChild(document.createElement('p'));
+    i += 2; // lewati karakter '<' dan 'p'
+  } else if (text.substring(i, i+4) === '</p>') {
+    // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
+    outputDiv.appendChild(document.createElement('p'));
+    i += 3; // lewati karakter '<', '/', 'p'
+  } else if (text.substring(i, i+4) === '<br>') {
+    // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
+    outputDiv.appendChild(document.createElement('br'));
+    i += 3; // lewati karakter '<', 'b', 'r'
+  } else if (text.substring(i, i+5) === '</br>') {
+    // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
+    outputDiv.appendChild(document.createElement('br'));
+    i += 4; // lewati karakter '<', '/', 'b', 'r'
+  } else {
+    // Jika karakter biasa, tambahkan ke dalam elemen output
+    var span = document.createElement('span');
+    span.textContent = char;
+    span.style.color = color;
+    span.style.fontSize = size;
+    outputDiv.appendChild(span);
+  }
+
+  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+  outputDiv.scrollTop = outputDiv.scrollHeight;
+
+  i++;
+
+  // Hentikan interval ketika semua karakter telah ditampilkan
+  if (i >= text.length) {
+    clearInterval(intervalId);
+  }
+}, 10);
 
       });
 
