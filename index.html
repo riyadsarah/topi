@@ -21,7 +21,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
 
 
 </head>
@@ -162,7 +162,7 @@
         <form onsubmit="modifikasiTeks(); return false;">
           <textarea id="input-text" placeholder="Masukkan teks..."></textarea><br>
           <div>
-            <select id="mode-select" >
+            <select id="mode-select">
               <option value="mode-1">1 kalimat-1 paragraphs</option>
               <option value="mode-2">Tebal-miring Besar-kecil</option>
               <option value="mode-3">Tebal-miring</option>
@@ -336,6 +336,10 @@
 
       <br><br>
 
+
+
+      
+
       <div> <button type="button10" class="close3"><i class="fa-solid fa-circle-xmark"></i></button></div>
       <br><br>
 
@@ -378,6 +382,9 @@
 
     </button>
     <div id="myModal2" class="modal2">
+      
+
+      <br><br><br>
 
 
       <div class="container-b">
@@ -389,24 +396,24 @@
           <textarea type="text" id="barcode-input" placeholder="Masukan brand kamu"></textarea>
         </div><br>
         <div>
-        <label for="barcode-color">Barcode Color:</label>
-        <input type="color" id="barcode-color" value="#000000">
+          <label for="barcode-color">Barcode Color:</label>
+          <input type="color" id="barcode-color" value="#000000">
 
-        <label for="qr-color">QR Code Color:</label>
-        <input type="color" id="qr-color" value="#000000">
+          <label for="qr-color">QR Code Color:</label>
+          <input type="color" id="qr-color" value="#000000">
 
-        <label for="bg-color">Background Color:</label>
-        <input type="color" id="bg-color" value="#ffffff">
-      </div><br>
+          <label for="bg-color">Background Color:</label>
+          <input type="color" id="bg-color" value="#ffffff">
+        </div><br>
 
         <div>
 
-        <button type="button11" id="generate-button">Generate</button>
-        <button type="button11" onclick="resetRiwayat1()"><i class="fas fa-undo"></i></button>
-        <button type="button" id="save-button-jpg"><i class="fa-solid fa-download"></i></button>
-      
-        
-      </div>
+          <button type="button11" id="generate-button">Generate</button>
+          <button type="button11" onclick="resetRiwayat1()"><i class="fas fa-undo"></i></button>
+          <button type="button" id="save-button-jpg"><i class="fa-solid fa-download"></i></button>
+
+
+        </div>
         <br>
         <div>
 
@@ -419,135 +426,135 @@
       </div><br>
 
       <script>
-         var barcode1 = document.getElementById("barcode1");
-    var barcode2 = document.getElementById("barcode2");
-    var barcode3 = document.getElementById("barcode3");
+        var barcode1 = document.getElementById("barcode1");
+        var barcode2 = document.getElementById("barcode2");
+        var barcode3 = document.getElementById("barcode3");
 
-    var barcodeInput = document.getElementById("barcode-input");
-    var generateButton = document.getElementById("generate-button");
-    var saveButton = document.getElementById("save-button");
-    
-    function hideCanvases() {
-  barcode1.style.display = "none";
-  barcode2.style.display = "none";
-  barcode3.style.display = "none";
-}
+        var barcodeInput = document.getElementById("barcode-input");
+        var generateButton = document.getElementById("generate-button");
+        var saveButton = document.getElementById("save-button");
 
-function showCanvases() {
-  barcode1.style.display = "block";
-  barcode2.style.display = "block";
-  barcode3.style.display = "block";
-}
+        function hideCanvases() {
+          barcode1.style.display = "none";
+          barcode2.style.display = "none";
+          barcode3.style.display = "none";
+        }
 
-generateButton.addEventListener("click", function() {
-  // Sembunyikan canvas
-  hideCanvases();
-  // Panggil fungsi generateBarcode()
-  generateBarcode();
-  // Tampilkan kembali canvas
-  showCanvases();
-});
+        function showCanvases() {
+          barcode1.style.display = "block";
+          barcode2.style.display = "block";
+          barcode3.style.display = "block";
+        }
 
-    function generateBarcode() {
-      var text = barcodeInput.value;
-
-      if (text) {
-        var qrColor = document.getElementById("qr-color").value;
-        var bgColor = document.getElementById("bg-color").value;
-        var barcodeColor = document.getElementById("barcode-color").value;
-       
-        // Generate barcode 1
-        JsBarcode(barcode1, text, {
-          format: "CODE128",
-          lineColor: barcodeColor,
-          background: bgColor,
-          margin: 10,
-          height: 300,
-          size: 2000,
-          displayValue: true,
-          fontOptions: "bold",
-          font: "monospace",
-          fontSize: 0,
+        generateButton.addEventListener("click", function () {
+          // Sembunyikan canvas
+          hideCanvases();
+          // Panggil fungsi generateBarcode()
+          generateBarcode();
+          // Tampilkan kembali canvas
+          showCanvases();
         });
 
-        // Generate barcode 2
-        new QRious({
-          element: barcode2,
-          value: text,
-          size: 2000,
-        
-          background: bgColor,
-          foreground: qrColor,
+        function generateBarcode() {
+          var text = barcodeInput.value;
+
+          if (text) {
+            var qrColor = document.getElementById("qr-color").value;
+            var bgColor = document.getElementById("bg-color").value;
+            var barcodeColor = document.getElementById("barcode-color").value;
+
+            // Generate barcode 1
+            JsBarcode(barcode1, text, {
+              format: "CODE128",
+              lineColor: barcodeColor,
+              background: bgColor,
+              margin: 10,
+              height: 300,
+              size: 2000,
+              displayValue: true,
+              fontOptions: "bold",
+              font: "monospace",
+              fontSize: 0,
+            });
+
+            // Generate barcode 2
+            new QRious({
+              element: barcode2,
+              value: text,
+              size: 2000,
+
+              background: bgColor,
+              foreground: qrColor,
+            });
+            new QRious({
+              element: barcode3,
+              value: text,
+              size: 2000,
+              background: "rgba(0,0,0,0)",
+
+              foreground: qrColor,
+            });
+          }
+        }
+
+
+        generateButton.addEventListener("click", generateBarcode);
+        // Save button for JPG
+        var saveButtonJpg = document.getElementById("save-button-jpg");
+        saveButtonJpg.addEventListener("click", function () {
+          var barcode1Canvas = document.createElement("canvas");
+          barcode1Canvas.width = barcode1.width;
+          barcode1Canvas.height = barcode1.height;
+          var barcode1Context = barcode1Canvas.getContext("2d");
+          barcode1Context.clearRect(0, 0, barcode1.width, barcode1.height);
+          barcode1Context.fillStyle = "rgba(0,0,0,0)";
+          barcode1Context.fillRect(0, 0, barcode1.width, barcode1.height);
+          barcode1Context.drawImage(barcode1, 0, 0);
+
+          var barcode2Canvas = document.createElement("canvas");
+          barcode2Canvas.width = barcode2.width;
+          barcode2Canvas.height = barcode2.height;
+          var barcode2Context = barcode2Canvas.getContext("2d");
+          barcode2Context.clearRect(0, 0, barcode2.width, barcode2.height);
+          barcode2Context.fillStyle = "rgba(0,0,0,0)";
+          barcode2Context.fillRect(0, 0, barcode2.width, barcode2.height);
+          barcode2Context.drawImage(barcode2, 0, 0);
+
+          var barcode3Canvas = document.createElement("canvas");
+          barcode3Canvas.width = barcode3.width;
+          barcode3Canvas.height = barcode3.height;
+          var barcode3Context = barcode3Canvas.getContext("2d");
+          barcode3Context.clearRect(0, 0, barcode3.width, barcode3.height);
+          barcode3Context.fillStyle = "rgba(0,0,0,0)";
+          barcode3Context.fillRect(0, 0, barcode3.width, barcode3.height);
+          barcode3Context.drawImage(barcode3, 0, 0);
+
+          var link1 = document.createElement("a");
+          link1.href = barcode1Canvas.toDataURL("image/jpeg");
+          link1.download = "barcode1.jpg";
+          document.body.appendChild(link1);
+          link1.click();
+          document.body.removeChild(link1);
+
+          var link2 = document.createElement("a");
+          link2.href = barcode2Canvas.toDataURL("image/jpeg");
+          link2.download = "barcode2.jpg";
+          document.body.appendChild(link2);
+          link2.click();
+          document.body.removeChild(link2);
+
+          var link3 = document.createElement("a");
+          link3.href = barcode3Canvas.toDataURL("image/png");
+          link3.download = "barcode3.png";
+          document.body.appendChild(link3);
+          link3.click();
+          document.body.removeChild(link3);
+
+
         });
-        new QRious({
-          element: barcode3,
-          value: text,
-          size: 2000,
-          background: "rgba(0,0,0,0)",
-         
-          foreground: qrColor,
-        });
-      }
-    }
 
 
-  generateButton.addEventListener("click", generateBarcode);
-// Save button for JPG
-var saveButtonJpg = document.getElementById("save-button-jpg");
-saveButtonJpg.addEventListener("click", function () {
- var barcode1Canvas = document.createElement("canvas");
-barcode1Canvas.width = barcode1.width;
-barcode1Canvas.height = barcode1.height;
-var barcode1Context = barcode1Canvas.getContext("2d");
-barcode1Context.clearRect(0, 0, barcode1.width, barcode1.height);
-barcode1Context.fillStyle = "rgba(0,0,0,0)";
-barcode1Context.fillRect(0, 0, barcode1.width, barcode1.height);
-barcode1Context.drawImage(barcode1, 0, 0);
 
-var barcode2Canvas = document.createElement("canvas");
-barcode2Canvas.width = barcode2.width;
-barcode2Canvas.height = barcode2.height;
-var barcode2Context = barcode2Canvas.getContext("2d");
-barcode2Context.clearRect(0, 0, barcode2.width, barcode2.height);
-barcode2Context.fillStyle = "rgba(0,0,0,0)";
-barcode2Context.fillRect(0, 0, barcode2.width, barcode2.height);
-barcode2Context.drawImage(barcode2, 0, 0);
-
-var barcode3Canvas = document.createElement("canvas");
-barcode3Canvas.width = barcode3.width;
-barcode3Canvas.height = barcode3.height;
-var barcode3Context = barcode3Canvas.getContext("2d");
-barcode3Context.clearRect(0, 0, barcode3.width, barcode3.height);
-barcode3Context.fillStyle = "rgba(0,0,0,0)";
-barcode3Context.fillRect(0, 0, barcode3.width, barcode3.height);
-barcode3Context.drawImage(barcode3, 0, 0);
-
-var link1 = document.createElement("a");
-link1.href = barcode1Canvas.toDataURL("image/jpeg");
-link1.download = "barcode1.jpg";
-document.body.appendChild(link1);
-link1.click();
-document.body.removeChild(link1);
-
-var link2 = document.createElement("a");
-link2.href = barcode2Canvas.toDataURL("image/jpeg");
-link2.download = "barcode2.jpg";
-document.body.appendChild(link2);
-link2.click();
-document.body.removeChild(link2);
-
-var link3 = document.createElement("a");
-link3.href = barcode3Canvas.toDataURL("image/png");
-link3.download = "barcode3.png";
-document.body.appendChild(link3);
-link3.click();
-document.body.removeChild(link3);
-
-
-});
-
-
-        
 
 
         function resetRiwayat1() {
@@ -559,7 +566,7 @@ document.body.removeChild(link3);
           context.clearRect(0, 0, barcode2.width, barcode2.height);
           var context = barcode3.getContext('2d');
           context.clearRect(0, 0, barcode3.width, barcode3.height);
-         
+
         }
       </script>
 
@@ -681,6 +688,68 @@ document.body.removeChild(link3);
       </script>
 
       <br><br>
+      
+<div class="container-b">
+  <div class="title-container">
+    <h1 class="title">Kalkulator praktis dagang</h1>
+
+  </div>
+
+<div>
+
+<div>
+<textarea  id="inputKalkulator"  name="" id="" cols="30" rows="10" placeholder="Masukkan perhitungan matematika"></textarea>
+</div>
+<input type="text" id="hasil47" placeholder="Hasil perhitungan">
+
+
+    
+    <div>
+    <tr>
+    
+      <td> <button class="button-na " type="button-ng" onclick="hapusSemua()">AC</button></td>
+      <td> <button class="button-ng " type="button-ng" value="*"><i class="fa-solid fa-xmark"></i></button></td>
+      <td> <button class="button-ng " type="button-ng" value="/"><i class="fa-solid fa-divide"></i></button></td>
+      <td> <button class="button-ng " type="button-ng" value="-"><i class="fa-solid fa-minus"></i></button></td>
+    </tr>
+  </div>
+  <div>
+    <tr>
+      <td> <button class="button-nb " type="button-nb" value="7">7</button></td>
+      <td> <button class="button-nb " type="button-nb" value="8">8</button></td>
+      <td> <button class="button-nb " type="button-nb" value="9">9</button></td>
+      <td> <button class="button-ng " type="button-ng" value="+"><i class="fa-solid fa-plus"></i></button></td>
+     
+    </tr>
+  </div>
+  <div>
+    <tr>
+      <td><button class="button-nb " type="button-nb" value="4">4</button></td>
+      <td> <button class="button-nb " type="button-nb" value="5">5</button></td>
+      <td> <button class="button-nb " type="button-nb" value="6">6</button></td>
+      <td><button class="button-nb " type="button-nb" value="00">00</button></td>
+     
+    </tr>
+  </div>
+  <div>
+    <tr>
+      <td> <button class="button-nb " type="button-nb" value="1">1</button></td>
+      <td> <button class="button-nb " type="button-nb" value="2">2</button></td>
+      <td> <button class="button-nb " type="button-nb" value="3">3</button></td>
+      <td> <button class="button-nb " type="button-nb" value="0">0</button></td>
+     
+    </tr>
+  </div>
+  <div>
+    <tr>
+      <input type="text" id="inputUang" placeholder="Masukkan uang pembeli" min="0">
+      <td><button class="button-na " type="button-ng" onclick="hapusSatu()"><i
+        class="fa-solid fa-delete-left"></i></button></td>
+     
+    </tr>
+  </div>
+    
+    </div> </div>
       <div> <button type="button10" class="close2"><i class="fa-solid fa-circle-xmark"></i></button></div>
       <br><br><br>
       <script>
@@ -763,31 +832,34 @@ document.body.removeChild(link3);
 
 
         </div><br>
-         <label for="jenismaterial">Jenis bahan:</label>
+        <label for="jenismaterial">Jenis bahan:</label>
         <select id="jenismaterial" class="custom-select">
           <option value="hebel">Hebel</option>
           <option value="bata_merah">Bata Merah</option>
           <option value="batako">Batako</option>
         </select>
-        <div><p class="title">Dinding (m): </p>
-        <input type="number" id="panjang" placeholder="Panjang">
-       
-        
-       
-        <input type="number" id="lebar" placeholder="Lebar">
-      </div>
-       
+        <div>
+          <p class="title">Dinding (m): </p>
+          <input type="number" id="panjang" placeholder="Panjang">
+
+
+
+          <input type="number" id="lebar" placeholder="Lebar">
+        </div>
+
 
         <p class="title" for="tinggi">Tinggi dinding (m):</p>
         <input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
         <br><br>
 
-        <div><p class="title">Di kurangi jendela (m): </p>
-        <input type="number" id="panjang_jendela" placeholder="Panjang">
-        
-     
-       
-        <input type="number" id="lebar_jendela" placeholder="Lebar"></div>
+        <div>
+          <p class="title">Di kurangi jendela (m): </p>
+          <input type="number" id="panjang_jendela" placeholder="Panjang">
+
+
+
+          <input type="number" id="lebar_jendela" placeholder="Lebar">
+        </div>
         <br><br>
 
         <label for="satuan">Satuan:</label>
@@ -797,8 +869,8 @@ document.body.removeChild(link3);
         </select>
         <br><br>
 
-       
- 
+
+
         <div>
           <button type="button11" onclick="hitungJumlahBahan()">Hitung</button>
         </div>
@@ -1193,7 +1265,7 @@ document.body.removeChild(link3);
 
 
 
-          
+
           var text =
 
             `   
@@ -1217,79 +1289,79 @@ document.body.removeChild(link3);
      <p>Sumber: Rambut tumbuh sekitar 0,3–0.4mm per hari atau 15cm per tahun. Kuku tangan tumbuh sekitar 0,1mm per hari atau 3mm per bulan (American Academy of Dermatology)</p>
            <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
      `;
-     document.getElementById("output").innerHTML = text;
+          document.getElementById("output").innerHTML = text;
 
 
-// Ambil elemen output
-var outputDiv = document.getElementById("output");
+          // Ambil elemen output
+          var outputDiv = document.getElementById("output");
 
 
 
-// Bersihkan output sebelumnya
-outputDiv.innerHTML = '';
-// Tampilkan teks ke output satu karakter per interval 10ms
-var i = 0;
-var intervalId = setInterval(function() {
-  var char = text.charAt(i);
-  var color = '';
-  var size = '';
-  if (/\d/.test(char)) {
-    // Jika karakter adalah angka, berikan warna merah
-    color = '#00ff08';
-  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
-    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
-    color = '#00eeff';
-    
-  } 
- // Cari kalimat "Ini adalah kalimat penting"
- var pattern = /sisaHari(.+?)([.?!]|$)/g;
-  var match = pattern.exec(text.substring(0, i+1));
-  if (match) {
-    var start = match.index;
-    var end = start + match[0].length - 1;
-    if (i >= start && i <= end) {
-      color = 'red';
-    }
-  }
-  
-  if (text.substring(i, i+3) === '<p>') {
-    // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
-    outputDiv.appendChild(document.createElement('p'));
-    i += 2; // lewati karakter '<' dan 'p'
-  } else if (text.substring(i, i+4) === '</p>') {
-    // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
-    outputDiv.appendChild(document.createElement('p'));
-    i += 3; // lewati karakter '<', '/', 'p'
-  } else if (text.substring(i, i+4) === '<br>') {
-    // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
-    outputDiv.appendChild(document.createElement('br'));
-    i += 3; // lewati karakter '<', 'b', 'r'
-  } else if (text.substring(i, i+5) === '</br>') {
-    // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
-    outputDiv.appendChild(document.createElement('br'));
-    i += 4; // lewati karakter '<', '/', 'b', 'r'
-  } else {
-    // Jika karakter biasa, tambahkan ke dalam elemen output
-    var span = document.createElement('span');
-    span.textContent = char;
-    span.style.color = color;
-    span.style.fontSize = size;
-    outputDiv.appendChild(span);
-  }
+          // Bersihkan output sebelumnya
+          outputDiv.innerHTML = '';
+          // Tampilkan teks ke output satu karakter per interval 10ms
+          var i = 0;
+          var intervalId = setInterval(function () {
+            var char = text.charAt(i);
+            var color = '';
+            var size = '';
+            if (/\d/.test(char)) {
+              // Jika karakter adalah angka, berikan warna merah
+              color = '#00ff08';
+            } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+              // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
+              color = '#00eeff';
 
-  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
-  outputDiv.scrollTop = outputDiv.scrollHeight;
+            }
+            // Cari kalimat "Ini adalah kalimat penting"
+            var pattern = /sisaHari(.+?)([.?!]|$)/g;
+            var match = pattern.exec(text.substring(0, i + 1));
+            if (match) {
+              var start = match.index;
+              var end = start + match[0].length - 1;
+              if (i >= start && i <= end) {
+                color = 'red';
+              }
+            }
 
-  i++;
+            if (text.substring(i, i + 3) === '<p>') {
+              // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
+              outputDiv.appendChild(document.createElement('p'));
+              i += 2; // lewati karakter '<' dan 'p'
+            } else if (text.substring(i, i + 4) === '</p>') {
+              // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
+              outputDiv.appendChild(document.createElement('p'));
+              i += 3; // lewati karakter '<', '/', 'p'
+            } else if (text.substring(i, i + 4) === '<br>') {
+              // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
+              outputDiv.appendChild(document.createElement('br'));
+              i += 3; // lewati karakter '<', 'b', 'r'
+            } else if (text.substring(i, i + 5) === '</br>') {
+              // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
+              outputDiv.appendChild(document.createElement('br'));
+              i += 4; // lewati karakter '<', '/', 'b', 'r'
+            } else {
+              // Jika karakter biasa, tambahkan ke dalam elemen output
+              var span = document.createElement('span');
+              span.textContent = char;
+              span.style.color = color;
+              span.style.fontSize = size;
+              outputDiv.appendChild(span);
+            }
 
-  // Hentikan interval ketika semua karakter telah ditampilkan
-  if (i >= text.length) {
-    clearInterval(intervalId);
-  }
-}, 20);
+            // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+
+            i++;
+
+            // Hentikan interval ketika semua karakter telah ditampilkan
+            if (i >= text.length) {
+              clearInterval(intervalId);
+            }
+          }, 20);
 
 
-      
+
 
         }
 
@@ -3197,70 +3269,70 @@ var intervalId = setInterval(function() {
           }
         }
 
-        
+
         var text = result.trim();
-  document.getElementById("wordToNumberResult2").innerHTML = text;
-       
-
-
-// Ambil elemen output
-var outputDiv = document.getElementById("wordToNumberResult2");
+        document.getElementById("wordToNumberResult2").innerHTML = text;
 
 
 
-// Bersihkan output sebelumnya
-outputDiv.innerHTML = '';
-// Tampilkan teks ke output satu karakter per interval 10ms
-var i = 0;
-var intervalId = setInterval(function() {
-  var char = text.charAt(i);
-  var color = '';
-  var size = '';
-  if (/\d/.test(char)) {
-    // Jika karakter adalah angka, berikan warna merah
-    color = 'yellow';
-  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
-    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
-    color = '#00eeff';
-    
-  }
+        // Ambil elemen output
+        var outputDiv = document.getElementById("wordToNumberResult2");
 
- 
-  if (text.substring(i, i+3) === '<p>') {
-    // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
-    outputDiv.appendChild(document.createElement('p'));
-    i += 2; // lewati karakter '<' dan 'p'
-  } else if (text.substring(i, i+4) === '</p>') {
-    // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
-    outputDiv.appendChild(document.createElement('p'));
-    i += 3; // lewati karakter '<', '/', 'p'
-  } else if (text.substring(i, i+4) === '<br>') {
-    // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
-    outputDiv.appendChild(document.createElement('br'));
-    i += 3; // lewati karakter '<', 'b', 'r'
-  } else if (text.substring(i, i+5) === '</br>') {
-    // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
-    outputDiv.appendChild(document.createElement('br'));
-    i += 4; // lewati karakter '<', '/', 'b', 'r'
-  } else {
-    // Jika karakter biasa, tambahkan ke dalam elemen output
-    var span = document.createElement('span');
-    span.textContent = char;
-    span.style.color = color;
-    span.style.fontSize = size;
-    outputDiv.appendChild(span);
-  }
 
-  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
-  outputDiv.scrollTop = outputDiv.scrollHeight;
 
-  i++;
+        // Bersihkan output sebelumnya
+        outputDiv.innerHTML = '';
+        // Tampilkan teks ke output satu karakter per interval 10ms
+        var i = 0;
+        var intervalId = setInterval(function () {
+          var char = text.charAt(i);
+          var color = '';
+          var size = '';
+          if (/\d/.test(char)) {
+            // Jika karakter adalah angka, berikan warna merah
+            color = 'yellow';
+          } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+            // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
+            color = '#00eeff';
 
-  // Hentikan interval ketika semua karakter telah ditampilkan
-  if (i >= text.length) {
-    clearInterval(intervalId);
-  }
-}, 0.01);
+          }
+
+
+          if (text.substring(i, i + 3) === '<p>') {
+            // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
+            outputDiv.appendChild(document.createElement('p'));
+            i += 2; // lewati karakter '<' dan 'p'
+          } else if (text.substring(i, i + 4) === '</p>') {
+            // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
+            outputDiv.appendChild(document.createElement('p'));
+            i += 3; // lewati karakter '<', '/', 'p'
+          } else if (text.substring(i, i + 4) === '<br>') {
+            // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
+            outputDiv.appendChild(document.createElement('br'));
+            i += 3; // lewati karakter '<', 'b', 'r'
+          } else if (text.substring(i, i + 5) === '</br>') {
+            // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
+            outputDiv.appendChild(document.createElement('br'));
+            i += 4; // lewati karakter '<', '/', 'b', 'r'
+          } else {
+            // Jika karakter biasa, tambahkan ke dalam elemen output
+            var span = document.createElement('span');
+            span.textContent = char;
+            span.style.color = color;
+            span.style.fontSize = size;
+            outputDiv.appendChild(span);
+          }
+
+          // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+          outputDiv.scrollTop = outputDiv.scrollHeight;
+
+          i++;
+
+          // Hentikan interval ketika semua karakter telah ditampilkan
+          if (i >= text.length) {
+            clearInterval(intervalId);
+          }
+        }, 0.01);
 
       }
 
@@ -3847,7 +3919,7 @@ Direktur Utama
         const totalNasipadang = Math.floor(totalPengeluaran / nasipadangPrice);
 
 
-        var text =  `
+        var text = `
 
   <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p><br>
 
@@ -3885,75 +3957,75 @@ berikut hasilnya :
 
   <p>●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●</p>
 
-`; 
-document.getElementById("result").innerHTML = text;
-// Ambil elemen output
-var outputDiv = document.getElementById("result");
+`;
+        document.getElementById("result").innerHTML = text;
+        // Ambil elemen output
+        var outputDiv = document.getElementById("result");
 
 
 
-// Bersihkan output sebelumnya
-outputDiv.innerHTML = '';
-// Tampilkan teks ke output satu karakter per interval 10ms
-var i = 0;
-var intervalId = setInterval(function() {
-  var char = text.charAt(i);
-  var color = '';
-  var size = '';
-  if (/\d/.test(char)) {
-    // Jika karakter adalah angka, berikan warna merah
-    color = '#00ff08';
-  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
-    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
-    color = '#00eeff';
-    
-  } 
- // Cari kalimat "Ini adalah kalimat penting"
- var pattern = /sisaHari(.+?)([.?!]|$)/g;
-  var match = pattern.exec(text.substring(0, i+1));
-  if (match) {
-    var start = match.index;
-    var end = start + match[0].length - 1;
-    if (i >= start && i <= end) {
-      color = 'red';
-    }
-  }
-  
-  if (text.substring(i, i+3) === '<p>') {
-    // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
-    outputDiv.appendChild(document.createElement('p'));
-    i += 2; // lewati karakter '<' dan 'p'
-  } else if (text.substring(i, i+4) === '</p>') {
-    // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
-    outputDiv.appendChild(document.createElement('p'));
-    i += 3; // lewati karakter '<', '/', 'p'
-  } else if (text.substring(i, i+4) === '<br>') {
-    // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
-    outputDiv.appendChild(document.createElement('br'));
-    i += 3; // lewati karakter '<', 'b', 'r'
-  } else if (text.substring(i, i+5) === '</br>') {
-    // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
-    outputDiv.appendChild(document.createElement('br'));
-    i += 4; // lewati karakter '<', '/', 'b', 'r'
-  } else {
-    // Jika karakter biasa, tambahkan ke dalam elemen output
-    var span = document.createElement('span');
-    span.textContent = char;
-    span.style.color = color;
-    span.style.fontSize = size;
-    outputDiv.appendChild(span);
-  }
+        // Bersihkan output sebelumnya
+        outputDiv.innerHTML = '';
+        // Tampilkan teks ke output satu karakter per interval 10ms
+        var i = 0;
+        var intervalId = setInterval(function () {
+          var char = text.charAt(i);
+          var color = '';
+          var size = '';
+          if (/\d/.test(char)) {
+            // Jika karakter adalah angka, berikan warna merah
+            color = '#00ff08';
+          } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+            // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
+            color = '#00eeff';
 
-  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
-  outputDiv.scrollTop = outputDiv.scrollHeight;
+          }
+          // Cari kalimat "Ini adalah kalimat penting"
+          var pattern = /sisaHari(.+?)([.?!]|$)/g;
+          var match = pattern.exec(text.substring(0, i + 1));
+          if (match) {
+            var start = match.index;
+            var end = start + match[0].length - 1;
+            if (i >= start && i <= end) {
+              color = 'red';
+            }
+          }
 
-  i++;
+          if (text.substring(i, i + 3) === '<p>') {
+            // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
+            outputDiv.appendChild(document.createElement('p'));
+            i += 2; // lewati karakter '<' dan 'p'
+          } else if (text.substring(i, i + 4) === '</p>') {
+            // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
+            outputDiv.appendChild(document.createElement('p'));
+            i += 3; // lewati karakter '<', '/', 'p'
+          } else if (text.substring(i, i + 4) === '<br>') {
+            // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
+            outputDiv.appendChild(document.createElement('br'));
+            i += 3; // lewati karakter '<', 'b', 'r'
+          } else if (text.substring(i, i + 5) === '</br>') {
+            // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
+            outputDiv.appendChild(document.createElement('br'));
+            i += 4; // lewati karakter '<', '/', 'b', 'r'
+          } else {
+            // Jika karakter biasa, tambahkan ke dalam elemen output
+            var span = document.createElement('span');
+            span.textContent = char;
+            span.style.color = color;
+            span.style.fontSize = size;
+            outputDiv.appendChild(span);
+          }
 
-  // Hentikan interval ketika semua karakter telah ditampilkan
-  if (i >= text.length) {
-    clearInterval(intervalId);
-  }
-}, 10);
+          // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+          outputDiv.scrollTop = outputDiv.scrollHeight;
+
+          i++;
+
+          // Hentikan interval ketika semua karakter telah ditampilkan
+          if (i >= text.length) {
+            clearInterval(intervalId);
+          }
+        }, 10);
 
       });
 
@@ -4072,13 +4144,13 @@ var intervalId = setInterval(function() {
         let lebar = parseFloat(document.getElementById('lebar').value);
         let tinggi = parseFloat(document.getElementById('tinggi').value);
         let panjang_jendela = parseFloat(document.getElementById('panjang_jendela').value) || 0;
-let lebar_jendela = parseFloat(document.getElementById('lebar_jendela').value) || 0;
+        let lebar_jendela = parseFloat(document.getElementById('lebar_jendela').value) || 0;
 
         let satuan = document.getElementById('satuan').value;
         let jenismaterial = document.getElementById('jenismaterial').value;
         let volume = 0;
 
-       
+
 
         // Hitung volume berdasarkan satuan yang dipilih
         if (satuan === 'm2') {
@@ -4112,48 +4184,48 @@ let lebar_jendela = parseFloat(document.getElementById('lebar_jendela').value) |
         document.getElementById('hasil01').textContent = text;
 
 
-// Ambil elemen output
-var outputDiv = document.getElementById("hasil01");
+        // Ambil elemen output
+        var outputDiv = document.getElementById("hasil01");
 
 
 
-// Bersihkan output sebelumnya
-outputDiv.innerHTML = '';
+        // Bersihkan output sebelumnya
+        outputDiv.innerHTML = '';
 
-// Tampilkan teks ke output satu karakter per interval 10ms
-var i = 0;
-var intervalId = setInterval(function() {
-  var char = text.charAt(i);
-  var color = '';
-  if (/\d/.test(char)) {
-    // Jika karakter adalah angka, berikan warna merah
-    color = 'yellow';
-  } else if (text.charAt(i-2) === ':' && /\d/.test(char)) {
-    // Jika karakter setelah titik dua adalah angka, berikan warna biru
-    color = 'blue';
-  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
-    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau
-    color = 'green';
-  }
+        // Tampilkan teks ke output satu karakter per interval 10ms
+        var i = 0;
+        var intervalId = setInterval(function () {
+          var char = text.charAt(i);
+          var color = '';
+          if (/\d/.test(char)) {
+            // Jika karakter adalah angka, berikan warna merah
+            color = 'yellow';
+          } else if (text.charAt(i - 2) === ':' && /\d/.test(char)) {
+            // Jika karakter setelah titik dua adalah angka, berikan warna biru
+            color = 'blue';
+          } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+            // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau
+            color = 'green';
+          }
 
-  // Buat elemen span untuk karakter
-  var span = document.createElement('span');
-  span.textContent = char;
-  span.style.color = color;
-  outputDiv.appendChild(span);
+          // Buat elemen span untuk karakter
+          var span = document.createElement('span');
+          span.textContent = char;
+          span.style.color = color;
+          outputDiv.appendChild(span);
 
-  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
-  outputDiv.scrollTop = outputDiv.scrollHeight;
+          // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+          outputDiv.scrollTop = outputDiv.scrollHeight;
 
-  i++;
+          i++;
 
-  // Hentikan interval ketika semua karakter telah ditampilkan
-  if (i >= text.length) {
-    clearInterval(intervalId);
-  }
-}, 20);
+          // Hentikan interval ketika semua karakter telah ditampilkan
+          if (i >= text.length) {
+            clearInterval(intervalId);
+          }
+        }, 20);
 
-      
+
 
       }
 
@@ -4263,7 +4335,7 @@ var intervalId = setInterval(function() {
         window.location.href = shareUrl;
       }
     </script>
-     <script>
+    <script>
       function salinTeks12() {
         const hasil01 = document.getElementById("hasil01");
         const range = document.createRange();
@@ -4344,7 +4416,7 @@ var intervalId = setInterval(function() {
           }
         });
 
-        
+
 
       }
 
@@ -4415,51 +4487,51 @@ var intervalId = setInterval(function() {
 
         // Tampilkan hasil
         var text = "Jumlah keramik yang dibutuhkan adalah " + jumlahKeramik + " buah";
-document.getElementById("hasil65").innerHTML = text;
+        document.getElementById("hasil65").innerHTML = text;
 
 
-// Ambil elemen output
-var outputDiv = document.getElementById("hasil65");
+        // Ambil elemen output
+        var outputDiv = document.getElementById("hasil65");
 
 
 
-// Bersihkan output sebelumnya
-outputDiv.innerHTML = '';
+        // Bersihkan output sebelumnya
+        outputDiv.innerHTML = '';
 
-// Tampilkan teks ke output satu karakter per interval 10ms
-var i = 0;
-var intervalId = setInterval(function() {
-  var char = text.charAt(i);
-  var color = '';
-  if (/\d/.test(char)) {
-    // Jika karakter adalah angka, berikan warna merah
-    color = 'yellow';
-  } else if (text.charAt(i-2) === ':' && /\d/.test(char)) {
-    // Jika karakter setelah titik dua adalah angka, berikan warna biru
-    color = 'blue';
-  } else if (!/[a-zA-Z0-9\s]/.test(char)) {
-    // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau
-    color = 'green';
-  }
+        // Tampilkan teks ke output satu karakter per interval 10ms
+        var i = 0;
+        var intervalId = setInterval(function () {
+          var char = text.charAt(i);
+          var color = '';
+          if (/\d/.test(char)) {
+            // Jika karakter adalah angka, berikan warna merah
+            color = 'yellow';
+          } else if (text.charAt(i - 2) === ':' && /\d/.test(char)) {
+            // Jika karakter setelah titik dua adalah angka, berikan warna biru
+            color = 'blue';
+          } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+            // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau
+            color = 'green';
+          }
 
-  // Buat elemen span untuk karakter
-  var span = document.createElement('span');
-  span.textContent = char;
-  span.style.color = color;
-  outputDiv.appendChild(span);
+          // Buat elemen span untuk karakter
+          var span = document.createElement('span');
+          span.textContent = char;
+          span.style.color = color;
+          outputDiv.appendChild(span);
 
-  // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
-  outputDiv.scrollTop = outputDiv.scrollHeight;
+          // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+          outputDiv.scrollTop = outputDiv.scrollHeight;
 
-  i++;
+          i++;
 
-  // Hentikan interval ketika semua karakter telah ditampilkan
-  if (i >= text.length) {
-    clearInterval(intervalId);
-  }
-}, 20);
+          // Hentikan interval ketika semua karakter telah ditampilkan
+          if (i >= text.length) {
+            clearInterval(intervalId);
+          }
+        }, 20);
 
-        
+
 
       }
 
@@ -4481,144 +4553,135 @@ var intervalId = setInterval(function() {
       }
     </script>
 
-    <br>
 
-    <div class="container-b">
-      <div class="title-container">
-        <h1 class="title">Hitung detail umur sekarang</h1>
-      </div>
-      <div>
-        <input type="text" id="inputKalkulator" placeholder="Masukkan perhitungan matematika">
-        <button onclick="hapusSatu()">Hapus 1</button>
-        <button onclick="hapusSemua()">Hapus Semua</button>
-        <button value="00">00</button>
-        <button value="0">0</button>
-        <button value="1">1</button>
-        <button value="2">2</button>
-        <button value="3">3</button>
-        <button value="4">4</button>
-        <button value="5">5</button>
-        <button value="6">6</button>
-        <button value="7">7</button>
-        <button value="8">8</button>
-        <button value="9">9</button>
-      </div>
-      <div>
-        <input type="number" id="inputUang" placeholder="Masukkan uang pembeli" min="0">
-      </div>
-      <div>
-        <input type="text" id="hasil47" placeholder="Hasil perhitungan">
-        <button value="+">+</button>
-        <button value="-">-</button>
-        <button value="*">*</button>
-        <button value="/">/</button>
-      </div></div>
-      
+     
+
+    
+
+
+     
+   <br><br><br><br><br><br><br><br><br><br>
+
       <script>
         function hapusSatu() {
           const inputKalkulator = document.getElementById("inputKalkulator");
           inputKalkulator.value = inputKalkulator.value.slice(0, -1);
           hitung();
         }
-      
+
         function hapusSemua() {
           const inputKalkulator = document.getElementById("inputKalkulator");
           inputKalkulator.value = "";
           hitung();
         }
-      
+
         function hitung() {
           const inputKalkulator = document.getElementById("inputKalkulator").value;
           const inputUang = document.getElementById("inputUang").value;
           if (inputUang) {
             const hasilKalkulator = eval(inputKalkulator);
             const kembalian = parseFloat(inputUang) - parseFloat(hasilKalkulator);
-            document.getElementById("hasil47").value = kembalian.toFixed(2);
-          } else {
-            document.getElementById("hasil47").value = eval(inputKalkulator);
-          }
+            document.getElementById("hasil47").value = "ANGSUL Rp " + kembalian.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
+              "$&,");
+
+          }else {
+  const hasil = eval(inputKalkulator);
+  document.getElementById("hasil47").value = "Total " + hasil.toLocaleString("id-ID");
+}
+
         }
-      
+
         const buttons = document.getElementsByTagName("button");
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function() {
-      const buttonValue = buttons[i].value;
-      const inputKalkulator = document.getElementById("inputKalkulator");
-      const lastChar = inputKalkulator.value.slice(-1);
-      if (isNaN(lastChar) && isNaN(buttonValue)) {
-        // Jika pengguna memilih dua operasi matematika berturut-turut, jangan lakukan apa-apa
-        return;
-      }
-      inputKalkulator.value += buttonValue;
-      hitung();
-    });
-  }
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener("click", function () {
+            const buttonValue = buttons[i].value;
+            const inputKalkulator = document.getElementById("inputKalkulator");
+            const lastChar = inputKalkulator.value.slice(-1);
+            if (isNaN(lastChar) && isNaN(buttonValue)) {
+              // Jika pengguna memilih dua operasi matematika berturut-turut, jangan lakukan apa-apa
+              return;
+            }
+            inputKalkulator.value += buttonValue;
+            hitung();
+          });
+          const inputKalkulator = document.getElementById("inputKalkulator");
+  inputKalkulator.addEventListener("input", function () {
+    inputKalkulator.value = parseInt(inputKalkulator.value).toLocaleString("id-ID");
+    hitung();
+  });
 
-      
+
+          const inputUang = document.getElementById("inputUang");
+          inputUang.addEventListener("input", function () {
+            hitung();
+          });
+       
+
+        }
       </script>
-      
-    
-    <br>
-    <footer id="footerSection">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <h3>Tentang Kami</h3>
-
-            <p>SR Fashion adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan,
-              dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti
-              Shopee dan lain-lain. Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan
-              kami dengan harga yang terjangkau.</p>
-            <p>Kami memiliki tim yang berpengalaman dan profesional dalam memenuhi kebutuhan pelanggan kami. Kami
-              berupaya untuk selalu memberikan pengalaman belanja yang memuaskan bagi setiap pelanggan kami.</p>
-            <p>SR Fashion didirikan dengan visi untuk menjadi perusahaan terkemuka dalam industri penjualan topi,
-              kopiah, hijab, makanan ringan, dan jasa branding. Kami bekerja keras untuk memenuhi visi kami dan
-              terus berkembang untuk menjadi yang terbaik.</p>
-            <p>Kami sangat menghargai setiap pelanggan kami dan akan selalu berupaya untuk memenuhi harapan mereka.
-              Kami berharap untuk membangun hubungan jangka panjang dengan pelanggan kami dan memberikan layanan
-              yang selalu memuaskan.</p>
-            <p>Nikmati belanja produk berkualitas dengan SR Fashion hari ini!"</p>
-          </div>
-          <div class="col-md-4">
-            <h3>Kontak Kami</h3>
-            <ul>
-              <li>Alamat: Jl. Veteran Maja, Blok Salamanggu, Kota Majalengka.</li>
-              <li>Telepon: 0898-3813-800</li>
-              <li>Email: reysarah141@gmail.com</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <div class="container">
-              <h3>Ikuti Kami :
-
-                <a class="navbar-brand" href="#"> <img id="logo" src="img/png5.img.png" alt="Logo">
-
-                </a>
-              </h3>
-              <ul class="social-icons">
-
-                <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
 
 
+      <br>
+      <footer id="footerSection">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h3>Tentang Kami</h3>
 
-
-                <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
-                <li><a href="https://www.youtube.com/@FIRD.Official/featured"><i class="fa-brands fa-youtube"></i></a>
-                </li>
-
+              <p>SR Fashion adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan,
+                dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti
+                Shopee dan lain-lain. Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan
+                kami dengan harga yang terjangkau.</p>
+              <p>Kami memiliki tim yang berpengalaman dan profesional dalam memenuhi kebutuhan pelanggan kami. Kami
+                berupaya untuk selalu memberikan pengalaman belanja yang memuaskan bagi setiap pelanggan kami.</p>
+              <p>SR Fashion didirikan dengan visi untuk menjadi perusahaan terkemuka dalam industri penjualan topi,
+                kopiah, hijab, makanan ringan, dan jasa branding. Kami bekerja keras untuk memenuhi visi kami dan
+                terus berkembang untuk menjadi yang terbaik.</p>
+              <p>Kami sangat menghargai setiap pelanggan kami dan akan selalu berupaya untuk memenuhi harapan mereka.
+                Kami berharap untuk membangun hubungan jangka panjang dengan pelanggan kami dan memberikan layanan
+                yang selalu memuaskan.</p>
+              <p>Nikmati belanja produk berkualitas dengan SR Fashion hari ini!"</p>
             </div>
-            </ul>
+            <div class="col-md-4">
+              <h3>Kontak Kami</h3>
+              <ul>
+                <li>Alamat: Jl. Veteran Maja, Blok Salamanggu, Kota Majalengka.</li>
+                <li>Telepon: 0898-3813-800</li>
+                <li>Email: reysarah141@gmail.com</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <div class="container">
+                <h3>Ikuti Kami :
+
+                  <a class="navbar-brand" href="#"> <img id="logo" src="img/png5.img.png" alt="Logo">
+
+                  </a>
+                </h3>
+                <ul class="social-icons">
+
+                  <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+
+
+
+
+                  <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                  <li><a href="https://www.youtube.com/@FIRD.Official/featured"><i class="fa-brands fa-youtube"></i></a>
+                  </li>
+
+              </div>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="copyright">
-        <p>
-          Copyright &copy; 2023 SR Fashion-Muhammad Riyad Firdaus. All rights reserved.
-        </p>
-      </div>
-    </footer>
+        <div class="copyright">
+          <p>
+            Copyright &copy; 2023 SR Fashion-Muhammad Riyad Firdaus. All rights reserved.
+          </p>
+        </div>
+      </footer>
 
 
 
