@@ -306,7 +306,7 @@ input[type="date"] {
 }
 
 button[type="button"] {
-  background-color:#ff3c00;
+  background: linear-gradient(to bottom, #0b8b78, #0aded7);
   color: rgb(255, 255, 255);
   padding: 5px 20px;
  
@@ -329,7 +329,7 @@ button[type="button1"] {
   cursor: pointer;
 }
 button[type="button11"] {
-  background-color:#ff3c00;
+  background: linear-gradient(to bottom, #0b8b78, #0aded7);
   color: rgb(255, 255, 255);
   padding: 5px 20px;
  
@@ -1919,12 +1919,12 @@ font-weight: bold;
 #hasil47 {
   
   font-size: 18px;
-  color: #ffffff;
+  color: #04ff00;
   text-align: left;
   height: 50px;
   width: 90%;
   overflow-y: auto;
- 
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: rgba(5, 8, 9, 0);
   border-radius: 10px;
 
