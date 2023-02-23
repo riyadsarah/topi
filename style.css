@@ -306,7 +306,7 @@ input[type="date"] {
 }
 
 button[type="button"] {
-  background: linear-gradient(to bottom, #0b8b78, #0aded7);
+  background: linear-gradient(to bottom, #00eeff98, #006eff);
   color: rgb(255, 255, 255);
   padding: 5px 20px;
  
@@ -335,10 +335,10 @@ button[type="button1"] {
   cursor: pointer;
 }
 button[type="button11"] {
-  background: linear-gradient(to bottom, #0b8b78, #0aded7);
+  background: linear-gradient(to bottom, #00eeff98, #006eff);
   color: rgb(255, 255, 255);
   padding: 5px 20px;
- 
+
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -1146,6 +1146,7 @@ h3 {
 .social-media a:hover {
   color: #007bff;
   transform: scale(1.2);
+  
 }
 
 @media only screen and (max-width: 768px) {
@@ -1901,6 +1902,10 @@ font-weight: bold;
   }
 }
 
+
+
+
+
 #result {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 18px;
@@ -1927,10 +1932,14 @@ font-weight: bold;
     opacity: 1;
   }
 }
+
+#hasil0 {
+  color: #ffffff;
+}
 #hasil47 {
   
   font-size: 18px;
-  color: #04ff00;
+  color: #00ffff;
   text-align: left;
   height: 50px;
   width: 90%;
@@ -2051,7 +2060,7 @@ height: 70px;
   margin: 2px;
   cursor: pointer;
   border: none;
-  background: linear-gradient(to bottom, #5187df39, #2f5cc5);
+  background: linear-gradient(to bottom, #00eeff98, #006eff);
   color: rgba(255, 255, 255, 0.602);
   font-weight: bold;
   border-radius: 10px;

@@ -384,7 +384,7 @@
     <div id="myModal2" class="modal2">
       
 
-      <br><br><br>
+    
 
 
       <div class="container-b">
@@ -687,13 +687,13 @@
         }
       </script>
 
-      <br><br>
+      <br>
       
 <div class="container-b">
   <div class="title-container">
     <h1 class="title">Kalkulator praktis dagang</h1>
 
-  </div>
+  </div><br>
 
 
 
@@ -702,6 +702,7 @@
 </div>
 <input type="text" id="hasil47" placeholder="Hasil perhitungan">
 <input type="number" id="inputUang" placeholder="Masukkan uang pembeli" min="0">
+
 
 
     
@@ -754,7 +755,31 @@
      
 </div>
     </tr>
-  </div>
+  </div><br><br><br>
+
+  <div class="container-b">
+    <div class="title-container">
+      <h1 class="title">Kalkulator membuat diskon</h1>
+  
+    </div><br>
+  
+<label for="harga-setelah-diskon">Harga barang kamu:</label>
+<input type="text" id="harga-setelah-diskon" placeholder="HARGA BARANG">
+<br>
+<label for="diskon">Diskon (%):</label>
+<input type="text" id="diskon" placeholder="Tentukan angka diskon">
+<br>
+<div>
+<button type="button" id="hitung-harga-awal">Hitung Harga Awal</button>
+</div><br>
+<div>
+  <button type="button" id="reset53"><i class="fas fa-undo"></i></button>
+  <button type="button" onclick="salinTeks14()"><i class="fa fa-copy"></i></button>
+  <button type="button" onclick="bagikanTeks14()"><i class="fa fa-share"></i></button>
+</div>
+<br><br>
+
+<div id="hasil0"></div></div>
   <button type="button10" class="close2"><i class="fa-solid fa-circle-xmark"></i></button>
     
       <br><br><br>
@@ -823,7 +848,7 @@
 
           </div>
           <div>
-            <button type="button" id="resetButton112"><i class="fas fa-undo"></i></button>
+            <button type="button" id="reset99"><i class="fas fa-undo"></i></button>
             <button type="button" onclick="salinTeks5()"><i class="fa fa-copy"></i></button>
             <button type="button" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
           </div>
@@ -4140,6 +4165,26 @@ berikut hasilnya :
         window.location.href = shareUrl;
       }
     </script>
+    
+    <script>
+      function salinTeks14() {
+        const hasil0 = document.getElementById("hasil0");
+        const range = document.createRange();
+        range.selectNode(hasil0);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+      }
+
+      function bagikanTeks14() {
+        const hasil0 = document.getElementById("hasil0").textContent;
+        const encodedText = encodeURIComponent(hasil0);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
 
 
@@ -4569,8 +4614,7 @@ berikut hasilnya :
    <br><br><br><br><br><br><br><br><br><br>
 
       <script>
-        
-   
+
 
 function hapusSatu() {
   const inputKalkulator = document.getElementById("inputKalkulator");
@@ -4657,6 +4701,113 @@ function hapusSatu() {
 }
 
       </script>
+
+<script>
+  function formatRupiah(angka) {
+    if (angka >= 1000000000) {
+      return "Rp " + (angka / 1000000000).toFixed(3) + " miliar";
+    } else if (angka >= 1000000) {
+      return "Rp " + (angka / 1000000).toFixed(3) + " juta";
+    } else {
+      let reverse = angka.toString().split('').reverse().join('');
+      let ribuan = reverse.match(/\d{1,3}/g);
+      ribuan = ribuan.join('.').split('').reverse().join('');
+      return "Rp " + ribuan;
+    }
+  }
+  function hitungHargaAwal() {
+  const hargaSetelahDiskon = document.getElementById("harga-setelah-diskon").value;
+  const diskon = document.getElementById("diskon").value;
+  const hargaAwal = (hargaSetelahDiskon / (1 - diskon / 100)).toFixed(3);
+  const hargaAwalRupiah = formatRupiah(hargaAwal);
+  const inputKeterangan = `Harga Barang: ${formatRupiah(hargaSetelahDiskon)} dengan diskon ${diskon}%`;
+  const outputText = `${inputKeterangan}<br>Harga Awalnya adalah ${hargaAwalRupiah}`;
+  const outputDiv = document.getElementById("hasil0");
+  
+  outputDiv.innerHTML = '';
+  
+  var i = 0;
+  var intervalId = setInterval(function () {
+    var char = outputText.charAt(i);
+    var color = '';
+    var size = '';
+    if (/\d/.test(char)) {
+            // Jika karakter adalah angka, berikan warna merah
+            color = 'yellow';
+          } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+            // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
+            color = 'red';
+
+          }
+    
+    var pattern = /Barang:(.+?)([.?!]|$)/g;
+    var match = pattern.exec(outputText.substring(0, i + 1));
+    if (match) {
+      var start = match.index;
+      var end = start + match[0].length - 1;
+      if (i >= start && i <= end) {
+        color = 'red';
+      }
+    }
+    var pattern = /Harga (.+?)([.?!]|$)/g;
+    var match = pattern.exec(outputText.substring(0, i + 1));
+    if (match) {
+      var start = match.index;
+      var end = start + match[0].length - 1;
+      if (i >= start && i <= end) {
+        color = '#00ffff';
+      }
+    }
+    
+    if (outputText.substring(i, i + 3) === '<p>') {
+      outputDiv.appendChild(document.createElement('p'));
+      i += 2;
+    } else if (outputText.substring(i, i + 4) === '</p>') {
+      outputDiv.appendChild(document.createElement('p'));
+      i += 3;
+    } else if (outputText.substring(i, i + 4) === '<br>') {
+      outputDiv.appendChild(document.createElement('br'));
+      i += 3;
+    } else if (outputText.substring(i, i + 5) === '</br>') {
+      outputDiv.appendChild(document.createElement('br'));
+      i += 4;
+    } else {
+      var span = document.createElement('span');
+      span.textContent = char;
+      span.style.color = color;
+      span.style.fontSize = size;
+      outputDiv.appendChild(span);
+    }
+
+    outputDiv.scrollTop = outputDiv.scrollHeight;
+
+    i++;
+
+    if (i >= outputText.length) {
+      clearInterval(intervalId);
+    }
+  }, 10);
+}
+  
+
+  const hitungHargaAwalBtn = document.getElementById("hitung-harga-awal");
+  hitungHargaAwalBtn.addEventListener("click", hitungHargaAwal);
+  function resetForm() {
+    document.getElementById("inputKalkulator").value = "";
+    document.getElementById("harga-setelah-diskon").value = "";
+    document.getElementById("diskon").value = "";
+    document.getElementById("inputUang").value = "";
+    document.getElementById("hasil0").innerHTML = "";
+  }
+
+  const resetBtn53 = document.getElementById("reset53");
+  resetBtn53.addEventListener("click", resetForm);
+</script>
+
+<button type="button" id="reset53"><i class="fas fa-undo"></i></button>
+
+
+
 
 
       <br>
