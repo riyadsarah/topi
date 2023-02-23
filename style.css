@@ -1869,7 +1869,7 @@ font-weight: bold;
     .custom-select {
       font-size: 14px; /* ukuran font lebih kecil */
       height: 30px;
-      width: 30%; /* lebar 100% */
+      width: 40%; /* lebar 100% */
     }
   }
   
@@ -1905,7 +1905,9 @@ font-weight: bold;
 
 
 
-
+#output32 {
+  color: #ffffff;
+}
 #result {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 18px;

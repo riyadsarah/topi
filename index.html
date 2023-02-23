@@ -729,7 +729,7 @@
       <td><button class="button-nb " type="button-nb" value="4">4</button></td>
       <td> <button class="button-nb " type="button-nb" value="5">5</button></td>
       <td> <button class="button-nb " type="button-nb" value="6">6</button></td>
-      <td><button class="button-nb " type="button-nb" value="00">00</button></td>
+      <td><button class="button-nb" type="button-nb" onclick="tampilkankesimpulan()"><i class="fa-solid fa-file-signature"></i></button></td>
      
     </tr>
   </div>
@@ -738,23 +738,29 @@
       <td> <button class="button-nb " type="button-nb" value="1">1</button></td>
       <td> <button class="button-nb " type="button-nb" value="2">2</button></td>
       <td> <button class="button-nb " type="button-nb" value="3">3</button></td>
-      <td> <button class="button-nb " type="button-nb" value="0">0</button></td>
+      <button class="button-na " type="button-ng" onclick="reset76()"><i class="fas fa-undo"></i></button>
+    
      
     </tr>
   </div>
   <div>
     <tr>
-     
-      <td><button class="button-nb" type="button-nb" onclick="tampilkanRiwayat()"><i class="fa-solid fa-file-signature"></i></button></td>
+      <td><button class="button-nb " type="button-nb" value="00">00</button></td>
+    
 
      
-        <button class="button-na " type="button-ng" onclick="reset76()"><i class="fas fa-undo"></i></button>
+      <td> <button class="button-nb " type="button-nb" value="0">0</button></td>
+        
+        <td><button class="button-nb " type="button-nb" value="000">000</button></td>
         <td><button class="button-na " type="button-ng" onclick="hapusSatu()"><i
           class="fa-solid fa-delete-left"></i></button></td>
-          <td><button class="button-nb " type="button-nb" value="000">000</button></td>
+         
      
 </div>
-    </tr>
+    </tr><br>
+    <button type="button11" onclick="salinTeks13()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks13()"><i class="fa fa-share"></i></button>
+    <div id="output32"></div>
   </div><br><br><br>
 
   <div class="container-b">
@@ -763,7 +769,7 @@
   
     </div><br>
   
-<label for="harga-setelah-diskon">Harga barang kamu:</label>
+<label for="harga-setelah-diskon">Harga barang:</label>
 <input type="text" id="harga-setelah-diskon" placeholder="HARGA BARANG">
 <br>
 <label for="diskon">Diskon (%):</label>
@@ -848,7 +854,7 @@
 
           </div>
           <div>
-            <button type="button" id="reset99"><i class="fas fa-undo"></i></button>
+            <button type="button" id="resetButton112"><i class="fas fa-undo"></i></button>
             <button type="button" onclick="salinTeks5()"><i class="fa fa-copy"></i></button>
             <button type="button" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
           </div>
@@ -987,7 +993,7 @@
         <p id="deskripsiProduk">Jumlah uang</p>
         <input type="number" id="uang" placeholder="Masukan jumlah uang"><br>
         <div>
-          <button type="button11" onclick="hitung()">Hitung</button>
+          <button type="button11" onclick="hitung1()">Hitung</button>
         </div>
         <div>
 
@@ -1019,7 +1025,86 @@
           <br>
           <canvas id="myChart"></canvas>
         </div>
-
+        <script>
+          var clipboard = new Clipboard('.btn');
+          var chart;
+    
+          function hitung1() {
+            var uang = document.getElementById("uang").value;
+            var makan = 0.2 * uang;
+            var jajan = 0.1 * uang;
+            var sedekah = 0.05 * uang;
+            var tabung = 0.4 * uang;
+            var lain = 0.25 * uang;
+            var sisa = uang - makan - jajan - sedekah - tabung - lain;
+    
+    
+            document.getElementById("input-value").innerHTML = "Total uang Rp. " + formatNumber(uang);
+            document.getElementById("makan").innerHTML = "Makan : Rp " + formatNumber(makan);
+            document.getElementById("jajan").innerHTML = "Jajan : Rp " + formatNumber(jajan);
+            document.getElementById("sedekah").innerHTML = "Sedekah : Rp " + formatNumber(sedekah);
+            document.getElementById("tabung").innerHTML = "Tabung : Rp " + formatNumber(tabung);
+            document.getElementById("lain").innerHTML = "lain-lain : Rp " + formatNumber(lain);
+            document.getElementById("sisa").innerHTML = "Sisa : Rp " + formatNumber(sisa);
+    
+    
+            var ctx = document.getElementById("myChart").getContext('2d');
+            chart = new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ['Makan', 'Jajan', 'Sedekah', 'Tabung', 'Lain-lain', 'Sisa'],
+                datasets: [{
+                  backgroundColor: ['#55ff00', '#00bfa6', '#cc65fe', '#fd6b19', '#f98c6a', '#f30000'],
+                  data: [makan, jajan, sedekah, tabung, lain, sisa]
+                }]
+              },
+              options: {
+                responsive: true,
+                title: {
+                  display: true,
+                  text: 'Pembagian Pengeluaran',
+                  fontColor: '#55ff00'
+                },
+                legend: {
+                  display: true,
+                  labels: {
+                    fontColor: '#55ff00'
+                  }
+                },
+                layout: {
+                  padding: {
+                    left: 50,
+                    right: 50,
+                    top: 0,
+                    bottom: 0
+                  }
+                }
+              }
+            });
+    
+          
+    
+    
+          }
+    
+          function reset454() {
+            document.getElementById("input-value").innerHTML = "";
+            document.getElementById("uang").value = "";
+            document.getElementById("makan").innerHTML = "";
+            document.getElementById("jajan").innerHTML = "";
+            document.getElementById("sedekah").innerHTML = "";
+            document.getElementById("tabung").innerHTML = "";
+            document.getElementById("lain").innerHTML = "";
+            document.getElementById("sisa").innerHTML = "";
+            var ctx = document.getElementById("myChart").getContext('2d');
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            chart.destroy();
+          }
+    
+          function formatNumber(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+          }
+        </script>
       </div>
 
 
@@ -4406,89 +4491,30 @@ berikut hasilnya :
         window.location.href = shareUrl;
       }
     </script>
-
-
-
-    <script>
-      var clipboard = new Clipboard('.btn');
-      var chart;
-
-      function hitung() {
-        var uang = document.getElementById("uang").value;
-        var makan = 0.2 * uang;
-        var jajan = 0.1 * uang;
-        var sedekah = 0.05 * uang;
-        var tabung = 0.4 * uang;
-        var lain = 0.25 * uang;
-        var sisa = uang - makan - jajan - sedekah - tabung - lain;
-
-
-        document.getElementById("input-value").innerHTML = "Total uang Rp. " + formatNumber(uang);
-        document.getElementById("makan").innerHTML = "Makan : Rp " + formatNumber(makan);
-        document.getElementById("jajan").innerHTML = "Jajan : Rp " + formatNumber(jajan);
-        document.getElementById("sedekah").innerHTML = "Sedekah : Rp " + formatNumber(sedekah);
-        document.getElementById("tabung").innerHTML = "Tabung : Rp " + formatNumber(tabung);
-        document.getElementById("lain").innerHTML = "lain-lain : Rp " + formatNumber(lain);
-        document.getElementById("sisa").innerHTML = "Sisa : Rp " + formatNumber(sisa);
-
-
-
-        var ctx = document.getElementById("myChart").getContext('2d');
-        chart = new Chart(ctx, {
-          type: 'doughnut',
-          data: {
-            labels: ['Makan', 'Jajan', 'Sedekah', 'Tabung', 'Lain-lain', 'Sisa'],
-            datasets: [{
-              backgroundColor: ['#55ff00', '#00bfa6', '#cc65fe', '#fd6b19', '#f98c6a', '#f30000'],
-              data: [makan, jajan, sedekah, tabung, lain, sisa]
-            }]
-          },
-          options: {
-            responsive: true,
-            title: {
-              display: true,
-              text: 'Pembagian Pengeluaran',
-              fontColor: '#55ff00'
-            },
-            legend: {
-              display: true,
-              labels: {
-                fontColor: '#55ff00'
-              }
-            },
-            layout: {
-              padding: {
-                left: 50,
-                right: 50,
-                top: 0,
-                bottom: 0
-              }
-            }
-          }
-        });
-
-
+     <script>
+      function salinTeks13() {
+        const output32 = document.getElementById("output32");
+        const range = document.createRange();
+        range.selectNode(output32);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
 
       }
 
-      function reset454() {
-        document.getElementById("input-value").innerHTML = "";
-        document.getElementById("uang").value = "";
-        document.getElementById("makan").innerHTML = "";
-        document.getElementById("jajan").innerHTML = "";
-        document.getElementById("sedekah").innerHTML = "";
-        document.getElementById("tabung").innerHTML = "";
-        document.getElementById("lain").innerHTML = "";
-        document.getElementById("sisa").innerHTML = "";
-        var ctx = document.getElementById("myChart").getContext('2d');
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        chart.destroy();
-      }
-
-      function formatNumber(num) {
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+      function bagikanTeks13() {
+        const output32 = document.getElementById("output32").textContent;
+        const encodedText = encodeURIComponent(output32);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
       }
     </script>
+
+
+
+    
     <br><br>
 
 
@@ -4637,6 +4663,26 @@ function hapusSatu() {
           navigator.vibrate(100);
 
         }
+        function tampilkankesimpulan() {
+  const riwayat = JSON.parse(localStorage.getItem("riwayatKalkulator")) || [];
+  let total = 0;
+  for (let i = 0; i < riwayat.length; i++) {
+    total = riwayat[i].hasil;
+  }
+  const inputUang = document.getElementById("inputUang").value;
+  if (inputUang) {
+    const uang = 'Rp ' + parseFloat(inputUang).toLocaleString("id-ID");
+    const kembalian = 'Kembali Rp ' + (parseFloat(inputUang) - parseFloat(total)).toLocaleString("id-ID");
+    document.getElementById("output32").innerHTML = ' penjumlahan <br> ' + inputKalkulator.value + 
+    ' <br>Total ' + total.toLocaleString("id-ID") + '<br><br>' + 
+    ' Uang pembeli : ' + uang + 
+    ' <br>' + kembalian;
+
+
+  } else {
+    document.getElementById("output32").innerHTML = 'penjumlahan \n' + inputKalkulator.value + '\nTotal ' + total.toLocaleString("id-ID");
+  }
+}
 
         function hitung() {
           const inputKalkulator = document.getElementById("inputKalkulator").value;
@@ -4687,18 +4733,24 @@ function hapusSatu() {
 
         }
         
+  
 
         function reset76() {
   const inputKalkulator = document.getElementById("inputKalkulator");
   const inputUang = document.getElementById("inputUang");
   const hasil47 = document.getElementById("hasil47");
-
+  const output32 = document.getElementById("output32");
+  
   inputKalkulator.value = "";
   inputUang.value = "";
   hasil47.value = "";
-
+  
+  localStorage.removeItem("riwayatKalkulator");
+  output32.innerHTML = "";
+  
   hitung();
 }
+
 
       </script>
 
