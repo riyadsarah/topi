@@ -4563,7 +4563,7 @@ berikut hasilnya :
    <br><br><br><br><br><br><br><br><br><br>
 
       <script>
-         const riwayatKalkulator = [];
+        
 
 function hapusSatu() {
   const inputKalkulator = document.getElementById("inputKalkulator");
@@ -4602,31 +4602,7 @@ function hapusSatu() {
 }
 
         }
-        function tambahKeRiwayat() {
-    const inputKalkulator = document.getElementById("inputKalkulator").value;
-    const inputUang = document.getElementById("inputUang").value;
-    const hasil47 = document.getElementById("hasil47").value;
-
-    if (inputKalkulator && inputUang) {
-      riwayatKalkulator.push({
-        inputKalkulator: inputKalkulator,
-        inputUang: inputUang,
-        hasil47: hasil47
-      });
-      tampilkanRiwayat();
-    }
-  }
-
-  function tampilkanRiwayat() {
-    const riwayatElement = document.getElementById("riwayat");
-    riwayatElement.innerHTML = "";
-    for (let i = 0; i < riwayatKalkulator.length; i++) {
-      const riwayat = riwayatKalkulator[i];
-      const riwayatElementItem = document.createElement("li");
-      riwayatElementItem.innerText = `${riwayat.inputKalkulator} = ${riwayat.hasil47} (uang: ${riwayat.inputUang})`;
-      riwayatElement.appendChild(riwayatElementItem);
-    }
-  }
+       
 
         const buttons = document.getElementsByTagName("button");
         for (let i = 0; i < buttons.length; i++) {
