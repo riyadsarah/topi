@@ -266,7 +266,7 @@ h4 {
 }
 
 h2 {
-  color: rgb(255, 255, 255);
+  color: rgb(43, 255, 0);
 }
 
 
@@ -1202,9 +1202,10 @@ h3 {
   display: flex;
   overflow-x: scroll;
   white-space: nowrap;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
   border-radius: 10px;
+
 }
 
 
@@ -1262,7 +1263,7 @@ img {
   font-size: 36px;
   font-weight: bold;
   text-align: center;
-  color: #fff4f4;
+  color: #fdfff4;
   }
 
 
@@ -1858,12 +1859,16 @@ font-weight: bold;
     font-size: 16px; /* ukuran font */
     padding: 2px; /* padding */
     border-radius: 5px; /* sudut melengkung */
-    border: 1px solid #ccc; /* border */
-    
+    border: 0px solid #ccc; /* border */
+    background: linear-gradient(to bottom, #00eeff98, #074495);
     max-width: 400px; /* maksimal lebar 400px */
     box-sizing: border-box; /* menghitung ukuran dengan padding dan border */
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
   }
-  
+  .custom-select:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px 0 rgba(255, 255, 255, 0.087), 0 10px 36px 0 rgba(0,0,0,0.19);
+  }
   @media (max-width: 768px) {
     /* untuk tampilan layar dengan lebar maksimal 768px */
     .custom-select {
@@ -1884,9 +1889,9 @@ font-weight: bold;
   overflow-y: auto;
   margin: 50px 0;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.2);
+
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.3);
+
   animation: slideIn 1s ease-out;
 }
 
@@ -1921,9 +1926,34 @@ font-weight: bold;
   overflow-y: auto;
   margin: 50px 0;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.2);
+
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.3);
+
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+#output6 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 18px;
+  color: #ffffff;
+
+  height: 200px;
+  overflow-y: auto;
+  margin: 50px 0;
+
+  border-radius: 10px;
+
   animation: slideIn 1s ease-out;
 }
 
@@ -1939,13 +1969,14 @@ font-weight: bold;
   }
 }
 
+
 #hasil0 {
   color: #ffffff;
 }
 #hasil47 {
   
   font-size: 18px;
-  color: #ffffff;
+  color: #fffefe;
   text-align: left;
   height: 50px;
   width: 90%;

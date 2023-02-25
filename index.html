@@ -401,6 +401,7 @@
         <div>
           <label for="barcode-color">Barcode Color:</label>
           <input type="color" id="barcode-color" value="#000000">
+     
 
           <label for="qr-color">QR Code Color:</label>
           <input type="color" id="qr-color" value="#000000">
@@ -699,8 +700,7 @@
   </div><br>
 
 
-
-  <input type="text" id="hasil47" >
+  <input  id="hasil47" >  </input>
 <textarea  id="inputKalkulator" ></textarea>
 
 
@@ -880,7 +880,7 @@
         </select>
         <div>
           <p class="title">Dinding (m): </p>
-          <input type="number" id="panjang" placeholder="Panjang">
+          <input type="number"  id="panjang" name="panjang" autofocus placeholder="Panjang">
 
 
 
@@ -986,6 +986,42 @@
 
 
         <div id="hasil65"></div>
+      </div><br><br>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Hitung pendapatan detail <i class="fa-solid fa-magnifying-glass-dollar"></i></h1>
+          <p>Hitungan(30h/bulan)</p>
+      
+        </div>
+      
+      <select class="custom-select" id="inputPendapatan">
+        <option value="detik">Pendapatan per detik</option>
+        <option value="menit">Pendapatan per menit</option>
+        <option value="jam">Pendapatan per jam</option>
+        <option value="hari">Pendapatan per hari</option>
+        <option value="bulan">Pendapatan per bulan</option>
+        <option value="tahun">Pendapatan per tahun</option>
+      </select>
+      <input type="text" id="inputNilai" placeholder="Total pendapatan">
+      
+      <div>
+        <button type="button11" onclick="hitung3()">Hitung</button>
+      </div>
+      <div>
+      
+        <button type="button11"  onclick="location.reload()"><i class="fas fa-undo"></i></button>
+        <button type="button11" onclick="salinTeks18()"><i class="fa fa-copy"></i></button>
+        <button type="button11" onclick="bagikanTeks18()"><i class="fa fa-share"></i></button>
+      </div>
+      
+      
+      
+      <div id="output6"></div>
+
+      <div>
+  <canvas id="donutChart"></canvas>
+</div>
+
       </div>
       <br><br>
       <div class="container-b">
@@ -4515,6 +4551,27 @@ berikut hasilnya :
       }
     </script>
 
+<script>
+  function salinTeks18() {
+    const output6 = document.getElementById("output6");
+    const range = document.createRange();
+    range.selectNode(output6);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("copy");
+    navigator.vibrate(100); // Menambahkan getar selama 100ms
+
+  }
+
+  function bagikanTeks18() {
+    const output6 = document.getElementById("output6").textContent;
+    const encodedText = encodeURIComponent(output6);
+    const shareUrl = `whatsapp://send?text=${encodedText}`;
+    window.location.href = shareUrl;
+  }
+</script>
+
 
 
     
@@ -4644,8 +4701,10 @@ berikut hasilnya :
 
       <script>
 
+        
 
 function hapusSatu() {
+  
   const inputKalkulator = document.getElementById("inputKalkulator");
   inputKalkulator.value = inputKalkulator.value.slice(0, -1);
   hitung();
@@ -4687,6 +4746,7 @@ function hapusSatu() {
   }
 }
 
+
         function hitung() {
           const inputKalkulator = document.getElementById("inputKalkulator").value;
           const inputUang = document.getElementById("inputUang").value;
@@ -4711,9 +4771,11 @@ function hapusSatu() {
         const buttons = document.getElementsByTagName("button");
         for (let i = 0; i < buttons.length; i++) {
           buttons[i].addEventListener("click", function () {
+            
             const buttonValue = buttons[i].value;
             const inputKalkulator = document.getElementById("inputKalkulator");
             const lastChar = inputKalkulator.value.slice(-1);
+            
             if (isNaN(lastChar) && isNaN(buttonValue)) {
               // Jika pengguna memilih dua operasi matematika berturut-turut, jangan lakukan apa-apa
               return;
@@ -4725,11 +4787,13 @@ function hapusSatu() {
   inputKalkulator.addEventListener("input", function () {
     inputKalkulator.value = parseInt(inputKalkulator.value).toLocaleString("id-ID");
     hitung();
+    
   });
 
 
           const inputUang = document.getElementById("inputUang");
           inputUang.addEventListener("input", function () {
+      
             hitung();
           });
        
@@ -4758,22 +4822,23 @@ function hapusSatu() {
       </script>
 
 <script>
-  function formatRupiah(angka) {
-    if (angka >= 1000000000) {
-      return "Rp " + (angka / 1000000000).toFixed(3) + " miliar";
-    } else if (angka >= 1000000) {
-      return "Rp " + (angka / 1000000).toFixed(3) + " juta";
-    } else {
-      let reverse = angka.toString().split('').reverse().join('');
-      let ribuan = reverse.match(/\d{1,3}/g);
-      ribuan = ribuan.join('.').split('').reverse().join('');
-      return "Rp " + ribuan;
-    }
+function formatRupiah(angka) {
+  if (angka >= 1000000000) {
+    return "Rp " + (angka / 1000000000).toFixed(2);
+  } else if (angka >= 1000000) {
+    return "Rp " + (angka / 1000000).toFixed(2) ;
+  } else {
+    let reverse = angka.toString().split('').reverse().join('');
+    let ribuan = reverse.match(/\d{1,3}/g);
+    ribuan = ribuan.join('.').split('').reverse().join('');
+    return "Rp " + ribuan;
   }
+}
+
   function hitungHargaAwal() {
   const hargaSetelahDiskon = document.getElementById("harga-setelah-diskon").value;
   const diskon = document.getElementById("diskon").value;
-  const hargaAwal = (hargaSetelahDiskon / (1 - diskon / 100)).toFixed(3);
+  const hargaAwal = (hargaSetelahDiskon / (1 - diskon / 100)).toFixed(2);
   const hargaAwalRupiah = formatRupiah(hargaAwal);
   const inputKeterangan = `Harga Barang: ${formatRupiah(hargaSetelahDiskon)} dengan diskon ${diskon}%`;
   const outputText = `${inputKeterangan}<br>Harga Awalnya adalah ${hargaAwalRupiah}`;
@@ -4859,61 +4924,195 @@ function hapusSatu() {
   resetBtn53.addEventListener("click", resetForm);
 </script>
 
-<h1>Waktu Shalat</h1>
-<p>
-  Kota: <input type="text" id="inputKota" placeholder="Masukkan nama kota">
-  <button onclick="tampilkanWaktuShalat()">Tampilkan</button>
-</p>
-<table>
-  <tr>
-    <th>Waktu Shalat</th>
-    <th>Waktu</th>
-  </tr>
-  <tr>
-    <td>Subuh</td>
-    <td id="subuh"></td>
-  </tr>
-  <tr>
-    <td>Dzuhur</td>
-    <td id="dzuhur"></td>
-  </tr>
-  <tr>
-    <td>Ashar</td>
-    <td id="ashar"></td>
-  </tr>
-  <tr>
-    <td>Maghrib</td>
-    <td id="maghrib"></td>
-  </tr>
-  <tr>
-    <td>Isya</td>
-    <td id="isya"></td>
-  </tr>
-</table>
-<script>
-  // Menampilkan waktu shalat lima waktu harian
-function tampilkanWaktuShalat() {
-  const kota = document.getElementById("inputKota").value;
-  const tanggal = new Date().getDate();
-  const bulan = new Date().getMonth() + 1;
-  const tahun = new Date().getFullYear();
 
-  const url = `http://api.aladhan.com/v1/timingsByCity?city=${kota}&country=Indonesia&method=8&month=${bulan}&year=${tahun}&school=1`;
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const waktuShalat = data.data.timings;
-      document.getElementById("subuh").innerHTML = waktuShalat.Fajr;
-      document.getElementById("dzuhur").innerHTML = waktuShalat.Dhuhr;
-      document.getElementById("ashar").innerHTML = waktuShalat.Asr;
-      document.getElementById("maghrib").innerHTML = waktuShalat.Maghrib;
-      document.getElementById("isya").innerHTML = waktuShalat.Isha;
-    })
-    .catch(error => console.error(error));
+
+
+<script>
+  const inputNilai = document.getElementById("inputNilai");
+  const inputPendapatan = document.getElementById("inputPendapatan");
+
+  // event listener untuk memantau setiap kali nilai input berubah
+  inputNilai.addEventListener("input", function(e) {
+    let value = e.target.value;
+
+    // hapus semua karakter selain angka
+    value = value.replace(/[^0-9]/g, "");
+
+    // konversi ke angka dan tambahkan titik ribuan
+    value = parseFloat(value).toLocaleString("id-ID");
+
+    // set nilai input yang sudah diformat kembali ke input
+    e.target.value = value;
+  });
+  function hitung3() {
+  const nilai = parseFloat(inputNilai.value.replace(/\./g, "").replace(/,/g, ".")); // mengambil input nilai dan konversi ke angka
+  const opsi = inputPendapatan.value;
+
+  let pendapatan;
+  switch (opsi) {
+    case "detik":
+      pendapatan = nilai * 30 * 24 * 60 * 60;
+      break;
+    case "menit":
+      pendapatan = nilai * 30 * 24 * 60;
+      break;
+    case "jam":
+      pendapatan = nilai * 30 * 24;
+      break;
+    case "hari":
+      pendapatan = nilai * 30;
+      break;
+    case "bulan":
+      pendapatan = nilai;
+      break;
+    case "tahun":
+      pendapatan = nilai / 12;
+      break;
+    default:
+      pendapatan = 0;
+      break;
+  }
+
+  const detik = pendapatan / (30 * 24 * 60 * 60);
+const menit = pendapatan / (30 * 24 * 60);
+const jam = pendapatan / (30 * 24);
+
+  const hari = pendapatan / 30;
+
+  const bulan = pendapatan / 1;
+  const tahun = pendapatan / (1 / 12);
+  const duaTahun = pendapatan / (1 / 24);
+  const tigaTahun = pendapatan / (1 / 36);
+  const pTahun = pendapatan / (1 / 480);
+  const ppTahun = pendapatan / (1 / 840);
+  const pppTahun = pendapatan / (1 / 12000);
+ 
+
+    var text =
+     `
+    <p>Pendapatan per ${opsi}: Rp ${nilai.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")} sama dengan </p>
+  <p>Per detik: Rp ${detik.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+  <p>Per menit: Rp ${menit.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+  <p>Per jam: Rp ${jam.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+  <p>Per hari: Rp ${hari.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+ 
+  <p>Per bulan: Rp ${bulan.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+  <p>Per tahun: Rp ${tahun.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+  <p>Per 2 tahun: Rp ${duaTahun.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+  <p>Per 3 tahun: Rp ${tigaTahun.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+  <p>Per 40 tahun: Rp ${pTahun.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+  <p>Per 70 tahun: Rp ${ppTahun.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+  <p>Per 1000 tahun: Rp ${pppTahun.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
+ 
+`;
+document.getElementById("output6").innerHTML = text;
+ 
+   // Ambil elemen output
+   var outputDiv = document.getElementById("output6");
+outputDiv.innerHTML = '';
+  
+  
+
+          // Bersihkan output sebelumnya
+          outputDiv.innerHTML = '';
+          // Tampilkan teks ke output satu karakter per interval 10ms
+          var i = 0;
+          var intervalId = setInterval(function () {
+            var char = text.charAt(i);
+            var color = '';
+            var size = '';
+            if (/\d/.test(char)) {
+              // Jika karakter adalah angka, berikan warna merah
+              color = 'lightgreen';
+            } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+              // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
+              color = '#d9ff00';
+
+            }
+            
+
+            if (text.substring(i, i + 3) === '<p>') {
+              // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
+              outputDiv.appendChild(document.createElement('p'));
+              i += 2; // lewati karakter '<' dan 'p'
+            } else if (text.substring(i, i + 4) === '</p>') {
+              // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
+              outputDiv.appendChild(document.createElement('p'));
+              i += 3; // lewati karakter '<', '/', 'p'
+            } else if (text.substring(i, i + 4) === '<br>') {
+              // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
+              outputDiv.appendChild(document.createElement('br'));
+              i += 3; // lewati karakter '<', 'b', 'r'
+            } else if (text.substring(i, i + 5) === '</br>') {
+              // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
+              outputDiv.appendChild(document.createElement('br'));
+              i += 4; // lewati karakter '<', '/', 'b', 'r'
+            } else {
+              // Jika karakter biasa, tambahkan ke dalam elemen output
+              var span = document.createElement('span');
+              span.textContent = char;
+              span.style.color = color;
+              span.style.fontSize = size;
+              outputDiv.appendChild(span);
+            }
+
+            // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+
+            i++;
+
+            // Hentikan interval ketika semua karakter telah ditampilkan
+            if (i >= text.length) {
+              clearInterval(intervalId);
+            }
+          }, 1);
+
+          const data = [detik, menit, jam, hari, bulan, tahun, duaTahun, tigaTahun, pTahun, ppTahun, pppTahun];
+  drawDonutChart(data);
+  function drawDonutChart(data) {
+  const donutChart = document.getElementById("donutChart").getContext("2d");
+  new Chart(donutChart, {
+    type: "doughnut",
+    data: {
+      labels: ["Per detik", "Per menit", "Per jam", "Per hari", "Per bulan", "Per tahun", "Per 2 tahun", "Per 3 tahun", "Per 40 tahun", "Per 70 tahun", "Per 1000 tahun"],
+      datasets: [
+        {
+          data: data,
+          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#E7E9ED", "#E91E63", "#9C27B0", "#3F51B5", "#009688", "#FF9800", "#795548", "#607D8B"],
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      title: {
+        display: true,
+        text: "Pendapatan per pilihan:",
+        fontSize: 20,
+        fontStyle: "bold",
+        padding: 20,
+      },
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          fontSize: 14,
+          usePointStyle: true,
+        },
+      },
+    },
+  });
 }
 
+
+}
+
+
+
 </script>
-<br><br><br>
+
+
+
 
 
       <br>
