@@ -2134,6 +2134,20 @@ height: 70px;
 }
 
 
-
-
-
+  mark {
+    border-radius: 5px;
+    background-color: #ff8c00;
+    color: #ffffff;
+    font-size: 17px;
+    margin: none;
+   
+  }
+  
+  pre {
+    color: #ffffff;
+    white-space: pre-wrap;
+    font-size: 30px;
+ 
+  }
+  
+      
