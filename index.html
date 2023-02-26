@@ -5178,44 +5178,44 @@ const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a"
 </script>
 
 <br>
-<h1>Contoh Teks ke Suara</h1>
-<p>Masukkan teks yang ingin dikonversi:</p>
-<textarea id="input-text8" rows="4"></textarea>
+<h1>Contoh Rekam Suara dan Teks ke Suara</h1>
 <button onclick="startRecording()">Rekam Suara</button>
+<button onclick="stopRecording()">Stop Rekaman</button>
+<p>Anda bisa merekam suara dan menyimpannya. Kemudian gunakan tombol "Dengarkan" untuk mengonversi teks menjadi suara menggunakan suara rekaman Anda sendiri.</p>
+<textarea id="input-text6" rows="4"></textarea>
 <button onclick="speak()">Dengarkan</button>
 
 <script>
-  // variabel global untuk menyimpan objek MediaRecorder
   let mediaRecorder;
+  let chunks = [];
 
-  // fungsi untuk merekam suara
   function startRecording() {
     // cek apakah browser mendukung MediaRecorder API
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      // inisialisasi objek MediaRecorder
-      mediaRecorder = new MediaRecorder(navigator.mediaDevices.getUserMedia({audio: true}));
+      navigator.mediaDevices.getUserMedia({audio: true})
+      .then(function(stream) {
+        // inisialisasi objek MediaRecorder
+        mediaRecorder = new MediaRecorder(stream);
 
-      // inisialisasi array untuk menyimpan data suara
-      let chunks = [];
+        // mulai merekam suara
+        mediaRecorder.start();
 
-      // mulai merekam suara
-      mediaRecorder.start();
-
-      // ketika ada data suara yang tersedia, tambahkan ke array chunks
-      mediaRecorder.ondataavailable = function(event) {
-        chunks.push(event.data);
-      }
-
-      // ketika merekam selesai, gabungkan semua data suara yang ada di array chunks
-      mediaRecorder.onstop = function(event) {
-        let blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
-        let audioUrl = URL.createObjectURL(blob);
-        // simpan URL audio ke dalam localStorage
-        localStorage.setItem('audioUrl', audioUrl);
-      }
+        // ketika ada data suara yang tersedia, tambahkan ke array chunks
+        mediaRecorder.ondataavailable = function(event) {
+          chunks.push(event.data);
+        }
+      })
+      .catch(function(err) {
+        console.log('Error: ' + err);
+      });
     } else {
       alert('Browser Anda tidak mendukung MediaRecorder API.');
     }
+  }
+
+  function stopRecording() {
+    // hentikan merekam suara
+    mediaRecorder.stop();
   }
 
   function speak() {
@@ -5225,7 +5225,7 @@ const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a"
       const speech = new SpeechSynthesisUtterance();
 
       // ambil teks dari input
-      const inputText = document.getElementById('input-text8').value;
+      const inputText = document.getElementById('input-text6').value;
 
       // set teks yang ingin dikonversi menjadi suara
       speech.text = inputText;
@@ -5243,9 +5243,13 @@ const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a"
         speech.voiceURI = audioUrl;
       } else {
         // set voiceURI dengan jenis suara bawaan browser
-        speech.voiceURI = 'native';
+        speech.voiceURI = 'male';
       }
 
+      // ketika konversi selesai, bersihkan array chunks
+      speech.onend = function(event) {
+        chunks = [];
+      }
       // mulai konversi teks ke suara
       window.speechSynthesis.speak(speech);
     } else {
