@@ -5178,85 +5178,83 @@ const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a"
 </script>
 
 <br>
-<h1>Contoh Rekam Suara dan Teks ke Suara</h1>
-<button onclick="startRecording()">Rekam Suara</button>
-<button onclick="stopRecording()">Stop Rekaman</button>
-<p>Anda bisa merekam suara dan menyimpannya. Kemudian gunakan tombol "Dengarkan" untuk mengonversi teks menjadi suara menggunakan suara rekaman Anda sendiri.</p>
-<textarea id="input-text6" rows="4"></textarea>
-<button onclick="speak()">Dengarkan</button>
+<h1>Contoh Teks ke Suara</h1>
+	<p>Masukkan teks yang ingin dikonversi:</p>
+	<textarea id="input-text4" rows="4"></textarea>
+	<button onclick="speak()">Dengarkan</button>
+
+	<script>
+		function speak() {
+			// cek apakah browser mendukung SpeechSynthesis API
+			if ('speechSynthesis' in window) {
+				// inisialisasi objek SpeechSynthesisUtterance
+				const speech = new SpeechSynthesisUtterance();
+
+				// ambil teks dari input
+				const inputText = document.getElementById('input-text4').value;
+
+				// set teks yang ingin dikonversi menjadi suara
+				speech.text = inputText;
+
+				// set properti suara
+				speech.lang = 'id-ID'; // kode bahasa Indonesia
+        speech.pitch = 0.9; // pitch suara (0.1 - 2)
+				speech.rate = 0.5; // kecepatan suara (0.1 - 10)
+				speech.volume = 1; // volume suara (0 - 1)
+				speech.voiceURI = 'native'; // jenis suara (misal: 'Google Bahasa Indonesia')
+
+				// mulai konversi teks ke suara
+				window.speechSynthesis.speak(speech);
+			} else {
+				alert('Browser Anda tidak mendukung SpeechSynthesis API.');
+			}
+		}
+	</script>
+
+<h1>Contoh Suara ke Teks</h1>
+<button onclick="startRecognition()">Mulai</button>
+<button onclick="stopRecognition()">Berhenti</button>
+<div id="output-text7"></div>
 
 <script>
-  let mediaRecorder;
-  let chunks = [];
+  const recognition = new window.webkitSpeechRecognition();
+  const outputText = document.getElementById('output-text7');
 
-  function startRecording() {
-    // cek apakah browser mendukung MediaRecorder API
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({audio: true})
-      .then(function(stream) {
-        // inisialisasi objek MediaRecorder
-        mediaRecorder = new MediaRecorder(stream);
+  // konfigurasi pengenalan suara
+  recognition.lang = 'id-ID'; // kode bahasa Indonesia
+  recognition.continuous = true; // terus-menerus mendengarkan
+  recognition.interimResults = true; // menampilkan hasil sementara
 
-        // mulai merekam suara
-        mediaRecorder.start();
-
-        // ketika ada data suara yang tersedia, tambahkan ke array chunks
-        mediaRecorder.ondataavailable = function(event) {
-          chunks.push(event.data);
-        }
-      })
-      .catch(function(err) {
-        console.log('Error: ' + err);
-      });
-    } else {
-      alert('Browser Anda tidak mendukung MediaRecorder API.');
-    }
-  }
-
-  function stopRecording() {
-    // hentikan merekam suara
-    mediaRecorder.stop();
-  }
-
-  function speak() {
-    // cek apakah browser mendukung SpeechSynthesis API
-    if ('speechSynthesis' in window) {
-      // inisialisasi objek SpeechSynthesisUtterance
-      const speech = new SpeechSynthesisUtterance();
-
-      // ambil teks dari input
-      const inputText = document.getElementById('input-text6').value;
-
-      // set teks yang ingin dikonversi menjadi suara
-      speech.text = inputText;
-
-      // set properti suara
-      speech.lang = 'id-ID'; // kode bahasa Indonesia
-      speech.pitch = 1; // pitch suara (0.1 - 2)
-      speech.rate = 1; // kecepatan suara (0.1 - 10)
-      speech.volume = 1; // volume suara (0 - 1)
-
-      // cek apakah URL audio sudah tersedia di localStorage
-      let audioUrl = localStorage.getItem('audioUrl');
-      if (audioUrl) {
-        // set voiceURI dengan URL audio
-        speech.voiceURI = audioUrl;
+  // ketika terdapat hasil suara yang dikenali
+  recognition.onresult = function(event) {
+    const interimTranscripts = [];
+    for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+      const transcript = event.results[i][0].transcript;
+      if (event.results[i].isFinal) {
+        // jika hasil akhir, tampilkan ke layar
+        outputText.innerHTML += transcript;
       } else {
-        // set voiceURI dengan jenis suara bawaan browser
-        speech.voiceURI = 'male';
+        // jika hasil sementara, tambahkan ke array interimTranscripts
+        interimTranscripts.push(transcript);
       }
-
-      // ketika konversi selesai, bersihkan array chunks
-      speech.onend = function(event) {
-        chunks = [];
-      }
-      // mulai konversi teks ke suara
-      window.speechSynthesis.speak(speech);
-    } else {
-      alert('Browser Anda tidak mendukung SpeechSynthesis API.');
     }
+    if (interimTranscripts.length > 0) {
+      // jika terdapat hasil sementara, tampilkan ke layar
+      outputText.innerHTML += interimTranscripts.join('');
+    }
+  };
+
+  function startRecognition() {
+    // mulai pengenalan suara
+    recognition.start();
+  }
+
+  function stopRecognition() {
+    // berhenti pengenalan suara
+    recognition.stop();
   }
 </script>
+
 
 <br><br>
 
