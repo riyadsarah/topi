@@ -9,7 +9,7 @@ body {
 
 body {
 
-  background-image: linear-gradient(to right, #00eeff 0, #006eff 100%);
+  background-image: linear-gradient(to right, #009999 0, #009999 0);
   background: cover;
 }
 
@@ -962,7 +962,7 @@ h3 {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 225, 255);
+  background-image: linear-gradient(to right, #009999 0, #009999 0);
 }
 
 .modal-content {
@@ -999,7 +999,7 @@ h3 {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 225, 255);
+  background-image: linear-gradient(to right, #009999 0, #009999 0);
 }
 
 .modal1-content {
@@ -1035,7 +1035,7 @@ h3 {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 225, 255);
+  background-image: linear-gradient(to right, #009999 0, #009999 0);
 }
 
 .modal2-content {
@@ -1072,7 +1072,7 @@ h3 {
   height: 100%;
   overflow: auto;
 
-  background-color: rgb(0, 225, 255);
+  background-image: linear-gradient(to right, #009999 0, #009999 0);
 }
 
 .modal3-content {
@@ -1473,10 +1473,10 @@ input[type=color] {
 .container-b {
   width: 700px;
   margin: 0 auto;
-  background-color: #00000050;
+  background-color: #04020200;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.538);
 }
 
 @media screen and (max-width: 767px) {
@@ -1912,10 +1912,11 @@ font-weight: bold;
 
 #output32 {
   height: 200px;
-  overflow-y: auto;
+  
   margin: 50px 0;
   padding: 20px;
   color: #ffffff;
+  white-space: pre-wrap;
 }
 #result {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -1969,7 +1970,9 @@ font-weight: bold;
   }
 }
 #interim-text {
-color: #0400ff;
+color: #0059ff;
+background-color: #fffcfc;
+border-radius: 10px;
  
 }
 
@@ -2154,7 +2157,7 @@ height: 70px;
     color: #ffffff;
     white-space: pre-wrap;
     font-size: 30px;
- 
+ font-family: 'Courier New', Courier, monospace;
   }
   
     

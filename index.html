@@ -131,8 +131,20 @@
       <img src="img/7.img.jpeg" alt="Topi 4">
     </div>
   </div>
+  
+
   <br><br>
  <p id="judulProduk">FITUR TERBARU</p>
+ <div class="container-b">
+  <div class="title-container">
+    <h1 class="title">Suara ke teks</h1>
+  </div><br>
+ <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
+ <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
+ <br><br>
+ <div id="output-text7"></div><br>
+ <div id="interim-text"></div></div><br>
+
   <div class="container-b">
     <div class="title-container">
       <h1 class="title">Cari kalimat</h1>
@@ -813,7 +825,9 @@
     </tr><br>
     <button type="button11" onclick="salinTeks13()"><i class="fa fa-copy"></i></button>
           <button type="button11" onclick="bagikanTeks13()"><i class="fa fa-share"></i></button>
+        
     <div id="output32"></div>
+
   </div><br><br><br>
 
   <div class="container-b">
@@ -4767,7 +4781,7 @@ function hapusSatu() {
           if (inputUang) {
             const hasilKalkulator = eval(inputKalkulator);
             const kembalian = parseFloat(inputUang) - parseFloat(hasilKalkulator);
-            document.getElementById("hasil47").value = "Kembali Rp " + kembalian.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
+            document.getElementById("hasil47").value = "Kembali Rp : " + kembalian.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
               "$&,");
 
           }else {
@@ -5180,11 +5194,6 @@ const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a"
 <br>
 
 
-<button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
-<button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
-<br>
-<div id="output-text7"></div><br>
-<div id="interim-text"></div>
 
 <script>
 const recognition = new window.webkitSpeechRecognition();
