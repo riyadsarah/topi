@@ -306,7 +306,7 @@ input[type="date"] {
 }
 
 button[type="button"] {
-  background: linear-gradient(to bottom, #00eeff98, #006eff);
+  background: linear-gradient(to bottom, #00eeff98, #030b0834);
   color: rgb(255, 255, 255);
   padding: 5px 20px;
  
@@ -335,7 +335,7 @@ button[type="button1"] {
   cursor: pointer;
 }
 button[type="button11"] {
-  background: linear-gradient(to bottom, #00eeff98, #006eff);
+  background: linear-gradient(to bottom, #00eeff98, #030b0834);
   color: rgb(255, 255, 255);
   padding: 5px 20px;
 
@@ -407,14 +407,14 @@ header {
 .header-nav-right a {
   margin-left: 15px;
   font-size: 30px;
-  color: rgba(0, 0, 0, 0.486);
+  color: rgb(255, 255, 255);
   text-decoration: none;
 
 
 }
 
 #header-nav {
-  background-color: rgba(0, 0, 0, 0.544);
+  background-color: rgba(255, 255, 255, 0.276);
   transition: background-color 1s;
 }
 
@@ -1844,7 +1844,7 @@ font-weight: bold;
   }
 
   .title{
-    font-size: 15px;
+    font-size: 25px;
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 5px;
@@ -1860,10 +1860,10 @@ font-weight: bold;
     padding: 2px; /* padding */
     border-radius: 5px; /* sudut melengkung */
     border: 0px solid #ccc; /* border */
-    background: linear-gradient(to bottom, #00eeff98, #074495);
+    background: linear-gradient(to bottom, #00eeff98, #030b0834);
     max-width: 400px; /* maksimal lebar 400px */
     box-sizing: border-box; /* menghitung ukuran dengan padding dan border */
-    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0, 0, 0, 0.116);
   }
   .custom-select:hover {
     transform: translateY(-1px);
@@ -1912,7 +1912,7 @@ font-weight: bold;
 
 #output32 {
   height: 200px;
-  
+  overflow-y: auto;
   margin: 50px 0;
   padding: 20px;
   color: #ffffff;
@@ -1970,7 +1970,7 @@ font-weight: bold;
   }
 }
 #interim-text {
-color: #0059ff;
+color: #0059ffae;
 background-color: #fffcfc;
 border-radius: 10px;
  
@@ -2087,8 +2087,8 @@ height: 70px;
   margin: 2px;
   cursor: pointer;
   border: none;
-  background: linear-gradient(to bottom, #ee6300, #aa2929);
-  color: rgba(255, 255, 255, 0.599);
+  background: linear-gradient(to bottom, #ee6300, #af3a3a);
+  color: rgb(255, 255, 255);
   font-weight: bold;
   border-radius: 10px;
   box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
@@ -2107,7 +2107,7 @@ height: 70px;
   margin: 2px;
   cursor: pointer;
   border: none;
-  background: linear-gradient(to bottom, #00eeff98, #074495);
+  background: linear-gradient(to bottom, #00eeff98, #030b0834);
   color: rgb(255, 255, 255);
   font-weight: bold;
   border-radius: 10px;
