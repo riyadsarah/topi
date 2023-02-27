@@ -5177,6 +5177,117 @@ const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a"
 
 </script>
 
+<br>
+<h1>Contoh Suara ke Teks</h1>
+
+<button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
+<button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
+<div id="output-text7"></div><br>
+<div id="interim-text"></div>
+
+
+
+
+<script>
+const recognition = new window.webkitSpeechRecognition();
+const outputText = document.getElementById('output-text7');
+const interimText = document.getElementById('interim-text');
+const startBtn = document.getElementById('start-btn');
+const stopBtn = document.getElementById('stop-btn');
+
+// konfigurasi pengenalan suara
+recognition.lang = 'id-ID'; // kode bahasa Indonesia
+recognition.continuous = true; // terus-menerus mendengarkan
+recognition.interimResults = true; // menampilkan hasil sementara
+
+let interimTranscripts = [];
+
+// fungsi untuk menampilkan hasil sementara dan menyembunyikannya jika tidak ada suara yang masuk
+function showInterimTranscripts() {
+  if (interimTranscripts.length > 0) {
+    interimText.style.display = 'block';
+    interimText.innerHTML = interimTranscripts.join('');
+  } else {
+    interimText.style.display = 'none';
+    interimText.innerHTML = '';
+  }
+}
+
+// ketika terdapat hasil suara yang dikenali
+recognition.onresult = function(event) {
+  interimTranscripts = [];
+  for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+    const transcript = event.results[i][0].transcript;
+    if (event.results[i].isFinal) {
+      // jika hasil akhir, tampilkan ke layar
+      outputText.innerHTML += transcript;
+      // tambahkan teks hasil pengenalan suara ke input teks di WhatsApp
+      document.querySelector('[contenteditable]').innerHTML = outputText.innerHTML;
+      // kirim pesan secara otomatis di WhatsApp
+      document.querySelector('[data-icon="send"]').click();
+      // reset hasil pengenalan suara dan input teks di WhatsApp
+      outputText.innerHTML = '';
+      document.querySelector('[contenteditable]').innerHTML = '';
+    } else {
+      // jika hasil sementara, tambahkan ke interimTranscripts
+      interimTranscripts.push(transcript);
+    }
+  }
+  showInterimTranscripts();
+};
+
+// ketika tidak ada suara yang masuk, sembunyikan hasil sementara
+recognition.onsoundend = function() {
+  interimTranscripts = [];
+  showInterimTranscripts();
+};
+
+function startRecognition() {
+  // mulai pengenalan suara
+  recognition.start();
+  // set class untuk tombol mulai
+  startBtn.classList.add('recording');
+  // tampilkan tombol berhenti dan sembunyikan tombol mulai
+  startBtn.style.display = 'none';
+  stopBtn.style.display = 'inline-block';
+}
+
+
+function stopRecognition() {
+  // berhenti pengenalan suara
+  recognition.stop();
+  // hapus class dari tombol mulai
+  startBtn.classList.remove('recording');
+  // tampilkan tombol mulai dan sembunyikan tombol berhenti
+  startBtn.style.display = 'inline-block';
+  stopBtn.style.display = 'none';
+  // sembunyikan hasil sementara
+  interimTranscripts = [];
+  showInterimTranscripts();
+}
+// sembunyikan hasil sementara saat memuat halaman
+interimText.style.display = 'none';
+
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
+    startRecognition();
+  } else if (event.key === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara
+    stopRecognition();
+    navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
+  }
+});
+
+
+
+
+
+
+</script>
+
+
+
+
 
  
 <br><br>
