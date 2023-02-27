@@ -5270,15 +5270,14 @@ function stopRecognition() {
 interimText.style.display = 'none';
 
 
-window.addEventListener("keydown", function(event) {
-  if (event.code === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
+document.addEventListener("keydown", function(event) {
+  if (event.key === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
     startRecognition();
-  } else if (event.code === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara dan menyalin output text 7
+  } else if (event.key === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara
     stopRecognition();
     navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
   }
 });
-
 
 
 
