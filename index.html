@@ -5190,7 +5190,11 @@ const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a"
 </script>
 
 
-
+<button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
+<button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
+<br><br>
+<pre id="output-text7"></pre><br>
+<p id="interim-text"></p>
 <script>
 const recognition = new window.webkitSpeechRecognition();
 const outputText = document.getElementById('output-text7');
@@ -5198,10 +5202,21 @@ const interimText = document.getElementById('interim-text');
 const startBtn = document.getElementById('start-btn');
 const stopBtn = document.getElementById('stop-btn');
 
+const punctuation = {
+  "mantap": "👍",
+  "haha": "😂😂",
+  "wkwk": "wkwk🤣🤣",
+  "tanda seru": "!",
+  "titik": ".",
+  "koma": ",",
+  "r": "RIYAD FIRDAUS",
+  "spasi bawah": "<br>",
+};
+
 // konfigurasi pengenalan suara
 recognition.lang = 'id-ID'; // kode bahasa Indonesia
 recognition.continuous = true; // terus-menerus mendengarkan
-recognition.interimResults = true; // menampilkan hasil sementara
+recognition.interimResults = false; // menampilkan hasil sementara
 
 let interimTranscripts = [];
 
@@ -5222,28 +5237,36 @@ recognition.onresult = function(event) {
   for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
     const transcript = event.results[i][0].transcript;
     if (event.results[i].isFinal) {
-      // jika hasil akhir, tampilkan ke layar
-      outputText.innerHTML += transcript;
-      // tambahkan teks hasil pengenalan suara ke input teks di WhatsApp
-      document.querySelector('[contenteditable]').innerHTML = outputText.innerHTML;
-      // kirim pesan secara otomatis di WhatsApp
-      document.querySelector('[data-icon="send"]').click();
-      // reset hasil pengenalan suara dan input teks di WhatsApp
-      outputText.innerHTML = '';
-      document.querySelector('[contenteditable]').innerHTML = '';
+      let output = transcript;
+      for (let word in punctuation) {
+        const pattern = new RegExp("\\b" + word + "\\b", "gi");
+        output = output.replace(pattern, punctuation[word]);
+      }
+      outputText.innerHTML += output;
+
+      // hapus satu kalimat
+      if (output.toLowerCase().includes("delete")) {
+  const outputText = document.getElementById("output-text7");
+  const sentences = outputText.innerHTML.trim().split(".");
+  sentences.pop();
+  outputText.innerHTML = sentences.join(".");
+}
+
+      // hapus semua teks
+      if (output.toLowerCase().includes("delete all")) {
+        outputText.innerHTML = "";
+      }
+
     } else {
-      // jika hasil sementara, tambahkan ke interimTranscripts
       interimTranscripts.push(transcript);
-    }
+    }  
   }
-  showInterimTranscripts();
+  
+  showInterimTranscripts(); 
 };
 
-// ketika tidak ada suara yang masuk, sembunyikan hasil sementara
-recognition.onsoundend = function() {
-  interimTranscripts = [];
-  showInterimTranscripts();
-};
+
+
 
 function startRecognition() {
   // mulai pengenalan suara
@@ -5254,8 +5277,6 @@ function startRecognition() {
   startBtn.style.display = 'none';
   stopBtn.style.display = 'inline-block';
 }
-
-
 function stopRecognition() {
   // berhenti pengenalan suara
   recognition.stop();
@@ -5267,7 +5288,10 @@ function stopRecognition() {
   // sembunyikan hasil sementara
   interimTranscripts = [];
   showInterimTranscripts();
+  // salin output teks ke clipboard
+  navigator.clipboard.writeText(outputText.innerText);
 }
+
 // sembunyikan hasil sementara saat memuat halaman
 interimText.style.display = 'none';
 
@@ -5280,8 +5304,6 @@ document.addEventListener("keydown", function(event) {
     navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
   }
 });
-
-
 
 
 
