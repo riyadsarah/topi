@@ -5178,15 +5178,13 @@ const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a"
 </script>
 
 <br>
-<h1>Contoh Suara ke Teks</h1>
+
 
 <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
 <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
+<br>
 <div id="output-text7"></div><br>
 <div id="interim-text"></div>
-
-
-
 
 <script>
 const recognition = new window.webkitSpeechRecognition();
@@ -5269,14 +5267,6 @@ function stopRecognition() {
 interimText.style.display = 'none';
 
 
-document.addEventListener("keydown", function(event) {
-  if (event.key === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
-    startRecognition();
-  } else if (event.key === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara
-    stopRecognition();
-    navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
-  }
-});
 
 
 
