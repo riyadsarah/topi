@@ -5196,7 +5196,7 @@ const stopBtn = document.getElementById('stop-btn');
 // konfigurasi pengenalan suara
 recognition.lang = 'id-ID'; // kode bahasa Indonesia
 recognition.continuous = true; // terus-menerus mendengarkan
-recognition.interimResults = true; // menampilkan hasil sementara
+recognition.interimResults = false; // menampilkan hasil sementara
 
 let interimTranscripts = [];
 
@@ -5267,6 +5267,14 @@ function stopRecognition() {
 interimText.style.display = 'none';
 
 
+document.addEventListener("keydown", function(event) {
+  if (event.key === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
+    startRecognition();
+  } else if (event.key === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara
+    stopRecognition();
+    navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
+  }
+});
 
 
 
