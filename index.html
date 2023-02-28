@@ -5310,8 +5310,11 @@ berikut hasilnya :
   window.location.href = "https://wa.me/?text=" + encodeURIComponent(outputText.innerText);
 }
 const goToFooter = () => {
-  const footerSection = document.getElementById('footerSection');
-  footerSection.scrollIntoView({ behavior: 'smooth' });
+ // Pindah ke bagian footer
+const footerSection = document.getElementById("footerSection");
+window.scrollTo(0, footerSection.offsetTop);
+
+  
 }
 
 recognition.onresult = function (event) {
