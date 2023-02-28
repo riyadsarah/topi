@@ -5193,6 +5193,8 @@ const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a"
 <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
 <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
 <br><br>
+<div id="copied-msg" style="display: none;">Copied!</div>
+
 <pre id="output-text7"></pre><br>
 <p id="interim-text"></p>
 <script>
@@ -5207,20 +5209,23 @@ const punctuation = {
   "haha": "😂😂",
   "wkwk": "wkwk🤣🤣",
   "tanda seru": "!",
-  "titik": ".",
+  "tanda titik": ".",
+  "titik dua": ":",
   "koma": ",",
   "r": "RIYAD FIRDAUS",
+  "z": "MUHAMMAD FAJRI SIDIK RIDWANILLAH AL FIRDAUS",
   "spasi bawah": "<br>",
 };
 
+let isRecording = false; // tambahkan variabel isRecording
+
 // konfigurasi pengenalan suara
-recognition.lang = 'id-ID'; // kode bahasa Indonesia
-recognition.continuous = true; // terus-menerus mendengarkan
-recognition.interimResults = false; // menampilkan hasil sementara
+recognition.lang = 'id-ID';
+recognition.continuous = true;
+recognition.interimResults = true;
 
 let interimTranscripts = [];
 
-// fungsi untuk menampilkan hasil sementara dan menyembunyikannya jika tidak ada suara yang masuk
 function showInterimTranscripts() {
   if (interimTranscripts.length > 0) {
     interimText.style.display = 'block';
@@ -5230,56 +5235,90 @@ function showInterimTranscripts() {
     interimText.innerHTML = '';
   }
 }
-
-// ketika terdapat hasil suara yang dikenali
 recognition.onresult = function(event) {
   interimTranscripts = [];
   for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
     const transcript = event.results[i][0].transcript;
     if (event.results[i].isFinal) {
       let output = transcript;
+      if (output.toLowerCase().includes("stop")) {
+        stopRecognition();
+        return;
+      }
       for (let word in punctuation) {
         const pattern = new RegExp("\\b" + word + "\\b", "gi");
         output = output.replace(pattern, punctuation[word]);
       }
-      outputText.innerHTML += output;
-
-      // hapus satu kalimat
-      if (output.toLowerCase().includes("delete")) {
-  const outputText = document.getElementById("output-text7");
-  const sentences = outputText.innerHTML.trim().split(".");
-  sentences.pop();
-  outputText.innerHTML = sentences.join(".");
+      if (output.toLowerCase().includes("salin")) {
+        navigator.clipboard.writeText(outputText.innerText);
+        console.log("Teks berhasil dicopy ke clipboard!");
+      } else if (output.toLowerCase().includes("hapus")) {
+  if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
+    outputText.innerHTML = "";
+  } else if (output.toLowerCase().includes("dua")) { // hapus dua kalimat terakhir
+    const sentences = outputText.innerHTML.trim().split(" ");
+    if (sentences.length >= 2) {
+      sentences.splice(sentences.length - 2, 2);
+      outputText.innerHTML = sentences.join(" ");
+    } else {
+      outputText.innerHTML = "";
+    }
+  } else if (output.toLowerCase().includes("3")) { // hapus tiga kalimat terakhir
+    const sentences = outputText.innerHTML.trim().split(" ");
+    if (sentences.length >= 3) {
+      sentences.splice(sentences.length - 3, 3);
+      outputText.innerHTML = sentences.join(" ");
+    } else {
+      outputText.innerHTML = "";
+    }
+  } else if (output.toLowerCase().includes("4")) { // hapus empat kalimat terakhir
+    const sentences = outputText.innerHTML.trim().split(" ");
+    if (sentences.length >= 4) {
+      sentences.splice(sentences.length - 4, 4);
+      outputText.innerHTML = sentences.join(" ");
+    } else {
+      outputText.innerHTML = "";
+    }
+  } else {
+    const sentences = outputText.innerHTML.trim().split(" ");
+    let lastSentence = sentences[sentences.length - 1].trim();
+    if (lastSentence === "") {
+      // jika kalimat terakhir kosong, maka hapus kalimat sebelumnya
+      sentences.pop();
+    } else {
+      // jika kalimat terakhir tidak kosong, hapus kalimat terakhir
+      sentences[sentences.length - 1] = sentences[sentences.length - 1].replace(lastSentence, "").replace(" ", "").trim();
+    }
+    outputText.innerHTML = sentences.join(" ");
+  }
 }
-
-      // hapus semua teks
-      if (output.toLowerCase().includes("delete all")) {
-        outputText.innerHTML = "";
+ else {
+        outputText.innerHTML += output;
       }
-
     } else {
       interimTranscripts.push(transcript);
-    }  
+    }
   }
-  
-  showInterimTranscripts(); 
+  showInterimTranscripts();
 };
 
 
 
 
 function startRecognition() {
-  // mulai pengenalan suara
   recognition.start();
-  // set class untuk tombol mulai
+  isRecording = true; // ubah nilai variabel isRecording menjadi true
   startBtn.classList.add('recording');
-  // tampilkan tombol berhenti dan sembunyikan tombol mulai
   startBtn.style.display = 'none';
   stopBtn.style.display = 'inline-block';
 }
+
+
+
+
 function stopRecognition() {
-  // berhenti pengenalan suara
   recognition.stop();
+  isRecording = false;
   // hapus class dari tombol mulai
   startBtn.classList.remove('recording');
   // tampilkan tombol mulai dan sembunyikan tombol berhenti
@@ -5288,9 +5327,8 @@ function stopRecognition() {
   // sembunyikan hasil sementara
   interimTranscripts = [];
   showInterimTranscripts();
-  // salin output teks ke clipboard
-  navigator.clipboard.writeText(outputText.innerText);
 }
+
 
 // sembunyikan hasil sementara saat memuat halaman
 interimText.style.display = 'none';
