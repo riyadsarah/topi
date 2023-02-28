@@ -5228,10 +5228,12 @@ berikut hasilnya :
       const stopBtn = document.getElementById('stop-btn');
       const punctuation = {
         "tanda seru": "!",
+        "tanda tanya": "?",
         "tanda titik": ".",
         "titik dua": ":",
         "tanda koma": ",",
         "spasi bawah": "<br>",
+        "hihihi": "🤭🤭",
       };
       let isRecording = false; // tambahkan variabel isRecording
       // konfigurasi pengenalan suara
@@ -5265,7 +5267,7 @@ berikut hasilnya :
             }
             if (output.toLowerCase().includes("salin")) {
               navigator.clipboard.writeText(outputText.innerText);
-              alert("Berhasil menyalin!");
+              
               copiedMsg.style.display = "block"; // tambahkan baris ini
             } else if (output.toLowerCase().includes("hapus")) {
               if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
