@@ -141,9 +141,12 @@
     </div><br>
     <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
     <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
+    <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa fa-share"></i></button>
     <br><br>
+
     <div id="output-text7"></div><br>
-    <div id="interim-text"></div>
+    <div id="interim-text"></div><br>
+   
   </div><br>
 
   <div class="container-b">
@@ -4602,6 +4605,27 @@ berikut hasilnya :
         window.location.href = shareUrl;
       }
     </script>
+    
+    <script>
+       function salinTeks19() {
+        const output6 = document.getElementById("output6");
+        const range = document.createRange();
+        range.selectNode(output6);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
+
+      }
+
+      function bagikanTeks768() {
+        const outputtext7 = document.getElementById("outputtext7").textContent;
+        const encodedText = encodeURIComponent(outputtext7);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
 
 
@@ -5213,13 +5237,7 @@ berikut hasilnya :
     </script>
 
 
-    <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
-    <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
-    <div id="copied-msg" style="display: none;">Copied!</div>
-    <br><br>
-    <div id="copied-msg" style="display: none;">Copied!</div>
-    <pre id="output-text7"></pre><br>
-    <p id="interim-text"></p>
+    
     <script>
       const recognition = new window.webkitSpeechRecognition();
       const outputText = document.getElementById('output-text7');
@@ -5228,12 +5246,39 @@ berikut hasilnya :
       const stopBtn = document.getElementById('stop-btn');
       const punctuation = {
         "tanda seru": "!",
-        "tanda tanya": "?",
-        "tanda titik": ".",
-        "titik dua": ":",
-        "tanda koma": ",",
+  "tanda tanya": "?",
+  "tanda titik": ".",
+  "titik dua": ":",
+  "tanda koma": ",",
+  "tanda strip": "-",
+  "tanda kurung buka": "(",
+  "tanda kurung tutup": ")",
+  "tanda kurung kotak buka": "[",
+  "tanda kurung kotak tutup": "]",
+  "tanda kurung kurawal buka": "{",
+  "tanda kurung kurawal tutup": "}",
+  "tanda petik satu": "'",
+  "tanda petik dua": "\"",
+  "tanda tilde": "~",
+  "tanda titik koma": ";",
+  "tanda tiga titik": "...",
+  "tanda obelus": "÷",
+  "tanda persen": "%",
+  "tanda asterisk": "*",
+  "tanda tambah": "+",
+  "tanda sama dengan": "=",
+  "tanda panah kanan": ">",
+  "tanda panah kiri": "<",
+  "tanda garis miring": "/",
+  "tanda backslash": "\\",
         "spasi bawah": "<br>",
-        "hihihi": "🤭🤭",
+        "hehehe": "🤭🤭",
+        "r": "MUHAMMAD Ⓡⓘⓨⓐⓓ FIRDAUS",
+        "Z": "MUHAMMAD FAZRI SIDIK ",
+        "mantap": "👍👍👍",
+        "emot batu": "🗿🗿🗿",
+        "poin": "<br>• ",
+
       };
       let isRecording = false; // tambahkan variabel isRecording
       // konfigurasi pengenalan suara
@@ -5251,75 +5296,81 @@ berikut hasilnya :
           interimText.innerHTML = '';
         }
       }
-      recognition.onresult = function (event) {
-        interimTranscripts = [];
-        for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
-          const transcript = event.results[i][0].transcript;
-          if (event.results[i].isFinal) {
-            let output = transcript;
-            if (output.toLowerCase().includes("stop")) {
-              stopRecognition();
-              return;
-            }
-            for (let word in punctuation) {
-              const pattern = new RegExp("\\b" + word + "\\b", "gi");
-              output = output.replace(pattern, punctuation[word]);
-            }
-            if (output.toLowerCase().includes("salin")) {
-              navigator.clipboard.writeText(outputText.innerText);
-              
-              copiedMsg.style.display = "block"; // tambahkan baris ini
-            } else if (output.toLowerCase().includes("hapus")) {
-              if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
-                outputText.innerHTML = "";
-              } else if (output.toLowerCase().includes("dua")) { // hapus dua kalimat terakhir
-                const sentences = outputText.innerHTML.trim().split(" ");
-                if (sentences.length >= 2) {
-                  sentences.splice(sentences.length - 2, 2);
-                  outputText.innerHTML = sentences.join(" ");
-                } else {
-                  outputText.innerHTML = "";
-                }
-              } else if (output.toLowerCase().includes("3")) { // hapus tiga kalimat terakhir
-                const sentences = outputText.innerHTML.trim().split(" ");
-                if (sentences.length >= 3) {
-                  sentences.splice(sentences.length - 3, 3);
-                  outputText.innerHTML = sentences.join(" ");
-                } else {
-                  outputText.innerHTML = "";
-                }
-              } else if (output.toLowerCase().includes("4")) { // hapus empat kalimat terakhir
-                const sentences = outputText.innerHTML.trim().split(" ");
-                if (sentences.length >= 4) {
-                  sentences.splice(sentences.length - 4, 4);
-                  outputText.innerHTML = sentences.join(" ");
-                } else {
-                  outputText.innerHTML = "";
-                }
-              } else {
-                const sentences = outputText.innerHTML.trim().split(" ");
-                let lastSentence = sentences[sentences.length - 1].trim();
-                if (lastSentence === "") {
-                  // jika kalimat terakhir kosong, maka hapus kalimat sebelumnya
-                  sentences.pop();
-                } else {
-                  // jika kalimat terakhir tidak kosong, hapus kalimat terakhir
-                  sentences[sentences.length - 1] = sentences[sentences.length - 1].replace(lastSentence, "").replace(
-                    " ", "").trim();
-                }
-                outputText.innerHTML = sentences.join(" ");
-              }
-            } else {
-              outputText.innerHTML += output;
-            }
-            document.getElementById("copied-msg").style.display = "block";
 
+
+      const shareToWhatsApp = () => {
+  window.location.href = "https://wa.me/?text=" + encodeURIComponent(outputText.innerText);
+}
+
+recognition.onresult = function (event) {
+  interimTranscripts = [];
+  for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+    const transcript = event.results[i][0].transcript;
+    if (event.results[i].isFinal) {
+      let output = transcript;
+      if (output.toLowerCase().includes("stop")) {
+        stopRecognition();
+        return;
+      }
+      for (let word in punctuation) {
+        const pattern = new RegExp("\\b" + word + "\\b", "gi");
+        output = output.replace(pattern, punctuation[word]);
+      }
+      if (output.toLowerCase().includes("salin")) {
+        navigator.clipboard.writeText(outputText.innerText);
+        copiedMsg.style.display = "block";
+      } else if (output.toLowerCase().includes("delet")) {
+        if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
+          outputText.innerHTML = "";
+        } else if (output.toLowerCase().includes("2")) { // hapus dua kalimat terakhir
+          const sentences = outputText.innerHTML.trim().split(" ");
+          if (sentences.length >= 2) {
+            sentences.splice(sentences.length - 2, 2);
+            outputText.innerHTML = sentences.join(" ");
           } else {
-            interimTranscripts.push(transcript);
+            outputText.innerHTML = "";
           }
+        } else if (output.toLowerCase().includes("3")) { // hapus tiga kalimat terakhir
+          const sentences = outputText.innerHTML.trim().split(" ");
+          if (sentences.length >= 3) {
+            sentences.splice(sentences.length - 3, 3);
+            outputText.innerHTML = sentences.join(" ");
+          } else {
+            outputText.innerHTML = "";
+          }
+        } else if (output.toLowerCase().includes("4")) { // hapus empat kalimat terakhir
+          const sentences = outputText.innerHTML.trim().split(" ");
+          if (sentences.length >= 4) {
+            sentences.splice(sentences.length - 4, 4);
+            outputText.innerHTML = sentences.join(" ");
+          } else {
+            outputText.innerHTML = "";
+          }
+        } else {
+          const sentences = outputText.innerHTML.trim().split(" ");
+          let lastSentence = sentences[sentences.length - 1].trim();
+          if (lastSentence === "") {
+            // jika kalimat terakhir kosong, maka hapus kalimat sebelumnya
+            sentences.pop();
+          } else {
+            // jika kalimat terakhir tidak kosong, hapus kalimat terakhir
+            sentences[sentences.length - 1] = sentences[sentences.length - 1].replace(lastSentence, "").replace(
+              " ", "").trim();
+          }
+          outputText.innerHTML = sentences.join(" ");
         }
-        showInterimTranscripts();
-      };
+      } else if (output.toLowerCase().includes("share ke whatsapp")) {
+        shareToWhatsApp();
+      } else {
+        outputText.innerHTML += output;
+      }
+      document.getElementById("copied-msg").style.display = "block";
+    } else {
+      interimTranscripts.push(transcript);
+    }
+  }
+  showInterimTranscripts();
+};
 
       function startRecognition() {
         recognition.start();
@@ -5351,6 +5402,7 @@ berikut hasilnya :
           navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
         }
       });
+    
     </script>
 
 
