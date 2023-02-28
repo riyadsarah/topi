@@ -131,68 +131,69 @@
       <img src="img/7.img.jpeg" alt="Topi 4">
     </div>
   </div>
-  
+
 
   <br><br>
- <p id="judulProduk">FITUR TERBARU</p>
- <div class="container-b">
-  <div class="title-container">
-    <h1 class="title">Suara ke teks</h1>
+  <p id="judulProduk">FITUR TERBARU</p>
+  <div class="container-b">
+    <div class="title-container">
+      <h1 class="title">Suara ke teks</h1>
+    </div><br>
+    <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
+    <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
+    <br><br>
+    <div id="output-text7"></div><br>
+    <div id="interim-text"></div>
   </div><br>
- <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
- <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
- <br><br>
- <div id="output-text7"></div><br>
- <div id="interim-text"></div></div><br>
 
   <div class="container-b">
     <div class="title-container">
       <h1 class="title">Cari kalimat</h1>
     </div><br>
-  <div>
-    <textarea id="story-textarea" rows="10" cols="50" placeholder="Masukkan cerita Anda di sini"></textarea>
-    <br>
-    <label for="search-keywords">Kata kunci:</label>
-    <input type="text" id="search-keywords" placeholder="Masukkan kata kunci di sini">
-    <button type="button11" onclick="search()">Cari</button>
-    <br><br>
-    <pre id="story-results"></pre>
-  </div>
+    <div>
+      <textarea id="story-textarea" rows="10" cols="50" placeholder="Masukkan cerita Anda di sini"></textarea>
+      <br>
+      <label for="search-keywords">Kata kunci:</label>
+      <input type="text" id="search-keywords" placeholder="Masukkan kata kunci di sini">
+      <button type="button11" onclick="search()">Cari</button>
+      <br><br>
+      <pre id="story-results"></pre>
+    </div>
   </div><br>
   <div class="container-b">
     <div class="title-container">
       <h1 class="title">Hitung pendapatan detail <i class="fa-solid fa-magnifying-glass-dollar"></i></h1>
       <p>Hitungan(30h/bulan)</p>
-  
-    </div>
-  
-  <select class="custom-select" id="inputPendapatan">
-    <option value="detik">Pendapatan per detik</option>
-    <option value="menit">Pendapatan per menit</option>
-    <option value="jam">Pendapatan per jam</option>
-    <option value="hari">Pendapatan per hari</option>
-    <option value="bulan">Pendapatan per bulan</option>
-    <option value="tahun">Pendapatan per tahun</option>
-  </select>
-  <input type="text" id="inputNilai" placeholder="Total pendapatan">
-  <br><br>
-  <div>
-    <button type="button11" onclick="hitung3()">Hitung</button>
-  </div>
-  <div>
-  
-    <button type="button11"  onclick="location.reload()"><i class="fas fa-undo"></i></button>
-    <button type="button11" onclick="salinTeks18()"><i class="fa fa-copy"></i></button>
-    <button type="button11" onclick="bagikanTeks18()"><i class="fa fa-share"></i></button>
-  </div>
-  
-  
-  
-  <div id="output6"></div>
 
-  <div>
-<canvas id="donutChart"></canvas>
-</div>
+    </div>
+
+    <select class="custom-select" id="inputPendapatan">
+      <option value="detik">Pendapatan per detik</option>
+      <option value="menit">Pendapatan per menit</option>
+      <option value="jam">Pendapatan per jam</option>
+      <option value="hari">Pendapatan per hari</option>
+      <option value="bulan">Pendapatan per bulan</option>
+      <option value="tahun">Pendapatan per tahun</option>
+    </select>
+    <input type="text" id="inputNilai" placeholder="Total pendapatan">
+    <br><br>
+    <div>
+      <button type="button11" onclick="hitung3()">Hitung</button>
+    </div>
+    <div>
+
+      <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
+      <button type="button11" onclick="salinTeks18()"><i class="fa fa-copy"></i></button>
+      <button type="button11" onclick="bagikanTeks18()"><i class="fa fa-share"></i></button>
+    </div>
+
+
+
+    <div id="output6"></div>
+
+    <div>
+      <canvas id="donutChart"></canvas>
+    </div>
 
   </div>
   <br><br>
@@ -403,7 +404,7 @@
 
 
 
-      
+
 
       <div> <button type="button10" class="close3"><i class="fa-solid fa-circle-xmark"></i></button></div>
       <br><br>
@@ -447,9 +448,9 @@
 
     </button>
     <div id="myModal2" class="modal2">
-      
 
-    
+
+
 
 
       <div class="container-b">
@@ -463,7 +464,7 @@
         <div>
           <label for="barcode-color">Barcode Color:</label>
           <input type="color" id="barcode-color" value="#000000">
-     
+
 
           <label for="qr-color">QR Code Color:</label>
           <input type="color" id="qr-color" value="#000000">
@@ -754,107 +755,109 @@
       </script>
 
       <br>
-      
-<div class="container-b">
-  <div class="title-container">
-    <h1 class="title">Kalkulator praktis dagang</h1>
 
-  </div><br>
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator praktis dagang</h1>
 
-
-  <input  id="hasil47" >  </input>
-<textarea  id="inputKalkulator" ></textarea>
+        </div><br>
 
 
-<input type="number" id="inputUang" placeholder="Masukkan uang pembeli" min="0">
+        <input id="hasil47"> </input>
+        <textarea id="inputKalkulator"></textarea>
+
+
+        <input type="number" id="inputUang" placeholder="Masukkan uang pembeli" min="0">
 
 
 
-    
-    <div>
-    <tr>
-    
-      <td> <button class="button-na " type="button-ng" onclick="hapusSemua()">AC</button></td>
-      <td> <button class="button-ng " type="button-ng" value="*"><i class="fa-solid fa-xmark"></i></button></td>
-      <td> <button class="button-ng " type="button-ng" value="/"><i class="fa-solid fa-divide"></i></button></td>
-      <td> <button class="button-ng " type="button-ng" value="-"><i class="fa-solid fa-minus"></i></button></td>
-    </tr>
-  </div>
-  <div>
-    <tr>
-      <td> <button class="button-nb " type="button-nb" value="7">7</button></td>
-      <td> <button class="button-nb " type="button-nb" value="8">8</button></td>
-      <td> <button class="button-nb " type="button-nb" value="9">9</button></td>
-      <td> <button class="button-ng " type="button-ng" value="+"><i class="fa-solid fa-plus"></i></button></td>
-     
-    </tr>
-  </div>
-  <div>
-    <tr>
-      <td><button class="button-nb " type="button-nb" value="4">4</button></td>
-      <td> <button class="button-nb " type="button-nb" value="5">5</button></td>
-      <td> <button class="button-nb " type="button-nb" value="6">6</button></td>
-      <td><button class="button-na" type="button-nb" onclick="tampilkankesimpulan()"><i class="fa-solid fa-file-signature"></i></button></td>
-     
-    </tr>
-  </div>
-  <div>
-    <tr>
-      <td> <button class="button-nb " type="button-nb" value="1">1</button></td>
-      <td> <button class="button-nb " type="button-nb" value="2">2</button></td>
-      <td> <button class="button-nb " type="button-nb" value="3">3</button></td>
-      <button class="button-na " type="button-ng" onclick="reset76()"><i class="fas fa-undo"></i></button>
-    
-     
-    </tr>
-  </div>
-  <div>
-    <tr>
-      <td><button class="button-nbc " type="button-nb" value="00">00</button></td>
-    
 
-     
-      <td> <button class="button-nbc " type="button-nb" value="0">0</button></td>
-        
-        <td><button class="button-nbc " type="button-nb" value="000">000</button></td>
-        <td><button class="button-na " type="button-ng" onclick="hapusSatu()"><i
-          class="fa-solid fa-delete-left"></i></button></td>
-         
-     
-</div>
-    </tr><br>
-    <button type="button11" onclick="salinTeks13()"><i class="fa fa-copy"></i></button>
-          <button type="button11" onclick="bagikanTeks13()"><i class="fa fa-share"></i></button>
-        
-    <div id="output32"></div>
+        <div>
+          <tr>
 
-  </div><br><br><br>
+            <td> <button class="button-na " type="button-ng" onclick="hapusSemua()">AC</button></td>
+            <td> <button class="button-ng " type="button-ng" value="*"><i class="fa-solid fa-xmark"></i></button></td>
+            <td> <button class="button-ng " type="button-ng" value="/"><i class="fa-solid fa-divide"></i></button></td>
+            <td> <button class="button-ng " type="button-ng" value="-"><i class="fa-solid fa-minus"></i></button></td>
+          </tr>
+        </div>
+        <div>
+          <tr>
+            <td> <button class="button-nb " type="button-nb" value="7">7</button></td>
+            <td> <button class="button-nb " type="button-nb" value="8">8</button></td>
+            <td> <button class="button-nb " type="button-nb" value="9">9</button></td>
+            <td> <button class="button-ng " type="button-ng" value="+"><i class="fa-solid fa-plus"></i></button></td>
 
-  <div class="container-b">
-    <div class="title-container">
-      <h1 class="title">Kalkulator membuat diskon</h1>
-  
-    </div><br>
-  
-<label for="harga-setelah-diskon">Harga barang:</label>
-<input type="number" id="harga-setelah-diskon" placeholder="HARGA BARANG">
-<br>
-<label for="diskon">Diskon (%):</label>
-<input type="number" id="diskon" placeholder="Tentukan angka diskon">
-<br>
-<div>
-<button type="button" id="hitung-harga-awal">Hitung Harga Awal</button>
-</div><br>
-<div>
-  <button type="button" id="reset53"><i class="fas fa-undo"></i></button>
-  <button type="button" onclick="salinTeks14()"><i class="fa fa-copy"></i></button>
-  <button type="button" onclick="bagikanTeks14()"><i class="fa fa-share"></i></button>
-</div>
-<br><br>
+          </tr>
+        </div>
+        <div>
+          <tr>
+            <td><button class="button-nb " type="button-nb" value="4">4</button></td>
+            <td> <button class="button-nb " type="button-nb" value="5">5</button></td>
+            <td> <button class="button-nb " type="button-nb" value="6">6</button></td>
+            <td><button class="button-na" type="button-nb" onclick="tampilkankesimpulan()"><i
+                  class="fa-solid fa-file-signature"></i></button></td>
 
-<div id="hasil0"></div></div>
-  <button type="button10" class="close2"><i class="fa-solid fa-circle-xmark"></i></button>
-    
+          </tr>
+        </div>
+        <div>
+          <tr>
+            <td> <button class="button-nb " type="button-nb" value="1">1</button></td>
+            <td> <button class="button-nb " type="button-nb" value="2">2</button></td>
+            <td> <button class="button-nb " type="button-nb" value="3">3</button></td>
+            <button class="button-na " type="button-ng" onclick="reset76()"><i class="fas fa-undo"></i></button>
+
+
+          </tr>
+        </div>
+        <div>
+          <tr>
+            <td><button class="button-nbc " type="button-nb" value="00">00</button></td>
+
+
+
+            <td> <button class="button-nbc " type="button-nb" value="0">0</button></td>
+
+            <td><button class="button-nbc " type="button-nb" value="000">000</button></td>
+            <td><button class="button-na " type="button-ng" onclick="hapusSatu()"><i
+                  class="fa-solid fa-delete-left"></i></button></td>
+
+
+        </div>
+        </tr><br>
+        <button type="button11" onclick="salinTeks13()"><i class="fa fa-copy"></i></button>
+        <button type="button11" onclick="bagikanTeks13()"><i class="fa fa-share"></i></button>
+
+        <div id="output32"></div>
+
+      </div><br><br><br>
+
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator membuat diskon</h1>
+
+        </div><br>
+
+        <label for="harga-setelah-diskon">Harga barang:</label>
+        <input type="number" id="harga-setelah-diskon" placeholder="HARGA BARANG">
+        <br>
+        <label for="diskon">Diskon (%):</label>
+        <input type="number" id="diskon" placeholder="Tentukan angka diskon">
+        <br>
+        <div>
+          <button type="button" id="hitung-harga-awal">Hitung Harga Awal</button>
+        </div><br>
+        <div>
+          <button type="button" id="reset53"><i class="fas fa-undo"></i></button>
+          <button type="button" onclick="salinTeks14()"><i class="fa fa-copy"></i></button>
+          <button type="button" onclick="bagikanTeks14()"><i class="fa fa-share"></i></button>
+        </div>
+        <br><br>
+
+        <div id="hasil0"></div>
+      </div>
+      <button type="button10" class="close2"><i class="fa-solid fa-circle-xmark"></i></button>
+
       <br><br><br>
       <script>
         // Get the modal
@@ -944,7 +947,7 @@
         </select>
         <div>
           <p class="title">Dinding (m): </p>
-          <input type="number"  id="panjang" name="panjang" autofocus placeholder="Panjang">
+          <input type="number" id="panjang" name="panjang" autofocus placeholder="Panjang">
 
 
 
@@ -1051,7 +1054,7 @@
 
         <div id="hasil65"></div>
       </div><br><br>
-     
+
       <div class="container-b">
         <div class="title-container">
           <h1 class="title">Kalkulator Pengeluaran uang</h1>
@@ -1095,7 +1098,7 @@
         <script>
           var clipboard = new Clipboard('.btn');
           var chart;
-    
+
           function hitung1() {
             var uang = document.getElementById("uang").value;
             var makan = 0.2 * uang;
@@ -1104,8 +1107,8 @@
             var tabung = 0.4 * uang;
             var lain = 0.25 * uang;
             var sisa = uang - makan - jajan - sedekah - tabung - lain;
-    
-    
+
+
             document.getElementById("input-value").innerHTML = "Total uang Rp. " + formatNumber(uang);
             document.getElementById("makan").innerHTML = "Makan : Rp " + formatNumber(makan);
             document.getElementById("jajan").innerHTML = "Jajan : Rp " + formatNumber(jajan);
@@ -1113,8 +1116,8 @@
             document.getElementById("tabung").innerHTML = "Tabung : Rp " + formatNumber(tabung);
             document.getElementById("lain").innerHTML = "lain-lain : Rp " + formatNumber(lain);
             document.getElementById("sisa").innerHTML = "Sisa : Rp " + formatNumber(sisa);
-    
-    
+
+
             var ctx = document.getElementById("myChart").getContext('2d');
             chart = new Chart(ctx, {
               type: 'doughnut',
@@ -1148,12 +1151,12 @@
                 }
               }
             });
-    
-          
-    
-    
+
+
+
+
           }
-    
+
           function reset454() {
             document.getElementById("input-value").innerHTML = "";
             document.getElementById("uang").value = "";
@@ -1167,7 +1170,7 @@
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
             chart.destroy();
           }
-    
+
           function formatNumber(num) {
             return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
           }
@@ -4317,7 +4320,7 @@ berikut hasilnya :
         window.location.href = shareUrl;
       }
     </script>
-    
+
     <script>
       function salinTeks14() {
         const hasil0 = document.getElementById("hasil0");
@@ -4558,7 +4561,7 @@ berikut hasilnya :
         window.location.href = shareUrl;
       }
     </script>
-     <script>
+    <script>
       function salinTeks13() {
         const output32 = document.getElementById("output32");
         const range = document.createRange();
@@ -4579,30 +4582,30 @@ berikut hasilnya :
       }
     </script>
 
-<script>
-  function salinTeks18() {
-    const output6 = document.getElementById("output6");
-    const range = document.createRange();
-    range.selectNode(output6);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("copy");
-    navigator.vibrate(100); // Menambahkan getar selama 100ms
+    <script>
+      function salinTeks18() {
+        const output6 = document.getElementById("output6");
+        const range = document.createRange();
+        range.selectNode(output6);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
 
-  }
+      }
 
-  function bagikanTeks18() {
-    const output6 = document.getElementById("output6").textContent;
-    const encodedText = encodeURIComponent(output6);
-    const shareUrl = `whatsapp://send?text=${encodedText}`;
-    window.location.href = shareUrl;
-  }
-</script>
+      function bagikanTeks18() {
+        const output6 = document.getElementById("output6").textContent;
+        const encodedText = encodeURIComponent(output6);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
 
 
-    
+
 
 
 
@@ -4719,161 +4722,162 @@ berikut hasilnya :
     </script>
 
 
-     
-
-    
 
 
-     
-      <script>
 
-        
 
-function hapusSatu() {
-  
-  const inputKalkulator = document.getElementById("inputKalkulator");
-  inputKalkulator.value = inputKalkulator.value.slice(0, -1);
-  hitung();
-  navigator.vibrate(100);
-}
-        function hapusSatu() {
-          const inputKalkulator = document.getElementById("inputKalkulator");
-          inputKalkulator.value = inputKalkulator.value.slice(0, -1);
-          hitung();
-          navigator.vibrate(100);
 
+
+    <script>
+      function hapusSatu() {
+
+        const inputKalkulator = document.getElementById("inputKalkulator");
+        inputKalkulator.value = inputKalkulator.value.slice(0, -1);
+        hitung();
+        navigator.vibrate(100);
+      }
+
+      function hapusSatu() {
+        const inputKalkulator = document.getElementById("inputKalkulator");
+        inputKalkulator.value = inputKalkulator.value.slice(0, -1);
+        hitung();
+        navigator.vibrate(100);
+
+      }
+
+      function hapusSemua() {
+        const inputKalkulator = document.getElementById("inputKalkulator");
+        inputKalkulator.value = "";
+        hitung();
+        navigator.vibrate(100);
+
+      }
+
+      function tampilkankesimpulan() {
+        const riwayat = JSON.parse(localStorage.getItem("riwayatKalkulator")) || [];
+        let total = 0;
+        for (let i = 0; i < riwayat.length; i++) {
+          total = riwayat[i].hasil;
         }
+        const inputUang = document.getElementById("inputUang").value;
+        if (inputUang) {
+          const uang = 'Rp ' + parseFloat(inputUang).toLocaleString("id-ID");
+          const kembalian = 'Kembali Rp ' + (parseFloat(inputUang) - parseFloat(total)).toLocaleString("id-ID");
+          document.getElementById("output32").innerHTML = ' penjumlahan <br> ' + inputKalkulator.value +
+            ' <br>Total ' + total.toLocaleString("id-ID") + '<br><br>' +
+            ' Uang pembeli : ' + uang +
+            ' <br>' + kembalian;
 
-        function hapusSemua() {
-          const inputKalkulator = document.getElementById("inputKalkulator");
-          inputKalkulator.value = "";
-          hitung();
-          navigator.vibrate(100);
 
+        } else {
+          document.getElementById("output32").innerHTML = 'penjumlahan \n' + inputKalkulator.value + '\nTotal ' + total
+            .toLocaleString("id-ID");
         }
-        function tampilkankesimpulan() {
-  const riwayat = JSON.parse(localStorage.getItem("riwayatKalkulator")) || [];
-  let total = 0;
-  for (let i = 0; i < riwayat.length; i++) {
-    total = riwayat[i].hasil;
-  }
-  const inputUang = document.getElementById("inputUang").value;
-  if (inputUang) {
-    const uang = 'Rp ' + parseFloat(inputUang).toLocaleString("id-ID");
-    const kembalian = 'Kembali Rp ' + (parseFloat(inputUang) - parseFloat(total)).toLocaleString("id-ID");
-    document.getElementById("output32").innerHTML = ' penjumlahan <br> ' + inputKalkulator.value + 
-    ' <br>Total ' + total.toLocaleString("id-ID") + '<br><br>' + 
-    ' Uang pembeli : ' + uang + 
-    ' <br>' + kembalian;
+      }
 
 
-  } else {
-    document.getElementById("output32").innerHTML = 'penjumlahan \n' + inputKalkulator.value + '\nTotal ' + total.toLocaleString("id-ID");
-  }
-}
+      function hitung() {
+        const inputKalkulator = document.getElementById("inputKalkulator").value;
+        const inputUang = document.getElementById("inputUang").value;
+        if (inputUang) {
+          const hasilKalkulator = eval(inputKalkulator);
+          const kembalian = parseFloat(inputUang) - parseFloat(hasilKalkulator);
+          document.getElementById("hasil47").value = "Kembali Rp : " + kembalian.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
+            "$&,");
 
-
-        function hitung() {
-          const inputKalkulator = document.getElementById("inputKalkulator").value;
-          const inputUang = document.getElementById("inputUang").value;
-          if (inputUang) {
-            const hasilKalkulator = eval(inputKalkulator);
-            const kembalian = parseFloat(inputUang) - parseFloat(hasilKalkulator);
-            document.getElementById("hasil47").value = "Kembali Rp : " + kembalian.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
-              "$&,");
-
-          }else {
-  const hasil = eval(inputKalkulator);
-  document.getElementById("hasil47").value = "Total " + hasil.toLocaleString("id-ID");
-  const riwayat = JSON.parse(localStorage.getItem("riwayatKalkulator")) || [];
-    riwayat.push({ input: inputKalkulator, hasil: hasil });
-    localStorage.setItem("riwayatKalkulator", JSON.stringify(riwayat));
-}
-
-
-        }
-       
-
-        const buttons = document.getElementsByTagName("button");
-        for (let i = 0; i < buttons.length; i++) {
-          buttons[i].addEventListener("click", function () {
-            
-            const buttonValue = buttons[i].value;
-            const inputKalkulator = document.getElementById("inputKalkulator");
-            const lastChar = inputKalkulator.value.slice(-1);
-            
-            if (isNaN(lastChar) && isNaN(buttonValue)) {
-              // Jika pengguna memilih dua operasi matematika berturut-turut, jangan lakukan apa-apa
-              return;
-            }
-            inputKalkulator.value += buttonValue;
-            hitung();
+        } else {
+          const hasil = eval(inputKalkulator);
+          document.getElementById("hasil47").value = "Total " + hasil.toLocaleString("id-ID");
+          const riwayat = JSON.parse(localStorage.getItem("riwayatKalkulator")) || [];
+          riwayat.push({
+            input: inputKalkulator,
+            hasil: hasil
           });
-          const inputKalkulator = document.getElementById("inputKalkulator");
-  inputKalkulator.addEventListener("input", function () {
-    inputKalkulator.value = parseInt(inputKalkulator.value).toLocaleString("id-ID");
-    hitung();
-    
-  });
-
-
-          const inputUang = document.getElementById("inputUang");
-          inputUang.addEventListener("input", function () {
-      
-            hitung();
-          });
-       
-
+          localStorage.setItem("riwayatKalkulator", JSON.stringify(riwayat));
         }
-        
-  
-
-        function reset76() {
-  const inputKalkulator = document.getElementById("inputKalkulator");
-  const inputUang = document.getElementById("inputUang");
-  const hasil47 = document.getElementById("hasil47");
-  const output32 = document.getElementById("output32");
-  
-  inputKalkulator.value = "";
-  inputUang.value = "";
-  hasil47.value = "";
-  
-  localStorage.removeItem("riwayatKalkulator");
-  output32.innerHTML = "";
-  
-  hitung();
-}
 
 
-      </script>
+      }
 
-<script>
-function formatRupiah(angka) {
-  const formatter = new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
-  });
-  return formatter.format(angka);
-}
 
-function hitungHargaAwal() {
-  const hargaSetelahDiskon = document.getElementById("harga-setelah-diskon").value;
-  const diskon = document.getElementById("diskon").value;
-  const hargaAwal = (hargaSetelahDiskon / (1 - diskon / 100));
-  const hargaAwalRupiah = formatRupiah(hargaAwal);
-  const inputKeterangan = `Harga Barang: ${formatRupiah(hargaSetelahDiskon)} dengan diskon ${diskon}%`;
-  const outputText = `${inputKeterangan}<br>Harga Awalnya adalah ${hargaAwalRupiah}`;
-  const outputDiv = document.getElementById("hasil0");
-  
-  outputDiv.innerHTML = '';
-  
-  var i = 0;
-  var intervalId = setInterval(function () {
-    var char = outputText.charAt(i);
-    var color = '';
-    var size = '';
-    if (/\d/.test(char)) {
+      const buttons = document.getElementsByTagName("button");
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+
+          const buttonValue = buttons[i].value;
+          const inputKalkulator = document.getElementById("inputKalkulator");
+          const lastChar = inputKalkulator.value.slice(-1);
+
+          if (isNaN(lastChar) && isNaN(buttonValue)) {
+            // Jika pengguna memilih dua operasi matematika berturut-turut, jangan lakukan apa-apa
+            return;
+          }
+          inputKalkulator.value += buttonValue;
+          hitung();
+        });
+        const inputKalkulator = document.getElementById("inputKalkulator");
+        inputKalkulator.addEventListener("input", function () {
+          inputKalkulator.value = parseInt(inputKalkulator.value).toLocaleString("id-ID");
+          hitung();
+
+        });
+
+
+        const inputUang = document.getElementById("inputUang");
+        inputUang.addEventListener("input", function () {
+
+          hitung();
+        });
+
+
+      }
+
+
+
+      function reset76() {
+        const inputKalkulator = document.getElementById("inputKalkulator");
+        const inputUang = document.getElementById("inputUang");
+        const hasil47 = document.getElementById("hasil47");
+        const output32 = document.getElementById("output32");
+
+        inputKalkulator.value = "";
+        inputUang.value = "";
+        hasil47.value = "";
+
+        localStorage.removeItem("riwayatKalkulator");
+        output32.innerHTML = "";
+
+        hitung();
+      }
+    </script>
+
+    <script>
+      function formatRupiah(angka) {
+        const formatter = new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          minimumFractionDigits: 0,
+        });
+        return formatter.format(angka);
+      }
+
+      function hitungHargaAwal() {
+        const hargaSetelahDiskon = document.getElementById("harga-setelah-diskon").value;
+        const diskon = document.getElementById("diskon").value;
+        const hargaAwal = (hargaSetelahDiskon / (1 - diskon / 100));
+        const hargaAwalRupiah = formatRupiah(hargaAwal);
+        const inputKeterangan = `Harga Barang: ${formatRupiah(hargaSetelahDiskon)} dengan diskon ${diskon}%`;
+        const outputText = `${inputKeterangan}<br>Harga Awalnya adalah ${hargaAwalRupiah}`;
+        const outputDiv = document.getElementById("hasil0");
+
+        outputDiv.innerHTML = '';
+
+        var i = 0;
+        var intervalId = setInterval(function () {
+          var char = outputText.charAt(i);
+          var color = '';
+          var size = '';
+          if (/\d/.test(char)) {
             // Jika karakter adalah angka, berikan warna merah
             color = 'yellow';
           } else if (!/[a-zA-Z0-9\s]/.test(char)) {
@@ -4881,137 +4885,140 @@ function hitungHargaAwal() {
             color = 'red';
 
           }
-    
-    var pattern = /Barang:(.+?)([.?!]|$)/g;
-    var match = pattern.exec(outputText.substring(0, i + 1));
-    if (match) {
-      var start = match.index;
-      var end = start + match[0].length - 1;
-      if (i >= start && i <= end) {
-        color = 'red';
+
+          var pattern = /Barang:(.+?)([.?!]|$)/g;
+          var match = pattern.exec(outputText.substring(0, i + 1));
+          if (match) {
+            var start = match.index;
+            var end = start + match[0].length - 1;
+            if (i >= start && i <= end) {
+              color = 'red';
+            }
+          }
+          var pattern = /Harga (.+?)([.?!]|$)/g;
+          var match = pattern.exec(outputText.substring(0, i + 1));
+          if (match) {
+            var start = match.index;
+            var end = start + match[0].length - 1;
+            if (i >= start && i <= end) {
+              color = '#00ffff';
+            }
+          }
+
+          if (outputText.substring(i, i + 3) === '<p>') {
+            outputDiv.appendChild(document.createElement('p'));
+            i += 2;
+          } else if (outputText.substring(i, i + 4) === '</p>') {
+            outputDiv.appendChild(document.createElement('p'));
+            i += 3;
+          } else if (outputText.substring(i, i + 4) === '<br>') {
+            outputDiv.appendChild(document.createElement('br'));
+            i += 3;
+          } else if (outputText.substring(i, i + 5) === '</br>') {
+            outputDiv.appendChild(document.createElement('br'));
+            i += 4;
+          } else {
+            var span = document.createElement('span');
+            span.textContent = char;
+            span.style.color = color;
+            span.style.fontSize = size;
+            outputDiv.appendChild(span);
+          }
+
+          outputDiv.scrollTop = outputDiv.scrollHeight;
+
+          i++;
+
+          if (i >= outputText.length) {
+            clearInterval(intervalId);
+          }
+        }, 10);
       }
-    }
-    var pattern = /Harga (.+?)([.?!]|$)/g;
-    var match = pattern.exec(outputText.substring(0, i + 1));
-    if (match) {
-      var start = match.index;
-      var end = start + match[0].length - 1;
-      if (i >= start && i <= end) {
-        color = '#00ffff';
+
+
+      const hitungHargaAwalBtn = document.getElementById("hitung-harga-awal");
+      hitungHargaAwalBtn.addEventListener("click", hitungHargaAwal);
+
+      function resetForm() {
+        document.getElementById("inputKalkulator").value = "";
+        document.getElementById("harga-setelah-diskon").value = "";
+        document.getElementById("diskon").value = "";
+        document.getElementById("inputUang").value = "";
+        document.getElementById("hasil0").innerHTML = "";
       }
-    }
-    
-    if (outputText.substring(i, i + 3) === '<p>') {
-      outputDiv.appendChild(document.createElement('p'));
-      i += 2;
-    } else if (outputText.substring(i, i + 4) === '</p>') {
-      outputDiv.appendChild(document.createElement('p'));
-      i += 3;
-    } else if (outputText.substring(i, i + 4) === '<br>') {
-      outputDiv.appendChild(document.createElement('br'));
-      i += 3;
-    } else if (outputText.substring(i, i + 5) === '</br>') {
-      outputDiv.appendChild(document.createElement('br'));
-      i += 4;
-    } else {
-      var span = document.createElement('span');
-      span.textContent = char;
-      span.style.color = color;
-      span.style.fontSize = size;
-      outputDiv.appendChild(span);
-    }
 
-    outputDiv.scrollTop = outputDiv.scrollHeight;
-
-    i++;
-
-    if (i >= outputText.length) {
-      clearInterval(intervalId);
-    }
-  }, 10);
-}
-  
-
-  const hitungHargaAwalBtn = document.getElementById("hitung-harga-awal");
-  hitungHargaAwalBtn.addEventListener("click", hitungHargaAwal);
-  function resetForm() {
-    document.getElementById("inputKalkulator").value = "";
-    document.getElementById("harga-setelah-diskon").value = "";
-    document.getElementById("diskon").value = "";
-    document.getElementById("inputUang").value = "";
-    document.getElementById("hasil0").innerHTML = "";
-  }
-
-  const resetBtn53 = document.getElementById("reset53");
-  resetBtn53.addEventListener("click", resetForm);
-</script>
+      const resetBtn53 = document.getElementById("reset53");
+      resetBtn53.addEventListener("click", resetForm);
+    </script>
 
 
 
 
-<script>
-  const inputNilai = document.getElementById("inputNilai");
-  const inputPendapatan = document.getElementById("inputPendapatan");
+    <script>
+      const inputNilai = document.getElementById("inputNilai");
+      const inputPendapatan = document.getElementById("inputPendapatan");
 
-  // event listener untuk memantau setiap kali nilai input berubah
-  inputNilai.addEventListener("input", function(e) {
-    let value = e.target.value;
+      // event listener untuk memantau setiap kali nilai input berubah
+      inputNilai.addEventListener("input", function (e) {
+        let value = e.target.value;
 
-    // hapus semua karakter selain angka
-    value = value.replace(/[^0-9]/g, "");
+        // hapus semua karakter selain angka
+        value = value.replace(/[^0-9]/g, "");
 
-    // konversi ke angka dan tambahkan titik ribuan
-    value = parseFloat(value).toLocaleString("id-ID");
+        // konversi ke angka dan tambahkan titik ribuan
+        value = parseFloat(value).toLocaleString("id-ID");
 
-    // set nilai input yang sudah diformat kembali ke input
-    e.target.value = value;
-  });
-  function hitung3() {
-  const nilai = parseFloat(inputNilai.value.replace(/\./g, "").replace(/,/g, ".")); // mengambil input nilai dan konversi ke angka
-  const opsi = inputPendapatan.value;
+        // set nilai input yang sudah diformat kembali ke input
+        e.target.value = value;
+      });
 
-  let pendapatan;
-  switch (opsi) {
-    case "detik":
-      pendapatan = nilai * 30 * 24 * 60 * 60;
-      break;
-    case "menit":
-      pendapatan = nilai * 30 * 24 * 60;
-      break;
-    case "jam":
-      pendapatan = nilai * 30 * 24;
-      break;
-    case "hari":
-      pendapatan = nilai * 30;
-      break;
-    case "bulan":
-      pendapatan = nilai;
-      break;
-    case "tahun":
-      pendapatan = nilai / 12;
-      break;
-    default:
-      pendapatan = 0;
-      break;
-  }
+      function hitung3() {
+        const nilai = parseFloat(inputNilai.value.replace(/\./g, "").replace(/,/g,
+        ".")); // mengambil input nilai dan konversi ke angka
+        const opsi = inputPendapatan.value;
 
-  const detik = pendapatan / (30 * 24 * 60 * 60);
-const menit = pendapatan / (30 * 24 * 60);
-const jam = pendapatan / (30 * 24);
+        let pendapatan;
+        switch (opsi) {
+          case "detik":
+            pendapatan = nilai * 30 * 24 * 60 * 60;
+            break;
+          case "menit":
+            pendapatan = nilai * 30 * 24 * 60;
+            break;
+          case "jam":
+            pendapatan = nilai * 30 * 24;
+            break;
+          case "hari":
+            pendapatan = nilai * 30;
+            break;
+          case "bulan":
+            pendapatan = nilai;
+            break;
+          case "tahun":
+            pendapatan = nilai / 12;
+            break;
+          default:
+            pendapatan = 0;
+            break;
+        }
 
-  const hari = pendapatan / 30;
+        const detik = pendapatan / (30 * 24 * 60 * 60);
+        const menit = pendapatan / (30 * 24 * 60);
+        const jam = pendapatan / (30 * 24);
 
-  const bulan = pendapatan / 1;
-  const tahun = pendapatan / (1 / 12);
-  const duaTahun = pendapatan / (1 / 24);
-  const tigaTahun = pendapatan / (1 / 36);
-  const pTahun = pendapatan / (1 / 480);
-  const ppTahun = pendapatan / (1 / 840);
-  const pppTahun = pendapatan / (1 / 12000);
- 
+        const hari = pendapatan / 30;
 
-    var text =
-     `
+        const bulan = pendapatan / 1;
+        const tahun = pendapatan / (1 / 12);
+        const duaTahun = pendapatan / (1 / 24);
+        const tigaTahun = pendapatan / (1 / 36);
+        const pTahun = pendapatan / (1 / 480);
+        const ppTahun = pendapatan / (1 / 840);
+        const pppTahun = pendapatan / (1 / 12000);
+
+
+        var text =
+          `
     <p>Pendapatan per ${opsi}: Rp ${nilai.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")} sama dengan </p>
   <p>Per detik: Rp ${detik.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
   <p>Per menit: Rp ${menit.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
@@ -5027,393 +5034,389 @@ const jam = pendapatan / (30 * 24);
   <p>Per 1000 tahun: Rp ${pppTahun.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
  
 `;
-document.getElementById("output6").innerHTML = text;
- 
-   // Ambil elemen output
-   var outputDiv = document.getElementById("output6");
-outputDiv.innerHTML = '';
-  
-  
+        document.getElementById("output6").innerHTML = text;
 
-          // Bersihkan output sebelumnya
-          outputDiv.innerHTML = '';
-          // Tampilkan teks ke output satu karakter per interval 10ms
-          var i = 0;
-          var intervalId = setInterval(function () {
-            var char = text.charAt(i);
-            var color = '';
-            var size = '';
-            if (/\d/.test(char)) {
-              // Jika karakter adalah angka, berikan warna merah
-              color = 'lightgreen';
-            } else if (!/[a-zA-Z0-9\s]/.test(char)) {
-              // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
-              color = '#d9ff00';
+        // Ambil elemen output
+        var outputDiv = document.getElementById("output6");
+        outputDiv.innerHTML = '';
 
-            }
-            
 
-            if (text.substring(i, i + 3) === '<p>') {
-              // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
-              outputDiv.appendChild(document.createElement('p'));
-              i += 2; // lewati karakter '<' dan 'p'
-            } else if (text.substring(i, i + 4) === '</p>') {
-              // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
-              outputDiv.appendChild(document.createElement('p'));
-              i += 3; // lewati karakter '<', '/', 'p'
-            } else if (text.substring(i, i + 4) === '<br>') {
-              // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
-              outputDiv.appendChild(document.createElement('br'));
-              i += 3; // lewati karakter '<', 'b', 'r'
-            } else if (text.substring(i, i + 5) === '</br>') {
-              // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
-              outputDiv.appendChild(document.createElement('br'));
-              i += 4; // lewati karakter '<', '/', 'b', 'r'
+
+        // Bersihkan output sebelumnya
+        outputDiv.innerHTML = '';
+        // Tampilkan teks ke output satu karakter per interval 10ms
+        var i = 0;
+        var intervalId = setInterval(function () {
+          var char = text.charAt(i);
+          var color = '';
+          var size = '';
+          if (/\d/.test(char)) {
+            // Jika karakter adalah angka, berikan warna merah
+            color = 'lightgreen';
+          } else if (!/[a-zA-Z0-9\s]/.test(char)) {
+            // Jika karakter bukan huruf, angka, atau spasi, berikan warna hijau dan tambahkan CSS untuk memperbesar teks
+            color = '#d9ff00';
+
+          }
+
+
+          if (text.substring(i, i + 3) === '<p>') {
+            // Jika karakter saat ini adalah tag pembuka <p>, tambahkan paragraf baru
+            outputDiv.appendChild(document.createElement('p'));
+            i += 2; // lewati karakter '<' dan 'p'
+          } else if (text.substring(i, i + 4) === '</p>') {
+            // Jika karakter saat ini adalah tag penutup </p>, tambahkan paragraf baru
+            outputDiv.appendChild(document.createElement('p'));
+            i += 3; // lewati karakter '<', '/', 'p'
+          } else if (text.substring(i, i + 4) === '<br>') {
+            // Jika karakter saat ini adalah tag pembuka <br>, tambahkan spasi ke bawah
+            outputDiv.appendChild(document.createElement('br'));
+            i += 3; // lewati karakter '<', 'b', 'r'
+          } else if (text.substring(i, i + 5) === '</br>') {
+            // Jika karakter saat ini adalah tag penutup </br>, tambahkan spasi ke bawah
+            outputDiv.appendChild(document.createElement('br'));
+            i += 4; // lewati karakter '<', '/', 'b', 'r'
+          } else {
+            // Jika karakter biasa, tambahkan ke dalam elemen output
+            var span = document.createElement('span');
+            span.textContent = char;
+            span.style.color = color;
+            span.style.fontSize = size;
+            outputDiv.appendChild(span);
+          }
+
+          // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
+          outputDiv.scrollTop = outputDiv.scrollHeight;
+
+          i++;
+
+          // Hentikan interval ketika semua karakter telah ditampilkan
+          if (i >= text.length) {
+            clearInterval(intervalId);
+          }
+        }, 1);
+
+        const data = [detik, menit, jam, hari, bulan, tahun, duaTahun, tigaTahun, pTahun, ppTahun, pppTahun];
+        drawDonutChart(data);
+
+        function drawDonutChart(data) {
+          const donutChart = document.getElementById("donutChart").getContext("2d");
+          new Chart(donutChart, {
+            type: "doughnut",
+            data: {
+              labels: ["Per detik", "Per menit", "Per jam", "Per hari", "Per bulan", "Per tahun", "Per 2 tahun",
+                "Per 3 tahun", "Per 40 tahun", "Per 70 tahun", "Per 1000 tahun"
+              ],
+              datasets: [{
+                data: data,
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#E7E9ED", "#E91E63", "#9C27B0", "#3F51B5",
+                  "#009688", "#FF9800", "#795548", "#607D8B"
+                ],
+              }, ],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              title: {
+                display: true,
+                text: "Pendapatan per pilihan:",
+                fontSize: 20,
+                fontStyle: "bold",
+                padding: 20,
+              },
+              legend: {
+                display: true,
+                position: "bottom",
+                labels: {
+                  fontSize: 14,
+                  usePointStyle: true,
+                },
+              },
+            },
+          });
+        }
+
+
+      }
+    </script>
+
+
+    <script>
+      function search() {
+        // Mengambil nilai dari textarea dan input kata kunci
+        const story = document.getElementById("story-textarea").value;
+        const keywords = document.getElementById("search-keywords").value.trim().split(/\s+/);
+
+        // Menggabungkan kata kunci menjadi satu string
+        const keywordString = keywords.join(" ");
+
+
+        // Daftar warna yang berbeda
+        const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a", "#ffd700", "#ff69b4",
+          "#7b68ee", "#00ffff", "#20b2aa", "#ff1493", "#ff7f50", "#00fa9a", "#9370db", "#1e90ff", "#fa8072",
+          "#87cefa", "#ba55d3", "#9acd32", "#ff00ff", "#f08080", "#00ff7f", "#4169e1", "#ff4500", "#32cd32",
+          "#b22222", "#191970", "#00ff00", "#800000", "#f0e68c", "#6b8e23", "#9932cc", "#3cb371", "#000080",
+          "#da70d6", "#8b0000", "#9ac0cd", "#800080", "#ff6347", "#008080", "#9932cc", "#2e8b57", "#4682b4",
+          "#ffa500", "#8fbc8f", "#483d8b", "#7cfc00", "#4b0082", "#ff69b4", "#d2b48c", "#6a5acd", "#008b8b",
+          "#8b008b", "#f4a460", "#556b2f", "#8b4513", "#6b8e23", "#b8860b", "#c71585", "#008000", "#db7093",
+          "#ff00ff", "#8b3626", "#9400d3", "#00ced1", "#8fbc8f", "#9932cc", "#ffdab9", "#66cdaa", "#b0c4de",
+          "#696969", "#f5deb3", "#483d8b", "#cd5c5c", "#ffefd5", "#d2691e", "#8b2323", "#800080", "#00ff7f",
+          "#8b0000", "#ff69b4", "#cd853f", "#e6e6fa", "#1e90ff", "#ffff00", "#191970", "#0000ff", "#a52a2a",
+          "#ffa07a", "#faebd7", "#d3d3d3", "#a9a9a9", "#f0ffff", "#f5f5f5", "#ffe4c4", "#8a2be2", "#ffebcd",
+          "#f5f5dc", "#ffdead", "#fffacd", "#dcdcdc", "#f8f8ff", "#fdfd96", "#ffffe0", "#fffafa", "#000000",
+          "#696969", "#808080", "#a9a9a9", "#c0c0c0", "#d3d3d3", "#f5f5f5", "#ffffff", "#ff7f50", "#ff8c00",
+          "#ffa500", "#ffd700", "#ffff00", "#9acd32", "#32cd32", "#00ff00", "#66cdaa", "#8fbc8f", "#00ffff",
+          "#1e90ff", "#4169e1", "#0000ff", "#8a2be2", "#ba55d3", "#ff00ff"
+        ];
+
+        // Membuat regex dari kata kunci dan mencocokan dengan cerita
+        const regex = new RegExp("\\b(" + keywords.join("|") + ")\\b", "gi");
+        const matches = story.match(regex);
+
+        let results = "";
+        if (matches) {
+          // Objek untuk menghitung jumlah kemunculan kata
+          const counts = {};
+          // Menentukan warna yang berbeda untuk setiap kata kunci
+          for (let i = 0; i < keywords.length; i++) {
+            const color = colors[i % colors.length];
+            const keywordRegex = new RegExp("\\b" + keywords[i] + "\\b", "gi");
+            const keywordMatches = story.match(keywordRegex);
+            if (keywordMatches) {
+              counts[keywords[i]] = keywordMatches.length;
+              results += "<p>Jumlah kalimat yang mengandung kata '" + keywords[i] + "': " + keywordMatches.length +
+                "</p>";
             } else {
-              // Jika karakter biasa, tambahkan ke dalam elemen output
-              var span = document.createElement('span');
-              span.textContent = char;
-              span.style.color = color;
-              span.style.fontSize = size;
-              outputDiv.appendChild(span);
+              counts[keywords[i]] = 0;
+              results += "<p>Tidak ada kalimat yang mengandung kata '" + keywords[i] + "'.</p>";
             }
-
-            // Geser scroll output ke bawah setiap kali ada penambahan karakter baru
-            outputDiv.scrollTop = outputDiv.scrollHeight;
-
-            i++;
-
-            // Hentikan interval ketika semua karakter telah ditampilkan
-            if (i >= text.length) {
-              clearInterval(intervalId);
+          }
+          // Menentukan warna yang sama untuk setiap kemunculan kata yang sama
+          let storyWithHighlights = story;
+          for (const [keyword, count] of Object.entries(counts)) {
+            if (count > 0) {
+              const color = colors[Object.keys(counts).indexOf(keyword) % colors.length];
+              const keywordRegex = new RegExp("\\b" + keyword + "\\b", "gi");
+              storyWithHighlights = storyWithHighlights.replace(keywordRegex, "<mark style='background-color:" + color +
+                "'>" + keyword + "</mark>");
             }
-          }, 1);
+          }
+          results += "<p>" + storyWithHighlights + "</p>";
+        } else {
+          results += "<p>Tidak ada kalimat yang mengandung kata '" + keywordString + "'.</p>";
+        }
 
-          const data = [detik, menit, jam, hari, bulan, tahun, duaTahun, tigaTahun, pTahun, ppTahun, pppTahun];
-  drawDonutChart(data);
-  function drawDonutChart(data) {
-  const donutChart = document.getElementById("donutChart").getContext("2d");
-  new Chart(donutChart, {
-    type: "doughnut",
-    data: {
-      labels: ["Per detik", "Per menit", "Per jam", "Per hari", "Per bulan", "Per tahun", "Per 2 tahun", "Per 3 tahun", "Per 40 tahun", "Per 70 tahun", "Per 1000 tahun"],
-      datasets: [
-        {
-          data: data,
-          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#E7E9ED", "#E91E63", "#9C27B0", "#3F51B5", "#009688", "#FF9800", "#795548", "#607D8B"],
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      title: {
-        display: true,
-        text: "Pendapatan per pilihan:",
-        fontSize: 20,
-        fontStyle: "bold",
-        padding: 20,
-      },
-      legend: {
-        display: true,
-        position: "bottom",
-        labels: {
-          fontSize: 14,
-          usePointStyle: true,
-        },
-      },
-    },
-  });
-}
-
-
-}
-
-
-
-</script>
-
-
-<script>
-function search() {
-  // Mengambil nilai dari textarea dan input kata kunci
-  const story = document.getElementById("story-textarea").value;
-  const keywords = document.getElementById("search-keywords").value.trim().split(/\s+/);
-
-  // Menggabungkan kata kunci menjadi satu string
-  const keywordString = keywords.join(" ");
-
-
-// Daftar warna yang berbeda
-const colors = ["#ff8c00", "#dc143c", "#00bfff", "#8a2be2", "#228b22", "#ffa07a", "#ffd700", "#ff69b4", "#7b68ee", "#00ffff", "#20b2aa", "#ff1493", "#ff7f50", "#00fa9a", "#9370db", "#1e90ff", "#fa8072", "#87cefa", "#ba55d3", "#9acd32", "#ff00ff", "#f08080", "#00ff7f", "#4169e1", "#ff4500", "#32cd32", "#b22222", "#191970", "#00ff00", "#800000", "#f0e68c", "#6b8e23", "#9932cc", "#3cb371", "#000080", "#da70d6", "#8b0000", "#9ac0cd", "#800080", "#ff6347", "#008080", "#9932cc", "#2e8b57", "#4682b4", "#ffa500", "#8fbc8f", "#483d8b", "#7cfc00", "#4b0082", "#ff69b4", "#d2b48c", "#6a5acd", "#008b8b", "#8b008b", "#f4a460", "#556b2f", "#8b4513", "#6b8e23", "#b8860b", "#c71585", "#008000", "#db7093", "#ff00ff", "#8b3626", "#9400d3", "#00ced1", "#8fbc8f", "#9932cc", "#ffdab9", "#66cdaa", "#b0c4de", "#696969", "#f5deb3", "#483d8b", "#cd5c5c", "#ffefd5", "#d2691e", "#8b2323", "#800080", "#00ff7f", "#8b0000", "#ff69b4", "#cd853f", "#e6e6fa", "#1e90ff", "#ffff00", "#191970", "#0000ff", "#a52a2a", "#ffa07a", "#faebd7", "#d3d3d3", "#a9a9a9", "#f0ffff", "#f5f5f5", "#ffe4c4", "#8a2be2", "#ffebcd", "#f5f5dc", "#ffdead", "#fffacd", "#dcdcdc", "#f8f8ff", "#fdfd96", "#ffffe0", "#fffafa", "#000000", "#696969", "#808080", "#a9a9a9", "#c0c0c0", "#d3d3d3", "#f5f5f5", "#ffffff", "#ff7f50", "#ff8c00", "#ffa500", "#ffd700", "#ffff00", "#9acd32", "#32cd32", "#00ff00", "#66cdaa", "#8fbc8f", "#00ffff", "#1e90ff", "#4169e1", "#0000ff", "#8a2be2", "#ba55d3", "#ff00ff"];
-
-  // Membuat regex dari kata kunci dan mencocokan dengan cerita
-  const regex = new RegExp("\\b(" + keywords.join("|") + ")\\b", "gi");
-  const matches = story.match(regex);
-
-  let results = "";
-  if (matches) {
-    // Objek untuk menghitung jumlah kemunculan kata
-    const counts = {};
-    // Menentukan warna yang berbeda untuk setiap kata kunci
-    for (let i = 0; i < keywords.length; i++) {
-      const color = colors[i % colors.length];
-      const keywordRegex = new RegExp("\\b" + keywords[i] + "\\b", "gi");
-      const keywordMatches = story.match(keywordRegex);
-      if (keywordMatches) {
-        counts[keywords[i]] = keywordMatches.length;
-        results += "<p>Jumlah kalimat yang mengandung kata '" + keywords[i] + "': " + keywordMatches.length + "</p>";
-      } else {
-        counts[keywords[i]] = 0;
-        results += "<p>Tidak ada kalimat yang mengandung kata '" + keywords[i] + "'.</p>";
+        // Menampilkan hasil pencarian ke dalam div
+        const resultsDiv = document.getElementById("story-results");
+        resultsDiv.innerHTML = results;
       }
-    }
-    // Menentukan warna yang sama untuk setiap kemunculan kata yang sama
-    let storyWithHighlights = story;
-    for (const [keyword, count] of Object.entries(counts)) {
-      if (count > 0) {
-        const color = colors[Object.keys(counts).indexOf(keyword) % colors.length];
-        const keywordRegex = new RegExp("\\b" + keyword + "\\b", "gi");
-        storyWithHighlights = storyWithHighlights.replace(keywordRegex, "<mark style='background-color:" + color + "'>" + keyword + "</mark>");
+    </script>
+
+
+    <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
+    <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
+    <div id="copied-msg" style="display: none;">Copied!</div>
+    <br><br>
+    <div id="copied-msg" style="display: none;">Copied!</div>
+    <pre id="output-text7"></pre><br>
+    <p id="interim-text"></p>
+    <script>
+      const recognition = new window.webkitSpeechRecognition();
+      const outputText = document.getElementById('output-text7');
+      const interimText = document.getElementById('interim-text');
+      const startBtn = document.getElementById('start-btn');
+      const stopBtn = document.getElementById('stop-btn');
+      const punctuation = {
+        "tanda seru": "!",
+        "tanda titik": ".",
+        "titik dua": ":",
+        "tanda koma": ",",
+        "spasi bawah": "<br>",
+      };
+      let isRecording = false; // tambahkan variabel isRecording
+      // konfigurasi pengenalan suara
+      recognition.lang = 'id-ID';
+      recognition.continuous = true;
+      recognition.interimResults = false;
+      let interimTranscripts = [];
+
+      function showInterimTranscripts() {
+        if (interimTranscripts.length > 0) {
+          interimText.style.display = 'block';
+          interimText.innerHTML = interimTranscripts.join('');
+        } else {
+          interimText.style.display = 'none';
+          interimText.innerHTML = '';
+        }
       }
-    }
-    results += "<p>" + storyWithHighlights + "</p>";
-  } else {
-    results += "<p>Tidak ada kalimat yang mengandung kata '" + keywordString + "'.</p>";
-  }
+      recognition.onresult = function (event) {
+        interimTranscripts = [];
+        for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            let output = transcript;
+            if (output.toLowerCase().includes("stop")) {
+              stopRecognition();
+              return;
+            }
+            for (let word in punctuation) {
+              const pattern = new RegExp("\\b" + word + "\\b", "gi");
+              output = output.replace(pattern, punctuation[word]);
+            }
+            if (output.toLowerCase().includes("salin")) {
+              navigator.clipboard.writeText(outputText.innerText);
+              alert("Berhasil menyalin!");
+              copiedMsg.style.display = "block"; // tambahkan baris ini
+            } else if (output.toLowerCase().includes("hapus")) {
+              if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
+                outputText.innerHTML = "";
+              } else if (output.toLowerCase().includes("dua")) { // hapus dua kalimat terakhir
+                const sentences = outputText.innerHTML.trim().split(" ");
+                if (sentences.length >= 2) {
+                  sentences.splice(sentences.length - 2, 2);
+                  outputText.innerHTML = sentences.join(" ");
+                } else {
+                  outputText.innerHTML = "";
+                }
+              } else if (output.toLowerCase().includes("3")) { // hapus tiga kalimat terakhir
+                const sentences = outputText.innerHTML.trim().split(" ");
+                if (sentences.length >= 3) {
+                  sentences.splice(sentences.length - 3, 3);
+                  outputText.innerHTML = sentences.join(" ");
+                } else {
+                  outputText.innerHTML = "";
+                }
+              } else if (output.toLowerCase().includes("4")) { // hapus empat kalimat terakhir
+                const sentences = outputText.innerHTML.trim().split(" ");
+                if (sentences.length >= 4) {
+                  sentences.splice(sentences.length - 4, 4);
+                  outputText.innerHTML = sentences.join(" ");
+                } else {
+                  outputText.innerHTML = "";
+                }
+              } else {
+                const sentences = outputText.innerHTML.trim().split(" ");
+                let lastSentence = sentences[sentences.length - 1].trim();
+                if (lastSentence === "") {
+                  // jika kalimat terakhir kosong, maka hapus kalimat sebelumnya
+                  sentences.pop();
+                } else {
+                  // jika kalimat terakhir tidak kosong, hapus kalimat terakhir
+                  sentences[sentences.length - 1] = sentences[sentences.length - 1].replace(lastSentence, "").replace(
+                    " ", "").trim();
+                }
+                outputText.innerHTML = sentences.join(" ");
+              }
+            } else {
+              outputText.innerHTML += output;
+            }
+            document.getElementById("copied-msg").style.display = "block";
 
-  // Menampilkan hasil pencarian ke dalam div
-  const resultsDiv = document.getElementById("story-results");
-  resultsDiv.innerHTML = results;
-}
+          } else {
+            interimTranscripts.push(transcript);
+          }
+        }
+        showInterimTranscripts();
+      };
 
-</script>
-
-
-<button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
-<button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
-<br><br>
-<div id="copied-msg" style="display: none;">Copied!</div>
-
-<pre id="output-text7"></pre><br>
-<p id="interim-text"></p>
-<script>
-const recognition = new window.webkitSpeechRecognition();
-const outputText = document.getElementById('output-text7');
-const interimText = document.getElementById('interim-text');
-const startBtn = document.getElementById('start-btn');
-const stopBtn = document.getElementById('stop-btn');
-
-const punctuation = {
-  "mantap": "👍",
-  "haha": "😂😂",
-  "wkwk": "wkwk🤣🤣",
-  "tanda seru": "!",
-  "tanda titik": ".",
-  "titik dua": ":",
-  "koma": ",",
-  "r": "RIYAD FIRDAUS",
-  "z": "MUHAMMAD FAJRI SIDIK RIDWANILLAH AL FIRDAUS",
-  "spasi bawah": "<br>",
-};
-
-let isRecording = false; // tambahkan variabel isRecording
-
-// konfigurasi pengenalan suara
-recognition.lang = 'id-ID';
-recognition.continuous = true;
-recognition.interimResults = false;
-
-let interimTranscripts = [];
-
-function showInterimTranscripts() {
-  if (interimTranscripts.length > 0) {
-    interimText.style.display = 'block';
-    interimText.innerHTML = interimTranscripts.join('');
-  } else {
-    interimText.style.display = 'none';
-    interimText.innerHTML = '';
-  }
-}
-recognition.onresult = function(event) {
-  interimTranscripts = [];
-  for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
-    const transcript = event.results[i][0].transcript;
-    if (event.results[i].isFinal) {
-      let output = transcript;
-      if (output.toLowerCase().includes("stop")) {
-        stopRecognition();
-        return;
+      function startRecognition() {
+        recognition.start();
+        isRecording = true; // ubah nilai variabel isRecording menjadi true
+        startBtn.classList.add('recording');
+        startBtn.style.display = 'none';
+        stopBtn.style.display = 'inline-block';
       }
-      for (let word in punctuation) {
-        const pattern = new RegExp("\\b" + word + "\\b", "gi");
-        output = output.replace(pattern, punctuation[word]);
+
+      function stopRecognition() {
+        recognition.stop();
+        isRecording = false;
+        // hapus class dari tombol mulai
+        startBtn.classList.remove('recording');
+        // tampilkan tombol mulai dan sembunyikan tombol berhenti
+        startBtn.style.display = 'inline-block';
+        stopBtn.style.display = 'none';
+        // sembunyikan hasil sementara
+        interimTranscripts = [];
+        showInterimTranscripts();
       }
-      if (output.toLowerCase().includes("salin")) {
-        navigator.clipboard.writeText(outputText.innerText);
-        console.log("Teks berhasil dicopy ke clipboard!");
-      } else if (output.toLowerCase().includes("hapus")) {
-  if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
-    outputText.innerHTML = "";
-  } else if (output.toLowerCase().includes("dua")) { // hapus dua kalimat terakhir
-    const sentences = outputText.innerHTML.trim().split(" ");
-    if (sentences.length >= 2) {
-      sentences.splice(sentences.length - 2, 2);
-      outputText.innerHTML = sentences.join(" ");
-    } else {
-      outputText.innerHTML = "";
-    }
-  } else if (output.toLowerCase().includes("3")) { // hapus tiga kalimat terakhir
-    const sentences = outputText.innerHTML.trim().split(" ");
-    if (sentences.length >= 3) {
-      sentences.splice(sentences.length - 3, 3);
-      outputText.innerHTML = sentences.join(" ");
-    } else {
-      outputText.innerHTML = "";
-    }
-  } else if (output.toLowerCase().includes("4")) { // hapus empat kalimat terakhir
-    const sentences = outputText.innerHTML.trim().split(" ");
-    if (sentences.length >= 4) {
-      sentences.splice(sentences.length - 4, 4);
-      outputText.innerHTML = sentences.join(" ");
-    } else {
-      outputText.innerHTML = "";
-    }
-  } else {
-    const sentences = outputText.innerHTML.trim().split(" ");
-    let lastSentence = sentences[sentences.length - 1].trim();
-    if (lastSentence === "") {
-      // jika kalimat terakhir kosong, maka hapus kalimat sebelumnya
-      sentences.pop();
-    } else {
-      // jika kalimat terakhir tidak kosong, hapus kalimat terakhir
-      sentences[sentences.length - 1] = sentences[sentences.length - 1].replace(lastSentence, "").replace(" ", "").trim();
-    }
-    outputText.innerHTML = sentences.join(" ");
-  }
-}
- else {
-        outputText.innerHTML += output;
-      }
-    } else {
-      interimTranscripts.push(transcript);
-    }
-  }
-  showInterimTranscripts();
-};
-
-
-
-
-function startRecognition() {
-  recognition.start();
-  isRecording = true; // ubah nilai variabel isRecording menjadi true
-  startBtn.classList.add('recording');
-  startBtn.style.display = 'none';
-  stopBtn.style.display = 'inline-block';
-}
-
-
-
-
-function stopRecognition() {
-  recognition.stop();
-  isRecording = false;
-  // hapus class dari tombol mulai
-  startBtn.classList.remove('recording');
-  // tampilkan tombol mulai dan sembunyikan tombol berhenti
-  startBtn.style.display = 'inline-block';
-  stopBtn.style.display = 'none';
-  // sembunyikan hasil sementara
-  interimTranscripts = [];
-  showInterimTranscripts();
-}
-
-
-// sembunyikan hasil sementara saat memuat halaman
-interimText.style.display = 'none';
-
-
-document.addEventListener("keydown", function(event) {
-  if (event.key === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
-    startRecognition();
-  } else if (event.key === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara
-    stopRecognition();
-    navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
-  }
-});
-
-
-
-
-</script>
+      // sembunyikan hasil sementara saat memuat halaman
+      interimText.style.display = 'none';
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
+          startRecognition();
+        } else if (event.key === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara
+          stopRecognition();
+          navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
+        }
+      });
+    </script>
 
 
 
 
 
- 
 
-      <footer id="footerSection">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <h3>Tentang Kami</h3>
 
-              <p>SR Fashion adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan,
-                dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti
-                Shopee dan lain-lain. Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan
-                kami dengan harga yang terjangkau.</p>
-              <p>Kami memiliki tim yang berpengalaman dan profesional dalam memenuhi kebutuhan pelanggan kami. Kami
-                berupaya untuk selalu memberikan pengalaman belanja yang memuaskan bagi setiap pelanggan kami.</p>
-              <p>SR Fashion didirikan dengan visi untuk menjadi perusahaan terkemuka dalam industri penjualan topi,
-                kopiah, hijab, makanan ringan, dan jasa branding. Kami bekerja keras untuk memenuhi visi kami dan
-                terus berkembang untuk menjadi yang terbaik.</p>
-              <p>Kami sangat menghargai setiap pelanggan kami dan akan selalu berupaya untuk memenuhi harapan mereka.
-                Kami berharap untuk membangun hubungan jangka panjang dengan pelanggan kami dan memberikan layanan
-                yang selalu memuaskan.</p>
-              <p>Nikmati belanja produk berkualitas dengan SR Fashion hari ini!"</p>
+    <footer id="footerSection">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h3>Tentang Kami</h3>
+
+            <p>SR Fashion adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan,
+              dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti
+              Shopee dan lain-lain. Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan
+              kami dengan harga yang terjangkau.</p>
+            <p>Kami memiliki tim yang berpengalaman dan profesional dalam memenuhi kebutuhan pelanggan kami. Kami
+              berupaya untuk selalu memberikan pengalaman belanja yang memuaskan bagi setiap pelanggan kami.</p>
+            <p>SR Fashion didirikan dengan visi untuk menjadi perusahaan terkemuka dalam industri penjualan topi,
+              kopiah, hijab, makanan ringan, dan jasa branding. Kami bekerja keras untuk memenuhi visi kami dan
+              terus berkembang untuk menjadi yang terbaik.</p>
+            <p>Kami sangat menghargai setiap pelanggan kami dan akan selalu berupaya untuk memenuhi harapan mereka.
+              Kami berharap untuk membangun hubungan jangka panjang dengan pelanggan kami dan memberikan layanan
+              yang selalu memuaskan.</p>
+            <p>Nikmati belanja produk berkualitas dengan SR Fashion hari ini!"</p>
+          </div>
+          <div class="col-md-4">
+            <h3>Kontak Kami</h3>
+            <ul>
+              <li>Alamat: Jl. Veteran Maja, Blok Salamanggu, Kota Majalengka.</li>
+              <li>Telepon: 0898-3813-800</li>
+              <li>Email: reysarah141@gmail.com</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <div class="container">
+              <h3>Ikuti Kami :
+
+                <a class="navbar-brand" href="#"> <img id="logo" src="img/png5.img.png" alt="Logo">
+
+                </a>
+              </h3>
+              <ul class="social-icons">
+
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+
+
+
+
+                <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
+                <li><a href="https://www.youtube.com/@FIRD.Official/featured"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+
             </div>
-            <div class="col-md-4">
-              <h3>Kontak Kami</h3>
-              <ul>
-                <li>Alamat: Jl. Veteran Maja, Blok Salamanggu, Kota Majalengka.</li>
-                <li>Telepon: 0898-3813-800</li>
-                <li>Email: reysarah141@gmail.com</li>
-              </ul>
-            </div>
-            <div class="col-md-4">
-              <div class="container">
-                <h3>Ikuti Kami :
-
-                  <a class="navbar-brand" href="#"> <img id="logo" src="img/png5.img.png" alt="Logo">
-
-                  </a>
-                </h3>
-                <ul class="social-icons">
-
-                  <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-
-
-
-
-                  <li><a href="#"><i class="fab fa-tiktok"></i></a></li>
-                  <li><a href="https://www.youtube.com/@FIRD.Official/featured"><i class="fa-brands fa-youtube"></i></a>
-                  </li>
-
-              </div>
-              </ul>
-            </div>
+            </ul>
           </div>
         </div>
-        <div class="copyright">
-          <p>
-            Copyright &copy; 2023 SR Fashion-Muhammad Riyad Firdaus. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      </div>
+      <div class="copyright">
+        <p>
+          Copyright &copy; 2023 SR Fashion-Muhammad Riyad Firdaus. All rights reserved.
+        </p>
+      </div>
+    </footer>
 
 
 
