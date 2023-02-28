@@ -5272,6 +5272,7 @@ berikut hasilnya :
   "tanda garis miring": "/",
   "tanda backslash": "\\",
         "spasi bawah": "<br>",
+      
         "hehehe": "🤭🤭",
         "r": "MUHAMMAD Ⓡⓘⓨⓐⓓ FIRDAUS",
         "Z": "MUHAMMAD FAZRI SIDIK ",
@@ -5287,7 +5288,7 @@ berikut hasilnya :
       // konfigurasi pengenalan suara
       recognition.lang = 'id-ID';
       recognition.continuous = true;
-      recognition.interimResults = false;
+      recognition.interimResults = true;
       let interimTranscripts = [];
 
       function showInterimTranscripts() {
