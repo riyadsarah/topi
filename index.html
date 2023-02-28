@@ -142,6 +142,9 @@
     <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
     <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
     <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa fa-share"></i></button>
+    <div id="copied-msg" style="display: none;">Copied!</div>
+
+
     <br><br>
 
     <div id="output-text7"></div><br>
@@ -5276,7 +5279,7 @@ berikut hasilnya :
         "hehehe": "🤭🤭",
         "r": "MUHAMMAD Ⓡⓘⓨⓐⓓ FIRDAUS",
         "Z": "MUHAMMAD FAZRI SIDIK ",
-        "s": "SARAH YULIANA NAFISHA ",
+        "sarah": "SARAH YULIANA NAFISHA ",
         "mantap": "👍👍👍",
         "emot batu": "🗿🗿🗿",
         "poin": "<br>• ",
@@ -5322,9 +5325,31 @@ recognition.onresult = function (event) {
         output = output.replace(pattern, punctuation[word]);
       }
       if (output.toLowerCase().includes("salin")) {
-        navigator.clipboard.writeText(outputText.innerText);
-        copiedMsg.style.display = "block";
-      } else if (output.toLowerCase().includes("delet")) {
+  navigator.clipboard.writeText(outputText.innerText);
+
+  // fokus ke outputText agar teks terselect
+  outputText.focus();
+
+  // buat objek Range dan atur seleksinya pada outputText
+  const range = document.createRange();
+  range.selectNodeContents(outputText);
+
+  // batasi seleksi pada halaman yang terlihat
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  copiedMsg.style.display = "block";
+
+  if ('vibrate' in navigator) {
+    navigator.vibrate(200); // 200ms getaran
+  }
+
+
+
+ 
+}
+else if (output.toLowerCase().includes("hapus")) {
         if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
           outputText.innerHTML = "";
         } else if (output.toLowerCase().includes("2")) { // hapus dua kalimat terakhir
@@ -5369,7 +5394,7 @@ recognition.onresult = function (event) {
       } else {
         outputText.innerHTML += output;
       }
-      document.getElementById("copied-msg").style.display = "block";
+      
     } else {
       interimTranscripts.push(transcript);
     }
