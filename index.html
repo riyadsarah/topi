@@ -5370,9 +5370,6 @@ setTimeout(() => {
         }
       }
 
-
-      
-
       function openCamera() {
   navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
@@ -5541,10 +5538,7 @@ if (output.toLowerCase().includes("hapus")) {
       }  else if (output.toLowerCase().includes("pindah ke atas")) {
         goToTatang();
       
-      }if (transcript.toLowerCase() === 'buka kamera') {
-  openCamera();
-}
- else {
+      } else {
         outputText.innerHTML += output;
       }
       
