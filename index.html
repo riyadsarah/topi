@@ -139,15 +139,56 @@
     <div class="title-container">
       <h1 class="title">Suara ke teks</h1>
     </div><br>
+    <div>
     <button id="start-btn" class="g-stt-btn" onclick="startRecognition()">
       <span class="icon">
         <i class="fa-solid fa-microphone"></i>
         
       </span>
      
-    </button>
+    </button></div><br>
     <button type="button" id="stop-btn" onclick="stopRecognition()" style="display: none;"> berhenti <i class="fa-solid fa-microphone-slash"></i></button>
     <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
+    <!-- Button untuk memunculkan modal dialog -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Keterangan
+</button>
+
+<!-- Modal dialog -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Keterangan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Untuk share ucapkan " share ke whatsapp " </p>
+        <p>Untuk salin ucapkan " salin "</p>
+        <p>Untuk hapus ucapkan </p>
+        <li>Hapus</li>
+        <li>Hapus dua kalimat</li>
+        <li>Hapus tiga kalimat</li>
+        <li>Hapus empat kalimat</li>
+        <li>Hapus semua kalimat</li>
+        <p>Untuk spasi ke bawah ucapkan " spasi bawah " </p>
+        <p>Untuk ( , ) ucapkan " tanda koma " </p>
+        <p>dan semua tanda lainya ucapkan " tanda ... " </p>
+        <br>
+        <p> Ucapkan " emot batu " </p>
+        <p> Ucapkan " hehehe " </p>
+        <p> Ucapkan " mantap " </p>
+        <p> Ucapkan " poin " </p>
+        
+        <!-- tambahkan keterangan lainnya di sini -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <div id="copied-msg" style="display: none;">Copied!</div>
 
 
@@ -5364,9 +5405,9 @@ recognition.onresult = function (event) {
  
 }
 else if (output.toLowerCase().includes("hapus")) {
-        if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
+        if (output.toLowerCase().includes("semua kalimat")) { // hapus semua kalimat
           outputText.innerHTML = "";
-        } else if (output.toLowerCase().includes("2")) { // hapus dua kalimat terakhir
+        } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
           const sentences = outputText.innerHTML.trim().split(" ");
           if (sentences.length >= 2) {
             sentences.splice(sentences.length - 2, 2);
@@ -5374,7 +5415,7 @@ else if (output.toLowerCase().includes("hapus")) {
           } else {
             outputText.innerHTML = "";
           }
-        } else if (output.toLowerCase().includes("3")) { // hapus tiga kalimat terakhir
+        } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
           const sentences = outputText.innerHTML.trim().split(" ");
           if (sentences.length >= 3) {
             sentences.splice(sentences.length - 3, 3);
@@ -5382,7 +5423,7 @@ else if (output.toLowerCase().includes("hapus")) {
           } else {
             outputText.innerHTML = "";
           }
-        } else if (output.toLowerCase().includes("4")) { // hapus empat kalimat terakhir
+        } else if (output.toLowerCase().includes("empat kalimat")) { // hapus empat kalimat terakhir
           const sentences = outputText.innerHTML.trim().split(" ");
           if (sentences.length >= 4) {
             sentences.splice(sentences.length - 4, 4);
