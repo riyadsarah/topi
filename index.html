@@ -146,8 +146,9 @@
         
       </span>
      
-    </button></div><br>
-    <button type="button" id="stop-btn" onclick="stopRecognition()" style="display: none;"> berhenti <i class="fa-solid fa-microphone-slash"></i></button>
+    </button></div>
+    <div>
+    <button type="button" id="stop-btn" onclick="stopRecognition()" style="display: none;"><i class="fa-solid fa-microphone-slash"></i></button></div><br>
     <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
     <!-- Button untuk memunculkan modal dialog -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -167,7 +168,7 @@
         <p>Untuk salin ucapkan " salin "</p>
         <p>Untuk stop ucapkan " stop "</p>
         <p>Untuk hapus ucapkan </p>
-        <li>Hapus</li>
+     
         <li>Hapus satu kalimat</li>
         <li>Hapus dua kalimat</li>
         <li>Hapus tiga kalimat</li>
@@ -196,7 +197,8 @@
 
     <br><br>
 
-    <div id="output-text7"></div><br>
+    <div id="output-text7"></div>
+  <br>
     <div id="interim-text"></div><br>
    
   </div><br>
@@ -5333,6 +5335,7 @@ berikut hasilnya :
         "emot batu": "🗿🗿🗿",
         "poin": "<br>• ",
         "point": "<br>• ",
+       
 
        
 
@@ -5445,7 +5448,7 @@ function hapusKalimatTerakhirTidakKosong(kalimat) {
 
 // kode utama untuk menghapus kalimat dari teks
 if (output.toLowerCase().includes("hapus")) {
-  if (output.toLowerCase().includes("semua kalimat")) { // hapus semua kalimat
+  if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
     outputText.innerHTML = "";
   } else if (output.toLowerCase().includes("satu kalimat")) { // hapus dua kalimat terakhir
     outputText.innerHTML = hapusKalimatTerakhir(outputText.innerHTML, 1);
@@ -5477,9 +5480,11 @@ if (output.toLowerCase().includes("hapus")) {
 
       function startRecognition() {
         recognition.start();
+
+
         isRecording = true; // ubah nilai variabel isRecording menjadi true
         startBtn.classList.add('recording');
-        startBtn.style.display = 'none';
+   
         stopBtn.style.display = 'inline-block';
       }
 
@@ -5510,8 +5515,86 @@ if (output.toLowerCase().includes("hapus")) {
 
 
 
+<input type="file" id="audio-input" accept="audio/*" onchange="handleAudioInput()"/>
+<canvas id="audio-canvas"></canvas>
 
+<script>
+  let audioCtx, analyser, canvas, canvasCtx, dataArray, bufferLength;
 
+// Inisialisasi Audio Context
+try {
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+} catch (e) {
+  alert("Web Audio API tidak didukung di browser ini");
+}
+
+// Inisialisasi elemen canvas dan context
+canvas = document.getElementById("audio-canvas");
+canvasCtx = canvas.getContext("2d");
+
+// Konfigurasi Analyzer Node
+analyser = audioCtx.createAnalyser();
+analyser.fftSize = 256;
+analyser.minDecibels = -90;
+analyser.maxDecibels = -10;
+analyser.smoothingTimeConstant = 0.85;
+
+// Inisialisasi variabel
+bufferLength = analyser.frequencyBinCount;
+dataArray = new Uint8Array(bufferLength);
+
+// Fungsi untuk memproses input suara
+function handleAudioInput() {
+  let file = document.getElementById("audio-input").files[0];
+  let fileReader = new FileReader();
+  fileReader.onload = function(e) {
+    let audioData = e.target.result;
+    audioCtx.decodeAudioData(audioData, function(buffer) {
+      let source = audioCtx.createBufferSource();
+      source.buffer = buffer;
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+      source.start(0);
+    });
+  }
+  fileReader.readAsArrayBuffer(file);
+}
+
+// Fungsi untuk menggambar diagram suara
+function draw() {
+  // Ambil lebar dan tinggi canvas
+  let canvasWidth = canvas.width;
+  let canvasHeight = canvas.height;
+
+  // Bersihkan canvas dengan warna putih
+  canvasCtx.fillStyle = "#FFFFFF";
+  canvasCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+  // Ambil data frekuensi dari Analyzer Node
+  analyser.getByteFrequencyData(dataArray);
+
+  // Gambar diagram suara
+  let barWidth = (canvasWidth / bufferLength) * 2.5;
+  let barHeight;
+  let x = 0;
+
+  for(let i = 0; i < bufferLength; i++) {
+    barHeight = dataArray[i];
+
+    canvasCtx.fillStyle = '#00eeff98';
+    canvasCtx.fillRect(x, canvasHeight - barHeight / 2, barWidth, barHeight / 2);
+
+    x += barWidth + 1;
+  }
+
+  // Rekursif untuk menggambar kembali diagram suara
+  requestAnimationFrame(draw);
+}
+
+// Mulai menggambar diagram suara
+draw();
+
+</script>
 
 
     <footer id="footerSection">
