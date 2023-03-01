@@ -5348,17 +5348,20 @@ berikut hasilnya :
 
       };
       let isRecording = true; // tambahkan variabel isRecording
-      recognition.lang = 'id-ID';
+recognition.lang = 'id-ID';
+recognition.lang = ['id-ID', 'su-ID']; // tambahkan bahasa sunda
 recognition.continuous = true;
 recognition.interimResults = false;
-recognition.maxAlternatives = 1;
+recognition.maxAlternatives = 5;
 recognition.interimResults = true;
 
-// atur waktu rekaman
+
+/// atur waktu rekaman
 setTimeout(() => {
   recognition.stop();
   isRecording = false;
-}, 90000000000000); // contoh waktu rekaman selama 10 detik (10000 milidetik)
+}, 300000); // rekam selama 1 menit (60 detik)
+ // contoh waktu rekaman selama 10 detik (10000 milidetik)
 
       function showInterimTranscripts() {
         if (interimTranscripts.length > 0) {
