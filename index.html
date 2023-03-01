@@ -72,7 +72,7 @@
 
 
 
-
+<div id="Tatang" >
   <header>
     <nav id="header-nav">
       <div class="header-nav-container">
@@ -88,7 +88,7 @@
       </div>
     </nav>
   </header>
-
+</div>
   <script>
     var headerNav = document.getElementById("header-nav");
 
@@ -1827,7 +1827,7 @@
       </div>
     </div><br><br><br>
 
-
+<div id="Produk" >
     <div class="card-container" id="cardSection">
 
 
@@ -2382,7 +2382,8 @@
           </div>
         </div>
       </div>
-    </div><br><br>
+    </div>
+  </div><br><br>
 
     <div class="container-photo">
       <div class="row">
@@ -5350,7 +5351,7 @@ berikut hasilnya :
       // konfigurasi pengenalan suara
       recognition.lang = 'id-ID';
       recognition.continuous = true;
-      recognition.interimResults = true;
+      recognition.interimResults = false;
       let interimTranscripts = [];
 
       function showInterimTranscripts() {
@@ -5391,6 +5392,17 @@ window.scrollTo(0, footerSection.offsetTop);
 
   
 }
+const goToProduk = () => {
+ // Pindah ke bagian footer
+const Produk = document.getElementById("Produk");
+window.scrollTo(0, Produk.offsetTop); 
+}
+const goToTatang = () => {
+ // Pindah ke bagian footer
+const Tatang = document.getElementById("Tatang");
+window.scrollTo(0, Tatang.offsetTop); 
+}
+
 
 recognition.onresult = function (event) {
   interimTranscripts = [];
@@ -5497,8 +5509,14 @@ if (output.toLowerCase().includes("hapus")) {
   shareContent('https://facebook.com/sharer/sharer.php?u=');
   // ganti URL di atas dengan URL dari platform sharing yang ingin digunakan
 }
- else if (output.toLowerCase().includes("pindah ke halaman bawah")) {
+ else if (output.toLowerCase().includes("pindah ke bawah")) {
         goToFooter();
+      
+      } else if (output.toLowerCase().includes("pindah ke produk")) {
+        goToProduk();
+      
+      }  else if (output.toLowerCase().includes("pindah ke atas")) {
+        goToTatang();
       
       } else {
         outputText.innerHTML += output;
