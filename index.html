@@ -168,6 +168,7 @@
         <p>Untuk stop ucapkan " stop "</p>
         <p>Untuk hapus ucapkan </p>
         <li>Hapus</li>
+        <li>Hapus satu kalimat</li>
         <li>Hapus dua kalimat</li>
         <li>Hapus tiga kalimat</li>
         <li>Hapus empat kalimat</li>
@@ -5405,47 +5406,60 @@ recognition.onresult = function (event) {
 
  
 }
-else if (output.toLowerCase().includes("hapus")) {
-        if (output.toLowerCase().includes("semua kalimat")) { // hapus semua kalimat
-          outputText.innerHTML = "";
-        } else if (output.toLowerCase().includes("delete")) { // hapus dua kalimat terakhir
-          const sentences = outputText.innerHTML.trim().split(" ");
-          if (sentences.length >= 2) {
-            sentences.splice(sentences.length - 2, 2);
-            outputText.innerHTML = sentences.join(" ");
-          } else {
-            outputText.innerHTML = "";
-          }
-        } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
-          const sentences = outputText.innerHTML.trim().split(" ");
-          if (sentences.length >= 3) {
-            sentences.splice(sentences.length - 3, 3);
-            outputText.innerHTML = sentences.join(" ");
-          } else {
-            outputText.innerHTML = "";
-          }
-        } else if (output.toLowerCase().includes(" 4 kalimat")) { // hapus empat kalimat terakhir
-          const sentences = outputText.innerHTML.trim().split(" ");
-          if (sentences.length >= 4) {
-            sentences.splice(sentences.length - 4, 4);
-            outputText.innerHTML = sentences.join(" ");
-          } else {
-            outputText.innerHTML = "";
-          }
-        } else {
-          const sentences = outputText.innerHTML.trim().split(" ");
-          let lastSentence = sentences[sentences.length - 1].trim();
-          if (lastSentence === "") {
-            // jika kalimat terakhir kosong, maka hapus kalimat sebelumnya
-            sentences.pop();
-          } else {
-            // jika kalimat terakhir tidak kosong, hapus kalimat terakhir
-            sentences[sentences.length - 1] = sentences[sentences.length - 1].replace(lastSentence, "").replace(
-              " ", "").trim();
-          }
-          outputText.innerHTML = sentences.join(" ");
-        }
-      } else if (output.toLowerCase().includes("share ke whatsapp")) {
+// fungsi untuk menghapus kalimat terakhir dari teks
+function hapusKalimatTerakhir(kalimat, jumlah) {
+  const sentences = kalimat.trim().split(" ");
+
+  if (sentences.length >= jumlah) {
+    sentences.splice(sentences.length - jumlah, jumlah);
+    return sentences.join(" ");
+  } else {
+    return "";
+  }
+}
+
+// fungsi untuk menghapus kalimat sebelumnya jika kalimat terakhir kosong
+function hapusKalimatSebelumnya(kalimat) {
+  const sentences = kalimat.trim().split(" ");
+  let lastSentence = sentences[sentences.length - 1].trim();
+
+  if (lastSentence === "") {
+    sentences.pop();
+  }
+
+  return sentences.join(" ");
+}
+
+// fungsi untuk menghapus kalimat terakhir dari teks jika kalimat terakhir tidak kosong
+function hapusKalimatTerakhirTidakKosong(kalimat) {
+  const sentences = kalimat.trim().split(" ");
+  let lastSentence = sentences[sentences.length - 1].trim();
+
+  sentences[sentences.length - 1] = sentences[sentences.length - 1]
+    .replace(lastSentence, "")
+    .replace(" ", "")
+    .trim();
+
+  return sentences.join(" ");
+}
+
+// kode utama untuk menghapus kalimat dari teks
+if (output.toLowerCase().includes("hapus")) {
+  if (output.toLowerCase().includes("semua kalimat")) { // hapus semua kalimat
+    outputText.innerHTML = "";
+  } else if (output.toLowerCase().includes("satu kalimat")) { // hapus dua kalimat terakhir
+    outputText.innerHTML = hapusKalimatTerakhir(outputText.innerHTML, 1);
+  } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
+    outputText.innerHTML = hapusKalimatTerakhir(outputText.innerHTML, 2);
+  } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
+    outputText.innerHTML = hapusKalimatTerakhir(outputText.innerHTML, 3);
+  } else if (output.toLowerCase().includes("kalimat")) { // hapus empat kalimat terakhir
+    outputText.innerHTML = hapusKalimatTerakhir(outputText.innerHTML, 4);
+  } else {
+    outputText.innerHTML = hapusKalimatSebelumnya(outputText.innerHTML) || hapusKalimatTerakhirTidakKosong(outputText.innerHTML);
+  }
+}
+ else if (output.toLowerCase().includes("share ke whatsapp")) {
         shareToWhatsApp();
       } else if (output.toLowerCase().includes("pindah ke halaman bawah")) {
         goToFooter();
