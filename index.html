@@ -139,9 +139,15 @@
     <div class="title-container">
       <h1 class="title">Suara ke teks</h1>
     </div><br>
-    <button type="button" id="start-btn" onclick="startRecognition()">Mulai</button>
-    <button type="button" id="stop-btn" onclick="stopRecognition()">Berhenti</button>
-    <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa fa-share"></i></button>
+    <button id="start-btn" class="g-stt-btn" onclick="startRecognition()">
+      <span class="icon">
+        <i class="fa-solid fa-microphone"></i>
+        
+      </span>
+     
+    </button>
+    <button type="button" id="stop-btn" onclick="stopRecognition()" style="display: none;"> berhenti <i class="fa-solid fa-microphone-slash"></i></button>
+    <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
     <div id="copied-msg" style="display: none;">Copied!</div>
 
 
@@ -161,7 +167,7 @@
       <br>
       <label for="search-keywords">Kata kunci:</label>
       <input type="text" id="search-keywords" placeholder="Masukkan kata kunci di sini">
-      <button type="button11" onclick="search()">Cari</button>
+      <button type="button11" onclick="search()">Cari <i class="fa-solid fa-magnifying-glass"></i></button>
       <br><br>
       <pre id="story-results"></pre>
     </div>
