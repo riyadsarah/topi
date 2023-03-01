@@ -140,6 +140,7 @@
       <h1 class="title">Suara ke teks</h1>
     </div><br>
     <div>
+    
     <button id="start-btn" class="g-stt-btn" onclick="startRecognition()">
       <span class="icon">
         <i class="fa-solid fa-microphone"></i>
@@ -147,9 +148,10 @@
       </span>
      
     </button>
+    
     <div id="output-text7"></div>
   </div>
-   
+ 
     <div>
     <button type="button" id="stop-btn" onclick="stopRecognition()" style="display: none;">Stop <i class="fa-solid fa-microphone-slash"></i></button></div><br>
     <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
@@ -5340,16 +5342,15 @@ berikut hasilnya :
         "emot batu": "🗿🗿🗿",
         "poin": "<br>• ",
         "point": "<br>• ",
-       
-
-       
+        "baris baru": " "
+      
 
       };
-      let isRecording = false; // tambahkan variabel isRecording
+      let isRecording = true; // tambahkan variabel isRecording
       // konfigurasi pengenalan suara
       recognition.lang = 'id-ID';
       recognition.continuous = true;
-      recognition.interimResults = false;
+      recognition.interimResults = true;
       let interimTranscripts = [];
 
       function showInterimTranscripts() {
@@ -5361,6 +5362,11 @@ berikut hasilnya :
           interimText.innerHTML = '';
         }
       }
+
+      const shareContent = (url) => {
+  window.location.href = url + encodeURIComponent(outputText.innerText);
+}
+
 
       const searchOnYouTube = () => {
   const query = outputText.innerText;
@@ -5385,9 +5391,6 @@ window.scrollTo(0, footerSection.offsetTop);
 
   
 }
-
-
-
 
 recognition.onresult = function (event) {
   interimTranscripts = [];
@@ -5490,6 +5493,9 @@ if (output.toLowerCase().includes("hapus")) {
   window.location.href = googleUrl;
 }else if (output.toLowerCase().includes("cari di youtube")) {
   searchOnYouTube();
+}else if (output.toLowerCase().includes("share ke facebook")) {
+  shareContent('https://facebook.com/sharer/sharer.php?u=');
+  // ganti URL di atas dengan URL dari platform sharing yang ingin digunakan
 }
  else if (output.toLowerCase().includes("pindah ke halaman bawah")) {
         goToFooter();
@@ -5510,23 +5516,17 @@ if (output.toLowerCase().includes("hapus")) {
 
 
 
+function startRecognition() {
+  recognition.start();
+  isRecording = true;
+  startBtn.classList.add('recording');
+  stopBtn.style.display = 'inline-block';
+}
 
-
-      function startRecognition() {
-        recognition.start();
-
-
-        isRecording = true; // ubah nilai variabel isRecording menjadi true
-
-        startBtn.classList.add('recording');
-        
-
-        stopBtn.style.display = 'inline-block';
-      }
 
       function stopRecognition() {
         recognition.stop();
-        isRecording = false;
+      
         // hapus class dari tombol mulai
         startBtn.classList.remove('recording');
         // tampilkan tombol mulai dan sembunyikan tombol berhenti
@@ -5547,89 +5547,6 @@ if (output.toLowerCase().includes("hapus")) {
         }
       });
     </script>
-
-
-
-<input type="file" id="audio-input" accept="audio/*" onchange="handleAudioInput()"/>
-<canvas id="audio-canvas"></canvas>
-
-<script>
-  let audioCtx, analyser, canvas, canvasCtx, dataArray, bufferLength;
-
-// Inisialisasi Audio Context
-try {
-  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-} catch (e) {
-  alert("Web Audio API tidak didukung di browser ini");
-}
-
-// Inisialisasi elemen canvas dan context
-canvas = document.getElementById("audio-canvas");
-canvasCtx = canvas.getContext("2d");
-
-// Konfigurasi Analyzer Node
-analyser = audioCtx.createAnalyser();
-analyser.fftSize = 256;
-analyser.minDecibels = -90;
-analyser.maxDecibels = -10;
-analyser.smoothingTimeConstant = 0.85;
-
-// Inisialisasi variabel
-bufferLength = analyser.frequencyBinCount;
-dataArray = new Uint8Array(bufferLength);
-
-// Fungsi untuk memproses input suara
-function handleAudioInput() {
-  let file = document.getElementById("audio-input").files[0];
-  let fileReader = new FileReader();
-  fileReader.onload = function(e) {
-    let audioData = e.target.result;
-    audioCtx.decodeAudioData(audioData, function(buffer) {
-      let source = audioCtx.createBufferSource();
-      source.buffer = buffer;
-      source.connect(analyser);
-      analyser.connect(audioCtx.destination);
-      source.start(0);
-    });
-  }
-  fileReader.readAsArrayBuffer(file);
-}
-
-// Fungsi untuk menggambar diagram suara
-function draw() {
-  // Ambil lebar dan tinggi canvas
-  let canvasWidth = canvas.width;
-  let canvasHeight = canvas.height;
-
-  // Bersihkan canvas dengan warna putih
-  canvasCtx.fillStyle = "#FFFFFF";
-  canvasCtx.fillRect(0, 0, canvasWidth, canvasHeight);
-
-  // Ambil data frekuensi dari Analyzer Node
-  analyser.getByteFrequencyData(dataArray);
-
-  // Gambar diagram suara
-  let barWidth = (canvasWidth / bufferLength) * 2.5;
-  let barHeight;
-  let x = 0;
-
-  for(let i = 0; i < bufferLength; i++) {
-    barHeight = dataArray[i];
-
-    canvasCtx.fillStyle = '#00eeff98';
-    canvasCtx.fillRect(x, canvasHeight - barHeight / 2, barWidth, barHeight / 2);
-
-    x += barWidth + 1;
-  }
-
-  // Rekursif untuk menggambar kembali diagram suara
-  requestAnimationFrame(draw);
-}
-
-// Mulai menggambar diagram suara
-draw();
-
-</script>
 
 
     <footer id="footerSection">
