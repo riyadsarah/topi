@@ -5359,7 +5359,7 @@ recognition.interimResults = false;
 /// atur waktu rekaman
 setTimeout(() => {
   recognition.stop();
-  isRecording = false;
+  isRecording = true;
 }, 300000); // rekam selama 1 menit (60 detik)
  // contoh waktu rekaman selama 10 detik (10000 milidetik)
 
@@ -5373,18 +5373,7 @@ setTimeout(() => {
         }
       }
 
-      function openCamera() {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(stream => {
-      const video = document.createElement('video');
-      video.srcObject = stream;
-      video.autoplay = true;
-      document.body.appendChild(video);
-    })
-    .catch(error => {
-      console.log('Error opening camera: ', error);
-    });
-}
+ 
 
 
       const shareContent = (url) => {
