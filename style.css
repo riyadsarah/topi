@@ -2217,14 +2217,17 @@ height: 70px;
   
 
   #audio-input {
+    background: linear-gradient(to bottom, #00eeff98, #030b0834);
+    border: none;
+    border-radius: 100px;
     display: block;
     margin-bottom: 10px;
   }
   
   #audio-canvas {
-    border: 1px solid #ccc;
-    width: 100%;
-    height: 300px;
+   background-color: #000000;
+    border: 1px solid #0c0a0a;
+  border-radius: 20px;
     margin-top: 10px;
   }
   

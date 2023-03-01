@@ -23,7 +23,7 @@
   <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
 
-
+ 
 </head>
 
 
@@ -146,9 +146,12 @@
         
       </span>
      
-    </button></div>
+    </button>
+    <div id="output-text7"></div>
+  </div>
+   
     <div>
-    <button type="button" id="stop-btn" onclick="stopRecognition()" style="display: none;"><i class="fa-solid fa-microphone-slash"></i></button></div><br>
+    <button type="button" id="stop-btn" onclick="stopRecognition()" style="display: none;">Stop <i class="fa-solid fa-microphone-slash"></i></button></div><br>
     <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
     <!-- Button untuk memunculkan modal dialog -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -176,7 +179,9 @@
         <li>Hapus semua kalimat</li>
         <p>Untuk spasi ke bawah ucapkan " spasi bawah " </p>
         <p>Untuk ( , ) ucapkan " tanda koma " </p>
-        <p>dan semua tanda lainya ucapkan " tanda ... " </p>
+        <li> "tanda seru": ! </li>
+        
+      
         <br>
         <p> Ucapkan " emot batu " </p>
         <p> Ucapkan " hehehe " </p>
@@ -195,9 +200,9 @@
     <div id="copied-msg" style="display: none;">Copied!</div>
 
 
-    <br><br>
+   
 
-    <div id="output-text7"></div>
+   
   <br>
     <div id="interim-text"></div><br>
    
@@ -5299,10 +5304,10 @@ berikut hasilnya :
       const startBtn = document.getElementById('start-btn');
       const stopBtn = document.getElementById('stop-btn');
       const punctuation = {
-        "tanda seru": "!",
+  "tanda seru": "!",
   "tanda tanya": "?",
   "tanda titik": ".",
-  "titik dua": ":",
+  "tanda dua titik": ":",
   "tanda koma": ",",
   "tanda strip": "-",
   "tanda kurung buka": "(",
@@ -5313,18 +5318,18 @@ berikut hasilnya :
   "tanda kurung kurawal tutup": "}",
   "tanda petik satu": "'",
   "tanda petik dua": "\"",
-  "tanda tilde": "~",
-  "tanda titik koma": ";",
+  "tanda lima": "~",
+  "tanda satu": ";",
   "tanda tiga titik": "...",
-  "tanda obelus": "÷",
+  "tanda dua": "÷",
   "tanda persen": "%",
-  "tanda asterisk": "*",
+  "tanda tiga": "*",
   "tanda tambah": "+",
   "tanda sama dengan": "=",
   "tanda panah kanan": ">",
   "tanda panah kiri": "<",
   "tanda garis miring": "/",
-  "tanda backslash": "\\",
+  "tanda empat": "\\",
         "spasi bawah": "<br>",
       
         "hehehe": "🤭🤭",
@@ -5369,10 +5374,14 @@ window.scrollTo(0, footerSection.offsetTop);
   
 }
 
+
+
+
 recognition.onresult = function (event) {
   interimTranscripts = [];
   for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
     const transcript = event.results[i][0].transcript;
+   
     if (event.results[i].isFinal) {
       let output = transcript;
       if (output.toLowerCase().includes("stop")) {
@@ -5403,7 +5412,6 @@ recognition.onresult = function (event) {
   if ('vibrate' in navigator) {
     navigator.vibrate(200); // 200ms getaran
   }
-
 
 
 
@@ -5476,15 +5484,24 @@ if (output.toLowerCase().includes("hapus")) {
     }
   }
  
+
+
+
 };
+
+
+
+
 
       function startRecognition() {
         recognition.start();
 
 
         isRecording = true; // ubah nilai variabel isRecording menjadi true
+
         startBtn.classList.add('recording');
-   
+        
+
         stopBtn.style.display = 'inline-block';
       }
 
@@ -5510,12 +5527,11 @@ if (output.toLowerCase().includes("hapus")) {
           navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
         }
       });
-    
     </script>
 
 
 
-<input type="file" id="audio-input" accept="audio/*" onchange="handleAudioInput()"/>
+<input type="file" id="audio-input"  onchange="handleAudioInput()"/>
 <canvas id="audio-canvas"></canvas>
 
 <script>
