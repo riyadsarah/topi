@@ -165,6 +165,7 @@
       <div class="modal-body">
         <p>Untuk share ucapkan " share ke whatsapp " </p>
         <p>Untuk salin ucapkan " salin "</p>
+        <p>Untuk stop ucapkan " stop "</p>
         <p>Untuk hapus ucapkan </p>
         <li>Hapus</li>
         <li>Hapus dua kalimat</li>
@@ -5407,7 +5408,7 @@ recognition.onresult = function (event) {
 else if (output.toLowerCase().includes("hapus")) {
         if (output.toLowerCase().includes("semua kalimat")) { // hapus semua kalimat
           outputText.innerHTML = "";
-        } else if (output.toLowerCase().includes(" dua kalimat ")) { // hapus dua kalimat terakhir
+        } else if (output.toLowerCase().includes("delete")) { // hapus dua kalimat terakhir
           const sentences = outputText.innerHTML.trim().split(" ");
           if (sentences.length >= 2) {
             sentences.splice(sentences.length - 2, 2);
@@ -5415,7 +5416,7 @@ else if (output.toLowerCase().includes("hapus")) {
           } else {
             outputText.innerHTML = "";
           }
-        } else if (output.toLowerCase().includes(" 3 kalimat ")) { // hapus tiga kalimat terakhir
+        } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
           const sentences = outputText.innerHTML.trim().split(" ");
           if (sentences.length >= 3) {
             sentences.splice(sentences.length - 3, 3);
