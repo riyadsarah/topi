@@ -5407,7 +5407,7 @@ recognition.onresult = function (event) {
 else if (output.toLowerCase().includes("hapus")) {
         if (output.toLowerCase().includes("semua kalimat")) { // hapus semua kalimat
           outputText.innerHTML = "";
-        } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
+        } else if (output.toLowerCase().includes(" dua kalimat ")) { // hapus dua kalimat terakhir
           const sentences = outputText.innerHTML.trim().split(" ");
           if (sentences.length >= 2) {
             sentences.splice(sentences.length - 2, 2);
@@ -5415,7 +5415,7 @@ else if (output.toLowerCase().includes("hapus")) {
           } else {
             outputText.innerHTML = "";
           }
-        } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
+        } else if (output.toLowerCase().includes(" 3 kalimat ")) { // hapus tiga kalimat terakhir
           const sentences = outputText.innerHTML.trim().split(" ");
           if (sentences.length >= 3) {
             sentences.splice(sentences.length - 3, 3);
@@ -5423,7 +5423,7 @@ else if (output.toLowerCase().includes("hapus")) {
           } else {
             outputText.innerHTML = "";
           }
-        } else if (output.toLowerCase().includes("empat kalimat")) { // hapus empat kalimat terakhir
+        } else if (output.toLowerCase().includes(" 4 kalimat")) { // hapus empat kalimat terakhir
           const sentences = outputText.innerHTML.trim().split(" ");
           if (sentences.length >= 4) {
             sentences.splice(sentences.length - 4, 4);
