@@ -5237,13 +5237,25 @@ berikut hasilnya :
 
 <!-- Buat script untuk recognition di sini -->
 <script>
-  const recognition = new window.webkitSpeechRecognition();
+// Mengecek apakah user membuka aplikasi di perangkat seluler atau di desktop
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+// Inisialisasi Recognition API
+const recognition = new window.webkitSpeechRecognition();
+
+// Tentukan nilai interimResults berdasarkan apakah user menggunakan perangkat seluler atau desktop
+recognition.interimResults = isMobile ? false : true;
+
+// Lainnya, Anda dapat melanjutkan dengan kode Anda seperti biasa
+
   
   const interimText = document.getElementById('interim-text');
+
+  
   
   recognition.lang = 'id-ID';
   recognition.continuous = true;
-  recognition.interimResults = false;
+  recognition.interimResults = true;
   
   let transcript = "";
   
