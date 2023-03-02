@@ -5230,17 +5230,20 @@ berikut hasilnya :
 <button id="recognition-btn" class="g-stt-btn" onclick="startRecognition()">
   <span class="icon">
     <i class="fa-solid fa-microphone"></i>
-    
   </span>
- 
 </button><br><br>
+
 <textarea id="text-area"></textarea>
 
 <!-- Buat script untuk recognition di sini -->
 <script>
   const recognition = new window.webkitSpeechRecognition();
+  
+  const interimText = document.getElementById('interim-text');
+  
   recognition.lang = 'id-ID';
   recognition.continuous = true;
+  recognition.interimResults = true;
   
   let transcript = "";
   
@@ -5249,18 +5252,65 @@ berikut hasilnya :
 
   // Fungsi untuk menangani hasil dari recognition
   recognition.onresult = (event) => {
-    for (let i = event.resultIndex; i < event.results.length; i++) {
-      const result = event.results[i][0].transcript;
-      transcript += result;
-      textareaValue += result;
+  let finalTranscript = "";
+  let interimTranscript = "";
+  for (let i = event.resultIndex; i < event.results.length; i++) {
+    const result = event.results[i][0].transcript;
+    if (event.results[i].isFinal) {
+      finalTranscript += result;
+    } else {
+      interimTranscript += result;
+      recognitionBtn.classList.add("recording");
+      const interimText = document.querySelector(".interim-text");
+      interimText.textContent = interimTranscript;
     }
+  }
+  if (finalTranscript !== "") {
+    transcript += finalTranscript;
+    textareaValue += finalTranscript;
     textarea.value = textareaValue;
-  };
+  }
+};
+
 
   // Fungsi untuk menangani error dari recognition
   recognition.onerror = (event) => {
     console.error(event.error);
   };
+
+  // Fungsi untuk menangani saat pengguna mulai merekam suaranya
+recognition.onstart = () => {
+  const interimText = document.createElement("span");
+  interimText.classList.add("interim-text");
+  textarea.parentNode.insertBefore(interimText, textarea);
+
+  // Tambahkan animasi untuk menunjukkan bahwa aplikasi sedang merekam suara
+  recognitionBtn.classList.add("recording");
+};
+
+// Fungsi untuk menangani teks interim
+recognition.onaudiostart = () => {
+const interimText = document.querySelector(".interim-text");
+interimText.classList.add("active");
+interimText.textContent = "Listening ...";
+
+// Tambahkan animasi untuk menunjukkan bahwa aplikasi sedang merekam suara
+recognitionBtn.classList.add("recording");
+};
+ 
+// Fungsi untuk menangani saat pengguna berhenti merekam suaranya
+recognition.onend = () => {
+  // Hapus animasi yang menunjukkan bahwa aplikasi sedang merekam suara
+  recognitionBtn.classList.remove("recording");
+};
+
+// Fungsi untuk menangani error dari recognition
+recognition.onerror = (event) => {
+  console.error(event.error);
+
+  // Hapus animasi yang menunjukkan bahwa aplikasi sedang merekam suara
+  recognitionBtn.classList.remove("recording");
+};
 
   // Tambahkan event listener pada tombol Start/Stop Recognition
   const recognitionBtn = document.getElementById("recognition-btn");
@@ -5268,16 +5318,17 @@ berikut hasilnya :
   
   recognitionBtn.addEventListener("click", () => {
     if (!isRecording) {
-      recognition.start();
-      isRecording = true;
-      recognitionBtn.innerHTML = "Stop Recognition";
-      textareaValue = textarea.value;
-    } else {
-      recognition.stop();
-      isRecording = false;
-      recognitionBtn.innerHTML = "Start Recognition";
-      transcript = "";
-    }
+  recognition.start();
+  isRecording = true;
+  recognitionBtn.innerHTML = '<span class="icon"><i class="fa-solid fa-stop"></i></span>';
+  textareaValue = textarea.value;
+} else {
+  recognition.stop();
+  isRecording = false;
+  recognitionBtn.innerHTML = '<span class="icon"><i class="fa-solid fa-microphone"></i></span>';
+  transcript = "";
+}
+
   });
 
   // Tambahkan event listener untuk menangani perubahan di textarea
@@ -5285,8 +5336,11 @@ berikut hasilnya :
     textareaValue = textarea.value;
   });
 
-
 </script>
+
+
+
+
 
 
 

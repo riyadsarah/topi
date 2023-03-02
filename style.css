@@ -2161,9 +2161,10 @@ height: 70px;
  font-family: 'Courier New', Courier, monospace;
   }
   .g-stt-btn {
-   background-color: #ffffff;
+    background: linear-gradient(to bottom, #ffffff, #030b082a);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
     color: #d20000;
-    border-radius: 24px;
+    border-radius: 50px;
     border: none;
     padding: 12px 14px;
     font-size: 16px;
@@ -2173,14 +2174,14 @@ height: 70px;
   }
   
   .g-stt-btn:hover {
-    background-color: #f1f3f4;
+    background-color: #0095be;
   }
   
   .g-stt-btn:focus {
     outline: none;
   }
   .g-stt-btn.recording {
-    background-color: blue;
+    background-color: rgb(255, 0, 0);
     color: #fff;
    margin-bottom: 10px;
   }
@@ -2228,4 +2229,45 @@ height: 70px;
 
 #text-area {
   color: #000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.interim-text {
+  display: inline-block;
+  height: 1.2em;
+  font-style: italic;
+  color: rgb(255, 255, 255);
+  margin-right: 5px;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.interim-text.active {
+  animation-name: none;
+  opacity: 1;
+}
+.recording .icon {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
