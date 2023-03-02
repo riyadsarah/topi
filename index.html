@@ -5254,7 +5254,7 @@ recognition.lang = 'id-ID';
 recognition.lang = ['id-ID', 'su-ID'];
 recognition.continuous = true;
 recognition.maxAlternatives = 10;
-
+recognition.interimResults = isMobile ? false : true;
 
 let transcript = "";
 let textareaValue = "";
