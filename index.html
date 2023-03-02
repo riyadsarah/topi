@@ -5243,8 +5243,6 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 // Inisialisasi Recognition API
 const recognition = new window.webkitSpeechRecognition();
 
-// Tentukan nilai interimResults berdasarkan apakah user menggunakan perangkat seluler atau desktop
-recognition.interimResults = isMobile ? false : true;
 
 // Lainnya, Anda dapat melanjutkan dengan kode Anda seperti biasa
 
@@ -5254,11 +5252,18 @@ recognition.interimResults = isMobile ? false : true;
   
   
   recognition.lang = 'id-ID';
+recognition.lang = ['id-ID', 'su-ID']; // tambahkan bahasa sunda
   recognition.continuous = true;
-  recognition.interimResults = true;
-  
+
+// Tentukan nilai interimResults berdasarkan apakah user menggunakan perangkat seluler atau desktop
+recognition.interimResults = isMobile ? false : true;
+  recognition.maxAlternatives = 10;
   let transcript = "";
   
+
+
+
+
   const textarea = document.getElementById("text-area");
   let textareaValue = "";
 
