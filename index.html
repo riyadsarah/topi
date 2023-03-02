@@ -5226,7 +5226,14 @@ berikut hasilnya :
     </script>
 <h1>Speech to Text Example</h1>
 <p>Click the button to start and stop recording. The text will appear below.</p>
-<button id="recognition-btn">Start Recognition</button>
+
+<button id="recognition-btn" class="g-stt-btn" onclick="startRecognition()">
+  <span class="icon">
+    <i class="fa-solid fa-microphone"></i>
+    
+  </span>
+ 
+</button><br><br>
 <textarea id="text-area"></textarea>
 
 <!-- Buat script untuk recognition di sini -->
@@ -5278,24 +5285,7 @@ berikut hasilnya :
     textareaValue = textarea.value;
   });
 
-  // Tambahkan event listener untuk menangani keyboard input di textarea
-  textarea.addEventListener("keydown", (event) => {
-    if (isRecording) {
-      event.preventDefault();
-      const { key } = event;
-      if (key === " ") {
-        transcript += " ";
-        textareaValue += " ";
-      } else if (key === "Backspace") {
-        transcript = transcript.slice(0, -1);
-        textareaValue = textareaValue.slice(0, -1);
-      } else {
-        transcript += key;
-        textareaValue += key;
-      }
-      textarea.value = textareaValue;
-    }
-  });
+
 </script>
 
 
