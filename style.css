@@ -2234,24 +2234,35 @@ height: 70px;
 }
 
 
+.popup-box {
+
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
 #interim-text {
- 
   display: inline-block;
-  height: 1.2em;
+  font-size: 1em;
   font-style: italic;
-  color: rgb(255, 255, 255);
-  margin-right: 5px;
-  
-  }
+  text-shadow: 0px 0px 5px #000;
+}
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(20%);
   }
   to {
     opacity: 1;
+    transform: translateY(0%);
   }
 }
+
 
 .interim-text.active {
   animation-name: none;
@@ -2267,18 +2278,24 @@ height: 70px;
   100% { transform: scale(1); }
 }
 .copied-msg {
-  color: blue;
+  animation-name: bounce-in;
+  animation-duration: 1s;
 
-
-  animation-name: shake;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: 1;
 }
 
-@keyframes shake {
-  0% { transform: translateX(0); }
-  10%, 90% { transform: translateX(-10px); }
-  30%, 70% { transform: translateX(10px); }
-  50% { transform: translateX(0); }
+@keyframes bounce-in {
+  from {
+    transform: scale3d(0.3, 0.3, 0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+    opacity: 1;
+  }
+  70% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
 }

@@ -135,6 +135,39 @@
 
   <br><br>
   <p id="judulProduk">FITUR TERBARU</p>
+  <br>
+  
+  <div class="container-b">
+    <div class="title-container">
+      <h1 class="title">Suara ke teks</h1>
+    </div><br>
+  <button id="start-btn" class="g-stt-btn" onclick="toggleRecognition()">
+    <span class="icon">
+      <i class="fa-solid fa-microphone"></i>
+    </span>
+  </button>
+  <button class="g-stt-btn" id="stop-btn" onclick="toggleRecognition()" style="display: none;"><i class="fa-solid fa-microphone-slash"></i></button>
+  <br><br>
+ 
+ <script>
+
+
+ </script>
+ <div>
+
+
+  <div>
+    <div class="popup-box">
+      <span id="interim-text"></span>
+    </div><br>
+    
+  
+  <textarea id="output-text7"></textarea>
+</div>
+  <div id="copied-msg" style="display: none;">Copied!</div>
+  <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
+  </div>
+  </div><br>
 
 
   <div class="container-b">
@@ -5238,64 +5271,13 @@ berikut hasilnya :
     </script>
 
 
-<button id="start-btn" class="g-stt-btn" onclick="toggleRecognition()">
-  <span class="icon">
-    <i class="fa-solid fa-microphone"></i>
-  </span>
-</button>
-<button class="g-stt-btn" id="stop-btn" onclick="toggleRecognition()" style="display: none;">Stop <i class="fa-solid fa-microphone-slash"></i></button>
-<br>
-<button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
-<!-- Modal dialog -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Keterangan</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Untuk share ucapkan " share ke whatsapp " </p>
-        <p>Untuk salin ucapkan " salin "</p>
-        <p>Untuk stop ucapkan " stop "</p>
-        <p>Untuk hapus ucapkan </p>
-     
-        <li>Hapus satu kalimat</li>
-        <li>Hapus dua kalimat</li>
-        <li>Hapus tiga kalimat</li>
-        <li>Hapus empat kalimat</li>
-        <li>Hapus semua kalimat</li>
-        <p>Untuk spasi ke bawah ucapkan " spasi bawah " </p>
-        <p>Untuk ( , ) ucapkan " tanda koma " </p>
-        <li> "tanda seru": ! </li>
-        
-      
-        <br>
-        <p> Ucapkan " emot batu " </p>
-        <p> Ucapkan " hehehe " </p>
-        <p> Ucapkan " mantap " </p>
-        <p> Ucapkan " poin " </p>
-        
-        <!-- tambahkan keterangan lainnya di sini -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-      </div>
-    </div>
-  </div>
-  </div>
-<div>
-<div id="interim-text"></div>
-<textarea id="output-text7"></textarea>
-<div id="copied-msg" style="display: none;">Copied!</div>
-</div>
-
 <script>
   const recognition = new window.webkitSpeechRecognition();
   const outputText = document.getElementById('output-text7');
   const interimText = document.getElementById('interim-text');
   const startBtn = document.getElementById('start-btn');
   const stopBtn = document.getElementById('stop-btn');
+  
   
   const punctuation = {
     "titik": ".",
@@ -5321,7 +5303,7 @@ berikut hasilnya :
   "lebih besar atau sama dengan": ">=",
   "kurang dari atau sama dengan": "<=",
   "tidak sama dengan": "!=",
-  "dan": "&&",
+  "end": "&&",
 
 
 "spasi bawah": "\n", 
@@ -5374,6 +5356,8 @@ berikut hasilnya :
     startBtn.classList.remove('recording');
     startBtn.style.display = 'inline-block';
     stopBtn.style.display = 'none';
+    const outputText = document.getElementById("output-text7").innerText;
+  navigator.clipboard.writeText(outputText);
     interimText.innerHTML = '';
   } else {
     recognition.start();
@@ -5428,9 +5412,12 @@ recognition.onresult = function (event) {
     if (event.results[i].isFinal) {
       let output = transcript;
       if (output.toLowerCase().includes("stop")) {
-        stopRecognition();
-        return;
-      }
+  stopRecognition();
+  document.querySelector('#interim-text').innerHTML = ''; // menghapus isi dari interim text
+  document.querySelector('#output-text7').value = ''; // menghapus isi dari textarea
+  return;
+}
+
       for (let word in punctuation) {
         const pattern = new RegExp("\\b" + word + "\\b", "gi");
         output = output.replace(pattern, punctuation[word]);
@@ -5455,6 +5442,7 @@ recognition.onresult = function (event) {
           setTimeout(() => {
             copiedMsg.classList.remove('copied-msg');
             copiedMsg.classList.remove('copied-msg-hide');
+            
           }, 1000);
         }, 1000);
       } else if (output.toLowerCase().includes("hapus")) {
@@ -5526,19 +5514,20 @@ startBtn.classList.add('recording');
 stopBtn.style.display = 'inline-block';
 }
 
+function stopRecognition() {
+  recognition.stop();
 
-  function stopRecognition() {
-    recognition.stop();
-  
-    // hapus class dari tombol mulai
-    startBtn.classList.remove('recording');
-    // tampilkan tombol mulai dan sembunyikan tombol berhenti
-    startBtn.style.display = 'inline-block';
-    stopBtn.style.display = 'none';
-    // sembunyikan hasil sementara
-    interimTranscripts = [];
-    showInterimTranscripts();
-  }
+  // hapus class dari tombol mulai
+  startBtn.classList.remove('recording');
+  // tampilkan tombol mulai dan sembunyikan tombol berhenti
+  startBtn.style.display = 'inline-block';
+  stopBtn.style.display = 'none';
+
+  // salin teks ke clipboard
+  const outputText = document.getElementById("output-text7").innerText;
+  navigator.clipboard.writeText(outputText);
+}
+
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
@@ -5548,11 +5537,54 @@ stopBtn.style.display = 'inline-block';
       navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
     }
   });
+  navigator.clipboard.writeText(outputText7).then(() => {
+  console.log(outputText + ' copied to clipboard');
+}, () => {
+  console.log('failed to copy ' + outputText7 + ' to clipboard');
+});
+
 </script>
 
 
 
-
+ <!-- Modal dialog -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Keterangan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Untuk share ucapkan " share ke whatsapp " </p>
+        <p>Untuk salin ucapkan " salin "</p>
+        <p>Untuk stop ucapkan " stop "</p>
+        <p>Untuk hapus ucapkan </p>
+     
+        <li>Hapus satu kalimat</li>
+        <li>Hapus dua kalimat</li>
+        <li>Hapus tiga kalimat</li>
+        <li>Hapus empat kalimat</li>
+        <li>Hapus semua kalimat</li>
+        <p>Untuk spasi ke bawah ucapkan " spasi bawah " </p>
+        <p>Untuk ( , ) ucapkan " tanda koma " </p>
+        <li> "tanda seru": ! </li>
+        
+      
+        <br>
+        <p> Ucapkan " emot batu " </p>
+        <p> Ucapkan " hehehe " </p>
+        <p> Ucapkan " mantap " </p>
+        <p> Ucapkan " poin " </p>
+        
+        <!-- tambahkan keterangan lainnya di sini -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+  </div>
 
 
     <footer id="footerSection">
