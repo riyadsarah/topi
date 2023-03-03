@@ -136,37 +136,112 @@
   <br><br>
   <p id="judulProduk">FITUR TERBARU</p>
   <br>
-  
+
   <div class="container-b">
     <div class="title-container">
       <h1 class="title">Suara ke teks</h1>
     </div><br>
-  <button id="start-btn" class="g-stt-btn" onclick="toggleRecognition()">
-    <span class="icon">
-      <i class="fa-solid fa-microphone"></i>
-    </span>
-  </button>
-  <button class="g-stt-btn" id="stop-btn" onclick="toggleRecognition()" style="display: none;"><i class="fa-solid fa-microphone-slash"></i></button>
-  <br><br>
- 
- <script>
+    <button id="start-btn" class="g-stt-btn" onclick="toggleRecognition()">
+      <span class="icon"> 
+        <i class="fa-solid fa-microphone ico"></i>
+      </span>
+    </button>
+
+    <button class="g-stt-btn" id="stop-btn" onclick="toggleRecognition()" style="display: none;"><i
+        class="fa-solid fa-microphone-slash"></i></button>
+    <br><br>
+
+    <script>
 
 
- </script>
- <div>
+    </script>
+    <div>
 
 
-  <div>
-    <div class="popup-box">
-      <span id="interim-text"></span>
-    </div><br>
-    
-  
-  <textarea id="output-text7"></textarea>
-</div>
-  <div id="copied-msg" style="display: none;">Copied!</div>
-  <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
-  </div>
+      <div>
+        <div class="popup-box">
+          <span id="interim-text"></span>
+        </div><br>
+
+
+        <textarea id="output-text7"></textarea>
+      </div>
+      <div id="copied-msg" style="display: none;">Copied!</div>
+      <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
+      <!-- Button trigger modal -->
+      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa-solid fa-book"></i>
+      </button>
+
+      <!-- Modal dialog -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="discounted-price" id="exampleModalLabel">Keterangan</h1>
+              <button id="start-btn" class="g-stt-btn" onclick="toggleRecognition()">
+                <span class="icon">
+                  <i class="fa-solid fa-microphone"></i>
+                </span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h2 class="product-title">Share dan cari ucapkan <i class="fa-solid fa-bullhorn " id="share-icon"></i>
+              </h2>
+              <p>share ke whatsapp <i class="fab fa-whatsapp icon"></i></p>
+              <p>share ke facebook <i class="fab fa-facebook icon"></i></p>
+              <p>cari di google <i class="fa-brands fa-google icon"></i></p>
+              <p>cari di youtube <i class="fa-brands fa-youtube icon"></i></p>
+              <h2 class="product-title">Salin dan stop record ucapkan <i class="fa-solid fa-bullhorn" id="share-icon"></i></h2>
+              <p>salin <i class="fa-regular fa-copy icon"></i></p>
+              <p>stop <i class="fa-solid fa-circle-stop icon"></i></p>
+              <h2 class="product-title">Untuk hapus ucapkan <i class="fa-solid fa-bullhorn" id="share-icon"></i></h2>
+              <p>hapus <i class="fa-solid fa-delete-left icon"></i></p>
+              <p>hapus dua kalimat <i class="fa-solid fa-delete-left icon"></i></p>
+              <p>hapus tiga kalimat <i class="fa-solid fa-delete-left icon"></i></p>
+              <p>hapus empat kalimat <i class="fa-solid fa-delete-left icon"></i></p>
+              <p>hapus semua <i class="fa-solid fa-delete-left icon"></i></p>
+          
+              <h2 class="product-title">Spasi dan spasi bawah ucapkan <i class="fa-solid fa-bullhorn" id="share-icon"></i></h2>
+              <p>spasi bawah <i class="fa-solid fa-arrow-down icon"></i></p>
+              <p>baris baru <i class="fa-solid fa-level-down-alt icon"></i></p>
+              <p>poin <i class="fa-solid fa-circle icon"></i></p>
+              <h2 class="product-title">Emotikon dan tanda ucapkan <i class="fa-solid fa-bullhorn" id="share-icon"></i></h2>
+              <p>emot batu 🗿</p>
+              <p>hehehe 🤭</p>
+              <p>mantap 👍</p>
+              <p> titik | . </p>
+              <p> pemisah | : </p>
+              <p> koma | , </p>
+              <p> kurung buka | ( </p>
+              <p> kurung tutup | )</p>
+              <p> tiga titik <i class="fa-solid fa-ellipsis-h icon"></i></p>
+              <p> tanda tanya <i class="fa-solid fa-question-circle icon"></i></p>
+              <p> tanda seru <i class="fa-solid fa-exclamation-circle icon"></i></p>
+              <p> petik satu <i class="fa-solid fa-quote-left icon"></i></p>
+              <p> petik dua <i class="fa-solid fa-quote-right icon"></i></p>
+             
+              <p> sama dengan <i class="fa-solid fa-equals icon"></i></p>
+              <p> plus <i class="fa-solid fa-plus icon"></i></p>
+              <p> minus <i class="fa-solid fa-minus icon"></i></p>
+              <p> kali <i class="fa-solid fa-times icon"></i></p>
+              <p> bagi <i class="fa-solid fa-divide icon"></i></p>
+              <p> persen <i class="fa-solid fa-percent icon"></i></p>
+              <p> panah kanan <i class="fa-solid fa-chevron-right icon"></i></p>
+              <p> panah kiri <i class="fa-solid fa-chevron-left icon"></i></p>
+              <p> end <i class="fa-brands fa-d-and-d icon "></i></p>
+            </div>
+          
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div><br>
 
 
@@ -5271,338 +5346,292 @@ berikut hasilnya :
     </script>
 
 
-<script>
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const recognition = new window.webkitSpeechRecognition();
-  const outputText = document.getElementById('output-text7');
-  const interimText = document.getElementById('interim-text');
-  const startBtn = document.getElementById('start-btn');
-  const stopBtn = document.getElementById('stop-btn');
-  
-  
-  const punctuation = {
-    "titik": ".",
-    "pemisah": ":",
-  "koma": ",",
-  "titik koma": ";",
-  "tanda tanya": "?",
-  "tanda seru": "!",
-  "petik satu": "'",
-  "petik dua": "\"",
-  "kurung buka": "(",
-  "kurung tutup": ")",
-  "kutip satu": "'",
-  "kutip dua": "\"",
-  "sama dengan": "=",
-  "plus": "+",
-  "minus": "-",
-  "kali": "*",
-  "bagi": "/",
-  "persen": "%",
-  "panah kanan": ">",
-  "panah kiri": "<",
-  "lebih besar atau sama dengan": ">=",
-  "kurang dari atau sama dengan": "<=",
-  "tidak sama dengan": "!=",
-  "end": "&&",
+    <script>
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const recognition = new window.webkitSpeechRecognition();
+      const outputText = document.getElementById('output-text7');
+      const interimText = document.getElementById('interim-text');
+      const startBtn = document.getElementById('start-btn');
+      const stopBtn = document.getElementById('stop-btn');
 
 
-"spasi bawah": "\n", 
-    
-      "hehehe": "🤭🤭",
-      "r": "MUHAMMAD Ⓡⓘⓨⓐⓓ FIRDAUS",
-      "Z": "MUHAMMAD FAZRI SIDIK ",
-      "sarah": "SARAH YULIANA NAFISHA ",
-      "mantap": "👍👍👍",
-      "emot batu": "🗿🗿🗿",
-      "poin": "\n• ",
-      "point": "\n• ",
-      "baris baru": " "
-  };
-  function capitalize(str) {
-  let words = str.split(" ");
-  words = words.map((word) => {
-    if (word in punctuation) {
-      return punctuation[word];
-    } else {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-    }
-  });
-  return words.join(" ");
-}
-  let isRecording = true; 
-  recognition.lang = 'id-ID';
-  recognition.lang = ['id-ID', 'su-ID']; 
-  recognition.continuous = true;
-  recognition.maxAlternatives = 5;
-  recognition.interimResults = isMobile ? false : true;
-  setTimeout(() => {
-    stopRecognition();
-  }, 300000); // rekam selama 1 menit (60 detik)
-
-  function showInterimTranscripts() {
-    if (interimTranscripts.length > 0) {
-      interimText.style.display = 'block';
-      interimText.innerHTML = interimTranscripts.join('');
-    } else {
-      interimText.style.display = 'none';
-      interimText.innerHTML = '';
-    }
-  }
-
-  function toggleRecognition() {
-  const popupBox = document.querySelector('.popup-box');
-
-  if (isRecording) {
-    recognition.stop();
-    startBtn.classList.remove('recording');
-    startBtn.style.display = 'inline-block';
-    stopBtn.style.display = 'none';
-    const outputText = document.getElementById("output-text7").value
-    navigator.clipboard.writeText(outputText);
-    interimText.innerHTML = '';
-    popupBox.classList.remove('show');
-  } else {
-    recognition.start();
-    startBtn.classList.add('recording');
-    stopBtn.style.display = 'inline-block';
-    popupBox.classList.add('show');
-  }
-
-  isRecording = !isRecording;
-}
-
-const shareContent = (url) => {
-window.location.href = url + encodeURIComponent(outputText.value);
-}
+      const punctuation = {
+        "titik": ".",
+        "pemisah": ":",
+        "koma": ",",
+        "tiga titik": "...",
+        "tanda tanya": "?",
+        "tanda seru": "!",
+        "petik satu": "'",
+        "petik dua": "\"",
+        "kurung buka": "(",
+        "kurung tutup": ")",
+        "sama dengan": "=",
+        "plus": "+",
+        "minus": "-",
+        "kali": "*",
+        "bagi": "/",
+        "persen": "%",
+        "panah kanan": ">",
+        "panah kiri": "<",
+        "end": "&&",
 
 
-  const searchOnYouTube = () => {
-const query = outputText.value;
-const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
-window.open(url, '_blank');
-}
+        "spasi bawah": "\n",
 
-  const searchOnGoogle = () => {
-const query = outputText.value;
-const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-window.open(url, '_blank');
-}
+        "hehehe": "🤭🤭",
+        "r": "MUHAMMAD Ⓡⓘⓨⓐⓓ FIRDAUS",
+        "Z": "MUHAMMAD FAZRI SIDIK ",
+        "sarah": "SARAH YULIANA NAFISHA ",
+        "mantap": "👍👍👍",
+        "emot batu": "🗿🗿🗿",
+        "poin": "\n• ",
+        "point": "\n• ",
+        "baris baru": " "
+      };
 
-const goToFooter = () => {
-// Pindah ke bagian footer
-const footerSection = document.getElementById("footerSection");
-window.scrollTo(0, footerSection.offsetTop);
-
-
-}
-const goToProduk = () => {
-// Pindah ke bagian footer
-const Produk = document.getElementById("Produk");
-window.scrollTo(0, Produk.offsetTop); 
-}
-const goToTatang = () => {
-// Pindah ke bagian footer
-const Tatang = document.getElementById("Tatang");
-window.scrollTo(0, Tatang.offsetTop); 
-}
-
-
-const shareToWhatsApp = () => {
-window.location.href = "https://wa.me/?text=" + encodeURIComponent(outputText.value);
-}
-recognition.onresult = function (event) {
-  const interimTranscripts = [];
-  for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
-    const transcript = event.results[i][0].transcript;
-    if (event.results[i].isFinal) {
-      let output = transcript;
-      if (output.toLowerCase().includes("stop")) {
-  stopRecognition();
-
-  document.querySelector('#interim-text').innerHTML = ''; // menghapus isi dari interim text
-  document.querySelector('#output-text7').value = ''; // menghapus isi dari textarea
-  
-  // menghilangkan pop up box
-  const popupBox = document.querySelector('.popup-box');
-  popupBox.style.display = 'none';
-  
-  return;
-}
-
-
-      for (let word in punctuation) {
-        const pattern = new RegExp("\\b" + word + "\\b", "gi");
-        output = output.replace(pattern, punctuation[word]);
+      function capitalize(str) {
+        let words = str.split(" ");
+        words = words.map((word) => {
+          if (word in punctuation) {
+            return punctuation[word];
+          } else {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+          }
+        });
+        return words.join(" ");
       }
-      if (/\bsalin\b/.test(output.toLowerCase())) {
-  navigator.clipboard.writeText(outputText.value);
-  outputText.focus();
-  
-  if ('vibrate' in navigator) {
-    navigator.vibrate(200);
-  }
-  
-  const copiedMsg = document.querySelector(".copied-msg");
-  outputText.classList.add('selection');
-  selection.anchorNode.parentElement.classList.add('selection');
-  
-  setTimeout(() => {
-    copiedMsg.classList.add('copied-msg-hide');
-    setTimeout(() => {
-      copiedMsg.classList.remove('copied-msg');
-      copiedMsg.classList.remove('copied-msg-hide');
-      outputText.classList.remove('selection');
-      selection.anchorNode.parentElement.classList.remove('selection');
-    }, 1000);
-  }, 1000);
-} else if (output.toLowerCase().includes("hapus")) {
-  if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
-    outputText.value = "";
-  } else if (output.toLowerCase().includes("satu kalimat")) { // hapus satu kalimat terakhir
-    outputText.value = hapusKalimatTerakhir(outputText.value, 1);
-  } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
-    outputText.value = hapusKalimatTerakhir(outputText.value, 2);
-  } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
-    outputText.value = hapusKalimatTerakhir(outputText.value, 3);
-  } else if (output.toLowerCase().includes("4 kalimat")) { // hapus empat kalimat terakhir
-    outputText.value = hapusKalimatTerakhir(outputText.value, 4);
-  } else {
-    outputText.value = hapusKalimatSebelumnya(outputText.value) || hapusKalimatTerakhirTidakKosong(outputText.value);
-  }
-}
- else if (output.toLowerCase().includes("share ke whatsapp")) {
-        shareToWhatsApp();
-      }else if (output.toLowerCase().includes("cari di google")) {
-const searchQuery = encodeURIComponent(outputText.value);
-const googleUrl = `https://www.google.com/search?q=${searchQuery}`;
-window.location.href = googleUrl;
-}else if (output.toLowerCase().includes("cari di youtube")) {
-searchOnYouTube();
-}else if (output.toLowerCase().includes("share ke facebook")) {
-shareContent('https://facebook.com/sharer/sharer.php?u=');
-// ganti URL di atas dengan URL dari platform sharing yang ingin digunakan
-}
-else if (output.toLowerCase().includes("pindah ke bawah")) {
-    goToFooter();
-  
-  } else if (output.toLowerCase().includes("pindah ke produk")) {
-    goToProduk();
-  
-  }  else if (output.toLowerCase().includes("pindah ke atas")) {
-    goToTatang();
-  
-  } else {
-        outputText.value += output;
+      let isRecording = true;
+      recognition.lang = 'id-ID';
+      recognition.lang = ['id-ID', 'su-ID'];
+      recognition.continuous = true;
+      recognition.maxAlternatives = 5;
+      recognition.interimResults = isMobile ? false : true;
+      setTimeout(() => {
+        stopRecognition();
+      }, 300000); // rekam selama 1 menit (60 detik)
+
+      function showInterimTranscripts() {
+        if (interimTranscripts.length > 0) {
+          interimText.style.display = 'block';
+          interimText.innerHTML = interimTranscripts.join('');
+        } else {
+          interimText.style.display = 'none';
+          interimText.innerHTML = '';
+        }
       }
-    } else {
-      interimTranscripts.push(transcript);
-    }
-  }
-  
-  interimText.innerHTML = interimTranscripts.map(transcript => `<span>${transcript}</span>`).join('');
-};
 
-function hapusKalimatTerakhir(text, n) {
-  const kalimat = text.split(" ");
-  if (n > kalimat.length) {
-    return "";
-  }
-  return kalimat.slice(0, kalimat.length - n).join(" ");
-}
+      function toggleRecognition() {
+        const popupBox = document.querySelector('.popup-box');
 
-function hapusKalimatSebelumnya(text) {
-  const kalimat = text.split(" ");
-  if (kalimat.length <= 2) {
-    return "";
-  }
-  return kalimat.slice(0, kalimat.length - 2).join(" ") + " ";
-}
+        if (isRecording) {
+          recognition.stop();
+          startBtn.classList.remove('recording');
+          startBtn.style.display = 'inline-block';
+          stopBtn.style.display = 'none';
+          const outputText = document.getElementById("output-text7").value
+          navigator.clipboard.writeText(outputText);
+          interimText.innerHTML = '';
+          popupBox.classList.remove('show');
+        } else {
+          recognition.start();
+          startBtn.classList.add('recording');
+          stopBtn.style.display = 'inline-block';
+          popupBox.classList.add('show');
+        }
 
+        isRecording = !isRecording;
+      }
 
-function startRecognition() {
-  // Menampilkan popup
-  const popupBox = document.querySelector('.popup-box');
-  popupBox.style.display = 'block';
-
-  recognition.start();
-  isRecording = true;
-  
-  startBtn.classList.add('recording');
-  stopBtn.style.display = 'inline-block';
-}
-
-function stopRecognition() {
-  recognition.stop();
-
-  // Menyembunyikan popup
-  const popupBox = document.querySelector('.popup-box');
-  popupBox.style.display = 'none';
-
-  startBtn.classList.remove('recording');
-  startBtn.style.display = 'inline-block';
-  stopBtn.style.display = 'none';
-
-  const outputText = document.getElementById("output-text7").value;
-  navigator.clipboard.writeText(outputText);
-}
-
-document.addEventListener("keydown", function (event) {
-  const popupBox = document.querySelector(".popup-box");
-
-  if (event.key === "ArrowRight") {
-    startRecognition();
-  } else if (event.key === "ArrowLeft") {
-    stopRecognition();
-    navigator.clipboard.writeText(document.getElementById("output-text7").value);
-  }
-  
-  popupBox.style.display = isRecording ? "block" : "none";
-});
+      const shareContent = (url) => {
+        window.location.href = url + encodeURIComponent(outputText.value);
+      }
 
 
-</script>
+      const searchOnYouTube = () => {
+        const query = outputText.value;
+        const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+        window.open(url, '_blank');
+      }
+
+      const searchOnGoogle = () => {
+        const query = outputText.value;
+        const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        window.open(url, '_blank');
+      }
+
+      const goToFooter = () => {
+        // Pindah ke bagian footer
+        const footerSection = document.getElementById("footerSection");
+        window.scrollTo(0, footerSection.offsetTop);
 
 
+      }
+      const goToProduk = () => {
+        // Pindah ke bagian footer
+        const Produk = document.getElementById("Produk");
+        window.scrollTo(0, Produk.offsetTop);
+      }
+      const goToTatang = () => {
+        // Pindah ke bagian footer
+        const Tatang = document.getElementById("Tatang");
+        window.scrollTo(0, Tatang.offsetTop);
+      }
 
- <!-- Modal dialog -->
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Keterangan</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Untuk share ucapkan " share ke whatsapp " </p>
-        <p>Untuk salin ucapkan " salin "</p>
-        <p>Untuk stop ucapkan " stop "</p>
-        <p>Untuk hapus ucapkan </p>
-     
-        <li>Hapus satu kalimat</li>
-        <li>Hapus dua kalimat</li>
-        <li>Hapus tiga kalimat</li>
-        <li>Hapus empat kalimat</li>
-        <li>Hapus semua kalimat</li>
-        <p>Untuk spasi ke bawah ucapkan " spasi bawah " </p>
-        <p>Untuk ( , ) ucapkan " tanda koma " </p>
-        <li> "tanda seru": ! </li>
-        
-      
-        <br>
-        <p> Ucapkan " emot batu " </p>
-        <p> Ucapkan " hehehe " </p>
-        <p> Ucapkan " mantap " </p>
-        <p> Ucapkan " poin " </p>
-        
-        <!-- tambahkan keterangan lainnya di sini -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-      </div>
-    </div>
-  </div>
-  </div>
+
+      const shareToWhatsApp = () => {
+        window.location.href = "https://wa.me/?text=" + encodeURIComponent(outputText.value);
+      }
+      recognition.onresult = function (event) {
+        const interimTranscripts = [];
+        for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            let output = transcript;
+            if (output.toLowerCase().includes("stop")) {
+              stopRecognition();
+
+              document.querySelector('#interim-text').innerHTML = ''; // menghapus isi dari interim text
+              document.querySelector('#output-text7').value = ''; // menghapus isi dari textarea
+
+              // menghilangkan pop up box
+              const popupBox = document.querySelector('.popup-box');
+              popupBox.style.display = 'none';
+
+              return;
+            }
+
+
+            for (let word in punctuation) {
+              const pattern = new RegExp("\\b" + word + "\\b", "gi");
+              output = output.replace(pattern, punctuation[word]);
+            }
+            if (/\bsalin\b/.test(output.toLowerCase())) {
+              navigator.clipboard.writeText(outputText.value);
+              outputText.focus();
+
+              if ('vibrate' in navigator) {
+                navigator.vibrate(200);
+              }
+
+              const copiedMsg = document.querySelector(".copied-msg");
+              outputText.classList.add('selection');
+              selection.anchorNode.parentElement.classList.add('selection');
+
+              setTimeout(() => {
+                copiedMsg.classList.add('copied-msg-hide');
+                setTimeout(() => {
+                  copiedMsg.classList.remove('copied-msg');
+                  copiedMsg.classList.remove('copied-msg-hide');
+                  outputText.classList.remove('selection');
+                  selection.anchorNode.parentElement.classList.remove('selection');
+                }, 1000);
+              }, 1000);
+            } else if (output.toLowerCase().includes("hapus")) {
+              if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
+                outputText.value = "";
+              } else if (output.toLowerCase().includes("satu kalimat")) { // hapus satu kalimat terakhir
+                outputText.value = hapusKalimatTerakhir(outputText.value, 1);
+              } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
+                outputText.value = hapusKalimatTerakhir(outputText.value, 2);
+              } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
+                outputText.value = hapusKalimatTerakhir(outputText.value, 3);
+              } else if (output.toLowerCase().includes("4 kalimat")) { // hapus empat kalimat terakhir
+                outputText.value = hapusKalimatTerakhir(outputText.value, 4);
+              } else {
+                outputText.value = hapusKalimatSebelumnya(outputText.value) || hapusKalimatTerakhirTidakKosong(
+                  outputText.value);
+              }
+            } else if (output.toLowerCase().includes("share ke whatsapp")) {
+              shareToWhatsApp();
+            } else if (output.toLowerCase().includes("cari di google")) {
+              const searchQuery = encodeURIComponent(outputText.value);
+              const googleUrl = `https://www.google.com/search?q=${searchQuery}`;
+              window.location.href = googleUrl;
+            } else if (output.toLowerCase().includes("cari di youtube")) {
+              searchOnYouTube();
+            } else if (output.toLowerCase().includes("share ke facebook")) {
+              shareContent('https://facebook.com/sharer/sharer.php?u=');
+              // ganti URL di atas dengan URL dari platform sharing yang ingin digunakan
+            } else if (output.toLowerCase().includes("pindah ke bawah")) {
+              goToFooter();
+
+            } else if (output.toLowerCase().includes("pindah ke produk")) {
+              goToProduk();
+
+            } else if (output.toLowerCase().includes("pindah ke atas")) {
+              goToTatang();
+
+            } else {
+              outputText.value += output;
+            }
+          } else {
+            interimTranscripts.push(transcript);
+          }
+        }
+
+        interimText.innerHTML = interimTranscripts.map(transcript => `<span>${transcript}</span>`).join('');
+      };
+
+      function hapusKalimatTerakhir(text, n) {
+        const kalimat = text.split(" ");
+        if (n > kalimat.length) {
+          return "";
+        }
+        return kalimat.slice(0, kalimat.length - n).join(" ");
+      }
+
+      function hapusKalimatSebelumnya(text) {
+        const kalimat = text.split(" ");
+        if (kalimat.length <= 2) {
+          return "";
+        }
+        return kalimat.slice(0, kalimat.length - 2).join(" ") + " ";
+      }
+
+
+      function startRecognition() {
+        // Menampilkan popup
+        const popupBox = document.querySelector('.popup-box');
+        popupBox.style.display = 'block';
+
+        recognition.start();
+        isRecording = true;
+
+        startBtn.classList.add('recording');
+        stopBtn.style.display = 'inline-block';
+      }
+
+      function stopRecognition() {
+        recognition.stop();
+
+        // Menyembunyikan popup
+        const popupBox = document.querySelector('.popup-box');
+        popupBox.style.display = 'none';
+
+        startBtn.classList.remove('recording');
+        startBtn.style.display = 'inline-block';
+        stopBtn.style.display = 'none';
+
+        const outputText = document.getElementById("output-text7").value;
+        navigator.clipboard.writeText(outputText);
+      }
+
+      document.addEventListener("keydown", function (event) {
+        const popupBox = document.querySelector(".popup-box");
+
+        if (event.key === "ArrowRight") {
+          startRecognition();
+        } else if (event.key === "ArrowLeft") {
+          stopRecognition();
+          navigator.clipboard.writeText(document.getElementById("output-text7").value);
+        }
+
+        popupBox.style.display = isRecording ? "block" : "none";
+      });
+    </script>
+
+
 
 
     <footer id="footerSection">
