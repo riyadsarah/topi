@@ -2235,15 +2235,21 @@ height: 70px;
 
 
 .popup-box {
-
+  position: fixed;
   bottom: 10px;
-  right: 10px;
+  right: -200px; /* memulai posisi box di luar layar */
+
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 10%; /* membuat box menjadi bulat */
   animation: fadeIn 0.5s ease-out forwards;
 }
+
+.popup-box.show {
+  right: 10px; /* posisi setelah ditampilkan */
+}
+
 
 #interim-text {
   display: inline-block;
@@ -2299,3 +2305,20 @@ height: 70px;
     transform: scale3d(1, 1, 1);
   }
 }
+.selection {
+  color: white;
+ 
+  animation: selection-animation 3s;
+}
+
+@keyframes selection-animation {
+  0% {
+    background-color: rgb(0, 119, 255);
+    color: #ccc;
+  }
+  100% {
+    background-color: initial;
+  color: initial;
+  }
+}
+

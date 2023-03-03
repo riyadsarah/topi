@@ -5350,23 +5350,28 @@ berikut hasilnya :
     }
   }
 
-
   function toggleRecognition() {
+  const popupBox = document.querySelector('.popup-box');
+
   if (isRecording) {
     recognition.stop();
     startBtn.classList.remove('recording');
     startBtn.style.display = 'inline-block';
     stopBtn.style.display = 'none';
-    const outputText = document.getElementById("output-text7").innerText;
-  navigator.clipboard.writeText(outputText);
+    const outputText = document.getElementById("output-text7").value
+    navigator.clipboard.writeText(outputText);
     interimText.innerHTML = '';
+    popupBox.classList.remove('show');
   } else {
     recognition.start();
     startBtn.classList.add('recording');
     stopBtn.style.display = 'inline-block';
+    popupBox.classList.add('show');
   }
+
   isRecording = !isRecording;
 }
+
 const shareContent = (url) => {
 window.location.href = url + encodeURIComponent(outputText.value);
 }
@@ -5414,53 +5419,59 @@ recognition.onresult = function (event) {
       let output = transcript;
       if (output.toLowerCase().includes("stop")) {
   stopRecognition();
+
   document.querySelector('#interim-text').innerHTML = ''; // menghapus isi dari interim text
   document.querySelector('#output-text7').value = ''; // menghapus isi dari textarea
+  
+  // menghilangkan pop up box
+  const popupBox = document.querySelector('.popup-box');
+  popupBox.style.display = 'none';
+  
   return;
 }
+
 
       for (let word in punctuation) {
         const pattern = new RegExp("\\b" + word + "\\b", "gi");
         output = output.replace(pattern, punctuation[word]);
       }
-
-      if (output.toLowerCase().includes("salin")) {
-        navigator.clipboard.writeText(outputText.value);
-        outputText.focus();
-        const range = document.createRange();
-        range.selectNodeContents(outputText);
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        if ('vibrate' in navigator) {
-          navigator.vibrate(200);
-        }
-        const copiedMsg = document.querySelector(".copied-msg");
-        outputText.classList.add('copied-msg');
-        selection.anchorNode.parentElement.classList.add('copied-msg');
-        setTimeout(() => {
-          copiedMsg.classList.add('copied-msg-hide');
-          setTimeout(() => {
-            copiedMsg.classList.remove('copied-msg');
-            copiedMsg.classList.remove('copied-msg-hide');
-            
-          }, 1000);
-        }, 1000);
-      } else if (output.toLowerCase().includes("hapus")) {
-        if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
-          outputText.value = "";
-        } else if (output.toLowerCase().includes("satu kalimat")) { // hapus satu kalimat terakhir
-          outputText.value = hapusKalimatTerakhir(outputText.value, 1);
-        } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
-          outputText.value = hapusKalimatTerakhir(outputText.value, 2);
-        } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
-          outputText.value = hapusKalimatTerakhir(outputText.value, 3);
-        } else if (output.toLowerCase().includes("4 kalimat")) { // hapus empat kalimat terakhir
-          outputText.value = hapusKalimatTerakhir(outputText.value, 4);
-        } else {
-          outputText.value = hapusKalimatSebelumnya(outputText.value) || hapusKalimatTerakhirTidakKosong(outputText.value);
-        }
-      } else if (output.toLowerCase().includes("share ke whatsapp")) {
+      if (/\bsalin\b/.test(output.toLowerCase())) {
+  navigator.clipboard.writeText(outputText.value);
+  outputText.focus();
+  
+  if ('vibrate' in navigator) {
+    navigator.vibrate(200);
+  }
+  
+  const copiedMsg = document.querySelector(".copied-msg");
+  outputText.classList.add('selection');
+  selection.anchorNode.parentElement.classList.add('selection');
+  
+  setTimeout(() => {
+    copiedMsg.classList.add('copied-msg-hide');
+    setTimeout(() => {
+      copiedMsg.classList.remove('copied-msg');
+      copiedMsg.classList.remove('copied-msg-hide');
+      outputText.classList.remove('selection');
+      selection.anchorNode.parentElement.classList.remove('selection');
+    }, 1000);
+  }, 1000);
+} else if (output.toLowerCase().includes("hapus")) {
+  if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
+    outputText.value = "";
+  } else if (output.toLowerCase().includes("satu kalimat")) { // hapus satu kalimat terakhir
+    outputText.value = hapusKalimatTerakhir(outputText.value, 1);
+  } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
+    outputText.value = hapusKalimatTerakhir(outputText.value, 2);
+  } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
+    outputText.value = hapusKalimatTerakhir(outputText.value, 3);
+  } else if (output.toLowerCase().includes("4 kalimat")) { // hapus empat kalimat terakhir
+    outputText.value = hapusKalimatTerakhir(outputText.value, 4);
+  } else {
+    outputText.value = hapusKalimatSebelumnya(outputText.value) || hapusKalimatTerakhirTidakKosong(outputText.value);
+  }
+}
+ else if (output.toLowerCase().includes("share ke whatsapp")) {
         shareToWhatsApp();
       }else if (output.toLowerCase().includes("cari di google")) {
 const searchQuery = encodeURIComponent(outputText.value);
@@ -5488,6 +5499,7 @@ else if (output.toLowerCase().includes("pindah ke bawah")) {
       interimTranscripts.push(transcript);
     }
   }
+  
   interimText.innerHTML = interimTranscripts.map(transcript => `<span>${transcript}</span>`).join('');
 };
 
@@ -5508,41 +5520,46 @@ function hapusKalimatSebelumnya(text) {
 }
 
 
-  function startRecognition() {
-recognition.start();
-isRecording = true;
-startBtn.classList.add('recording');
-stopBtn.style.display = 'inline-block';
+function startRecognition() {
+  // Menampilkan popup
+  const popupBox = document.querySelector('.popup-box');
+  popupBox.style.display = 'block';
+
+  recognition.start();
+  isRecording = true;
+  
+  startBtn.classList.add('recording');
+  stopBtn.style.display = 'inline-block';
 }
 
 function stopRecognition() {
   recognition.stop();
 
-  // hapus class dari tombol mulai
+  // Menyembunyikan popup
+  const popupBox = document.querySelector('.popup-box');
+  popupBox.style.display = 'none';
+
   startBtn.classList.remove('recording');
-  // tampilkan tombol mulai dan sembunyikan tombol berhenti
   startBtn.style.display = 'inline-block';
   stopBtn.style.display = 'none';
 
-  // salin teks ke clipboard
-  const outputText = document.getElementById("output-text7").innerText;
+  const outputText = document.getElementById("output-text7").value;
   navigator.clipboard.writeText(outputText);
 }
 
+document.addEventListener("keydown", function (event) {
+  const popupBox = document.querySelector(".popup-box");
 
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
-      startRecognition();
-    } else if (event.key === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara
-      stopRecognition();
-      navigator.clipboard.writeText(document.getElementBsyId("output-text7").innerText);
-    }
-  });
-  navigator.clipboard.writeText(outputText7).then(() => {
-  console.log(outputText + ' copied to clipboard');
-}, () => {
-  console.log('failed to copy ' + outputText7 + ' to clipboard');
+  if (event.key === "ArrowRight") {
+    startRecognition();
+  } else if (event.key === "ArrowLeft") {
+    stopRecognition();
+    navigator.clipboard.writeText(document.getElementById("output-text7").value);
+  }
+  
+  popupBox.style.display = isRecording ? "block" : "none";
 });
+
 
 </script>
 
