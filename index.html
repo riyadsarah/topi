@@ -5238,148 +5238,110 @@ berikut hasilnya :
     </script>
 
 
-    <h1>Speech to Text Example</h1>
-    <button id="recognition-btn" class="g-stt-btn" onclick="startRecognition()">
-      <span class="icon"><i class="fa-solid fa-microphone"></i></span>
-    </button>
-    <br><br>
-    <textarea id="text-area"></textarea>
-    <script>
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-const recognition = new window.webkitSpeechRecognition();
-const interimText = document.getElementById('interim-text');
-const textarea = document.getElementById("text-area");
+<button id="start-btn" class="g-stt-btn" onclick="toggleRecognition()">
+  <span class="icon">
+    <i class="fa-solid fa-microphone"></i>
+  </span>
+</button>
+<button class="g-stt-btn" id="stop-btn" onclick="toggleRecognition()" style="display: none;">Stop <i class="fa-solid fa-microphone-slash"></i></button>
+<br>
+<button type="button" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
+<div>
+<div id="interim-text"></div>
+<textarea id="output-text7"></textarea>
+<div id="copied-msg" style="display: none;">Copied!</div>
+</div>
 
-recognition.lang = 'id-ID';
-recognition.lang = ['id-ID', 'su-ID'];
-recognition.continuous = true;
-recognition.maxAlternatives = 10;
-recognition.interimResults = isMobile ? false : true;
+<script>
+  const recognition = new window.webkitSpeechRecognition();
+  const outputText = document.getElementById('output-text7');
+  const interimText = document.getElementById('interim-text');
+  const startBtn = document.getElementById('start-btn');
+  const stopBtn = document.getElementById('stop-btn');
+  
+  const punctuation = {
+    "tanda seru": "!",
+  };
+  let isRecording = false; 
+  recognition.lang = 'id-ID';
+  recognition.lang = ['id-ID', 'su-ID']; 
+  recognition.continuous = true;
+  recognition.maxAlternatives = 10;
+  recognition.interimResults = true;
+  setTimeout(() => {
+    stopRecognition();
+  }, 300000); // rekam selama 1 menit (60 detik)
 
-let transcript = "";
-let textareaValue = "";
+  function toggleRecognition() {
+  if (isRecording) {
+    recognition.stop();
+    startBtn.classList.remove('recording');
+    startBtn.style.display = 'inline-block';
+    stopBtn.style.display = 'none';
+    interimText.innerHTML = '';
+  } else {
+    recognition.start();
+    startBtn.classList.add('recording');
+    stopBtn.style.display = 'inline-block';
+  }
+  isRecording = !isRecording;
+}
+  recognition.onresult = function (event) {
+    const interimTranscripts = [];
+    for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+      const transcript = event.results[i][0].transcript;
+      if (event.results[i].isFinal) {
+        let output = transcript;
+        if (output.toLowerCase().includes("stop")) {
+          stopRecognition();
+          return;
+        }
+        for (let word in punctuation) {
+          const pattern = new RegExp("\\b" + word + "\\b", "gi");
+          output = output.replace(pattern, punctuation[word]);
+        }
+        if (/\bsalin\b/.test(output.toLowerCase())) {
+  // ... kode lainnya
 
-function selectAllText() {
-  // Memilih seluruh teks area
+
+        if (output.toLowerCase().includes("salin")) {
+  navigator.clipboard.writeText(outputText.value);
+  outputText.focus();
   const range = document.createRange();
-  range.selectNodeContents(textarea);
-  const sel = window.getSelection();
-  sel.removeAllRanges();
-  sel.addRange(range);
-}
+  range.selectNodeContents(outputText);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
 
-function highlightSelectedText() {
-  // Memberi warna biru pada teks yang terseleksi
-  const sel = window.getSelection();
-  const range = sel.getRangeAt(0);
-  const highlighted = document.createElement("span");
-  highlighted.classList.add("highlighted");
-  highlighted.textContent = range.toString();
-  range.deleteContents();
-  range.insertNode(highlighted);
-}
+  if ('vibrate' in navigator) {
+    navigator.vibrate(200);
+  }
 
-function clearHighlightedText() {
-  // Menghapus warna biru pada teks yang telah terseleksi sebelumnya
-  const highlightedText = document.querySelectorAll(".highlighted");
-  highlightedText.forEach((element) => {
-    const parent = element.parentNode;
-    parent.replaceChild(element.firstChild, element);
-  });
-}
+  const copiedMsg = document.querySelector(".copied-msg");
 
-recognition.onresult = (event) => {
-  let finalTranscript = "";
-  let interimTranscript = "";
-  for (let i = event.resultIndex; i < event.results.length; i++) {
-    const result = event.results[i][0].transcript;
-    if (event.results[i].isFinal) {
-      finalTranscript += result;
-    } else {
-      interimTranscript += result;
-      recognitionBtn.classList.add("recording");
-      const interimText = document.querySelector(".interim-text");
-      interimText.textContent = interimTranscript;
+  outputText.classList.add('copied-msg');
+  selection.anchorNode.parentElement.classList.add('copied-msg');
+
+  setTimeout(() => {
+    copiedMsg.classList.add('copied-msg-hide');
+    setTimeout(() => {
+      copiedMsg.classList.remove('copied-msg');
+      copiedMsg.classList.remove('copied-msg-hide');
+    }, 1000);
+  }, 1000);
+}
+        }
+ else {
+          outputText.value += output;
+
+        }
+      } else {
+        interimTranscripts.push(transcript);
+      }
     }
-  }
-  if (finalTranscript !== "") {
-    transcript += finalTranscript;
-    textareaValue += finalTranscript;
-    textarea.value = textareaValue;
-  }
-
-  if (finalTranscript.toLowerCase().includes("salin")) {
-    // Meng-copy isi teks area ke clipboard
-    navigator.clipboard.writeText(textareaValue).then(function() {
-      console.log("Teks berhasil disalin ke clipboard");
-
-      // Memberi warna biru pada teks yang terseleksi
-      selectAllText();
-      highlightSelectedText();
-
-      // Menghapus warna biru setelah 2 detik
-      setTimeout(() => {
-        clearHighlightedText();
-      }, 2000);
-    }, function() {
-      console.error("Tidak dapat menyalin teks ke clipboard");
-    });
-  }
-};
-
-recognition.onerror = (event) => {
-  console.error(event.error);
-};
-
-recognition.onstart = () => {
-  const interimText = document.createElement("span");
-  interimText.classList.add("interim-text");
-  textarea.parentNode.insertBefore(interimText, textarea);
-  // Tambahkan animasi untuk menunjukkan bahwa aplikasi sedang merekam suara
-  recognitionBtn.classList.add("recording");
-};
-
-      recognition.onaudiostart = () => {
-        const interimText = document.querySelector(".interim-text");
-        interimText.classList.add("active");
-        interimText.textContent = "Listening ...";
-        recognitionBtn.classList.add("recording");
-      };
-      recognition.onend = () => {
-        recognitionBtn.classList.remove("recording");
-      };
-      recognition.onerror = (event) => {
-        console.error(event.error);
-        recognitionBtn.classList.remove("recording");
-      };
-      const recognitionBtn = document.getElementById("recognition-btn");
-      let isRecording = false;
-      recognitionBtn.addEventListener("click", () => {
-        if (!isRecording) {
-          recognition.start();
-          isRecording = true;
-          recognitionBtn.innerHTML = '<span class="icon"><i class="fa-solid fa-stop"></i></span>';
-          textareaValue = textarea.value;
-        } else {
-          recognition.stop();
-          isRecording = false;
-          recognitionBtn.innerHTML = '<span class="icon"><i class="fa-solid fa-microphone"></i></span>';
-          transcript = "";
-        }
-      });
-      textarea.addEventListener("input", () => {
-        textareaValue = textarea.value;
-      });
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "ArrowRight") { // tombol "sebelah kanan" untuk memulai pengenalan suara
-          recognition.start();
-        } else if (event.key === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara
-          recognition.stop();
-          navigator.clipboard.writeText(document.getElementById("text-area").innerText);
-        }
-      });
-    </script>
-
+    interimText.innerHTML = interimTranscripts.map(transcript => `<span>${transcript}</span>`).join('');
+  };
+</script>
 
 
 

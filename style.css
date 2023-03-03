@@ -1969,16 +1969,11 @@ font-weight: bold;
     opacity: 1;
   }
 }
-#interim-text {
-color: #0059ffae;
-background-color: #fffcfc;
-border-radius: 10px;
- 
-}
+
 
 
 #output-text7 {
-  color: #fdfff4;
+  color: #000000;
   text-align: left;
 }
 #hasil0 {
@@ -2221,15 +2216,13 @@ height: 70px;
     font-size: 18px;
     line-height: 1.6;
    border-radius: 10px;
-    margin: 50px auto;
+    color: #000000;
     width: 100%;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
   }
   
 
-#text-area {
-  color: #000;
-}
+
 
 @keyframes fadeIn {
   from {
@@ -2240,14 +2233,16 @@ height: 70px;
   }
 }
 
-.interim-text {
+
+#interim-text {
+ 
   display: inline-block;
   height: 1.2em;
   font-style: italic;
   color: rgb(255, 255, 255);
   margin-right: 5px;
-}
-
+  
+  }
 
 @keyframes fadeIn {
   from {
@@ -2270,4 +2265,20 @@ height: 70px;
   0% { transform: scale(1); }
   50% { transform: scale(1.2); }
   100% { transform: scale(1); }
+}
+.copied-msg {
+  color: blue;
+
+
+  animation-name: shake;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-10px); }
+  30%, 70% { transform: translateX(10px); }
+  50% { transform: translateX(0); }
 }
