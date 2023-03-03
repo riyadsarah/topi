@@ -5272,6 +5272,7 @@ berikut hasilnya :
 
 
 <script>
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const recognition = new window.webkitSpeechRecognition();
   const outputText = document.getElementById('output-text7');
   const interimText = document.getElementById('interim-text');
@@ -5333,8 +5334,8 @@ berikut hasilnya :
   recognition.lang = 'id-ID';
   recognition.lang = ['id-ID', 'su-ID']; 
   recognition.continuous = true;
-  recognition.maxAlternatives = 10;
-  recognition.interimResults = true;
+  recognition.maxAlternatives = 5;
+  recognition.interimResults = isMobile ? false : true;
   setTimeout(() => {
     stopRecognition();
   }, 300000); // rekam selama 1 menit (60 detik)
@@ -5534,7 +5535,7 @@ function stopRecognition() {
       startRecognition();
     } else if (event.key === "ArrowLeft") { // tombol "sebelah kiri" untuk menghentikan pengenalan suara
       stopRecognition();
-      navigator.clipboard.writeText(document.getElementById("output-text7").innerText);
+      navigator.clipboard.writeText(document.getElementBsyId("output-text7").innerText);
     }
   });
   navigator.clipboard.writeText(outputText7).then(() => {
