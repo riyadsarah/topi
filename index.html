@@ -24,6 +24,8 @@
   <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
  <link  href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Open+Sans&display=swap" rel="stylesheet">
 
+ 
+
 </head>
 
 
@@ -87,7 +89,14 @@
           <div class="header-nav-left">
             
             <a href="#" class="header-nav-logo"><img id="logo" src="img/png5.img.png" alt="Logo"></a>
-            
+           
+    <div class="full-mode-toggle">
+      <label class="switch">
+        <input type="checkbox" id="full-mode-toggle">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  
           </div>
           
           <div class="header-nav-right">
@@ -147,6 +156,8 @@
 
   <div>
     <div id="color-buttons">
+    
+     
       <button id="color1-btn"><i class="fa-solid fa-paint-roller"></i></button>
       <button id="color2-btn"><i class="fa-solid fa-paint-roller"></i></button>
       <button id="color3-btn"><i class="fa-solid fa-paint-roller"></i></button>
@@ -158,15 +169,9 @@
     </div>
   </div>
  
-  
-  <div id="color-buttons">
-    <div class="full-mode-toggle">
-      <label class="switch">
-        <input type="checkbox" id="full-mode-toggle">
-        <span class="slider round"></span>
-      </label>
-    </div>
-  </div><br>
+ 
+
+  <br>
   <div class="tab-container">
     <div class="tabs">
       <div class="tab active" data-tab="tab-1">Hitung jumlah kalimat</div>
@@ -322,7 +327,7 @@
               <p>share ke facebook <i class="fab fa-facebook icon"></i></p>
               <p>cari di google <i class="fa-brands fa-google icon"></i></p>
               <p>cari di youtube <i class="fa-brands fa-youtube icon"></i></p>
-              <h2 class="product-title">Salin dan stop record ucapkan <i class="fa-solid fa-bullhorn" id="share-icon"></i></h2>
+              <h2 class="product-title">Salin dan stop record ucapkan </h2>
               <p>salin <i class="fa-regular fa-copy icon"></i></p>
               <p>stop <i class="fa-solid fa-circle-stop icon"></i></p>
               <h2 class="product-title">Untuk hapus ucapkan <i class="fa-solid fa-bullhorn" id="share-icon"></i></h2>
@@ -5508,6 +5513,11 @@ berikut hasilnya :
 
 
       }
+
+      const color1Button = () => {
+  const color1Button = document.getElementById("color1Button");
+  color1Button.click();
+}
       const goToProduk = () => {
         // Pindah ke bagian footer
         const Produk = document.getElementById("Produk");
@@ -5541,6 +5551,7 @@ berikut hasilnya :
 
               return;
             }
+           
 
 
             for (let word in punctuation) {
@@ -5603,7 +5614,34 @@ berikut hasilnya :
             } else if (output.toLowerCase().includes("pindah ke atas")) {
               goToTatang();
 
-            } else {
+            } else if (output.toLowerCase().includes("rubah warna")) {
+        if (output.toLowerCase().includes("hijau tosca")) {
+          document.querySelector('#color1-btn').click();
+        } else if (output.toLowerCase().includes("hitam")) {
+          document.querySelector('#color2-btn').click();
+        } else if (output.toLowerCase().includes("putih")) {
+          document.querySelector('#color3-btn').click();
+        } else if (output.toLowerCase().includes("merah")) {
+          document.querySelector('#color4-btn').click();
+        } else if (output.toLowerCase().includes("ungu")) {
+          document.querySelector('#color5-btn').click();
+        } else if (output.toLowerCase().includes("biru muda")) {
+          document.querySelector('#color6-btn').click();
+        } else if (output.toLowerCase().includes("biru")) {
+          document.querySelector('#color7-btn').click();
+        } else if (output.toLowerCase().includes("pink")) {
+          document.querySelector('#color8-btn').click();
+        }
+       
+      }else if (output.toLowerCase().includes("mode penuh")) {
+  document.querySelector('#full-mode-toggle').click();
+}
+else if (output.toLowerCase().includes("mode biasa")) {
+  document.querySelector('#full-mode-toggle').click();
+}
+
+
+             else {
               outputText.value += output;
             }
           } else {
@@ -5783,6 +5821,45 @@ tabs.forEach(function(tab) {
 });
 
 </script>
+
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">Tools Ucapan <i class="fa-solid fa-bullhorn" style="margin-left: 5px;" ></i></th>
+    </tr>
+    <tr>
+      <th><i class="fa-solid fa-circle-info" style="margin-right: 5px;"></i> Keterangan</th>
+      <th><i class="fa-solid fa-walkie-talkie" style="margin-right: 5px;"></i> Ucapkan  </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><i class="fa-solid fa-clipboard" style="margin-right: 5px;"></i> Menyalin teks</td>
+
+      <td>salin</td>
+    </tr>
+    <tr>
+      <td><i class="fa-solid fa-delete-left" style="margin-right: 5px;" ></i> Hapus kalimat</td>
+      <td>
+      <li>hapus</li>
+      <li>hapus dua kalimat</li>
+      <li>hapus tiga kalimat</li>
+      <li>hapus empat kalimat</li>
+      <li>hapus semua</li>
+      
+      </td>
+    </tr>
+    <tr>
+      <td><i class="fa-solid fa-circle-stop" style="margin-right: 5px;"></i> Stop recording</td>
+      <td>stop</td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+
 
     <footer id="footerSection">
       <div class="container">
