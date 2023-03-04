@@ -144,14 +144,17 @@
       <img src="img/7.img.jpeg" alt="Topi 4">
     </div>
   </div>
+
   <div>
     <div id="color-buttons">
-      <button id="color1-btn">Color 1</button>
-      <button id="color2-btn">Color 2</button>
-      <button id="color3-btn">Color 3</button>
-      <button id="color4-btn">Color 4</button>
-      <button id="color5-btn">Color 5</button>
-      <button id="color6-btn">Color 6</button>
+      <button id="color1-btn"><i class="fa-solid fa-paint-roller"></i></button>
+      <button id="color2-btn"><i class="fa-solid fa-paint-roller"></i></button>
+      <button id="color3-btn"><i class="fa-solid fa-paint-roller"></i></button>
+      <button id="color4-btn"><i class="fa-solid fa-paint-roller"></i></button>
+      <button id="color5-btn"><i class="fa-solid fa-paint-roller"></i></button>
+      <button id="color6-btn"><i class="fa-solid fa-paint-roller"></i></button>
+      <button id="color7-btn"><i class="fa-solid fa-paint-roller"></i></button>
+      <button id="color8-btn"><i class="fa-solid fa-paint-roller"></i></button>
     </div>
   </div>
  
@@ -209,7 +212,7 @@
       <!-- Modal dialog -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
+          <div class="modal-content1">
             <div class="modal-header">
               <h1 class="discounted-price" id="exampleModalLabel">Keterangan</h1>
              
@@ -258,7 +261,6 @@
               <p> plus <i class="fa-solid fa-plus icon"></i></p>
               <p> minus <i class="fa-solid fa-minus icon"></i></p>
               <p> kali <i class="fa-solid fa-times icon"></i></p>
-              <p> bagi <i class="fa-solid fa-divide icon"></i></p>
               <p> persen <i class="fa-solid fa-percent icon"></i></p>
               <p> panah kanan <i class="fa-solid fa-chevron-right icon"></i></p>
               <p> panah kiri <i class="fa-solid fa-chevron-left icon"></i></p>
@@ -5392,7 +5394,7 @@ berikut hasilnya :
         "titik": ".",
         "pemisah": ":",
         "koma": ",",
-        "tiga titik": "...",
+        "3 titik": "...",
         "tanda tanya": "?",
         "tanda seru": "!",
         "petik satu": "'",
@@ -5403,7 +5405,6 @@ berikut hasilnya :
         "plus": "+",
         "minus": "-",
         "kali": "*",
-        "bagi": "/",
         "persen": "%",
         "panah kanan": ">",
         "panah kiri": "<",
@@ -5693,6 +5694,8 @@ const color3Btn = document.getElementById("color3-btn");
 const color4Btn = document.getElementById("color4-btn");
 const color5Btn = document.getElementById("color5-btn");
 const color6Btn = document.getElementById("color6-btn");
+const color7Btn = document.getElementById("color7-btn");
+const color8Btn = document.getElementById("color8-btn");
 const myContent = document.getElementById("my-content");
 
 function setColor1() {
@@ -5719,12 +5722,21 @@ function setColor6() {
   document.documentElement.setAttribute('data-theme', 'color6');
 }
 
+function setColor7() {
+  document.documentElement.setAttribute('data-theme', 'color7');
+}
+
+function setColor8() {
+  document.documentElement.setAttribute('data-theme', 'color8');
+}
 color1Btn.addEventListener("click", setColor1);
 color2Btn.addEventListener("click", setColor2);
 color3Btn.addEventListener("click", setColor3);
 color4Btn.addEventListener("click", setColor4);
 color5Btn.addEventListener("click", setColor5);
 color6Btn.addEventListener("click", setColor6);
+color7Btn.addEventListener("click", setColor7);
+color8Btn.addEventListener("click", setColor8);
 
 // set initial theme
 document.documentElement.setAttribute('data-theme', 'color1');
