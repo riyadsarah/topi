@@ -166,6 +166,100 @@
         <span class="slider round"></span>
       </label>
     </div>
+  </div><br>
+  <div class="tab-container">
+    <div class="tabs">
+      <div class="tab active" data-tab="tab-1">Hitung jumlah kalimat</div>
+      <div class="tab" data-tab="tab-2">Rubah hurup vokal</div>
+      <div class="tab" data-tab="tab-3">Rubah kalimat menjadi unik</div>
+    </div>
+    <div class="tab-content" id="tab-1">
+     
+    <div class="container-b">
+      <div class="title-container">
+        <h1 class="title">Cari kalimat</h1>
+      </div><br>
+      <div>
+        <textarea id="story-textarea" rows="10" cols="50" placeholder="Masukkan cerita Anda di sini"></textarea>
+        <br>
+        <label for="search-keywords">Kata kunci:</label>
+        <input type="text" id="search-keywords" placeholder="Masukkan kata kunci di sini">
+        <button type="button11" onclick="search()">Cari <i class="fa-solid fa-magnifying-glass"></i></button>
+        <br><br>
+        <pre id="story-results"></pre>
+      </div>
+    </div>
+    </div>
+    <div class="tab-content hidden" id="tab-2">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Rubah hurup vokal</h1>
+        </div><br>
+        <div>
+          <textarea id="kalimat" placeholder="Masukkan teks..."></textarea><br>
+  
+          <select id="pilihan" class="custom-select">
+            <option value="a">a</option>
+            <option value="i">i</option>
+            <option value="u">u</option>
+            <option value="e">e</option>
+            <option value="o">o</option>
+          </select>
+        </div><br>
+        <div>
+  
+  
+          <button type="button11" onclick="gantiKonsonan()">Ganti Konsonan</button>
+        </div>
+  
+        <div>
+          <button type="button11" onclick="resetvokal()"><i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks2()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks2()"><i class="fa fa-share"></i></button>
+        </div>
+        <pre id="hasil"></pre>
+  
+      </div>
+    </div>
+    <div class="tab-content hidden" id="tab-3">
+     
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Modifikasi teks</h1>
+        </div>
+        <form onsubmit="modifikasiTeks(); return false;">
+          <textarea id="input-text" placeholder="Masukkan teks..."></textarea><br>
+          <div>
+            <select id="mode-select">
+              <option value="mode-1">1 kalimat-1 paragraphs</option>
+              <option value="mode-2">Tebal-miring Besar-kecil</option>
+              <option value="mode-3">Tebal-miring</option>
+              <option value="mode-4">Tebal-biasa</option>
+              <option value="mode-7">Besar-kecil</option>
+              <option value="mode-6">Spasi jadi asiiiap</option>
+              <option value="mode-8">Hurup terakir jadi 10 </option>
+              <option value="mode-5">Teks menjadi Surat</option>
+              <option value="mode-9">Gabungkan semua </option>
+            </select>
+          </div><br>
+          <div>
+            <button type="button11" type="submit">Modifikasi</button>
+          </div>
+          <div>
+            <button type="button11" onclick="reloadwae()"><i class="fas fa-undo"></i></button>
+            <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
+            <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button>
+          </div>
+  
+          <pre id="output-text"></pre>
+  
+          <div id="address-input">
+            <p id="deskripsiProduk">Alamat hanya untuk Teks menjadi surat</p>
+            <input id="input-address" type="text" placeholder="Masukkan alamat...">
+          </div>
+        </form>
+      </div>
+    </div><br>
   </div>
 
   <br><br>
@@ -282,20 +376,6 @@
 
   <div class="container-b">
     <div class="title-container">
-      <h1 class="title">Cari kalimat</h1>
-    </div><br>
-    <div>
-      <textarea id="story-textarea" rows="10" cols="50" placeholder="Masukkan cerita Anda di sini"></textarea>
-      <br>
-      <label for="search-keywords">Kata kunci:</label>
-      <input type="text" id="search-keywords" placeholder="Masukkan kata kunci di sini">
-      <button type="button11" onclick="search()">Cari <i class="fa-solid fa-magnifying-glass"></i></button>
-      <br><br>
-      <pre id="story-results"></pre>
-    </div>
-  </div><br>
-  <div class="container-b">
-    <div class="title-container">
       <h1 class="title">Hitung pendapatan detail <i class="fa-solid fa-magnifying-glass-dollar"></i></h1>
       <p>Hitungan(30h/bulan)</p>
 
@@ -355,81 +435,6 @@
     </button>
     <div id="myModal3" class="modal3">
 
-      <div class="container-b">
-        <div class="title-container">
-          <h1 class="title">Modifikasi teks</h1>
-        </div>
-        <form onsubmit="modifikasiTeks(); return false;">
-          <textarea id="input-text" placeholder="Masukkan teks..."></textarea><br>
-          <div>
-            <select id="mode-select">
-              <option value="mode-1">1 kalimat-1 paragraphs</option>
-              <option value="mode-2">Tebal-miring Besar-kecil</option>
-              <option value="mode-3">Tebal-miring</option>
-              <option value="mode-4">Tebal-biasa</option>
-              <option value="mode-7">Besar-kecil</option>
-              <option value="mode-6">Spasi jadi asiiiap</option>
-              <option value="mode-8">Hurup terakir jadi 10 </option>
-              <option value="mode-5">Teks menjadi Surat</option>
-              <option value="mode-9">Gabungkan semua </option>
-            </select>
-          </div><br>
-          <div>
-            <button type="button11" type="submit">Modifikasi</button>
-          </div>
-          <div>
-            <button type="button11" onclick="reloadwae()"><i class="fas fa-undo"></i></button>
-            <button type="button11" onclick="salinTeks()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks()"><i class="fa fa-share"></i></button>
-          </div>
-
-          <pre id="output-text"></pre>
-
-          <div id="address-input">
-            <p id="deskripsiProduk">Alamat hanya untuk Teks menjadi surat</p>
-            <input id="input-address" type="text" placeholder="Masukkan alamat...">
-          </div>
-        </form>
-      </div><br><br><br>
-
-
-
-
-
-
-      <div class="container-b">
-        <div class="title-container">
-          <h1 class="title">Rubah hurup vokal</h1>
-        </div><br>
-        <div>
-          <textarea id="kalimat" placeholder="Masukkan teks..."></textarea><br>
-
-          <select id="pilihan" class="custom-select">
-            <option value="a">a</option>
-            <option value="i">i</option>
-            <option value="u">u</option>
-            <option value="e">e</option>
-            <option value="o">o</option>
-          </select>
-        </div><br>
-        <div>
-
-
-          <button type="button11" onclick="gantiKonsonan()">Ganti Konsonan</button>
-        </div>
-
-        <div>
-          <button type="button11" onclick="resetvokal()"><i class="fas fa-undo"></i></button>
-          <button type="button11" onclick="salinTeks2()"><i class="fa fa-copy"></i></button>
-          <button type="button11" onclick="bagikanTeks2()"><i class="fa fa-share"></i></button>
-        </div>
-        <pre id="hasil"></pre>
-
-      </div>
-
-
-
-      <br><br><br>
 
 
 
@@ -5744,7 +5749,40 @@ document.documentElement.setAttribute('data-theme', 'color1');
 </script>
 
 
+<script>
+  const tabs = document.querySelectorAll(".tab");
+const tabContents = document.querySelectorAll(".tab-content");
 
+tabs.forEach(function(tab) {
+  tab.addEventListener("click", function() {
+  // check if the tab is already active
+  const isActive = this.classList.contains("active");
+  
+  // hide the tab content and remove the active class if the tab is already active
+  if (isActive) {
+    const tabId = this.dataset.tab;
+    const tabContent = document.getElementById(tabId);
+    tabContent.classList.remove("active");
+    this.classList.remove("active");
+  }
+  // show the tab content and add the active class if the tab is not active
+  else {
+    const tabId = this.dataset.tab;
+    const tabContent = document.getElementById(tabId);
+    tabContents.forEach(function(content) {
+      content.classList.remove("active");
+    });
+    tabContent.classList.add("active");
+    tabs.forEach(function(tab) {
+      tab.classList.remove("active");
+    });
+    this.classList.add("active");
+  }
+});
+
+});
+
+</script>
 
     <footer id="footerSection">
       <div class="container">

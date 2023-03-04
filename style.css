@@ -2573,5 +2573,85 @@ color: #ff0000;
   #color-buttons button {
     font-size: 17px;
     padding: 5px 10px;
+    margin: 5px;
+  }
+  
+  .tab-container {
+    width: 100%;
+  
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #ffffff35, #ffffff28);
+    
+    margin: 10px;
+    padding: 10px;
+  }
+  .tab {
+    position: relative;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 5px;
+   background: linear-gradient(to bottom, #ffffff, #a5b5af);
+   
+    color: rgb(0, 179, 255);
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin: 10px;
+  }
+
+  .tab:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #4bfd10;
+
+    
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .tab.active:after {
+    width: 100%;
+  }
+  .tab:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+  }
+  
+  .tab:hover:after {
+    width: 100%;
+  }
+  
+  
+  
+  
+  .tab-content {
+    display: none;
+  
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .tabs {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .tab {
+      font-size: 12px;
+      padding: 8px 10px;
+    }
   }
   
