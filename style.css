@@ -2435,6 +2435,24 @@ input:checked + .slider:before {
 label[for="full-mode-toggle"] {
   margin-left: 5px;
 }
+@media (max-width: 768px) {
+  .full-mode-toggle {
+    bottom: 5px;
+    right: 5px;
+  }
+
+  .switch {
+    width: 40px;
+    height: 20px;
+  }
+
+  .slider:before {
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+  }
+}
 
 
 
