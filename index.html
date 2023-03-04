@@ -22,7 +22,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
-
+ <link  href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Open+Sans&display=swap" rel="stylesheet">
 
 </head>
 
@@ -63,27 +63,40 @@
       margin: 20px;
     }
   }
+
+
+
+  
+
+
+
 </style>
 
 
 
 
 <body>
-
+  <div id="my-content">
 
 
   <div id="Tatang">
     <header>
       <nav id="header-nav">
         <div class="header-nav-container">
+
           <div class="header-nav-left">
+            
             <a href="#" class="header-nav-logo"><img id="logo" src="img/png5.img.png" alt="Logo"></a>
+            
           </div>
+          
           <div class="header-nav-right">
+           
 
             <a href="halaman hijab/hibab.html"><i class="fa-solid fa-shirt"></i></i></a>
 
             <a href=""><i class="fa-brands fa-redhat"></i></a>
+            
           </div>
         </div>
       </nav>
@@ -131,7 +144,26 @@
       <img src="img/7.img.jpeg" alt="Topi 4">
     </div>
   </div>
-
+  <div>
+    <div id="color-buttons">
+      <button id="color1-btn">Color 1</button>
+      <button id="color2-btn">Color 2</button>
+      <button id="color3-btn">Color 3</button>
+      <button id="color4-btn">Color 4</button>
+      <button id="color5-btn">Color 5</button>
+      <button id="color6-btn">Color 6</button>
+    </div>
+  </div>
+ 
+  
+  <div id="color-buttons">
+    <div class="full-mode-toggle">
+      <label class="switch">
+        <input type="checkbox" id="full-mode-toggle">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
 
   <br><br>
   <p id="judulProduk">FITUR TERBARU</p>
@@ -172,6 +204,7 @@
       <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fa-solid fa-book"></i>
       </button>
+   
 
       <!-- Modal dialog -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -179,11 +212,11 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="discounted-price" id="exampleModalLabel">Keterangan</h1>
-              <button id="start-btn" class="g-stt-btn" onclick="toggleRecognition()">
+             
                 <span class="icon">
-                  <i class="fa-solid fa-microphone"></i>
+                  <i class="fa-sharp fa-regular fa-bookmark"></i>
                 </span>
-              </button>
+           
             </div>
             <div class="modal-body">
               <h2 class="product-title">Share dan cari ucapkan <i class="fa-solid fa-bullhorn " id="share-icon"></i>
@@ -242,7 +275,7 @@
       </div>
 
     </div>
-  </div><br>
+<br>
 
 
   <div class="container-b">
@@ -1400,7 +1433,7 @@
     }
   </script>
 
-  <div>
+
     <br>
 
     <div class="header-nav-container">
@@ -5432,8 +5465,7 @@ berikut hasilnya :
           startBtn.classList.remove('recording');
           startBtn.style.display = 'inline-block';
           stopBtn.style.display = 'none';
-          const outputText = document.getElementById("output-text7").value
-          navigator.clipboard.writeText(outputText);
+
           interimText.innerHTML = '';
           popupBox.classList.remove('show');
         } else {
@@ -5619,20 +5651,85 @@ berikut hasilnya :
         const outputText = document.getElementById("output-text7").value;
         navigator.clipboard.writeText(outputText);
       }
-
       document.addEventListener("keydown", function (event) {
-        const popupBox = document.querySelector(".popup-box");
+  const popupBox = document.querySelector(".popup-box");
 
-        if (event.key === "ArrowRight") {
-          startRecognition();
-        } else if (event.key === "ArrowLeft") {
-          stopRecognition();
-          navigator.clipboard.writeText(document.getElementById("output-text7").value);
-        }
+  if (event.key === "ArrowRight") {
+    startRecognition();
+    interimText.innerHTML = '';
+    popupBox.classList.remove('show');
+  } else if (event.key === "ArrowLeft") {
+    stopRecognition();
+    const outputText = document.getElementById("output-text7").value
+    navigator.clipboard.writeText(outputText);
+  }
 
-        popupBox.style.display = isRecording ? "block" : "none";
-      });
+  popupBox.style.display = isRecording ? "block" : "none";
+  popupBox.classList.add('show');
+});
+
+    
     </script>
+
+
+<script>
+  const fullModeToggle = document.getElementById('full-mode-toggle');
+fullModeToggle.addEventListener('change', () => {
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    document.documentElement.requestFullscreen();
+  }
+});
+
+</script>
+
+
+
+<script>
+  const color1Btn = document.getElementById("color1-btn");
+const color2Btn = document.getElementById("color2-btn");
+const color3Btn = document.getElementById("color3-btn");
+const color4Btn = document.getElementById("color4-btn");
+const color5Btn = document.getElementById("color5-btn");
+const color6Btn = document.getElementById("color6-btn");
+const myContent = document.getElementById("my-content");
+
+function setColor1() {
+  document.documentElement.setAttribute('data-theme', 'color1');
+}
+
+function setColor2() {
+  document.documentElement.setAttribute('data-theme', 'color2');
+}
+
+function setColor3() {
+  document.documentElement.setAttribute('data-theme', 'color3');
+}
+
+function setColor4() {
+  document.documentElement.setAttribute('data-theme', 'color4');
+}
+
+function setColor5() {
+  document.documentElement.setAttribute('data-theme', 'color5');
+}
+
+function setColor6() {
+  document.documentElement.setAttribute('data-theme', 'color6');
+}
+
+color1Btn.addEventListener("click", setColor1);
+color2Btn.addEventListener("click", setColor2);
+color3Btn.addEventListener("click", setColor3);
+color4Btn.addEventListener("click", setColor4);
+color5Btn.addEventListener("click", setColor5);
+color6Btn.addEventListener("click", setColor6);
+
+// set initial theme
+document.documentElement.setAttribute('data-theme', 'color1');
+
+</script>
 
 
 
@@ -5642,20 +5739,21 @@ berikut hasilnya :
         <div class="row">
           <div class="col-md-4">
             <h3>Tentang Kami</h3>
-
-            <p>SR Fashion adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan,
+<ul>
+            <li>SR Fashion adalah perusahaan yang bergerak dalam bidang penjualan topi, kopiah, hijab, makanan ringan,
               dan jasa pembuatan branding untuk media sosial seperti YouTube dan platform market place seperti
               Shopee dan lain-lain. Kami bertekad untuk memberikan produk dan layanan berkualitas kepada pelanggan
-              kami dengan harga yang terjangkau.</p>
-            <p>Kami memiliki tim yang berpengalaman dan profesional dalam memenuhi kebutuhan pelanggan kami. Kami
-              berupaya untuk selalu memberikan pengalaman belanja yang memuaskan bagi setiap pelanggan kami.</p>
-            <p>SR Fashion didirikan dengan visi untuk menjadi perusahaan terkemuka dalam industri penjualan topi,
+              kami dengan harga yang terjangkau.</li>
+            <li>Kami memiliki tim yang berpengalaman dan profesional dalam memenuhi kebutuhan pelanggan kami. Kami
+              berupaya untuk selalu memberikan pengalaman belanja yang memuaskan bagi setiap pelanggan kami.</li>
+            <li>SR Fashion didirikan dengan visi untuk menjadi perusahaan terkemuka dalam industri penjualan topi,
               kopiah, hijab, makanan ringan, dan jasa branding. Kami bekerja keras untuk memenuhi visi kami dan
-              terus berkembang untuk menjadi yang terbaik.</p>
-            <p>Kami sangat menghargai setiap pelanggan kami dan akan selalu berupaya untuk memenuhi harapan mereka.
+              terus berkembang untuk menjadi yang terbaik.</li>
+            <li>Kami sangat menghargai setiap pelanggan kami dan akan selalu berupaya untuk memenuhi harapan mereka.
               Kami berharap untuk membangun hubungan jangka panjang dengan pelanggan kami dan memberikan layanan
-              yang selalu memuaskan.</p>
-            <p>Nikmati belanja produk berkualitas dengan SR Fashion hari ini!"</p>
+              yang selalu memuaskan.</li>
+            <li>Nikmati belanja produk berkualitas dengan SR Fashion hari ini!"</li>
+          </ul>
           </div>
           <div class="col-md-4">
             <h3>Kontak Kami</h3>
@@ -5701,10 +5799,9 @@ berikut hasilnya :
 
 
 
-  </div>
-  </div>
-  </div>
 
+
+  </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

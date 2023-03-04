@@ -12,14 +12,37 @@ body {
   background-image: linear-gradient(to right, #009999 0, #009999 0);
   background: cover;
 }
+/* Menambahkan font Open Sans dan Roboto dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
 
 
+
+/* Menambahkan pilihan font pada dropdown */
+select {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #a5b5af);
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+  color: rgb(0, 179, 255);
+}
+
+option {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+* {
+	
+	font-family: Viga;
+}
 
 
 #mode-select {
   border-radius: 10px;
   padding: 3px;
   font-size: 17px;
+  background: linear-gradient(to bottom, #ffffff, #a5b5af);
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+  color: rgb(0, 179, 255);
 }
 
 
@@ -306,8 +329,9 @@ input[type="date"] {
 }
 
 button[type="button"] {
-  background: linear-gradient(to bottom, #00eeff98, #030b0834);
-  color: rgb(255, 255, 255);
+  background: linear-gradient(to bottom, #ffffff, #a5b5af);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+    color: rgb(0, 179, 255);
   padding: 5px 20px;
  
   border: none;
@@ -335,8 +359,9 @@ button[type="button1"] {
   cursor: pointer;
 }
 button[type="button11"] {
-  background: linear-gradient(to bottom, #00eeff98, #030b0834);
-  color: rgb(255, 255, 255);
+  background: linear-gradient(to bottom, #ffffff, #a5b5af);
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+  color: rgb(0, 179, 255);
   padding: 5px 20px;
 
   border: none;
@@ -1860,10 +1885,12 @@ font-weight: bold;
     padding: 2px; /* padding */
     border-radius: 5px; /* sudut melengkung */
     border: 0px solid #ccc; /* border */
-    background: linear-gradient(to bottom, #00eeff98, #030b0834);
+    background: linear-gradient(to bottom, #ffffff, #a5b5af);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+    color: rgb(0, 179, 255);
     max-width: 400px; /* maksimal lebar 400px */
     box-sizing: border-box; /* menghitung ukuran dengan padding dan border */
-    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0, 0, 0, 0.116);
+   
   }
   .custom-select:hover {
     transform: translateY(-1px);
@@ -2134,10 +2161,7 @@ height: 70px;
   box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.087), 0 10px 36px 0 rgba(0,0,0,0.19);
 }
 
-* {
-	
-	font-family: Viga;
-}
+
 
 
   mark {
@@ -2329,3 +2353,200 @@ height: 70px;
 color: #888;
   font-size: 25px;
 }
+
+
+
+.full-mode-toggle {
+
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cccccc64;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgba(255, 255, 255, 0.599);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+label[for="full-mode-toggle"] {
+  margin-left: 10px;
+}
+
+
+
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #ffffff;
+}
+
+[data-theme="color1"] {
+  --background-color: #009999;
+  --text-color: #f0f0f0;
+}
+
+[data-theme="color2"] {
+  --background-color: #000000ae;
+  --text-color: #ffffff;
+}
+
+[data-theme="color3"] {
+  --background-color: #e7eff6;
+  --text-color: #000000d5;
+}
+
+[data-theme="color4"] {
+  --background-color: #ff0000;
+  --text-color: #ffffff;
+}
+
+[data-theme="color5"] {
+  --background-color: #c7d4e7;
+  --text-color: #000000d5;
+}
+
+[data-theme="color6"] {
+  --background-color: #97def4;
+  --text-color: #000000d5;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#my-content {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#my-content h1 {
+  color: var(--text-color);
+}
+
+#my-content p {
+  color: var(--text-color);
+}
+
+
+#color1-btn {
+  background: linear-gradient(to bottom, #70ffee, #079da5);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+  
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+#color2-btn {
+  background: linear-gradient(to bottom, #000000ae, #a5b5af);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+  color: #5c5c5c;
+}
+
+#color3-btn {
+  background: linear-gradient(to bottom, #b1cbe1, #c9d4d0);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+  color: #5c5c5c;
+}
+
+#color4-btn {
+  background: linear-gradient(to bottom, #ff2222, #ca4141);
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+color: #5c5c5c;
+
+}
+
+#color5-btn {
+  background: linear-gradient(to bottom, #c7d4e7, #6b7d97);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+  color: #5c5c5c;
+}
+
+#color6-btn {
+  background: linear-gradient(to bottom, #97def4, #519eb6);
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2), 0 8px 24px 0 rgba(0,0,0,0.19);
+  color: #5c5c5c;
+}
+#color1-btn, #color2-btn, #color3-btn, #color4-btn, #color5-btn, #color6-btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  color: #ffffff;
+  border-radius: 10px;
+  }
+  
+  #color1-btn:hover, #color2-btn:hover, #color3-btn:hover, #color4-btn:hover, #color5-btn:hover, #color6-btn:hover {
+  background-color: #5c5c5c;
+  color: #f7d9aa;
+  cursor: pointer;
+  }
+  #color-buttons {
+    display: inline-block;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  #color-buttons button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  
