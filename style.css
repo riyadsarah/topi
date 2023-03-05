@@ -2672,8 +2672,6 @@ color: #ff0000;
   
   thead tr:first-child th {
    font-size: 35px;
-    
-    padding: 8px;
     font-weight: bold;
     color: #39b3ff;
     background-color: #ddd;
@@ -2682,9 +2680,10 @@ color: #ff0000;
   thead tr:last-child th {
     background-color: #ddd;
     color: #39b3ff;
-    border: 1px solid #00000053;
+    border: 2px solid #000000;
     padding: 8px;
     font-weight: bold;
+    
   }
   
   tbody td {
@@ -2700,7 +2699,7 @@ color: #ff0000;
   
   #tabel-satu th {
     font-weight: bold;
-    border: none;
+    border: 1px solid #ffffff;
   }
   
   #tabel-satu td {
@@ -2713,7 +2712,7 @@ color: #ff0000;
     }
     
     thead tr:first-child th {
-      font-size: 25px;
+      font-size: 26px;
     }
     
     tbody td {

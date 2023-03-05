@@ -5366,7 +5366,7 @@ recognition.lang = 'id-ID';
 recognition.lang = ['id-ID', 'su-ID'];
 recognition.continuous = true;
 recognition.maxAlternatives = 5;
-recognition.interimResults = isMobile ? false : true;
+recognition.interimResults = true; // ubah menjadi selalu true
 
 recognition.onend = () => {
   if (isRecording) {
