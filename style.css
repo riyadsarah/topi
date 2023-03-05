@@ -2692,4 +2692,17 @@ color: #ff0000;
     padding: 8px;
   }
 
+  #tabel-satu {
+    margin: 0 auto;
+    width: 50%;
+    
+  }
   
+  #tabel-satu th {
+    font-weight: bold;
+    border: none;
+  }
+  
+  #tabel-satu td {
+    text-align: center;
+  }
