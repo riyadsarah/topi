@@ -2693,8 +2693,8 @@ color: #ff0000;
   }
 
   #tabel-satu {
-    margin: 0 auto;
-    width: 50%;
+    margin:0 auto;
+    width: 80%;
     
   }
   
@@ -2706,3 +2706,18 @@ color: #ff0000;
   #tabel-satu td {
     text-align: center;
   }
+  @media (max-width: 600px) {
+    table {
+      font-size: 12px;
+      width: 80%;
+    }
+    
+    thead tr:first-child th {
+      font-size: 20px;
+    }
+    
+    tbody td {
+      padding: 4px;
+    }
+  }
+  

@@ -288,72 +288,7 @@
         <div id="copied-msg" style="display: none;">Copied!</div>
         <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i
             class="fa-solid fa-share-nodes"></i></button>
-        <!-- Button trigger modal -->
-        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          <i class="fa-solid fa-book"></i>
-        </button>
-
-
-        <!-- Modal dialog -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content1">
-              <div class="modal-header">
-                <h1 class="discounted-price" id="exampleModalLabel">Keterangan</h1>
-
-                <span class="icon">
-                  <i class="fa-sharp fa-regular fa-bookmark"></i>
-                </span>
-
-              </div>
-              <div class="modal-body">
-                <h2 class="product-title">Share dan cari ucapkan <i class="fa-solid fa-bullhorn " id="share-icon"></i>
-                </h2>
-                <p>share ke whatsapp <i class="fab fa-whatsapp icon"></i></p>
-                <p>share ke facebook <i class="fab fa-facebook icon"></i></p>
-                <p>cari di google <i class="fa-brands fa-google icon"></i></p>
-                <p>cari di youtube <i class="fa-brands fa-youtube icon"></i></p>
-
-                <h2 class="product-title">Spasi dan spasi bawah ucapkan <i class="fa-solid fa-bullhorn"
-                    id="share-icon"></i></h2>
-                <p>spasi bawah <i class="fa-solid fa-arrow-down icon"></i></p>
-                <p>baris baru <i class="fa-solid fa-level-down-alt icon"></i></p>
-                <p>poin <i class="fa-solid fa-circle icon"></i></p>
-                <h2 class="product-title">Emotikon dan tanda ucapkan <i class="fa-solid fa-bullhorn"
-                    id="share-icon"></i></h2>
-                <p>emot batu 🗿</p>
-                <p>hehehe 🤭</p>
-                <p>mantap 👍</p>
-                <p> titik | . </p>
-                <p> pemisah | : </p>
-                <p> koma | , </p>
-                <p> kurung buka | ( </p>
-                <p> kurung tutup | )</p>
-                <p> tiga titik <i class="fa-solid fa-ellipsis-h icon"></i></p>
-                <p> tanda tanya <i class="fa-solid fa-question-circle icon"></i></p>
-                <p> tanda seru <i class="fa-solid fa-exclamation-circle icon"></i></p>
-                <p> petik satu <i class="fa-solid fa-quote-left icon"></i></p>
-                <p> petik dua <i class="fa-solid fa-quote-right icon"></i></p>
-
-                <p> sama dengan <i class="fa-solid fa-equals icon"></i></p>
-                <p> plus <i class="fa-solid fa-plus icon"></i></p>
-                <p> minus <i class="fa-solid fa-minus icon"></i></p>
-                <p> kali <i class="fa-solid fa-times icon"></i></p>
-                <p> persen <i class="fa-solid fa-percent icon"></i></p>
-                <p> panah kanan <i class="fa-solid fa-chevron-right icon"></i></p>
-                <p> panah kiri <i class="fa-solid fa-chevron-left icon"></i></p>
-                <p> end <i class="fa-brands fa-d-and-d icon "></i></p>
-              </div>
-
-
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-            </div>
-          </div>
-        </div>
       </div>
-
     </div>
     <br>
 
@@ -5427,14 +5362,27 @@ berikut hasilnya :
         return words.join(" ");
       }
       let isRecording = true;
-      recognition.lang = 'id-ID';
-      recognition.lang = ['id-ID', 'su-ID'];
-      recognition.continuous = true;
-      recognition.maxAlternatives = 5;
-      recognition.interimResults = isMobile ? false : true;
-      setTimeout(() => {
-        stopRecognition();
-      }, 300000); // rekam selama 1 menit (60 detik)
+recognition.lang = 'id-ID';
+recognition.lang = ['id-ID', 'su-ID'];
+recognition.continuous = true;
+recognition.maxAlternatives = 5;
+recognition.interimResults = isMobile ? false : true;
+
+recognition.onend = () => {
+  if (isRecording) {
+    console.log('Recognition ended, restarting');
+    recognition.start();
+  }
+};
+
+recognition.onerror = (event) => {
+  console.error('Recognition error', event);
+};
+
+setTimeout(() => {
+  stopRecognition();
+}, 300000); // rekam selama 5 menit (300 detik)
+
 
       function showInterimTranscripts() {
         if (interimTranscripts.length > 0) {
