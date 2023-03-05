@@ -2338,7 +2338,7 @@ height: 70px;
   }
 }
 .selection {
-  color: white;
+
  
   animation: selection-animation 3s;
 }
@@ -2348,10 +2348,7 @@ height: 70px;
     background-color: rgb(0, 119, 255);
     color: #ccc;
   }
-  100% {
-    background-color: initial;
-  color: initial;
-  }
+  
 }
 .icon {
   font-size: 20px;

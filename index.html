@@ -78,9 +78,9 @@
       <header>
         <nav id="header-nav">
           <div class="header-nav-container">
-           
-              <a href="#" class="header-nav-logo"><img id="logo" src="img/png5.img.png" alt="Logo"></a>
-          
+
+            <a href="#" class="header-nav-logo"><img id="logo" src="img/png5.img.png" alt="Logo"></a>
+
             <div class="header-nav-right">
               <div class="full-mode-toggle">
                 <label class="switch">
@@ -288,6 +288,8 @@
         <div id="copied-msg" style="display: none;">Copied!</div>
         <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i
             class="fa-solid fa-share-nodes"></i></button>
+        <button type="button" id="salin-btn"><i class="fa fa-copy"></i></button>
+
       </div>
     </div>
     <br>
@@ -5347,7 +5349,7 @@ berikut hasilnya :
         "sarah": "SARAH YULIANA NAFISHA ",
         "mantap": "👍👍👍",
         "emot batu": "🗿🗿🗿",
-       
+
       };
 
       function capitalize(str) {
@@ -5362,30 +5364,32 @@ berikut hasilnya :
         return words.join(" ");
       }
       let isRecording = true;
-recognition.lang = 'id-ID';
-recognition.lang = ['id-ID', 'su-ID'];
-recognition.continuous = true;
-recognition.maxAlternatives = 5;
-recognition.interimResults = isMobile ? false : true;
+      recognition.lang = 'id-ID';
+      recognition.lang = ['id-ID', 'su-ID'];
+      recognition.continuous = true;
+      recognition.maxAlternatives = 5;
+      recognition.interimResults = isMobile ? false : true;
 
-recognition.onend = () => {
-  if (isRecording) {
-    console.log('Recognition ended, restarting');
-    recognition.start({ remember: true });
+      recognition.onend = () => {
+        if (isRecording) {
+          console.log('Recognition ended, restarting');
+          recognition.start({
+            remember: true
+          });
 
-  }
-};
+        }
+      };
 
-recognition.onerror = (event) => {
-  console.error('Recognition error', event);
-};
+      recognition.onerror = (event) => {
+        console.error('Recognition error', event);
+      };
 
-setTimeout(() => {
-  stopRecognition();
-}, 300000); // rekam selama 5 menit (300 detik)
+      setTimeout(() => {
+        stopRecognition();
+      }, 300000); // rekam selama 5 menit (300 detik)
 
       function showInterimTranscripts() {
-        if (interimTranscripts.length > 0) {
+        if (interimTranscripts.length > 0 && !isTyping) {
           interimText.style.display = 'block';
           interimText.innerHTML = interimTranscripts.join('');
         } else {
@@ -5393,6 +5397,7 @@ setTimeout(() => {
           interimText.innerHTML = '';
         }
       }
+
 
       function toggleRecognition() {
         const popupBox = document.querySelector('.popup-box');
@@ -5459,6 +5464,8 @@ setTimeout(() => {
       const shareToWhatsApp = () => {
         window.location.href = "https://wa.me/?text=" + encodeURIComponent(outputText.value);
       }
+
+
       recognition.onresult = function (event) {
         const interimTranscripts = [];
         for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
@@ -5484,6 +5491,8 @@ setTimeout(() => {
               const pattern = new RegExp("\\b" + word + "\\b", "gi");
               output = output.replace(pattern, punctuation[word]);
             }
+            let salinEffectActive = false; // tambahkan variabel ini di luar event listener
+
             if (/\bsalin\b/.test(output.toLowerCase())) {
               navigator.clipboard.writeText(outputText.value);
               outputText.focus();
@@ -5496,6 +5505,13 @@ setTimeout(() => {
               outputText.classList.add('selection');
               selection.anchorNode.parentElement.classList.add('selection');
 
+              // tambahkan kode berikut untuk memeriksa apakah efek salin sudah aktif atau belum
+              if (!salinEffectActive) {
+                // jika belum aktif, ubah warna background menjadi biru
+                document.body.style.backgroundColor = "blue";
+                salinEffectActive = true;
+              }
+
               setTimeout(() => {
                 copiedMsg.classList.add('copied-msg-hide');
                 setTimeout(() => {
@@ -5503,6 +5519,10 @@ setTimeout(() => {
                   copiedMsg.classList.remove('copied-msg-hide');
                   outputText.classList.remove('selection');
                   selection.anchorNode.parentElement.classList.remove('selection');
+                  // tambahkan kode berikut untuk mengubah warna background menjadi kosong (kembali ke semula)
+                  document.body.style.backgroundColor = "";
+                  // ubah status efek salin menjadi tidak aktif
+                  salinEffectActive = false;
                 }, 1000);
               }, 1000);
             } else if (output.toLowerCase().includes("hapus")) {
@@ -5561,8 +5581,22 @@ setTimeout(() => {
 
             } else if (output.toLowerCase().includes("mode layar penuh")) {
               document.querySelector('#full-mode-toggle').click();
+              document.body.style.backgroundColor = "blue";
+              setTimeout(() => {
+                if (document.fullscreenElement) {
+                  document.body.style.backgroundColor = "";
+                }
+              }, 500);
             } else if (output.toLowerCase().includes("mode layar biasa")) {
               document.querySelector('#full-mode-toggle').click();
+              document.body.style.backgroundColor = "blue";
+              setTimeout(() => {
+                if (!document.fullscreenElement) {
+                  document.body.style.backgroundColor = "";
+                }
+              }, 500);
+            } else if (output.toLowerCase().includes("subur")) {
+              document.querySelector('#salin-btn').click();
             } else {
               outputText.value += output;
             }
@@ -5572,6 +5606,7 @@ setTimeout(() => {
         }
 
         interimText.innerHTML = interimTranscripts.map(transcript => `<span>${transcript}</span>`).join('');
+
       };
 
       function hapusKalimatTerakhir(text, n) {
@@ -5601,6 +5636,7 @@ setTimeout(() => {
 
         startBtn.classList.add('recording');
         stopBtn.style.display = 'inline-block';
+        document.body.style.backgroundColor = "blue"; // menambahkan kode untuk mengubah warna background menjadi biru
       }
 
       function stopRecognition() {
@@ -5632,9 +5668,32 @@ setTimeout(() => {
 
         popupBox.style.display = isRecording ? "block" : "none";
         popupBox.classList.add('show');
+
+
+
+      });
+
+
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const outputText = document.getElementById('output-text7');
+        const copyBtn = document.getElementById('salin-btn');
+        copyBtn.onclick = () => {
+          const range = document.createRange();
+          range.selectNode(outputText);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          document.execCommand('copy');
+          window.getSelection().removeAllRanges();
+
+          outputText.style.color = 'blue';
+          setTimeout(() => {
+            outputText.style.color = '';
+          }, 500);
+
+        };
       });
     </script>
-
 
     <script>
       const fullModeToggle = document.getElementById('full-mode-toggle');
@@ -5742,56 +5801,64 @@ setTimeout(() => {
 
 
 
-<table id="tabel-satu">
-  <thead>
-    <tr>
-      <th colspan="1">Tools Ucapan lainya<i class="fa-solid fa-bullhorn" style="margin-left: 5px;"></i></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>pindah ke bawah</td>
-    </tr>
-    <tr>
-      <td>pindah ke produk</td>
-    </tr>
-    <tr>
-      <td>pindah ke atas</td>
-    </tr>
-    <tr>
-      <td>mode layar penuh <i class="fa-solid fa-expand-arrows-alt" style=" margin-left: 8px;"></i></td>
-    </tr>
-    <tr>
-      <td>mode layar biasa <i class="fa-solid fa-compress-arrows-alt" style=" margin-left: 8px;"></i></td>
-    </tr>
-    <tr>
-      <td style="margin-right: 10px;">rubah warna hijau tosca <i class="fa-solid fa-paint-roller" style="font-size: 27px; margin-left: 8px; color: #04ffff;"></i></td>
-    </tr>
-    <tr>
-      <td style="margin-right: 10px;">rubah warna hitam <i class="fa-solid fa-paint-roller" style="font-size: 27px; margin-left: 8px; color: #000000ae;"></i></td>
-    </tr>
-    <tr>
-      <td style="margin-right: 10px;">rubah warna putih <i class="fa-solid fa-paint-roller" style="font-size: 27px; margin-left: 8px; color: #e7eff6;"></i></td>
-    </tr>
-    <tr>
-      <td style="margin-right: 10px;">rubah warna merah <i class="fa-solid fa-paint-roller" style="font-size: 27px; margin-left: 8px; color: #ff0000;"></i></td>
-    </tr>
-    <tr>
-      <td style="margin-right: 10px;">rubah warna ungu <i class="fa-solid fa-paint-roller" style="font-size: 27px; margin-left: 8px; color: #9562bc;"></i></td>
-    </tr>
-    <tr>
-      <td style="margin-right: 10px;">rubah warna biru muda <i class="fa-solid fa-paint-roller" style="font-size: 27px; margin-left: 8px; color: #65a1e6;"></i></td>
-    </tr>
-    <tr>
-      <td style="margin-right: 10px;">rubah warna biru <i class="fa-solid fa-paint-roller" style="font-size: 27px; margin-left: 8px; color: #043fff;"></i></td>
-    </tr>
-    <tr>
-      <td style="margin-right: 10px;">rubah warna pink <i class="fa-solid fa-paint-roller" style="font-size: 27px; margin-left: 8px; color: #04ffff;"></i></td>
-    </tr>
-  </tbody>
-</table>
+    <table id="tabel-satu">
+      <thead>
+        <tr>
+          <th colspan="1">Tools Ucapan lainya<i class="fa-solid fa-bullhorn" style="margin-left: 5px;"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>pindah ke bawah</td>
+        </tr>
+        <tr>
+          <td>pindah ke produk</td>
+        </tr>
+        <tr>
+          <td>pindah ke atas</td>
+        </tr>
+        <tr>
+          <td>mode layar penuh <i class="fa-solid fa-expand-arrows-alt" style=" margin-left: 8px;"></i></td>
+        </tr>
+        <tr>
+          <td>mode layar biasa <i class="fa-solid fa-compress-arrows-alt" style=" margin-left: 8px;"></i></td>
+        </tr>
+        <tr>
+          <td style="margin-right: 10px;">rubah warna hijau tosca <i class="fa-solid fa-paint-roller"
+              style="font-size: 27px; margin-left: 8px; color: #04ffff;"></i></td>
+        </tr>
+        <tr>
+          <td style="margin-right: 10px;">rubah warna hitam <i class="fa-solid fa-paint-roller"
+              style="font-size: 27px; margin-left: 8px; color: #000000ae;"></i></td>
+        </tr>
+        <tr>
+          <td style="margin-right: 10px;">rubah warna putih <i class="fa-solid fa-paint-roller"
+              style="font-size: 27px; margin-left: 8px; color: #e7eff6;"></i></td>
+        </tr>
+        <tr>
+          <td style="margin-right: 10px;">rubah warna merah <i class="fa-solid fa-paint-roller"
+              style="font-size: 27px; margin-left: 8px; color: #ff0000;"></i></td>
+        </tr>
+        <tr>
+          <td style="margin-right: 10px;">rubah warna ungu <i class="fa-solid fa-paint-roller"
+              style="font-size: 27px; margin-left: 8px; color: #9562bc;"></i></td>
+        </tr>
+        <tr>
+          <td style="margin-right: 10px;">rubah warna biru muda <i class="fa-solid fa-paint-roller"
+              style="font-size: 27px; margin-left: 8px; color: #65a1e6;"></i></td>
+        </tr>
+        <tr>
+          <td style="margin-right: 10px;">rubah warna biru <i class="fa-solid fa-paint-roller"
+              style="font-size: 27px; margin-left: 8px; color: #043fff;"></i></td>
+        </tr>
+        <tr>
+          <td style="margin-right: 10px;">rubah warna pink <i class="fa-solid fa-paint-roller"
+              style="font-size: 27px; margin-left: 8px; color: #04ffff;"></i></td>
+        </tr>
+      </tbody>
+    </table>
 
-<br><br>
+    <br><br>
 
 
     <table>
@@ -5825,24 +5892,27 @@ setTimeout(() => {
           </td>
         </tr>
         <tr>
-          <td style="text-align: left;"><i class="fa-solid fa-circle-stop" style="margin-right: 8px;"></i> Stop recording</td>
+          <td style="text-align: left;"><i class="fa-solid fa-circle-stop" style="margin-right: 8px;"></i> Stop
+            recording</td>
           <td>stop</td>
         </tr>
         <tr>
-          <td style="text-align: left;"><i class="fa-solid fa-magnifying-glass" style="margin-right: 8px;"></i> Search teks</td>
+          <td style="text-align: left;"><i class="fa-solid fa-magnifying-glass" style="margin-right: 8px;"></i> Search
+            teks</td>
           <td>
             <div> cari di google <i class="fa-brands fa-google icon"></i></div>
             <div>cari di youtube <i class="fa-brands fa-youtube icon"></i></div>
           </td>
         </tr>
         <tr>
-          <td style="text-align: left;"><i class="fa-solid fa-share-from-square" style="margin-right: 8px;"></i> Bagikan teks</td>
+          <td style="text-align: left;"><i class="fa-solid fa-share-from-square" style="margin-right: 8px;"></i> Bagikan
+            teks</td>
           <td>
             <div> share ke whatsapp <i class="fab fa-whatsapp icon"></i></div>
             <div>share ke facebook <i class="fab fa-facebook icon"></i></div>
           </td>
         </tr>
-       
+
         <tr>
           <td style="text-align: center;">spasi</td>
           <td>baris baru</td>
@@ -5900,8 +5970,9 @@ setTimeout(() => {
           <td>kurung kurawal tutup</td>
         </tr>
         <tr>
-          <td style="text-align: center; font-size: 30px;"><</td>
-          <td>panah kiri</td>
+          <td style="text-align: center; font-size: 30px;">
+            <</td> <td>panah kiri
+          </td>
         </tr>
         <tr>
           <td style="text-align: center; font-size: 30px;">></td>
