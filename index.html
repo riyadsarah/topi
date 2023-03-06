@@ -5764,13 +5764,14 @@ recognition.onresult = function (event) {
   const interimTranscripts = [];
   for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
     const transcript = event.results[i][0].transcript;
+    
   
     if (event.results[i].isFinal) {
       let output = transcript;
-   
+
+    
+ 
      
-
-
 
             for (let word in punctuation) {
               const pattern = new RegExp("\\b" + word + "\\b", "gi");
@@ -5792,7 +5793,8 @@ recognition.onresult = function (event) {
               
 
 
-            } else if (output.toLowerCase().includes("hapus")) {
+            } 
+            else if (output.toLowerCase().includes("hapus")) {
               if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
                 outputText.value = "";
                 const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
@@ -5879,11 +5881,10 @@ else if (output.toLowerCase().includes("putar musik")) {
     playMusic();
   } else if (output.toLowerCase().includes("stop musik")) {
     stopMusic();
-  }
-
-             else {
+  } else {
               outputText.value += output;
             }
+            
           } else {
             interimTranscripts.push(transcript);
           }
@@ -6088,8 +6089,7 @@ else if (output.toLowerCase().includes("putar musik")) {
     </script>
 
 
-
-
+</script>
    
     <br><br>
 
