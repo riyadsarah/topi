@@ -5312,7 +5312,7 @@ berikut hasilnya :
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       const recognition = new window.webkitSpeechRecognition();
       const outputText = document.getElementById('output-text7');
-      
+
       const interimText = document.getElementById('interim-text');
       const startBtn = document.getElementById('start-btn');
       const stopBtn = document.getElementById('stop-btn');
@@ -5432,10 +5432,12 @@ berikut hasilnya :
         window.open(url, '_blank');
       }
 
+      const audio = new Audio('assets/notif3.mp3');
       const searchOnGoogle = () => {
         const query = outputText.value;
         const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
         window.open(url, '_blank');
+        audio.play(); // tambahkan kode ini untuk memainkan file audio
       }
 
       const goToFooter = () => {
@@ -5492,7 +5494,7 @@ berikut hasilnya :
               const pattern = new RegExp("\\b" + word + "\\b", "gi");
               output = output.replace(pattern, punctuation[word]);
             }
-            
+
 
             if (/\bsalin\b/.test(output.toLowerCase())) {
               navigator.clipboard.writeText(outputText.value);
@@ -5502,14 +5504,16 @@ berikut hasilnya :
                 navigator.vibrate(200);
               }
               if (output.toLowerCase().includes("salin")) {
-  const copyBtn = document.getElementById('salin-btn');
-  copyBtn.click();
-}
+                const copyBtn = document.getElementById('salin-btn');
+                copyBtn.click();
+              }
 
-             
+
             } else if (output.toLowerCase().includes("hapus")) {
               if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
                 outputText.value = "";
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play(); // memainkan suara ketika perintah dijalankan
               } else if (output.toLowerCase().includes("satu kalimat")) { // hapus satu kalimat terakhir
                 outputText.value = hapusKalimatTerakhir(outputText.value, 1);
               } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
@@ -5525,9 +5529,7 @@ berikut hasilnya :
             } else if (output.toLowerCase().includes("share ke whatsapp")) {
               shareToWhatsApp();
             } else if (output.toLowerCase().includes("cari di google")) {
-              const searchQuery = encodeURIComponent(outputText.value);
-              const googleUrl = `https://www.google.com/search?q=${searchQuery}`;
-              window.location.href = googleUrl;
+              searchOnGoogle();
             } else if (output.toLowerCase().includes("cari di youtube")) {
               searchOnYouTube();
             } else if (output.toLowerCase().includes("share ke facebook")) {
@@ -5571,16 +5573,16 @@ berikut hasilnya :
               }, 500);
             } else if (output.toLowerCase().includes("mode layar biasa")) {
               document.querySelector('#full-mode-toggle').click();
-              document.body.style.backgroundColor = "blue";
+              document.body.style.backgroundColor = "lightblue";
               setTimeout(() => {
                 if (!document.fullscreenElement) {
                   document.body.style.backgroundColor = "";
                 }
               }, 500);
-            }else if (output.toLowerCase().includes("subur")) {
+            } else if (output.toLowerCase().includes("subur")) {
 
-  document.querySelector('#salin-btn').click();
-} else {
+              document.querySelector('#salin-btn').click();
+            } else {
               outputText.value += output;
             }
           } else {
@@ -5619,7 +5621,8 @@ berikut hasilnya :
 
         startBtn.classList.add('recording');
         stopBtn.style.display = 'inline-block';
-        document.body.style.backgroundColor = "blue"; // menambahkan kode untuk mengubah warna background menjadi biru
+      
+
       }
 
       function stopRecognition() {
@@ -5661,6 +5664,7 @@ berikut hasilnya :
       document.addEventListener("DOMContentLoaded", function () {
         const outputText = document.getElementById('output-text7');
         const copyBtn = document.getElementById('salin-btn');
+        const audio = new Audio('assets/notif2.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
         copyBtn.onclick = () => {
           const range = document.createRange();
           range.selectNode(outputText);
@@ -5668,11 +5672,14 @@ berikut hasilnya :
           window.getSelection().addRange(range);
           document.execCommand('copy');
           window.getSelection().removeAllRanges();
-
-          outputText.style.color = 'blue';
+          outputText.style.background = 'linear-gradient(to right, #f00, #00f)';
+          outputText.style.color = 'yellow';
+          audio.play(); // tambahkan kode ini untuk memutar suara saat berhasil disalin
           setTimeout(() => {
-            outputText.style.color = '';
-          }, 500);
+  outputText.style.color = '';
+  outputText.style.background = ''; // tambahkan kode ini untuk mengembalikan warna latar belakang ke nilai awalnya
+}, 1000);
+
 
         };
       });
