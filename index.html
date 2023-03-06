@@ -5659,7 +5659,7 @@ berikut hasilnya :
         window.open(url, '_blank');
         audio.play();
       }
-      const audio = new Audio('assets/notif3.mp3');
+      const audio = new Audio('assets/notif4.mp3');
 let googleWindow;
 
 const searchOnGoogle = () => {
@@ -5674,54 +5674,78 @@ const searchOnGoogle = () => {
 
   audio.play(); // tambahkan kode ini untuk memainkan file audio
 }
-
+const audio7 = new Audio('assets/notif1.mp3');
       const goToFooter = () => {
         // Pindah ke bagian footer
         const footerSection = document.getElementById("footerSection");
         window.scrollTo(0, footerSection.offsetTop);
 
-
+        audio7.play();
       }
 
       const color1Button = () => {
         const color1Button = document.getElementById("color1Button");
         color1Button.click();
+        audio.play();
       }
+      const audio5 = new Audio('assets/notif1.mp3');
       const goToProduk = () => {
         // Pindah ke bagian footer
         const Produk = document.getElementById("Produk");
         window.scrollTo(0, Produk.offsetTop);
+        audio5.play();
       }
+      const audio6 = new Audio('assets/notif1.mp3');
       const goToTatang = () => {
         // Pindah ke bagian footer
         const Tatang = document.getElementById("Tatang");
         window.scrollTo(0, Tatang.offsetTop);
+        audio6.play();
       }
 
 
       const shareToWhatsApp = () => {
         window.location.href = "https://wa.me/?text=" + encodeURIComponent(outputText.value);
+        audio.play();
       }
 
 
-      recognition.onresult = function (event) {
-        const interimTranscripts = [];
-        for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
-          const transcript = event.results[i][0].transcript;
-          if (event.results[i].isFinal) {
-            let output = transcript;
-            if (output.toLowerCase().includes("stop")) {
-              stopRecognition();
+      let currentDirection = null; // variabel global untuk menyimpan arah scroll saat ini
+let scrollInterval = null; // variabel global untuk menyimpan interval scroll saat ini
 
-              document.querySelector('#interim-text').innerHTML = ''; // menghapus isi dari interim text
-              document.querySelector('#output-text7').value = ''; // menghapus isi dari textarea
+function startAutoScroll(direction) {
+  if (currentDirection !== direction) {
+    // Jika arah scroll saat ini berbeda dengan arah yang baru, hentikan scroll terlebih dahulu
+    stopAutoScroll();
+    currentDirection = direction;
+  }
 
-              // menghilangkan pop up box
-              const popupBox = document.querySelector('.popup-box');
-              popupBox.style.display = 'none';
+  // Mulai scroll dengan arah yang baru
+  const scrollStep = 1;
+  const scrollSpeed = 10;
+  scrollInterval = setInterval(() => {
+    if (currentDirection === "up") {
+      document.documentElement.scrollTop -= scrollStep;
+    } else if (currentDirection === "down") {
+      document.documentElement.scrollTop += scrollStep;
+    }
+  }, scrollSpeed);
+}
 
-              return;
-            }
+function stopAutoScroll() {
+  clearInterval(scrollInterval);
+}
+
+
+
+recognition.onresult = function (event) {
+  const interimTranscripts = [];
+  for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+    const transcript = event.results[i][0].transcript;
+    if (event.results[i].isFinal) {
+      let output = transcript;
+   
+
 
 
 
@@ -5814,11 +5838,21 @@ const searchOnGoogle = () => {
                 audio.play();
             } else if (output.toLowerCase().includes("mode layar biasa")) {
               document.querySelector('#full-mode-toggle').click();
+              const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
               
-            } else if (output.toLowerCase().includes("subur")) {
+            }    else if (output.toLowerCase().includes("stop scroll")) {
+        stopAutoScroll(); // menghentikan scroll
+const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
+        
+      }  else if (output.toLowerCase().includes("scroll bawah")) {
+  startAutoScroll("down"); // memulai scroll ke bawah
+} else if (output.toLowerCase().includes("scroll atas")) {
+  startAutoScroll("up"); // memulai scroll ke atas
+}
 
-              document.querySelector('#salin-btn').click();
-            } else {
+             else {
               outputText.value += output;
             }
           } else {
