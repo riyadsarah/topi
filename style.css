@@ -2315,44 +2315,10 @@ height: 70px;
   50% { transform: scale(1.2); }
   100% { transform: scale(1); }
 }
-.copied-msg {
-  animation-name: bounce-in;
-  animation-duration: 1s;
 
-}
-
-@keyframes bounce-in {
-  from {
-    transform: scale3d(0.3, 0.3, 0.3);
-    opacity: 0;
-  }
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-    opacity: 1;
-  }
-  70% {
-    transform: scale3d(0.9, 0.9, 0.9);
-  }
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-}
-.selection {
-
- 
-  animation: selection-animation 3s;
-}
-
-@keyframes selection-animation {
-  0% {
-    background-color: rgb(0, 119, 255);
-    color: #ccc;
-  }
-  
-}
 .icon {
   font-size: 20px;
-  color: rgb(0, 179, 255);
+  color: rgb(27, 186, 255);
 }
 #share-icon {
 color: #888;

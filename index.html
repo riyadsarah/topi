@@ -162,6 +162,7 @@
         <div class="tab active" data-tab="tab-1">Hitung jumlah kalimat</div>
         <div class="tab" data-tab="tab-2">Rubah hurup vokal</div>
         <div class="tab" data-tab="tab-3">Rubah kalimat menjadi unik</div>
+        <div class="tab" data-tab="tab-4">Rubah kalimat ke underscore</div>
       </div>
       <div class="tab-content" id="tab-1">
 
@@ -250,6 +251,33 @@
           </form>
         </div>
       </div><br>
+      <div class="tab-content" id="tab-4">
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Rubah kalimat ke underscore</h1>
+
+          </div><br>
+          <textarea type="text" id="word" placeholder="Masukan kalimat" wrap="soft"></textarea>
+          <div>
+
+            <button type="button11" onclick="convertWordToNumber()">Rubah <i class="fa-solid fa-dna"></i></button>
+          </div>
+          <div>
+            <button type="button11" id="reset1"> <i class="fas fa-undo"></i></button>
+            <button type="button11" onclick="salinTeks1()"><i class="fa fa-copy"></i></button>
+            <button type="button11" onclick="bagikanTeks1()"><i class="fa fa-share"></i></button>
+          </div>
+          <p id="wordToNumberResult"></p>
+          <br><br><br>
+          <div class="title-container">
+            <h1 class="title">Artikan underscore ke kalimat </h1>
+          </div>
+          <input type="text" id="number" placeholder="Tempel (artikan code)"></input>
+          <br>
+          <pre id="numberToLetterResult"></pre>
+        </div>
+
+      </div>
     </div>
 
     <br><br>
@@ -285,11 +313,11 @@
 
           <textarea id="output-text7"></textarea>
         </div>
-        <div id="copied-msg" style="display: none;">Copied!</div>
-        <button type="button" id="share-btn" onclick="shareToWhatsApp()"><i
-            class="fa-solid fa-share-nodes"></i></button>
-        <button type="button" id="salin-btn"><i class="fa fa-copy"></i></button>
-
+     <div>
+        <button type="button11" id="share-btn" onclick="shareToWhatsApp()"><i class="fa-solid fa-share-nodes"></i></button>
+        <button type="button11" id="salin-btn"><i class="fa fa-copy"></i></button>
+        <button type="button11" onclick="location.reload()"><i class="fas fa-undo"></i></button>
+      </div>
       </div>
     </div>
     <br>
@@ -359,33 +387,10 @@
 
 
 
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Rubah kalimat ke underscore</h1>
-
-          </div><br>
-          <textarea type="text" id="word" placeholder="Masukan kalimat" wrap="soft"></textarea>
-          <div>
-
-            <button type="button11" onclick="convertWordToNumber()">Rubah <i class="fa-solid fa-dna"></i></button>
-          </div>
-          <div>
-            <button type="button11" id="reset1"> <i class="fas fa-undo"></i></button>
-            <button type="button11" onclick="salinTeks1()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks1()"><i class="fa fa-share"></i></button>
-          </div>
-          <p id="wordToNumberResult"></p>
-          <br><br><br>
-          <div class="title-container">
-            <h1 class="title">Artikan underscore ke kalimat </h1>
-          </div>
-          <input type="text" id="number" placeholder="Tempel (artikan code)"></input>
-          <br>
-          <pre id="numberToLetterResult"></pre>
-        </div>
+       
 
 
-        <br><br><br><br><br><br>
+        <br>
 
 
         <div class="container-b">
@@ -5425,20 +5430,28 @@ berikut hasilnya :
         window.location.href = url + encodeURIComponent(outputText.value);
       }
 
-
+    
       const searchOnYouTube = () => {
         const query = outputText.value;
         const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
         window.open(url, '_blank');
+        audio.play();
       }
-
       const audio = new Audio('assets/notif3.mp3');
-      const searchOnGoogle = () => {
-        const query = outputText.value;
-        const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-        window.open(url, '_blank');
-        audio.play(); // tambahkan kode ini untuk memainkan file audio
-      }
+let googleWindow;
+
+const searchOnGoogle = () => {
+  const query = outputText.value;
+  const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+
+  if (googleWindow && !googleWindow.closed) { // cek apakah window sudah dibuka sebelumnya
+    googleWindow.location.href = url; // buka URL di window yang sudah dibuka
+  } else {
+    googleWindow = window.open(url, 'googleWindow'); // buka window baru dengan nama 'googleWindow'
+  }
+
+  audio.play(); // tambahkan kode ini untuk memainkan file audio
+}
 
       const goToFooter = () => {
         // Pindah ke bagian footer
@@ -5516,12 +5529,20 @@ berikut hasilnya :
                 audio.play(); // memainkan suara ketika perintah dijalankan
               } else if (output.toLowerCase().includes("satu kalimat")) { // hapus satu kalimat terakhir
                 outputText.value = hapusKalimatTerakhir(outputText.value, 1);
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
               } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
                 outputText.value = hapusKalimatTerakhir(outputText.value, 2);
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
               } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
                 outputText.value = hapusKalimatTerakhir(outputText.value, 3);
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
               } else if (output.toLowerCase().includes("4 kalimat")) { // hapus empat kalimat terakhir
                 outputText.value = hapusKalimatTerakhir(outputText.value, 4);
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
               } else {
                 outputText.value = hapusKalimatSebelumnya(outputText.value) || hapusKalimatTerakhirTidakKosong(
                   outputText.value);
@@ -5565,20 +5586,13 @@ berikut hasilnya :
 
             } else if (output.toLowerCase().includes("mode layar penuh")) {
               document.querySelector('#full-mode-toggle').click();
-              document.body.style.backgroundColor = "blue";
-              setTimeout(() => {
-                if (document.fullscreenElement) {
-                  document.body.style.backgroundColor = "";
-                }
-              }, 500);
+              
+             
+              const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
             } else if (output.toLowerCase().includes("mode layar biasa")) {
               document.querySelector('#full-mode-toggle').click();
-              document.body.style.backgroundColor = "lightblue";
-              setTimeout(() => {
-                if (!document.fullscreenElement) {
-                  document.body.style.backgroundColor = "";
-                }
-              }, 500);
+              
             } else if (output.toLowerCase().includes("subur")) {
 
               document.querySelector('#salin-btn').click();
@@ -5633,7 +5647,7 @@ berikut hasilnya :
         popupBox.style.display = 'none';
 
         startBtn.classList.remove('recording');
-        startBtn.style.display = 'inline-block';
+       
         stopBtn.style.display = 'none';
 
         const outputText = document.getElementById("output-text7").value;
@@ -5678,7 +5692,7 @@ berikut hasilnya :
           setTimeout(() => {
   outputText.style.color = '';
   outputText.style.background = ''; // tambahkan kode ini untuk mengembalikan warna latar belakang ke nilai awalnya
-}, 1000);
+}, 1500);
 
 
         };
@@ -5750,7 +5764,7 @@ berikut hasilnya :
       color8Btn.addEventListener("click", setColor8);
 
       // set initial theme
-      document.documentElement.setAttribute('data-theme', 'color1');
+      document.documentElement.setAttribute('data-theme', 'color5');
     </script>
 
 
@@ -5873,7 +5887,7 @@ berikut hasilnya :
           <td style="text-align: left;"><i class="fa-solid fa-delete-left" style="margin-right: 8px;"></i> Hapus
             kalimat</td>
           <td>
-            <div> hapus</div>
+            <div> hapus satu kalimat</div>
             <div>hapus dua kalimat</div>
             <div>hapus tiga kalimat</div>
             <div>hapus empat kalimat</div>
