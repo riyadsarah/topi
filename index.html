@@ -5728,10 +5728,17 @@ function startAutoScroll(direction) {
   const scrollSpeed = 10;
   scrollInterval = setInterval(() => {
     if (currentDirection === "up") {
-      window.scrollBy(0, -scrollStep);
-    } else if (currentDirection === "down") {
-      window.scrollBy(0, scrollStep);
-    }
+  window.scrollBy({
+    top: -scrollStep,
+    behavior: 'smooth'
+  });
+} else if (currentDirection === "down") {
+  window.scrollBy({
+    top: scrollStep,
+    behavior: 'smooth'
+  });
+}
+
   }, scrollSpeed);
 }
 
