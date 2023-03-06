@@ -5496,14 +5496,14 @@ berikut hasilnya :
             }
 
 
-            if (/\bsalin\b/.test(output.toLowerCase())) {
+            if (/\bsalin teks\b/.test(output.toLowerCase())) {
               navigator.clipboard.writeText(outputText.value);
               outputText.focus();
 
               if ('vibrate' in navigator) {
                 navigator.vibrate(200);
               }
-              if (output.toLowerCase().includes("salin")) {
+              if (output.toLowerCase().includes("salin teks")) {
                 const copyBtn = document.getElementById('salin-btn');
                 copyBtn.click();
               }
@@ -5867,7 +5867,7 @@ berikut hasilnya :
           </td>
 
 
-          <td>salin</td>
+          <td>salin teks</td>
         </tr>
         <tr>
           <td style="text-align: left;"><i class="fa-solid fa-delete-left" style="margin-right: 8px;"></i> Hapus
