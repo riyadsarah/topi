@@ -5312,6 +5312,7 @@ berikut hasilnya :
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       const recognition = new window.webkitSpeechRecognition();
       const outputText = document.getElementById('output-text7');
+      
       const interimText = document.getElementById('interim-text');
       const startBtn = document.getElementById('start-btn');
       const stopBtn = document.getElementById('stop-btn');
@@ -5491,7 +5492,7 @@ berikut hasilnya :
               const pattern = new RegExp("\\b" + word + "\\b", "gi");
               output = output.replace(pattern, punctuation[word]);
             }
-            let salinEffectActive = false; // tambahkan variabel ini di luar event listener
+            
 
             if (/\bsalin\b/.test(output.toLowerCase())) {
               navigator.clipboard.writeText(outputText.value);
@@ -5500,31 +5501,12 @@ berikut hasilnya :
               if ('vibrate' in navigator) {
                 navigator.vibrate(200);
               }
+              if (output.toLowerCase().includes("salin")) {
+  const copyBtn = document.getElementById('salin-btn');
+  copyBtn.click();
+}
 
-              const copiedMsg = document.querySelector(".copied-msg");
-              outputText.classList.add('selection');
-              selection.anchorNode.parentElement.classList.add('selection');
-
-              // tambahkan kode berikut untuk memeriksa apakah efek salin sudah aktif atau belum
-              if (!salinEffectActive) {
-                // jika belum aktif, ubah warna background menjadi biru
-                document.body.style.backgroundColor = "blue";
-                salinEffectActive = true;
-              }
-
-              setTimeout(() => {
-                copiedMsg.classList.add('copied-msg-hide');
-                setTimeout(() => {
-                  copiedMsg.classList.remove('copied-msg');
-                  copiedMsg.classList.remove('copied-msg-hide');
-                  outputText.classList.remove('selection');
-                  selection.anchorNode.parentElement.classList.remove('selection');
-                  // tambahkan kode berikut untuk mengubah warna background menjadi kosong (kembali ke semula)
-                  document.body.style.backgroundColor = "";
-                  // ubah status efek salin menjadi tidak aktif
-                  salinEffectActive = false;
-                }, 1000);
-              }, 1000);
+             
             } else if (output.toLowerCase().includes("hapus")) {
               if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
                 outputText.value = "";
@@ -5595,9 +5577,10 @@ berikut hasilnya :
                   document.body.style.backgroundColor = "";
                 }
               }, 500);
-            } else if (output.toLowerCase().includes("subur")) {
-              document.querySelector('#salin-btn').click();
-            } else {
+            }else if (output.toLowerCase().includes("subur")) {
+
+  document.querySelector('#salin-btn').click();
+} else {
               outputText.value += output;
             }
           } else {
