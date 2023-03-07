@@ -5867,15 +5867,19 @@ recognition.onresult = function (event) {
               const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
                 audio.play();
               
-            }    else if (output.toLowerCase().includes("stop ke scroll")) {
+            }    else if (output.toLowerCase().includes("stop scroll")) {
         stopAutoScroll(); // menghentikan scroll
 const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
                 audio.play();
         
       }  else if (output.toLowerCase().includes("scroll ke bawah")) {
-  startAutoScroll("down"); // memulai scroll ke bawah
-} else if (output.toLowerCase().includes("scroll atas")) {
-  startAutoScroll("up"); // memulai scroll ke atas
+  startAutoScroll("down");
+  const audio = new Audio('assets/notif2.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play(); // memulai scroll ke bawah
+} else if (output.toLowerCase().includes("scroll ke atas")) {
+  startAutoScroll("up"); 
+  const audio = new Audio('assets/notif2.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();// memulai scroll ke atas
 }
 else if (output.toLowerCase().includes("putar musik")) {
     playMusic();
