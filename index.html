@@ -6091,10 +6091,38 @@ else if (output.toLowerCase().includes("putar musik")) {
 
       });
     </script>
+<script>
+  // Minta izin notifikasi
+  if (Notification.permission !== "granted") {
+    Notification.requestPermission();
+  }
 
+  // Menampilkan notifikasi
+  function showNotification() {
+    if (Notification.permission === "granted") {
+      const notification = new Notification("Pemberitahuan Baru", {
+        icon: "assets/carousel.png",
+        body: `
+          Ada banyak fitur baru di situs kami! Cek sekarang!
+        `
+      });
 
+      // Memainkan audio notifikasi
+      const audio = new Audio("assets/notif3.mp3");
+      audio.play();
+
+      // Aksi ketika notifikasi diklik
+      notification.onclick = function () {
+        window.open("https://riyadsarah.github.io/topi/");
+      };
+    }
+  }
+
+  // Memunculkan notifikasi saat tombol diklik
+  const button = document.getElementById("notification-button");
+  button.addEventListener("click", showNotification);
 </script>
-   
+  
     <br><br>
 
 
