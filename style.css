@@ -2161,14 +2161,7 @@ height: 70px;
   }
   
   
-  .icon {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-   
-    vertical-align: middle;
-    fill: currentColor;
-  }
+ 
   .g-stt-btn.recording {
     animation: pulse 1s infinite;
   }
@@ -2591,21 +2584,21 @@ background-color: #ffffff4e;
    font-size: 35px;
     font-weight: bold;
     color: #39b3ff;
-    background-color: #ddd;
-    border: 2px solid #000000;
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
   }
   
   thead tr:last-child th {
-    background-color: #ddd;
+    background-color: #ffffff;
     color: #39b3ff;
-    border: 2px solid #000000;
+    border: 2px solid #ffffff;
     padding: 8px;
     font-weight: bold;
     
   }
   
   tbody td {
-    border: 1px solid #ddd;
+    border: 2px solid #ffffff;
     padding: 8px;
   }
 
@@ -2617,7 +2610,7 @@ background-color: #ffffff4e;
   
   #tabel-satu th {
     font-weight: bold;
-    border: 1px solid #ffffff;
+    border: 2px solid #ffffff;
   }
   
   #tabel-satu td {
@@ -2710,3 +2703,6 @@ background-color: #ffffff4e;
     
   }
   
+  .icon {
+    vertical-align: middle;
+  }
