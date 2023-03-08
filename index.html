@@ -164,8 +164,13 @@
     <div class="tab-container">
 
       <div class="tabs">
-        <div class="tab active" data-tab="tab-5"><div>Hitung</div><div>pendapatan</div></div>
-        <div class="tab active" data-tab="tab-8"><div>Hitung</div><div>kalori</div></div>
+        <div class="tab active" data-tab="tab-1"><div>Hitung</div><div>Jumlah Kalimat</div></div>
+        <div class="tab active" data-tab="tab-5"><div>Hitung</div><div>Pendapatan Uang</div></div>
+        <div class="tab active" data-tab="tab-8"><div>Hitung</div><div>Kalori</div></div>
+        <div class="tab active" data-tab="tab-9"><div>Hitung</div><div>Pengeluaran Roko</div></div>
+        <div class="tab active" data-tab="tab-10"><div>Hitung</div><div>Pembagian Uang</div></div>
+        <div class="tab active" data-tab="tab-11"><div>Hitung</div><div>Keperluan Bata</div></div>
+        <div class="tab active" data-tab="tab-12"><div>Hitung</div><div>Keperluan Kramik</div></div>
       </div><br>
       <div class="tab-content" id="tab-5">
         <div class="container-b">
@@ -255,34 +260,233 @@
         <p>Anda perlu mengonsumsi <span id="calories"></span> kalori per hari.</p>
         </div>
       </div>
-    </div>
-
-
- 
-    <div class="tab-container">
-      <div class="tabs">
-        <div class="tab active" data-tab="tab-1"><div>Hitung</div><div>Jumlah Kalimat</div></div>
-        <div class="tab" data-tab="tab-2"><div>Rubah</div><div>Hurup Vokal</div></div>
-        <div class="tab" data-tab="tab-3"><div>Modifikasi</div><div>Teks</div></div>
-        <div class="tab" data-tab="tab-4"><div>Rubah Teks</div><div>ke Underscore</div></div>
-      </div>
-      <div class="tab-content" id="tab-1"><br>
+      <div class="tab-content" id="tab-1">
 
         <div class="container-b">
           <div class="title-container">
-            <h1 class="title">Cari kalimat</h1>
+            <h1 class="title">Cari kalimat  <i class="fa-solid fa-magnifying-glass"style="font-size: 40px; margin-left: 10px; color: rgb(0, 179, 255);"></i></h1>
           </div><br>
           <div>
             <textarea id="story-textarea" rows="10" cols="50" placeholder="Masukkan cerita Anda di sini"></textarea>
             <br>
             <label for="search-keywords">Kata kunci:</label>
             <input type="text" id="search-keywords" placeholder="Masukkan kata kunci di sini">
-            <button type="button11" onclick="search()">Cari <i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="button11" onclick="search()">Cari</button>
             <br><br>
             <pre id="story-results"></pre>
           </div>
         </div>
       </div>
+      <div class="tab-content" id="tab-9">
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Hitung pengeluaran roko <i class="fa-solid fa-joint"style="font-size: 40px; margin-left: 10px; color: rgb(0, 179, 255);"></i></h1>
+
+          </div>
+          <form id="form">
+            <div>
+              <input type="number" id="jumlahPerHari" name="jumlahPerHari" placeholder="jumlah batang/hari ">
+
+              <select id="harga" class="custom-select" name="harga">
+                <option value="500">Rp 500</option>
+                <option value="1000">Rp 1.000</option>
+                <option value="1500">Rp 1.500</option>
+                <option value="2000">Rp 2.000 </option>
+              </select>
+            </div><br>
+
+            <div>
+              <input type="number" id="periode" name="periode" placeholder="Total waktu">
+              <select id="periodeType" class="custom-select" name="periodeType">
+                <option value="hari">hari</option>
+                <option value="minggu">minggu</option>
+                <option value="bulan">bulan</option>
+                <option value="tahun">tahun</option>
+              </select>
+
+            </div><br>
+
+            <div>
+              <button type="button11" class="button" type="submit" value="Hitung">Hitung</button>
+
+            </div>
+            <div>
+              <button type="button" id="resetButton112"><i class="fas fa-undo"></i></button>
+              <button type="button" onclick="salinTeks5()"><i class="fa fa-copy"></i></button>
+              <button type="button" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
+            </div>
+            <br>
+            <div id="result"></div>
+          </form>
+        </div>
+    </div>
+    <div class="tab-content" id="tab-10">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator Manage Keuangan</h1>
+        </div><br>
+        <p id="deskripsiProduk">Jumlah uang</p>
+        <input type="number" id="uang" placeholder="Masukan jumlah uang"><br>
+        <div>
+          <button type="button11" onclick="hitung1()">Hitung</button>
+        </div>
+        <div>
+          <button type="button11" onclick="reset454()"><i class="fas fa-undo"></i></button>
+          <button type="button11" class="btn" data-clipboard-target="#copy-target"><i class="fa fa-copy"></i></button>
+        </div><br>
+        <div id="reyo">
+          <div id="copy-target">
+            <p id="input-value"></p>
+            <p><span id="makan"></span></p>
+            <p><span id="jajan"></span></p>
+            <p><span id="sedekah"></span></p>
+            <p><span id="tabung"></span></p>
+            <p> <span id="lain"></span></p>
+            <p><span id="sisa"></span></p>
+          </div>
+          <br>
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+    <div class="tab-content" id="tab-11">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator Bata, Hebel</h1>
+
+
+        </div><br>
+        <label for="jenismaterial">Jenis bahan:</label>
+        <select id="jenismaterial" class="custom-select">
+          <option value="hebel">Hebel</option>
+          <option value="bata_merah">Bata Merah</option>
+          <option value="batako">Batako</option>
+        </select>
+        <div>
+          <p class="title">Dinding (m): </p>
+          <input type="number" id="panjang" name="panjang" autofocus placeholder="Panjang">
+
+
+
+          <input type="number" id="lebar" placeholder="Lebar">
+        </div>
+
+
+        <p class="title" for="tinggi">Tinggi dinding (m):</p>
+        <input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
+        <br><br>
+
+        <div>
+          <p class="title">Di kurangi jendela (m): </p>
+          <input type="number" id="panjang_jendela" placeholder="Panjang">
+
+
+
+          <input type="number" id="lebar_jendela" placeholder="Lebar">
+        </div>
+        <br><br>
+
+        <label for="satuan">Satuan:</label>
+        <select id="satuan" class="custom-select">
+          <option value="m2">Meter Persegi (m2)</option>
+          <option value="m3">Meter Kubik (m3)</option>
+        </select>
+        <br><br>
+
+
+
+        <div>
+          <button type="button11" onclick="hitungJumlahBahan()">Hitung</button>
+        </div>
+        <div>
+          <button type="button11" onclick="resetForm()">Reset</button>
+          <button type="button11" onclick="salinTeks12()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks12()"><i class="fa fa-share"></i></button>
+        </div><br>
+        <p id="hasil01"></p>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-12">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator Jumlah Keramik</h1>
+        </div><br>
+
+        <div>
+          <div>
+            <label for="panjangRuangan">Panjang Ruangan:</label>
+            <input type="number" id="panjangRuangan" name="panjangRuangan">
+            <select id="satuanPanjang" name="satuanPanjang" class="custom-select">
+              <option value="cm">cm</option>
+              <option value="m">m</option>
+            </select>
+          </div>
+          <div>
+            <label for="lebarRuangan">Lebar Ruangan:</label>
+            <input type="number" id="lebarRuangan" name="lebarRuangan">
+            <select id="satuanLebar" name="satuanLebar" class="custom-select">
+              <option value="cm">cm</option>
+              <option value="m">m</option>
+            </select>
+          </div>
+        </div>
+
+        <br><br>
+        <div>
+          <div>
+            <label for="panjangKeramik">Panjang Keramik:</label>
+            <input type="number" id="panjangKeramik" name="panjangKeramik">
+            <select id="satuanPanjangKeramik" name="satuanPanjangKeramik" class="custom-select">
+              <option value="cm">cm</option>
+              <option value="m">m</option>
+            </select>
+          </div>
+          <div>
+            <label for="lebarKeramik">Lebar Keramik:</label>
+            <input type="number" id="lebarKeramik" name="lebarKeramik">
+            <select id="satuanLebarKeramik" class="custom-select" name="satuanLebarKeramik">
+              <option value="cm">cm</option>
+              <option value="m">m</option>
+            </select>
+          </div>
+        </div>
+        <br><br>
+
+        <label for="jarakKeramik">Jarak antar Keramik:</label>
+        <input type="number" id="jarakKeramik" name="jarakKeramik">
+        <select id="satuanJarak" class="custom-select" name="satuanJarak">
+          <option value="mm">mm</option>
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+        </select><br><br>
+        <div>
+
+          <button type="button11" onclick="hitungJumlahKeramik()">Hitung</button>
+        </div>
+        <div>
+
+          <button type="button11" onclick="resetRiwayat55()"><i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks11()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks11()"><i class="fa fa-share"></i></button>
+        </div><br>
+
+
+        <div id="hasil65"></div>
+      </div>
+    </div>
+  </div>
+
+
+ 
+    <div class="tab-container">
+      <div class="tabs">
+       
+        <div class="tab" data-tab="tab-2"><div>Rubah</div><div>Hurup Vokal</div></div>
+        <div class="tab" data-tab="tab-3"><div>Modifikasi</div><div>Teks</div></div>
+        <div class="tab" data-tab="tab-4"><div>Rubah Teks</div><div>ke Underscore</div></div>
+      </div>
+    
       <div class="tab-content hidden" id="tab-2"><br>
         <div class="container-b">
           <div class="title-container">
@@ -421,14 +625,14 @@
       </thead>
       <tbody>
         <tr>
-          <td style="text-align: left;"><i class="fa-solid fa-clipboard" style="font-size: 27px; margin-right: 3px; color: rgb(27, 186, 255);"></i> Menyalin teks
+          <td><i class="fa-solid fa-clipboard" style="font-size: 27px; margin-right: 3px; color: rgb(27, 186, 255);"></i> Menyalin teks
           </td>
 
 
           <td>salin teks</td>
         </tr>
         <tr>
-          <td style="text-align: left;"><i class="fa-solid fa-delete-left" style="font-size: 27px; margin-right: 3px; color: rgb(27, 186, 255);"></i> Hapus
+          <td ><i class="fa-solid fa-delete-left" style="font-size: 27px; margin-right: 3px; color: rgb(27, 186, 255);"></i> Hapus
             kalimat</td>
           <td>
             <div> hapus satu kalimat</div>
@@ -441,7 +645,7 @@
         </tr>
        
         <tr>
-          <td style="text-align: left;"><i class="fa-solid fa-magnifying-glass" style="font-size: 27px; margin-right: 3px; color: rgb(27, 186, 255);"></i> Search
+          <td><i class="fa-solid fa-magnifying-glass" style="font-size: 27px; margin-right: 3px; color: rgb(27, 186, 255);"></i> Search
             teks</td>
           <td>
             <div> cari di google <i class="fa-brands fa-google icon"></i></div>
@@ -449,7 +653,7 @@
           </td>
         </tr>
         <tr>
-          <td style="text-align: left;"><i class="fa-solid fa-share-from-square" style="font-size: 27px; margin-right: 3px; color: rgb(27, 186, 255);"></i> Bagikan
+          <td><i class="fa-solid fa-share-from-square" style="font-size: 27px; margin-right: 3px; color: rgb(27, 186, 255);"></i> Bagikan
             teks</td>
           <td>
             <div> share ke whatsapp <i class="fab fa-whatsapp icon"></i></div>
@@ -1245,210 +1449,12 @@
 
       </button>
       <div id="myModal1" class="modal1">
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Hitung pengeluaran roko <i class="fa-solid fa-joint"></i></h1>
+     <br><br><br>
 
-          </div>
-          <form id="form">
-            <div>
-              <input type="number" id="jumlahPerHari" name="jumlahPerHari" placeholder="jumlah batang/hari ">
+      <br><br>
+      <br><br>
 
-              <select id="harga" class="custom-select" name="harga">
-                <option value="500">Rp 500</option>
-                <option value="1000">Rp 1.000</option>
-                <option value="1500">Rp 1.500</option>
-                <option value="2000">Rp 2.000 </option>
-              </select>
-            </div><br>
-
-            <div>
-              <input type="number" id="periode" name="periode" placeholder="Total waktu">
-              <select id="periodeType" class="custom-select" name="periodeType">
-                <option value="hari">hari</option>
-                <option value="minggu">minggu</option>
-                <option value="bulan">bulan</option>
-                <option value="tahun">tahun</option>
-              </select>
-
-            </div><br>
-
-            <div>
-              <button type="button11" class="button" type="submit" value="Hitung">Hitung</button>
-
-            </div>
-            <div>
-              <button type="button" id="resetButton112"><i class="fas fa-undo"></i></button>
-              <button type="button" onclick="salinTeks5()"><i class="fa fa-copy"></i></button>
-              <button type="button" onclick="bagikanTeks5()"><i class="fa fa-share"></i></button>
-            </div>
-            <br>
-            <div id="result"></div>
-          </form>
-        </div><br><br><br>
-
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Kalkulator bangunan</h1>
-
-
-          </div><br>
-          <label for="jenismaterial">Jenis bahan:</label>
-          <select id="jenismaterial" class="custom-select">
-            <option value="hebel">Hebel</option>
-            <option value="bata_merah">Bata Merah</option>
-            <option value="batako">Batako</option>
-          </select>
-          <div>
-            <p class="title">Dinding (m): </p>
-            <input type="number" id="panjang" name="panjang" autofocus placeholder="Panjang">
-
-
-
-            <input type="number" id="lebar" placeholder="Lebar">
-          </div>
-
-
-          <p class="title" for="tinggi">Tinggi dinding (m):</p>
-          <input type="number" id="tinggi" placeholder="boleh di isi atau tidak">
-          <br><br>
-
-          <div>
-            <p class="title">Di kurangi jendela (m): </p>
-            <input type="number" id="panjang_jendela" placeholder="Panjang">
-
-
-
-            <input type="number" id="lebar_jendela" placeholder="Lebar">
-          </div>
-          <br><br>
-
-          <label for="satuan">Satuan:</label>
-          <select id="satuan" class="custom-select">
-            <option value="m2">Meter Persegi (m2)</option>
-            <option value="m3">Meter Kubik (m3)</option>
-          </select>
-          <br><br>
-
-
-
-          <div>
-            <button type="button11" onclick="hitungJumlahBahan()">Hitung</button>
-          </div>
-          <div>
-            <button type="button11" onclick="resetForm()">Reset</button>
-            <button type="button11" onclick="salinTeks12()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks12()"><i class="fa fa-share"></i></button>
-          </div><br>
-          <p id="hasil01"></p>
-        </div><br><br>
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Kalkulator Jumlah Keramik</h1>
-          </div><br>
-
-          <div>
-            <div>
-              <label for="panjangRuangan">Panjang Ruangan:</label>
-              <input type="number" id="panjangRuangan" name="panjangRuangan">
-              <select id="satuanPanjang" name="satuanPanjang" class="custom-select">
-                <option value="cm">cm</option>
-                <option value="m">m</option>
-              </select>
-            </div>
-            <div>
-              <label for="lebarRuangan">Lebar Ruangan:</label>
-              <input type="number" id="lebarRuangan" name="lebarRuangan">
-              <select id="satuanLebar" name="satuanLebar" class="custom-select">
-                <option value="cm">cm</option>
-                <option value="m">m</option>
-              </select>
-            </div>
-          </div>
-
-          <br><br>
-          <div>
-            <div>
-              <label for="panjangKeramik">Panjang Keramik:</label>
-              <input type="number" id="panjangKeramik" name="panjangKeramik">
-              <select id="satuanPanjangKeramik" name="satuanPanjangKeramik" class="custom-select">
-                <option value="cm">cm</option>
-                <option value="m">m</option>
-              </select>
-            </div>
-            <div>
-              <label for="lebarKeramik">Lebar Keramik:</label>
-              <input type="number" id="lebarKeramik" name="lebarKeramik">
-              <select id="satuanLebarKeramik" class="custom-select" name="satuanLebarKeramik">
-                <option value="cm">cm</option>
-                <option value="m">m</option>
-              </select>
-            </div>
-          </div>
-          <br><br>
-
-          <label for="jarakKeramik">Jarak antar Keramik:</label>
-          <input type="number" id="jarakKeramik" name="jarakKeramik">
-          <select id="satuanJarak" class="custom-select" name="satuanJarak">
-            <option value="mm">mm</option>
-            <option value="cm">cm</option>
-            <option value="m">m</option>
-          </select><br><br>
-          <div>
-
-            <button type="button11" onclick="hitungJumlahKeramik()">Hitung</button>
-          </div>
-          <div>
-
-            <button type="button11" onclick="resetRiwayat55()"><i class="fas fa-undo"></i></button>
-            <button type="button11" onclick="salinTeks11()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks11()"><i class="fa fa-share"></i></button>
-          </div><br>
-
-
-          <div id="hasil65"></div>
-        </div><br><br>
-
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Kalkulator Pengeluaran uang</h1>
-          </div><br>
-
-          <p id="deskripsiProduk">Jumlah uang</p>
-          <input type="number" id="uang" placeholder="Masukan jumlah uang"><br>
-          <div>
-            <button type="button11" onclick="hitung1()">Hitung</button>
-          </div>
-          <div>
-
-            <button type="button11" onclick="reset454()"><i class="fas fa-undo"></i></button>
-            <button type="button11" class="btn" data-clipboard-target="#copy-target"><i class="fa fa-copy"></i></button>
-
-
-          </div><br>
-
-
-
-
-          <div id="reyo">
-            <div id="copy-target">
-              <p id="input-value"></p>
-              <p><span id="makan"></span></p>
-              <p><span id="jajan"></span></p>
-              <p><span id="sedekah"></span></p>
-              <p><span id="tabung"></span></p>
-              <p> <span id="lain"></span></p>
-              <p><span id="sisa"></span></p>
-            </div>
-
-
-
-
-
-
-            <br>
-            <canvas id="myChart"></canvas>
-          </div>
+      
           <script>
             var clipboard = new Clipboard('.btn');
             var chart;
@@ -1529,7 +1535,7 @@
               return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
             }
           </script>
-        </div>
+    
 
 
 
@@ -1593,14 +1599,6 @@
           <div class="title-container">
             <h1 class="title">Kalkulator pengingat kehidupan</h1>
           </div><br>
-
-
-          <p id="deskripsiProduk">Rasulullah SAW sendiri pernah mengabarkan usia kebanyakan umatnya yang berkisar antara
-            60-70 tahun. عن أبي هريرة رضي الله تعالى عنه قال قال رسول الله صلى الله عليه وسلم أَعْمَارُ أُمَّتِي مَا
-            بَيْنَ السِّتِّينَ إلَى السَّبْعِينَ وَأَقَلُّهُمْ مَنْ يَجُوْزُ ذَلِكَ رواه الترمذي Artinya, “Dari Abu
-            Hurairah RA. Ia berkata, Rasulullah SAW bersabda, ‘Usia umatku (umumnya berkisar) antara 60 sampai 70 tahun.
-            Jarang sekali di antara mereka melewati (angka) itu.’” (HR At-Tirmidzi).
-          </p><br><br>
           <p id="deskripsiProduk">Masukan tanggal lahir</p>
           <input type="date" id="birthdate">
           <br><br>
