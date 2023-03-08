@@ -2293,7 +2293,7 @@ color: #888;
   width: 21px;
   left: 4px;
   bottom: 4px;
-  background-color: rgba(255, 255, 255, 0.599);
+  background: linear-gradient(to bottom, #ffffff, #a5b5af);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -2310,10 +2310,12 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+  
 }
 
 .slider.round {
   border-radius: 29px;
+  
 }
 
 .slider.round:before {
