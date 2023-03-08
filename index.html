@@ -8,7 +8,7 @@
 
   <title>SR Fashion</title>
 
-<link rel="icon" href="img/logobagus.img.jpg" sizes="32x32">
+<link rel="icon" href="img/png5.img.png" sizes="32x32">
 
 
 <link rel="icon" href="img/logobagus.img.jpg" style="background-color: blue;">
@@ -159,8 +159,9 @@
     </div><br>
 
     <div class="tab-container">
+
       <div class="tabs">
-        <div class="tab active" data-tab="tab-5">Hitung pendapatan</div>
+        <div class="tab active" data-tab="tab-5"><div>Hitung</div><div>pendapatan</div></div>
       </div><br>
       <div class="tab-content" id="tab-5">
         <div class="container-b">
@@ -198,15 +199,15 @@
     </div>
 
 
-    <br>
+ 
     <div class="tab-container">
       <div class="tabs">
-        <div class="tab active" data-tab="tab-1">Hitung jumlah kalimat</div>
-        <div class="tab" data-tab="tab-2">Rubah hurup vokal</div>
-        <div class="tab" data-tab="tab-3">Rubah kalimat menjadi unik</div>
-        <div class="tab" data-tab="tab-4">Rubah kalimat ke underscore</div>
+        <div class="tab active" data-tab="tab-1"><div>Hitung</div><div>Jumlah Kalimat</div></div>
+        <div class="tab" data-tab="tab-2"><div>Rubah</div><div>Hurup Vokal</div></div>
+        <div class="tab" data-tab="tab-3"><div>Modifikasi</div><div>Teks</div></div>
+        <div class="tab" data-tab="tab-4"><div>Rubah Teks</div><div>ke Underscore</div></div>
       </div>
-      <div class="tab-content" id="tab-1">
+      <div class="tab-content" id="tab-1"><br>
 
         <div class="container-b">
           <div class="title-container">
@@ -223,7 +224,7 @@
           </div>
         </div>
       </div>
-      <div class="tab-content hidden" id="tab-2">
+      <div class="tab-content hidden" id="tab-2"><br>
         <div class="container-b">
           <div class="title-container">
             <h1 class="title">Rubah hurup vokal</h1>
@@ -254,7 +255,7 @@
 
         </div>
       </div>
-      <div class="tab-content hidden" id="tab-3">
+      <div class="tab-content hidden" id="tab-3"><br>
 
         <div class="container-b">
           <div class="title-container">
@@ -565,7 +566,7 @@
         <div>
           <div class="popup-box">
             <span id="interim-text"></span>
-          </div>
+          </div><br>
 
 
           <textarea id="output-text7"></textarea>
@@ -1592,7 +1593,7 @@
 
     <br>
 
-    <div class="header-nav-container">
+   
       <div id="widget-container">
         <div id="clock">
           <p id="time"></p>
@@ -1606,16 +1607,58 @@
           <p id="temperature"></p>
           <p id="condition"></p>
         </div>
-      </div>
+      </div><br><br>
 
-      <div id="timer">
+
+
+   
+
+<div class="timer">
         <p id="font">Menuju Ramadan <i class="fa-solid fa-mosque"></i> </p>
-        <p id="days"></p>
-        <p id="hours"></p>
-        <p id="minutes"></p>
-        <p id="seconds"></p>
+        <div id="countdown-container">
+          <div class="countdown-item">
+            <p class="countdown-item-title">Hari</p>
+            <p id="days" class="countdown-item-value"></p>
+           
+          </div> 
+          
+          <div class="countdown-item">
+            <p class="countdown-item-title">Jam</p>
+            <p id="hours" class="countdown-item-value"></p>
+          </div>
+          <div class="countdown-item">
+            <p class="countdown-item-title">Menit</p>
+            <p id="minutes" class="countdown-item-value"></p>
+          </div>
+          <div class="countdown-item">
+            <p class="countdown-item-title">Detik</p>
+            <p id="seconds" class="countdown-item-value"></p>
+          </div>
+        </div>
+        
       </div>
-    </div>
+    
+        <br><br><br>
+        <script>
+          var countDownDate = new Date("march 22, 2023 23:59:59").getTime();
+          var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("days").innerHTML = days ;
+            document.getElementById("hours").innerHTML = hours ;
+            document.getElementById("minutes").innerHTML = minutes ;
+            document.getElementById("seconds").innerHTML = seconds ;
+            if (distance < 0) {
+              clearInterval(x);
+              document.getElementById("timer").innerHTML = "EXPIRED";
+            }
+          }, 1000);
+        </script>
+    
 
     <script>
       function updateTime() {
@@ -1644,42 +1687,8 @@
     <div>
 
 
-      <script>
-        // Select the button
-
-        // Set the date we're counting down to
-        var countDownDate = new Date("march 22, 2023 23:59:59").getTime();
-
-        // Update the count down every 1 second
-        var x = setInterval(function () {
-
-          // Get today's date and time
-          var now = new Date().getTime();
-
-          // Find the distance between now and the count down date
-          var distance = countDownDate - now;
-
-          // Time calculations for days, hours, minutes and seconds
-          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          // Display the result in the element with id="timer"
-          document.getElementById("days").innerHTML = days + "hari";
-          document.getElementById("hours").innerHTML = hours + "jam ";
-          document.getElementById("minutes").innerHTML = minutes + "menit ";
-          document.getElementById("seconds").innerHTML = seconds + "detik ";
-
-          // If the count down is finished, write some text 
-          if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("timer").innerHTML = "EXPIRED";
-          }
-        }, 1000);
-      </script>
-      <br><br>
-      </p>
+      
+   
 
 
 
@@ -1890,57 +1899,7 @@
 
 
 
-
-      <script>
-        const input1 = document.getElementById("input-1");
-        const input2 = document.getElementById("input-2");
-        const operator = document.getElementById("operator");
-        const submitButton = document.getElementById("submit-button");
-        const resetButton = document.getElementById("reset-button");
-        const hasil1 = document.getElementById("hasil");
-        const message = document.getElementById("message");
-
-        submitButton.addEventListener("click", function () {
-          let nilai1 = parseFloat(input1.value);
-          let nilai2 = parseFloat(input2.value);
-          let op = operator.value;
-
-          if (isNaN(nilai1) || isNaN(nilai2)) {
-            hasil.textContent = "Input tidak valid.";
-            return;
-          }
-
-          if (op === "+") {
-            hasil.textContent = nilai1 + nilai2;
-          } else if (op === "-") {
-            hasil.textContent = nilai1 - nilai2;
-          } else if (op === "*") {
-            hasil.textContent = nilai1 * nilai2;
-          } else if (op === "/") {
-            if (nilai2 === 0) {
-              hasil.textContent = "Tidak bisa dibagi dengan 0.";
-              return;
-            }
-            hasil.textContent = nilai1 / nilai2;
-          } else {
-            hasil.textContent = "Operator tidak valid.";
-          }
-          result.textContent = "Hasil kalkulator biasa: " + total;
-
-          message.textContent = "CIeeeee ngitung hutang🔥💥";
-        });
-
-        resetButton.addEventListener("click", function () {
-          input1.value = "";
-          input2.value = "";
-          operator.selectedIndex = 0;
-          hasil.textContent = "";
-          message.textContent = "";
-        });
-      </script>
-
-      <p id="jam"></p>
-      <a id="tanggal"></a>
+     
       <script>
         function tampilkanJam() {
           var waktu = new Date();
@@ -6028,6 +5987,36 @@ recognition.onresult = function (event) {
 
 
 
+<div class="clock">
+  <div class="hour-hand"></div>
+  <div class="minute-hand"></div>
+  <div class="second-hand"></div>
+  <div class="center-circle"></div>
+</div>
+
+<script>
+  function updateClock() {
+  const now = new Date();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  const second = now.getSeconds();
+
+  const hourHand = document.querySelector('.hour-hand');
+  const minuteHand = document.querySelector('.minute-hand');
+  const secondHand = document.querySelector('.second-hand');
+
+  const hourRotation = (hour % 12) / 12 * 360 + (minute / 60) * 30;
+  const minuteRotation = minute / 60 * 360;
+  const secondRotation = second / 60 * 360;
+
+  hourHand.style.transform = `rotate(${hourRotation}deg)`;
+  minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
+  secondHand.style.transform = `rotate(${secondRotation}deg)`;
+}
+
+setInterval(updateClock, 1000);
+
+</script>
    
     <br><br>
 
