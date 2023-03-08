@@ -8,7 +8,11 @@
 
   <title>SR Fashion</title>
 
-  <link rel="icon" href="img/png5.img.png">
+<link rel="icon" href="img/logobagus.img.jpg" sizes="32x32">
+
+
+<link rel="icon" href="img/logobagus.img.jpg" style="background-color: blue;">
+
   <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.css">
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,10 +34,6 @@
 
 
 <style>
-
-link[rel="icon"] {
-    background-color: blue;
-  }
   @media (max-width: 1024px) {
     body {
       font-size: 14px;
@@ -157,9 +157,6 @@ link[rel="icon"] {
         <button id="color8-btn"><i class="fa-solid fa-paint-roller"></i></button>
       </div>
     </div><br>
-
-    
-
 
     <div class="tab-container">
       <div class="tabs">
@@ -5662,7 +5659,7 @@ berikut hasilnya :
         window.open(url, '_blank');
         audio.play();
       }
-      const audio = new Audio('assets/notif5.mp3');
+      const audio = new Audio('assets/notif4.mp3');
 let googleWindow;
 
 const searchOnGoogle = () => {
@@ -5713,65 +5710,17 @@ const audio7 = new Audio('assets/notif1.mp3');
       }
 
 
-      let currentDirection = null; // variabel global untuk menyimpan arah scroll saat ini
-let scrollInterval = null; // variabel global untuk menyimpan interval scroll saat ini
-
-function startAutoScroll(direction) {
-  if (currentDirection !== direction) {
-    // Jika arah scroll saat ini berbeda dengan arah yang baru, hentikan scroll terlebih dahulu
-    stopAutoScroll();
-    currentDirection = direction;
-  }
-
-  // Mulai scroll dengan arah yang baru
-  const scrollStep = 1;
-  const scrollSpeed = 10;
-  scrollInterval = setInterval(() => {
-    if (currentDirection === "up") {
-  window.scrollBy({
-    top: -scrollStep,
-    behavior: 'smooth'
-  });
-} else if (currentDirection === "down") {
-  window.scrollBy({
-    top: scrollStep,
-    behavior: 'smooth'
-  });
-}
-
-  }, scrollSpeed);
-}
-
-
-function stopAutoScroll() {
-  clearInterval(scrollInterval);
-}
-
-
-const audio9 = new Audio("assets/notif9.mp3");
-
-function playMusic() {
-  audio9.play();
-}
-
-function stopMusic() {
-  audio9.pause();
-  audio9.currentTime = 0;
-}
-
 
 recognition.onresult = function (event) {
   const interimTranscripts = [];
   for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
     const transcript = event.results[i][0].transcript;
-    
-  
     if (event.results[i].isFinal) {
       let output = transcript;
+   
 
-    
- 
-     
+
+
 
             for (let word in punctuation) {
               const pattern = new RegExp("\\b" + word + "\\b", "gi");
@@ -5790,11 +5739,9 @@ recognition.onresult = function (event) {
                 const copyBtn = document.getElementById('salin-btn');
                 copyBtn.click();
               }
-              
 
 
-            } 
-            else if (output.toLowerCase().includes("hapus")) {
+            } else if (output.toLowerCase().includes("hapus")) {
               if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
                 outputText.value = "";
                 const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
@@ -5867,28 +5814,14 @@ recognition.onresult = function (event) {
               const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
                 audio.play();
               
-            }    else if (output.toLowerCase().includes("stop scroll")) {
+            }    else if (output.toLowerCase().includes("stop")) {
         stopAutoScroll(); // menghentikan scroll
-const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
-                audio.play();
+
         
-      }  else if (output.toLowerCase().includes("scroll ke bawah")) {
-  startAutoScroll("down");
-  const audio = new Audio('assets/notif2.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
-                audio.play(); // memulai scroll ke bawah
-} else if (output.toLowerCase().includes("scroll ke atas")) {
-  startAutoScroll("up"); 
-  const audio = new Audio('assets/notif2.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
-                audio.play();// memulai scroll ke atas
-}
-else if (output.toLowerCase().includes("putar musik")) {
-    playMusic();
-  } else if (output.toLowerCase().includes("stop musik")) {
-    stopMusic();
-  } else {
+      } 
+             else {
               outputText.value += output;
             }
-            
           } else {
             interimTranscripts.push(transcript);
           }
@@ -5983,9 +5916,10 @@ else if (output.toLowerCase().includes("putar musik")) {
   outputText.style.color = '';
   outputText.style.background = ''; // tambahkan kode ini untuk mengembalikan warna latar belakang ke nilai awalnya
 }, 900);
+
+
         };
-      }
-      );
+      });
     </script>
 
     <script>
@@ -6091,47 +6025,9 @@ else if (output.toLowerCase().includes("putar musik")) {
       });
     </script>
 
-<script>
-  window.onload = function() {
-  const speech = new SpeechSynthesisUtterance(' Welcome to my website ,How are you?');
-  window.speechSynthesis.speak(speech);
-}
-
-</script>
 
 
-<script>
-  // Minta izin notifikasi
-  if (Notification.permission !== "granted") {
-    Notification.requestPermission();
-  }
 
-  // Menampilkan notifikasi
-  function showNotification() {
-    if (Notification.permission === "granted") {
-      const notification = new Notification("Pemberitahuan Baru", {
-        icon: "assets/carousel.png",
-        body: `
-          Ada banyak fitur baru di situs kami! Cek sekarang!
-        `
-      });
-
-      // Memainkan audio notifikasi
-      const audio = new Audio("assets/notif3.mp3");
-      audio.play();
-
-      // Aksi ketika notifikasi diklik
-      notification.onclick = function () {
-        window.open("https://riyadsarah.github.io/topi/");
-      };
-    }
-  }
-
-  // Memunculkan notifikasi saat tombol diklik
-  const button = document.getElementById("notification-button");
-  button.addEventListener("click", showNotification);
-</script>
-  
    
     <br><br>
 
