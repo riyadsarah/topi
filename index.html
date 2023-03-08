@@ -11,7 +11,7 @@
 <link rel="icon" href="img/png5.img.png" sizes="32x32">
 
 
-<link rel="icon" href="img/logobagus.img.jpg" style="background-color: blue;">
+
 
   <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.css">
   <link rel="stylesheet" href="style.css">
@@ -82,9 +82,9 @@
       <header>
         <nav id="header-nav">
           <div class="header-nav-container">
-
+      
             <a href="#" class="header-nav-logo"><img id="logo" src="img/png5.img.png" alt="Logo"></a>
-
+      
             <div class="header-nav-right">
               <div class="full-mode-toggle">
                 <label class="switch">
@@ -94,11 +94,14 @@
                 <a href="halaman hijab/hibab.html"><i class="fa-solid fa-shirt"></i></i></a>
                 <a href=""><i class="fa-brands fa-redhat"></i></a>
               </div>
+             
             </div>
           </div>
         </nav>
       </header>
+      
     </div>
+  
 
     <script>
       var headerNav = document.getElementById("header-nav");
@@ -5668,6 +5671,31 @@ const audio7 = new Audio('assets/notif1.mp3');
         audio.play();
       }
 
+      let currentDirection = null; // variabel global untuk menyimpan arah scroll saat ini
+let scrollInterval = null; // variabel global untuk menyimpan interval scroll saat ini
+
+function startAutoScroll(direction) {
+  if (currentDirection !== direction) {
+    // Jika arah scroll saat ini berbeda dengan arah yang baru, hentikan scroll terlebih dahulu
+    stopAutoScroll();
+    currentDirection = direction;
+  }
+
+  // Mulai scroll dengan arah yang baru
+  const scrollStep = 1;
+  const scrollSpeed = 10;
+  scrollInterval = setInterval(() => {
+    if (currentDirection === "up") {
+      window.scrollBy(0, -scrollStep);
+    } else if (currentDirection === "down") {
+      window.scrollBy(0, scrollStep);
+    }
+  }, scrollSpeed);
+}
+
+function stopAutoScroll() {
+  clearInterval(scrollInterval);
+}
 
 
 recognition.onresult = function (event) {
@@ -5773,11 +5801,27 @@ recognition.onresult = function (event) {
               const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
                 audio.play();
               
-            }    else if (output.toLowerCase().includes("stop")) {
-        stopAutoScroll(); // menghentikan scroll
+            } 
 
         
-      } 
+      else if (output.toLowerCase().includes("stop scroll")) {
+  stopAutoScroll(); // menghentikan scroll
+  const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+  audio.play();      
+} else if (output.toLowerCase().includes("scroll ke bawah")) {
+  startAutoScroll("down"); 
+  const audio = new Audio('assets/notif5.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+  audio.play(); 
+  // memulai scroll ke bawah
+} else if (output.toLowerCase().includes("scroll ke atas")) {
+  startAutoScroll("up"); // memulai scroll ke atas
+  const audio = new Audio('assets/notif5.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+  audio.play(); 
+}else if (output.toLowerCase().includes("putar musik")) {
+  const audio = new Audio('assets/notif9.mp3'); // ganti 'path/to/music.mp3' dengan path file musik Anda
+  audio.play();
+}
+
              else {
               outputText.value += output;
             }
@@ -5986,38 +6030,7 @@ recognition.onresult = function (event) {
 
 
 
-
-<div class="clock">
-  <div class="hour-hand"></div>
-  <div class="minute-hand"></div>
-  <div class="second-hand"></div>
-  <div class="center-circle"></div>
-</div>
-
-<script>
-  function updateClock() {
-  const now = new Date();
-  const hour = now.getHours();
-  const minute = now.getMinutes();
-  const second = now.getSeconds();
-
-  const hourHand = document.querySelector('.hour-hand');
-  const minuteHand = document.querySelector('.minute-hand');
-  const secondHand = document.querySelector('.second-hand');
-
-  const hourRotation = (hour % 12) / 12 * 360 + (minute / 60) * 30;
-  const minuteRotation = minute / 60 * 360;
-  const secondRotation = second / 60 * 360;
-
-  hourHand.style.transform = `rotate(${hourRotation}deg)`;
-  minuteHand.style.transform = `rotate(${minuteRotation}deg)`;
-  secondHand.style.transform = `rotate(${secondRotation}deg)`;
-}
-
-setInterval(updateClock, 1000);
-
-</script>
-   
+   </script>
     <br><br>
 
 
