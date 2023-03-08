@@ -5983,10 +5983,9 @@ else if (output.toLowerCase().includes("putar musik")) {
   outputText.style.color = '';
   outputText.style.background = ''; // tambahkan kode ini untuk mengembalikan warna latar belakang ke nilai awalnya
 }, 900);
-
-
         };
-      });
+      }
+      );
     </script>
 
     <script>
@@ -6091,6 +6090,16 @@ else if (output.toLowerCase().includes("putar musik")) {
 
       });
     </script>
+
+<script>
+  window.onload = function() {
+  const speech = new SpeechSynthesisUtterance(' Welcome to my website ,How are you?');
+  window.speechSynthesis.speak(speech);
+}
+
+</script>
+
+
 <script>
   // Minta izin notifikasi
   if (Notification.permission !== "granted") {
@@ -6123,6 +6132,7 @@ else if (output.toLowerCase().includes("putar musik")) {
   button.addEventListener("click", showNotification);
 </script>
   
+   
     <br><br>
 
 

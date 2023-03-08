@@ -2594,10 +2594,21 @@ color: #ff0000;
   .tab-content {
     display: none;
   }
-  
   .tab-content.active {
     display: block;
+    animation: scaleIn 0.5s forwards;
   }
+  
+  @keyframes scaleIn {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  
   
   @media (max-width: 768px) {
     .tabs {
