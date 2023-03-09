@@ -181,7 +181,26 @@
         <div class="tab active" data-tab="tab-10"><div>Hitung</div><div>Pembagian Uang</div></div>
         <div class="tab active" data-tab="tab-11"><div>Hitung</div><div>Keperluan Bata</div></div>
         <div class="tab active" data-tab="tab-12"><div>Hitung</div><div>Keperluan Kramik</div></div>
+        <div class="tab active" data-tab="tab-13"><div>Hitung</div><div>Detail umur</div></div>
+        <div class="tab active" data-tab="tab-14"><div>Hitung Umur</div><div>Sampai 43 thn</div></div>
       </div><br>
+      <div class="tab-content" id="tab-1">
+
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Cari kalimat  <i class="fa-solid fa-magnifying-glass"style="font-size: 40px; margin-left: 10px; color: rgb(0, 179, 255);"></i></h1>
+          </div><br>
+          <div>
+            <textarea id="story-textarea" rows="10" cols="50" placeholder="Masukkan cerita Anda di sini"></textarea>
+            <br>
+            <label for="search-keywords">Kata kunci:</label>
+            <input type="text" id="search-keywords" placeholder="Masukkan kata kunci di sini">
+            <button type="button11" onclick="search()">Cari</button>
+            <br><br>
+            <pre id="story-results"></pre>
+          </div>
+        </div>
+      </div>
       <div class="tab-content" id="tab-5">
         <div class="container-b">
           <div class="title-container">
@@ -270,23 +289,7 @@
         <p>Anda perlu mengonsumsi <span id="calories"></span> kalori per hari.</p>
         </div>
       </div>
-      <div class="tab-content" id="tab-1">
-
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Cari kalimat  <i class="fa-solid fa-magnifying-glass"style="font-size: 40px; margin-left: 10px; color: rgb(0, 179, 255);"></i></h1>
-          </div><br>
-          <div>
-            <textarea id="story-textarea" rows="10" cols="50" placeholder="Masukkan cerita Anda di sini"></textarea>
-            <br>
-            <label for="search-keywords">Kata kunci:</label>
-            <input type="text" id="search-keywords" placeholder="Masukkan kata kunci di sini">
-            <button type="button11" onclick="search()">Cari</button>
-            <br><br>
-            <pre id="story-results"></pre>
-          </div>
-        </div>
-      </div>
+  
       <div class="tab-content" id="tab-9">
         <div class="container-b">
           <div class="title-container">
@@ -485,6 +488,51 @@
         <div id="hasil65"></div>
       </div>
     </div>
+    <div class="tab-content" id="tab-13">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Hitung Detail Umur</h1>
+        </div>
+
+
+        <P id="deskripsiProduk">Masukan Tanggal lahir, bulan, tahun</P>
+        <input type="number" id="tanggal-lahir" placeholder="Tanggal lahir">
+        <input type="number" id="bulan-lahir" placeholder="Bulan lahir">
+        <input type="number" id="tahun-lahir" placeholder="Tahun lahir">
+        <div><button type="button11" onclick="hitungUmur()">Hitung</button></div>
+        <div>
+
+          <button type="button11" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks6()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks6()"><i class="fa fa-share"></i></button>
+        </div><br>
+        <div id="output"></div>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-14">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator pengingat kehidupan</h1>
+        </div><br>
+        <p id="deskripsiProduk">Masukan tanggal lahir</p>
+        <input type="date" id="birthdate">
+        <br><br>
+        <p id="deskripsiProduk">Masukkan Tahun kisaran hidup (tahun) :</p>
+        <input type="number" id="ageLimit" placeholder="masukan tahun">
+        <br><br>
+        <button type="button11" onclick="calculateAge()">Hitung Sisa Waktu</button>
+        <div>
+
+          <button type="button11" onclick="reset090()"><i class="fas fa-undo"></i></button>
+          <button type="button11" onclick="salinTeks9()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks9()"><i class="fa fa-share"></i></button>
+        </div><br>
+        <br>
+
+        <p id="remaining"></p>
+
+      </div>  
+    </div>
   </div>
 
 
@@ -495,6 +543,8 @@
         <div class="tab" data-tab="tab-2"><div>Rubah</div><div>Hurup Vokal</div></div>
         <div class="tab" data-tab="tab-3"><div>Modifikasi</div><div>Teks</div></div>
         <div class="tab" data-tab="tab-4"><div>Rubah Teks</div><div>ke Underscore</div></div>
+        <div class="tab" data-tab="tab-15"><div>Rubah Teks</div><div>ke Code Acak</div></div>
+        <div class="tab" data-tab="tab-16"><div>Rubah Teks</div><div>ke Angka</div></div>
       </div>
     
       <div class="tab-content hidden" id="tab-2"><br>
@@ -593,6 +643,77 @@
           <pre id="numberToLetterResult"></pre>
         </div>
 
+      </div>
+      <div class="tab-content" id="tab-15">
+
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Rubah Kalimat ke Code Acak</h1>
+
+          </div><br>
+
+
+          <textarea type="text" id="word1" placeholder="Kalimat ke code" wrap="soft"></textarea>
+          <div>
+
+            <button type="button11" onclick="convertWordToNumber1()"><i class="fa-solid fa-dna"></i></button>
+
+          </div>
+          <div>
+            <button type="button11" id="reset11"> <i class="fas fa-undo"></i></button>
+            <button type="button11" onclick="salinTeks4()"><i class="fa fa-copy"></i></button>
+            <button type="button11" onclick="bagikanTeks4()"><i class="fa fa-share"></i></button>
+          </div><br>
+
+          <p id="wordToNumberResult1"></p>
+          <br><br><br>
+
+          <div class="title-container">
+            <h1 class="title">Artikan code acak ke kalimat </h1>
+          </div>
+
+          <input type="text" id="number1" placeholder="Tempel (artikan code)"><br>
+
+          <div>
+            <pre id="numberToLetterResult1"></pre>
+          </div>
+
+        </div>
+      </div>
+      <div class="tab-content" id="tab-16">
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Rubah Kalimat ke Angka</h1>
+
+          </div><br>
+
+
+          <textarea type="text" id="word2" placeholder="Kalimat ke code" wrap="soft"></textarea>
+          <div>
+
+            <button type="button11" onclick="convertWordToNumber2()"><i class="fa-solid fa-dna"></i></button>
+
+          </div>
+          <div>
+            <button type="button11" id="reset12"> <i class="fas fa-undo"></i></button>
+            <button type="button11" onclick="salinTeks3()"><i class="fa fa-copy"></i></button>
+            <button type="button11" onclick="bagikanTeks3()"><i class="fa fa-share"></i></button>
+          </div><br>
+
+          <div id="wordToNumberResult2"></div>
+          <br><br><br>
+
+          <div class="title-container">
+            <h1 class="title">Artikan angka ke kalimat </h1>
+          </div>
+
+          <input type="text" id="number2" placeholder="Tempel (artikan code)"><br>
+
+          <div>
+            <pre id="numberToLetterResult2"></pre>
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -895,77 +1016,12 @@
         <br>
 
 
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Rubah kalimat ke code acak</h1>
-
-          </div><br>
-
-
-          <textarea type="text" id="word1" placeholder="Kalimat ke code" wrap="soft"></textarea>
-          <div>
-
-            <button type="button11" onclick="convertWordToNumber1()"><i class="fa-solid fa-dna"></i></button>
-
-          </div>
-          <div>
-            <button type="button11" id="reset11"> <i class="fas fa-undo"></i></button>
-            <button type="button11" onclick="salinTeks4()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks4()"><i class="fa fa-share"></i></button>
-          </div><br>
-
-          <p id="wordToNumberResult1"></p>
-          <br><br><br>
-
-          <div class="title-container">
-            <h1 class="title">Artikan code acak ke kalimat </h1>
-          </div>
-
-          <input type="text" id="number1" placeholder="Tempel (artikan code)"><br>
-
-          <div>
-            <pre id="numberToLetterResult1"></pre>
-          </div>
-
-        </div>
 
 
         <br><br><br><br><br><br>
 
 
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Rubah kamlimat ke angka</h1>
-
-          </div><br>
-
-
-          <textarea type="text" id="word2" placeholder="Kalimat ke code" wrap="soft"></textarea>
-          <div>
-
-            <button type="button11" onclick="convertWordToNumber2()"><i class="fa-solid fa-dna"></i></button>
-
-          </div>
-          <div>
-            <button type="button11" id="reset12"> <i class="fas fa-undo"></i></button>
-            <button type="button11" onclick="salinTeks3()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks3()"><i class="fa fa-share"></i></button>
-          </div><br>
-
-          <div id="wordToNumberResult2"></div>
-          <br><br><br>
-
-          <div class="title-container">
-            <h1 class="title">Artikan angka ke kalimat </h1>
-          </div>
-
-          <input type="text" id="number2" placeholder="Tempel (artikan code)"><br>
-
-          <div>
-            <pre id="numberToLetterResult2"></pre>
-          </div>
-
-        </div>
+       
 
         <br><br>
 
@@ -1586,47 +1642,8 @@
 
       <div id="myModal" class="modal">
 
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Hitung detail umur sekarang</h1>
-          </div>
-
-
-          <P id="deskripsiProduk">Masukan Tanggal lahir, bulan, tahun</P>
-          <input type="number" id="tanggal-lahir" placeholder="Tanggal lahir">
-          <input type="number" id="bulan-lahir" placeholder="Bulan lahir">
-          <input type="number" id="tahun-lahir" placeholder="Tahun lahir">
-          <div><button type="button11" onclick="hitungUmur()">Hitung</button></div>
-          <div>
-
-            <button type="button11" onclick="resetRiwayat()"><i class="fas fa-undo"></i></button>
-            <button type="button11" onclick="salinTeks6()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks6()"><i class="fa fa-share"></i></button>
-          </div><br>
-          <div id="output"></div>
-        </div><br><br><br><br>
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Kalkulator pengingat kehidupan</h1>
-          </div><br>
-          <p id="deskripsiProduk">Masukan tanggal lahir</p>
-          <input type="date" id="birthdate">
-          <br><br>
-          <p id="deskripsiProduk">Masukkan Tahun kisaran hidup (tahun) :</p>
-          <input type="number" id="ageLimit" placeholder="masukan tahun">
-          <br><br>
-          <button type="button11" onclick="calculateAge()">Hitung Sisa Waktu</button>
-          <div>
-
-            <button type="button11" onclick="reset090()"><i class="fas fa-undo"></i></button>
-            <button type="button11" onclick="salinTeks9()"><i class="fa fa-copy"></i></button>
-            <button type="button11" onclick="bagikanTeks9()"><i class="fa fa-share"></i></button>
-          </div><br>
-          <br>
-
-          <p id="remaining"></p>
-
-        </div><br><br><br><br>
+       <br><br><br><br>
+     <br><br><br><br>
 
 
 
