@@ -5826,54 +5826,6 @@ function stopAutoScroll() {
   clearInterval(scrollInterval);
 }
 
-// Muat API Player YouTube
-function loadYoutubePlayerAPI() {
-  const tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/player_api";
-  const firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-}
-
-// Inisialisasi player YouTube
-let player;
-function onYouTubePlayerAPIReady() {
-  player = new YT.Player('player', {
-    height: '360',
-    width: '640',
-    videoId: 'X2M0F5Qs2rM',
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-}
-
-// Handler ketika player YouTube siap diputar
-function onPlayerReady(event) {
-  console.log('Player ready');
-}
-
-// Handler ketika status player YouTube berubah
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    console.log('Video playing');
-  }
-}
-
-// Putar video YouTube
-function playYoutubeVideo() {
-  player.playVideo();
-}
-
-// Jeda video YouTube
-function pauseYoutubeVideo() {
-  player.pauseVideo();
-}
-
-// Stop video YouTube
-function stopYoutubeVideo() {
-  player.stopVideo();
-}
 
 
 
