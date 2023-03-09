@@ -12,6 +12,7 @@
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.4/dist/tesseract.min.js"></script>
 
   <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.css">
   <link rel="stylesheet" href="style.css">
@@ -69,6 +70,8 @@
       margin: 20px;
     }
   }
+
+
 </style>
 
 
@@ -137,7 +140,9 @@
     </div>
     <br>
 
-    <br><br>
+    <br>
+  
+    <br>
 
     <div class="photo-container">
       <div class="photo-scroll">
@@ -170,6 +175,45 @@
         <button id="color8-btn"><i class="fa-solid fa-paint-roller"></i></button>
       </div>
     </div><br>
+    <div>
+      <h3>Drag and drop image here</h3>
+      <img id="image" src="" alt="">
+    </div>
+    <div>
+      <h3>Detected Text:</h3>
+      <div id="detected-text"></div>
+    </div>
+    <script>
+
+const imageElement = document.getElementById('image');
+const detectedTextElement = document.getElementById('detected-text');
+
+// Event listener untuk menangkap event drag-and-drop pada div
+document.addEventListener('dragover', (e) => {
+  e.preventDefault();
+});
+
+document.addEventListener('drop', (e) => {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    imageElement.src = reader.result;
+    recognizeText(reader.result);
+  };
+
+  reader.readAsDataURL(file);
+});
+
+// Fungsi untuk mendeteksi teks pada gambar menggunakan Tesseract.js
+async function recognizeText(imageUrl) {
+  const { data } = await Tesseract.recognize(imageUrl, 'eng');
+  detectedTextElement.innerHTML = data.text;
+}
+
+    </script>
+    
 
     <div class="tab-container">
 
