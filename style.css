@@ -1644,12 +1644,11 @@ input[type="date"]:focus {
   font-size: 30px;
   font-weight: bold;
   color: #fff;
-  background-color: #000;
+ 
   text-align: center;
   padding: 30px;
   margin: 0 auto;
-  border: 5px solid red;
-  box-shadow: 0 0 50px #ff0000;
+ 
   border-radius: 10px;
 }
 #hasil65 {
@@ -2196,7 +2195,7 @@ height: 70px;
   bottom: 10px;
   right: -200px; /* memulai posisi box di luar layar */
 
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.25);
   color: #fff;
   padding: 10px;
   border-radius: 10%; /* membuat box menjadi bulat */
@@ -2204,8 +2203,10 @@ height: 70px;
 }
 
 .popup-box.show {
-  right: 10px; /* posisi setelah ditampilkan */
+  right: 10px;
+  animation: fadeIn 0.5s ease-out forwards 5000ms; /* Tampilkan selama 5 detik */
 }
+
 
 
 #interim-text {
@@ -2226,11 +2227,21 @@ height: 70px;
   }
 }
 
-
 .interim-text.active {
   animation-name: none;
   opacity: 1;
 }
+@media screen and (max-width: 480px) {
+  .popup-box {
+    bottom: 70px;
+  }
+  #interim-text {
+    font-size: 1.5rem;
+    max-width: 80vw;
+    white-space: normal;
+  }
+}
+
 .recording .icon {
   animation: pulse 1s infinite;
 }

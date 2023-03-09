@@ -5645,7 +5645,8 @@ berikut hasilnya :
       recognition.lang = ['id-ID', 'su-ID'];
       recognition.continuous = true;
       recognition.maxAlternatives = 5;
-      recognition.interimResults = isMobile ? false : true;
+      recognition.interimResults = true;
+
 
       recognition.onend = () => {
         if (isRecording) {
@@ -5674,8 +5675,6 @@ berikut hasilnya :
           interimText.innerHTML = '';
         }
       }
-
-
       function toggleRecognition() {
         const popupBox = document.querySelector('.popup-box');
 
