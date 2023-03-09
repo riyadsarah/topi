@@ -2231,16 +2231,6 @@ height: 70px;
   animation-name: none;
   opacity: 1;
 }
-@media screen and (max-width: 480px) {
-  .popup-box {
-    bottom: 70px;
-  }
-  #interim-text {
-    font-size: 1.5rem;
-    max-width: 80vw;
-    white-space: normal;
-  }
-}
 
 .recording .icon {
   animation: pulse 1s infinite;

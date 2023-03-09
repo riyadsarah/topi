@@ -5588,7 +5588,6 @@ berikut hasilnya :
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       const recognition = new window.webkitSpeechRecognition();
       const outputText = document.getElementById('output-text7');
-
       const interimText = document.getElementById('interim-text');
       const startBtn = document.getElementById('start-btn');
       const stopBtn = document.getElementById('stop-btn');
@@ -5640,13 +5639,13 @@ berikut hasilnya :
         });
         return words.join(" ");
       }
+      
       let isRecording = true;
       recognition.lang = 'id-ID';
       recognition.lang = ['id-ID', 'su-ID'];
       recognition.continuous = true;
       recognition.maxAlternatives = 5;
-      recognition.interimResults = true;
-
+      recognition.interimResults = isMobile ? false : true;
 
       recognition.onend = () => {
         if (isRecording) {
@@ -5783,15 +5782,65 @@ function stopAutoScroll() {
   clearInterval(scrollInterval);
 }
 
+// Muat API Player YouTube
+function loadYoutubePlayerAPI() {
+  const tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  const firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+}
+
+// Inisialisasi player YouTube
+let player;
+function onYouTubePlayerAPIReady() {
+  player = new YT.Player('player', {
+    height: '360',
+    width: '640',
+    videoId: 'X2M0F5Qs2rM',
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+// Handler ketika player YouTube siap diputar
+function onPlayerReady(event) {
+  console.log('Player ready');
+}
+
+// Handler ketika status player YouTube berubah
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {
+    console.log('Video playing');
+  }
+}
+
+// Putar video YouTube
+function playYoutubeVideo() {
+  player.playVideo();
+}
+
+// Jeda video YouTube
+function pauseYoutubeVideo() {
+  player.pauseVideo();
+}
+
+// Stop video YouTube
+function stopYoutubeVideo() {
+  player.stopVideo();
+}
+
+
 
 recognition.onresult = function (event) {
   const interimTranscripts = [];
-  let output = ''; // Tambahkan baris ini untuk mengosongkan nilai output
   for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
     const transcript = event.results[i][0].transcript;
     if (event.results[i].isFinal) {
-      output += transcript;
+      let output = transcript;
    
+
 
 
 
@@ -5907,7 +5956,20 @@ recognition.onresult = function (event) {
 }else if (output.toLowerCase().includes("putar musik")) {
   const audio = new Audio('assets/notif9.mp3'); // ganti 'path/to/music.mp3' dengan path file musik Anda
   audio.play();
+}else if (transcript.toLowerCase().includes('reload')) {
+        window.location.reload();
+      }else if (transcript.toLowerCase().includes('telepon pacar saya')) {
+  window.location.href = 'https://api.whatsapp.com/send?phone=6282311406572&action=phone';
 }
+else if (transcript.toLowerCase().includes('putar lagu')) {
+  window.location.href = 'brave://new-tab-page';
+  setTimeout(() => {
+    window.location.href = 'https://www.youtube.com/watch?v=X2M0F5Qs2rM';
+  }, 2000);
+}
+
+
+
 
              else {
               outputText.value += output;
@@ -5918,7 +5980,7 @@ recognition.onresult = function (event) {
         }
 
         interimText.innerHTML = interimTranscripts.map(transcript => `<span>${transcript}</span>`).join('');
-
+        navigator.mediaDevices.getUserMedia({ audio: { secure: true } })
       };
 
       function hapusKalimatTerakhir(text, n) {
