@@ -847,7 +847,7 @@ h3 {
   font-family: Arial, sans-serif;
   visibility: hidden;
   width: 150px;
-  background-color: rgba(0, 0, 0, 0.829);
+  background-color: rgb(255, 209, 209);
   color: #ffffff;
   text-align: center;
   border-radius: 4px;
@@ -925,7 +925,10 @@ h3 {
 .product-code {
   font-size: 12px;
   font-weight: normal;
-  color: #777;
+  color: #828282;
+}
+#output-textju {
+  display: none;
 }
 
 

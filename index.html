@@ -169,7 +169,7 @@
         <button id="color8-btn"><i class="fa-solid fa-paint-roller"></i></button>
       </div>
     </div><br>
-<h1q>website tegar</h1q>
+
     <div class="tab-container">
 
       <div class="tabs">
@@ -541,6 +541,7 @@
        
         <div class="tab" data-tab="tab-2"><div>Rubah</div><div>Hurup Vokal</div></div>
         <div class="tab" data-tab="tab-3"><div>Modifikasi</div><div>Teks</div></div>
+        <div class="tab" data-tab="tab-17"><div>Rubah Teks</div><div>ke code Binary</div></div>
         <div class="tab" data-tab="tab-4"><div>Rubah Teks</div><div>ke Underscore</div></div>
         <div class="tab" data-tab="tab-15"><div>Rubah Teks</div><div>ke Code Acak</div></div>
         <div class="tab" data-tab="tab-16"><div>Rubah Teks</div><div>ke Angka</div></div>
@@ -713,6 +714,23 @@
           </div>
 
         </div>
+      </div>
+      <div class="tab-content" id="tab-17">
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Rubah Teks ke Code Binary<i class="fa-solid fa-lock" style="font-size: 40px; margin-left: 10px; color: rgb(0, 179, 255);"></i></h1>
+          </div>
+        <textarea id="input-textju" placeholder="Enter text here"></textarea>
+        <button type="button" id="convert-to-binary" onclick="convertToBinary()">Convert to Binary</button>
+        <button type="button" id="convert-to-text" onclick="convertToText()">Convert to Text</button><br><br>
+        <div>
+          <button type="button" onclick="resetTextArea()"><i class="fas fa-undo"></i></button>
+          <button type="button" onclick="salinTeks200()"><i class="fa fa-copy"></i></button>
+          <button type="button" onclick="bagikanTeks200()"><i class="fa fa-share"></i></button>
+        </div>
+        <br><br>
+        <textarea id="output-textju" placeholder="Binary code or text will appear here" readonly></textarea>
+      </div>
       </div>
     </div>
 
@@ -2120,7 +2138,7 @@
           <div class="card-description">
             <div id="product">
               <h2 class="product-title">Topi Elegan dengan Desain Klasik</h2>
-              <p class="product-code">Kode Produk: TP-ELE-KLS-001</p>
+              <div class="product-code">Kode Produk: TP-ELE-KLS-001</div>
             </div>
           </div>
           <div class="card-actions">
@@ -4972,7 +4990,26 @@ berikut hasilnya :
         window.location.href = shareUrl;
       }
     </script>
+    <script>
+      function salinTeks200() {
+        const outputtextju = document.getElementById("output-textju");
+        const range = document.createRange();
+        range.selectNode(output-textju);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+        navigator.vibrate(100); // Menambahkan getar selama 100ms
 
+      }
+
+      function bagikanTeks200() {
+        const outputtextju = document.getElementById("output-textju").textContent;
+        const encodedText = encodeURIComponent(output-textju);
+        const shareUrl = `whatsapp://send?text=${encodedText}`;
+        window.location.href = shareUrl;
+      }
+    </script>
 
 
 
@@ -6176,8 +6213,59 @@ recognition.onresult = function (event) {
   
     <br><br>
     <button type="button" onclick="location.href='halaman-tujuan.html'">voice to text sunda</button>
+<br><br>
 
-  
+    <script>
+    function convertToBinary() {
+      var inputText = document.getElementById('input-textju').value;
+      var binaryCode = '';
+      for (var i = 0; i < inputText.length; i++) {
+        var charCode = inputText.charCodeAt(i).toString(2);
+        while (charCode.length < 8) {
+          charCode = '0' + charCode;
+        }
+        binaryCode += charCode + ' ';
+      }
+      document.getElementById('output-textju').value = binaryCode.trim();
+      document.getElementById('output-textju').style.display = 'block';
+    }
+    
+    function convertToText() {
+      var inputBinary = document.getElementById('input-textju').value.replace(/\s/g, '');
+      var text = '';
+      for (var i = 0; i < inputBinary.length; i += 8) {
+        var charCode = parseInt(inputBinary.substr(i, 8), 2);
+        text += String.fromCharCode(charCode);
+      }
+      document.getElementById('output-textju').value = text;
+      document.getElementById('output-textju').style.display = 'block';
+    }
+    
+    function resetTextArea() {
+      document.getElementById('input-textju').value = '';
+      document.getElementById('output-textju').value = '';
+      document.getElementById('output-textju').style.display = 'none';
+    }
+    
+    function salinTeks200() {
+      const outputText = document.getElementById("output-textju");
+      const range = document.createRange();
+      range.selectNode(outputText);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand("copy");
+      navigator.vibrate(100); // Menambahkan getar selama 100ms
+    }
+    
+    function bagikanTeks200() {
+      const outputText = document.getElementById("output-textju").value;
+      const encodedText = encodeURIComponent(outputText);
+      const shareUrl = `whatsapp://send?text=${encodedText}`;
+      window.location.href = shareUrl;
+    }
+    </script>
+    
     <br><br>
 
     <footer id="footerSection">
