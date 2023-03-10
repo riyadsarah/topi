@@ -533,7 +533,7 @@
       </div>  
     </div>
   </div>
-
+ 
 
  
     <div class="tab-container">
@@ -733,7 +733,166 @@
       </div>
       </div>
     </div>
+    <div class="tab-container">
+      <div>Alat Tempur Dagang</div>
+      <div class="tabs">
 
+        <div class="tab" data-tab="tab-18"><div>Bikin Barcode</div><div>dan Qr Code</div></div>
+        <div class="tab" data-tab="tab-19"><div>Bikin Code</div><div>Nama Barang</div></div>
+        <div class="tab" data-tab="tab-20"><div>Bikin</div><div>Code Harga</div></div>
+        <div class="tab" data-tab="tab-21"><div>Kalkulator</div><div>Pedagang</div></div>
+        <div class="tab" data-tab="tab-22"><div>Kalkulator Harga</div>Awal Diskon<div></div></div>
+      </div><br>
+      <div class="tab-content hidden" id="tab-18">
+        <div class="container-b">
+          <div class="title-container">
+            <h1 class="title">Teks ke Barcode <i class="fa-solid fa-barcode"></i> & QRious <i
+                class="fa-solid fa-qrcode"></i> </h1>
+          </div><br>
+          <div id="form-barcode">
+            <textarea type="text" id="barcode-input" placeholder="Masukan brand kamu"></textarea>
+          </div><br>
+          <div>
+            <label for="barcode-color">Barcode Color:</label>
+            <input type="color" id="barcode-color" value="#000000">
+
+
+            <label for="qr-color">QR Code Color:</label>
+            <input type="color" id="qr-color" value="#000000">
+
+            <label for="bg-color">Background Color:</label>
+            <input type="color" id="bg-color" value="#ffffff">
+          </div><br>
+
+          <div>
+
+            <button type="button11" id="generate-button">Generate</button>
+            <button type="button11" onclick="resetRiwayat1()"><i class="fas fa-undo"></i></button>
+            <button type="button" id="save-button-jpg"><i class="fa-solid fa-download"></i></button>
+
+
+          </div>
+          <br>
+          <div>
+
+            <canvas id="barcode1"></canvas>
+            <canvas id="barcode2"></canvas>
+            <canvas id="barcode3"></canvas>
+
+
+          </div>
+        </div>
+    </div>
+    <div class="tab-content hidden" id="tab-19">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Buat kode barang</h1>
+        </div><br>
+        <input type="text" id="input-text1" placeholder="Masukkan kata">
+        <button type="button11" onclick="generateAbbreviations()">Cari singkatan</button>
+        <br><br>
+
+        <select id="dropdown-menu" class="custom-select"></select>
+        <button type="button11" onclick="copyToClipboard()">Copy <i class="fa-regular fa-clipboard"></i></button>
+        <button type="button11" onclick="resetForm5()"><i class="fas fa-undo"></i></button>
+      </div>
+    </div>
+    <div class="tab-content hidden" id="tab-20">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Rubah harga ke hurup</h1>
+        </div>
+        <div class="input-container-a">
+          <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
+          <button type="button11" onclick="resetForm6()"><i class="fas fa-undo"></i></button>
+        </div>
+        <div class="output-container">
+          <p id="outputText"></p>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content hidden" id="tab-21">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator praktis dagang</h1>
+        </div><br>
+        <input id="hasil47"> </input>
+        <textarea id="inputKalkulator"></textarea>
+        <input type="number" id="inputUang" placeholder="Masukkan uang pembeli" min="0">
+        <div>
+          <tr>
+            <td> <button class="button-na " type="button-ng" onclick="hapusSemua()">AC</button></td>
+            <td> <button class="button-ng " type="button-ng" value="*"><i class="fa-solid fa-xmark"></i></button></td>
+            <td> <button class="button-ng " type="button-ng" value="/"><i class="fa-solid fa-divide"></i></button>
+            </td>
+            <td> <button class="button-ng " type="button-ng" value="-"><i class="fa-solid fa-minus"></i></button></td>
+          </tr>
+        </div>
+        <div>
+          <tr>
+            <td> <button class="button-nb " type="button-nb" value="7">7</button></td>
+            <td> <button class="button-nb " type="button-nb" value="8">8</button></td>
+            <td> <button class="button-nb " type="button-nb" value="9">9</button></td>
+            <td> <button class="button-ng " type="button-ng" value="+"><i class="fa-solid fa-plus"></i></button></td>
+          </tr>
+        </div>
+        <div>
+          <tr>
+            <td><button class="button-nb " type="button-nb" value="4">4</button></td>
+            <td> <button class="button-nb " type="button-nb" value="5">5</button></td>
+            <td> <button class="button-nb " type="button-nb" value="6">6</button></td>
+            <td><button class="button-na" type="button-nb" onclick="tampilkankesimpulan()"><i
+                  class="fa-solid fa-file-signature"></i></button></td>
+          </tr>
+        </div>
+        <div>
+          <tr>
+            <td> <button class="button-nb " type="button-nb" value="1">1</button></td>
+            <td> <button class="button-nb " type="button-nb" value="2">2</button></td>
+            <td> <button class="button-nb " type="button-nb" value="3">3</button></td>
+            <button class="button-na " type="button-ng" onclick="reset76()"><i class="fas fa-undo"></i></button>
+          </tr>
+        </div>
+        <div>
+          <tr>
+            <td><button class="button-nbc " type="button-nb" value="00">00</button></td>
+            <td> <button class="button-nbc " type="button-nb" value="0">0</button></td>
+            <td><button class="button-nbc " type="button-nb" value="000">000</button></td>
+            <td><button class="button-na " type="button-ng" onclick="hapusSatu()"><i
+                  class="fa-solid fa-delete-left"></i></button></td>
+        </div>
+        </tr><br>
+        <button type="button11" onclick="salinTeks13()"><i class="fa fa-copy"></i></button>
+        <button type="button11" onclick="bagikanTeks13()"><i class="fa fa-share"></i></button>
+        <div id="output32"></div>
+      </div>
+    </div>
+    <div class="tab-content hidden" id="tab-22">
+      <div class="container-b">
+        <div class="title-container">
+          <h1 class="title">Kalkulator membuat diskon</h1>
+
+        </div><br>
+
+        <label for="harga-setelah-diskon">Harga barang:</label>
+        <input type="number" id="harga-setelah-diskon" placeholder="HARGA BARANG">
+        <br>
+        <label for="diskon">Diskon (%):</label>
+        <input type="number" id="diskon" placeholder="Tentukan angka diskon">
+        <br>
+        <div>
+          <button type="button" id="hitung-harga-awal">Hitung Harga Awal</button>
+        </div><br>
+        <div>
+          <button type="button" id="reset53"><i class="fas fa-undo"></i></button>
+          <button type="button" onclick="salinTeks14()"><i class="fa fa-copy"></i></button>
+          <button type="button" onclick="bagikanTeks14()"><i class="fa fa-share"></i></button>
+        </div>
+        <br><br>
+        <div id="hasil0"></div>
+      </div>
+    </div>
+  </div>
     <br><br>
     <h1 class="title">FITUR TERBARU</h1>
     <br>
@@ -1093,44 +1252,7 @@
 
 
 
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Teks ke Barcode <i class="fa-solid fa-barcode"></i> & QRious <i
-                class="fa-solid fa-qrcode"></i> </h1>
-          </div><br>
-          <div id="form-barcode">
-            <textarea type="text" id="barcode-input" placeholder="Masukan brand kamu"></textarea>
-          </div><br>
-          <div>
-            <label for="barcode-color">Barcode Color:</label>
-            <input type="color" id="barcode-color" value="#000000">
-
-
-            <label for="qr-color">QR Code Color:</label>
-            <input type="color" id="qr-color" value="#000000">
-
-            <label for="bg-color">Background Color:</label>
-            <input type="color" id="bg-color" value="#ffffff">
-          </div><br>
-
-          <div>
-
-            <button type="button11" id="generate-button">Generate</button>
-            <button type="button11" onclick="resetRiwayat1()"><i class="fas fa-undo"></i></button>
-            <button type="button" id="save-button-jpg"><i class="fa-solid fa-download"></i></button>
-
-
-          </div>
-          <br>
-          <div>
-
-            <canvas id="barcode1"></canvas>
-            <canvas id="barcode2"></canvas>
-            <canvas id="barcode3"></canvas>
-
-
-          </div>
-        </div><br>
+       <br>
 
         <script>
           var barcode1 = document.getElementById("barcode1");
@@ -1278,33 +1400,11 @@
         </script>
 
         <br><br>
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Buat kode barang</h1>
-          </div><br>
-          <input type="text" id="input-text1" placeholder="Masukkan kata">
-          <button type="button11" onclick="generateAbbreviations()">Cari singkatan</button>
-          <br><br>
-
-          <select id="dropdown-menu" class="custom-select"></select>
-          <button type="button11" onclick="copyToClipboard()">Copy <i class="fa-regular fa-clipboard"></i></button>
-          <button type="button11" onclick="resetForm5()"><i class="fas fa-undo"></i></button>
-        </div>
+     
 
 
         <br><br><br>
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Rubah harga ke hurup</h1>
-          </div>
-          <div class="input-container-a">
-            <input type="text" id="inputText" onkeyup="convertText()" placeholder="B G R I Y A D N F S">
-            <button type="button11" onclick="resetForm6()"><i class="fas fa-undo"></i></button>
-          </div>
-          <div class="output-container">
-            <p id="outputText"></p>
-          </div>
-        </div>
+       
 
 
 
@@ -1396,107 +1496,11 @@
 
         <br>
 
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Kalkulator praktis dagang</h1>
+    
+        
+        <br><br><br>
 
-          </div><br>
-
-
-          <input id="hasil47"> </input>
-          <textarea id="inputKalkulator"></textarea>
-
-
-          <input type="number" id="inputUang" placeholder="Masukkan uang pembeli" min="0">
-
-
-
-
-          <div>
-            <tr>
-
-              <td> <button class="button-na " type="button-ng" onclick="hapusSemua()">AC</button></td>
-              <td> <button class="button-ng " type="button-ng" value="*"><i class="fa-solid fa-xmark"></i></button></td>
-              <td> <button class="button-ng " type="button-ng" value="/"><i class="fa-solid fa-divide"></i></button>
-              </td>
-              <td> <button class="button-ng " type="button-ng" value="-"><i class="fa-solid fa-minus"></i></button></td>
-            </tr>
-          </div>
-          <div>
-            <tr>
-              <td> <button class="button-nb " type="button-nb" value="7">7</button></td>
-              <td> <button class="button-nb " type="button-nb" value="8">8</button></td>
-              <td> <button class="button-nb " type="button-nb" value="9">9</button></td>
-              <td> <button class="button-ng " type="button-ng" value="+"><i class="fa-solid fa-plus"></i></button></td>
-
-            </tr>
-          </div>
-          <div>
-            <tr>
-              <td><button class="button-nb " type="button-nb" value="4">4</button></td>
-              <td> <button class="button-nb " type="button-nb" value="5">5</button></td>
-              <td> <button class="button-nb " type="button-nb" value="6">6</button></td>
-              <td><button class="button-na" type="button-nb" onclick="tampilkankesimpulan()"><i
-                    class="fa-solid fa-file-signature"></i></button></td>
-
-            </tr>
-          </div>
-          <div>
-            <tr>
-              <td> <button class="button-nb " type="button-nb" value="1">1</button></td>
-              <td> <button class="button-nb " type="button-nb" value="2">2</button></td>
-              <td> <button class="button-nb " type="button-nb" value="3">3</button></td>
-              <button class="button-na " type="button-ng" onclick="reset76()"><i class="fas fa-undo"></i></button>
-
-
-            </tr>
-          </div>
-          <div>
-            <tr>
-              <td><button class="button-nbc " type="button-nb" value="00">00</button></td>
-
-
-
-              <td> <button class="button-nbc " type="button-nb" value="0">0</button></td>
-
-              <td><button class="button-nbc " type="button-nb" value="000">000</button></td>
-              <td><button class="button-na " type="button-ng" onclick="hapusSatu()"><i
-                    class="fa-solid fa-delete-left"></i></button></td>
-
-
-          </div>
-          </tr><br>
-          <button type="button11" onclick="salinTeks13()"><i class="fa fa-copy"></i></button>
-          <button type="button11" onclick="bagikanTeks13()"><i class="fa fa-share"></i></button>
-
-          <div id="output32"></div>
-
-        </div><br><br><br>
-
-        <div class="container-b">
-          <div class="title-container">
-            <h1 class="title">Kalkulator membuat diskon</h1>
-
-          </div><br>
-
-          <label for="harga-setelah-diskon">Harga barang:</label>
-          <input type="number" id="harga-setelah-diskon" placeholder="HARGA BARANG">
-          <br>
-          <label for="diskon">Diskon (%):</label>
-          <input type="number" id="diskon" placeholder="Tentukan angka diskon">
-          <br>
-          <div>
-            <button type="button" id="hitung-harga-awal">Hitung Harga Awal</button>
-          </div><br>
-          <div>
-            <button type="button" id="reset53"><i class="fas fa-undo"></i></button>
-            <button type="button" onclick="salinTeks14()"><i class="fa fa-copy"></i></button>
-            <button type="button" onclick="bagikanTeks14()"><i class="fa fa-share"></i></button>
-          </div>
-          <br><br>
-
-          <div id="hasil0"></div>
-        </div>
+   
         <button type="button10" class="close2"><i class="fa-solid fa-circle-xmark"></i></button>
 
         <br><br><br>
