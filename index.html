@@ -6269,65 +6269,141 @@ recognition.onresult = function (event) {
       window.location.href = shareUrl;
     }
     </script>
-    
+ 
     <br>
-    <p>Current battery level: <span id="battery-level">-</span>%</p>
-<p>Charging: <span id="charging-status">-</span></p>
-<p>Time until fully charged: <span id="charging-time">-</span></p>
-<p>Time until battery empty: <span id="discharging-time">-</span></p>
+    <div class="battery-container" >
+    <div class="battery-level" id="battery-level">-</div>
+  </div>
+     <div><i id="charging-icon" class="fa-solid fa-charging-station" style="font-size: 30px;"></i>
+      <canvas id="battery-chart"></canvas></div>
 
+    <audio id="low-battery-sound">
+      <source src="assets/notif1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="full-battery-sound">
+      <source src="assets/notif3.mp3" type="audio/mpeg">
+    </audio>
+    
+
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   window.addEventListener('load', function() {
     var battery = navigator.battery || navigator.mozBattery || navigator.webkitBattery;
     if ('navigator' in window && 'getBattery' in navigator) {
-      navigator.getBattery().then(function(battery) {
-        function updateBatteryStatus() {
-          document.querySelector('#battery-level').textContent = Math.round(battery.level * 100);
-          document.querySelector('#charging-status').textContent = battery.charging ? 'Yes' : 'No';
-          document.querySelector('#charging-time').textContent = battery.chargingTime === Infinity ? 'Charging...' : (battery.chargingTime ? `${Math.round(battery.chargingTime / 60)} minutes` : 'N/A');
-          document.querySelector('#discharging-time').textContent = battery.dischargingTime === Infinity ? 'Discharging...' : (battery.dischargingTime ? `${Math.round(battery.dischargingTime / 60)} minutes` : 'N/A');
+  navigator.getBattery().then(function(battery) {
+    var batteryData = [Math.round(battery.level * 100)];
+function getBatteryColor(percent) {
+  if (percent >= 1 && percent <= 10) {
+    return '#FF0000'; // merah untuk 1-10%
+  } else if (percent > 10 && percent <= 60) {
+    return '#1d9ad4'; // biru untuk 20-60%
+  } else {
+    return '#00FF00'; // hijau untuk 60-100%
+  }
+}
+
+    var batteryChart = new Chart(document.getElementById('battery-chart'), {
+      type: 'bar',
+      data: {
+        labels: ['Battery Level'],
+        datasets: [{
+          label: 'Battery Level',
+          data: batteryData,
+          backgroundColor: [getBatteryColor(batteryData[0])],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        cutoutPercentage: 60,
+        rotation: -Math.PI,
+        circumference: Math.PI,
+        animation: {
+          animateRotate: true,
+          animateScale: true
+        },
+        legend: {
+          display: true
+        },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              return data.labels[tooltipItem.index] + ': ' + data.datasets[0].data[tooltipItem.index] + '%';
+            }
+          }
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              suggestedMax: 100
+            }
+          }]
         }
-        battery.addEventListener('chargingchange', updateBatteryStatus);
-        battery.addEventListener('levelchange', updateBatteryStatus);
-        battery.addEventListener('chargingtimechange', updateBatteryStatus);
-        battery.addEventListener('dischargingtimechange', updateBatteryStatus);
-        updateBatteryStatus();
+      }
+    });
+
+    function updateBatteryStatus() {
+  var batteryLevel = Math.round(battery.level * 100);
+  var batteryContainer = document.querySelector('.battery-container');
+  var batteryLevelText = document.querySelector('#battery-level');
+  var batteryStatusText = document.querySelector('#charging-status');
+  // di dalam function updateBatteryStatus()
+var chargingIcon = document.querySelector('#charging-icon');
+
+if (battery.charging) {
+  chargingIcon.style.color = getBatteryColor(batteryLevel);
+} else {
+  chargingIcon.style.color = '#ffffff'; // warna putih
+}
+
+  batteryLevelText.textContent = batteryLevel + '%';
+
+ 
+  
+  batteryContainer.classList.remove('low', 'charging', 'full');
+  if (batteryLevel <= 10 && !battery.charging) {
+    batteryContainer.classList.add('low');
+    batteryLevelText.style.backgroundColor = '#FF0000'; // merah untuk 1-10%
+  } else if (batteryLevel >= 90 && battery.charging) {
+    batteryContainer.classList.add('full');
+    batteryLevelText.style.backgroundColor = '#04ff00'; 
+  }else if (batteryLevel >= 80 && battery.charging) {
+    batteryContainer.classList.add('full');
+    batteryLevelText.style.backgroundColor = '#1e90ff'; 
+  }
+   else if (battery.charging) {
+    batteryContainer.classList.add('charging');
+    
+  }
+
+  if (batteryLevel <= 10 && !battery.charging) {
+  var lowBatterySound = document.getElementById('low-battery-sound');
+  lowBatterySound.currentTime = 0; // reset waktu audio
+  lowBatterySound.play();
+} else if (batteryLevel >= 100 && battery.charging) {
+  var fullBatterySound = document.getElementById('full-battery-sound');
+  fullBatterySound.currentTime = 0; // reset waktu audio
+  fullBatterySound.play();
+}
+
+
+var batteryLevelBar = batteryContainer.querySelector('.battery-level');
+  batteryLevelBar.style.width = batteryLevel + '%';
+}
+
+battery.addEventListener('chargingchange', updateBatteryStatus);
+battery.addEventListener('levelchange', updateBatteryStatus);
+updateBatteryStatus();
+
       });
     } else {
       console.log('Battery status not supported.');
     }
   });
-
-  function updateBatteryStatus(battery) {
-    var batteryLevel = Math.floor(battery.level * 100);
-    var batteryChargingTime = formatTime(battery.chargingTime);
-    var batteryDischargingTime = formatTime(battery.dischargingTime);
-
-    document.getElementById('battery-level').textContent = batteryLevel;
-    document.getElementById('battery-charging-time').textContent = batteryChargingTime;
-    document.getElementById('battery-discharging-time').textContent = batteryDischargingTime;
-  }
-
-  function formatTime(seconds) {
-    if (isNaN(seconds)) {
-      return "unknown";
-    }
-
-    var hours = Math.floor(seconds / 3600);
-    var minutes = Math.floor((seconds - (hours * 3600)) / 60);
-
-    if (hours < 10) {
-      hours = "0" + hours;
-    }
-    if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-
-    return hours + ":" + minutes;
-  }
 </script>
 
-
+    
 
     <br>
 

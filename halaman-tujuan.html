@@ -180,11 +180,8 @@ canvasCtx.strokeStyle = gradient;
     </script>
 
 
-
 <p>Current battery level: <span id="battery-level">-</span>%</p>
 <p>Charging: <span id="charging-status">-</span></p>
-<p>Time until fully charged: <span id="charging-time">-</span></p>
-<p>Time until battery empty: <span id="discharging-time">-</span></p>
 
 <script>
   window.addEventListener('load', function() {
@@ -194,49 +191,16 @@ canvasCtx.strokeStyle = gradient;
         function updateBatteryStatus() {
           document.querySelector('#battery-level').textContent = Math.round(battery.level * 100);
           document.querySelector('#charging-status').textContent = battery.charging ? 'Yes' : 'No';
-          document.querySelector('#charging-time').textContent = battery.chargingTime === Infinity ? 'Charging...' : (battery.chargingTime ? `${Math.round(battery.chargingTime / 60)} minutes` : 'N/A');
-          document.querySelector('#discharging-time').textContent = battery.dischargingTime === Infinity ? 'Discharging...' : (battery.dischargingTime ? `${Math.round(battery.dischargingTime / 60)} minutes` : 'N/A');
         }
         battery.addEventListener('chargingchange', updateBatteryStatus);
         battery.addEventListener('levelchange', updateBatteryStatus);
-        battery.addEventListener('chargingtimechange', updateBatteryStatus);
-        battery.addEventListener('dischargingtimechange', updateBatteryStatus);
         updateBatteryStatus();
       });
     } else {
       console.log('Battery status not supported.');
     }
   });
-
-  function updateBatteryStatus(battery) {
-    var batteryLevel = Math.floor(battery.level * 100);
-    var batteryChargingTime = formatTime(battery.chargingTime);
-    var batteryDischargingTime = formatTime(battery.dischargingTime);
-
-    document.getElementById('battery-level').textContent = batteryLevel;
-    document.getElementById('battery-charging-time').textContent = batteryChargingTime;
-    document.getElementById('battery-discharging-time').textContent = batteryDischargingTime;
-  }
-
-  function formatTime(seconds) {
-    if (isNaN(seconds)) {
-      return "unknown";
-    }
-
-    var hours = Math.floor(seconds / 3600);
-    var minutes = Math.floor((seconds - (hours * 3600)) / 60);
-
-    if (hours < 10) {
-      hours = "0" + hours;
-    }
-    if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-
-    return hours + ":" + minutes;
-  }
 </script>
-
 
 
 
