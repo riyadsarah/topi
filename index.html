@@ -1707,6 +1707,7 @@
    
       <div id="widget-container">
         
+        
         <div id="clock">
           <p id="time"></p>
           <div><i class="fa-sharp fa-solid fa-calendar-days"></i>
@@ -1718,22 +1719,11 @@
           <div class="battery-level" id="battery-level">-</div>
         </div><br>
            <div><i id="charging-icon" class="fa-solid fa-charging-station" style="font-size: 30px;"></i></div></div>
-        <div id="weather">
-          <i class="fa-sharp fa-solid fa-location-dot"></i>
-          <p id="location"></p>
-          <p id="temperature"></p>
-          <p id="condition"></p>
-        </div>
-      </div><div class="container">
- 
-       <div><canvas id="battery-chart"></canvas></div> 
-  
-        <audio id="battery-alert">
-          <source src="notif10.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-        
+           
       </div>
+      <div class="container"><canvas id="battery-chart"></canvas></div>
+       
+    
         <br><br>
 
 
@@ -6308,46 +6298,45 @@ function getBatteryColor(percent) {
   }
 }
 
-    // definisikan variabel data
-    var batteryData = [Math.round(battery.level * 100), 0, 0, 0, 0, 0];
-
-
-// definisikan fungsi untuk mengembalikan warna dataset berdasarkan nilai pertama
-
-
-// definisikan grafik radar
 var batteryChart = new Chart(document.getElementById('battery-chart'), {
-  type: 'radar',
-  data: {
-    labels: ['0%','15%', '20%', '40%', '60%', '80%', '100%'],
-    datasets: [{
-      label: 'Battery Level',
-      data: batteryData,
-      backgroundColor: getBatteryColor(batteryData[0]),
-      borderWidth: 1
-    }]
-  },
-  options: {
-    legend: {
-      display: true
-    },
-    tooltips: {
-      callbacks: {
-        label: function(tooltipItem, data) {
-          return data.datasets[0].label + ': ' + tooltipItem.yLabel + '%';
+      type: 'bar',
+      data: {
+        labels: ['Battery Level'],
+        datasets: [{
+          label: 'Battery Level',
+          data: batteryData,
+          backgroundColor: [getBatteryColor(batteryData[0])],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        cutoutPercentage: 60,
+        rotation: -Math.PI,
+        circumference: Math.PI,
+        animation: {
+          animateRotate: true,
+          animateScale: true
+        },
+        legend: {
+          display: true
+        },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              return data.labels[tooltipItem.index] + ': ' + data.datasets[0].data[tooltipItem.index] + '%';
+            }
+          }
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              suggestedMax: 100
+            }
+          }]
         }
       }
-    },
-    scale: {
-      ticks: {
-        beginAtZero: true,
-        max: 100,
-        stepSize: 10
-      }
-    }
-  }
-});
-
+    });
 
 function updateBatteryStatus() {
   var batteryLevel = Math.round(battery.level * 100);
@@ -6375,7 +6364,7 @@ function updateBatteryStatus() {
   batteryContainer.classList.add('medium');
   var lowBatteryAudio = new Audio('notif10.mp3');
   lowBatteryAudio.play(); // warna sesuai level baterai
-} else if (batteryLevel >= 80 && !battery.charging) {
+} else if (batteryLevel >= 86 && !battery.charging) {
   batteryContainer.classList.add('high');
   var lowBatteryAudio = new Audio('notif10.mp3');
   lowBatteryAudio.play(); // warna sesuai level baterai
@@ -6407,7 +6396,11 @@ updateBatteryStatus();
   });
 </script>
 
-    
+<audio id="lowBatteryAudio">
+  <source src="notif10.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 
     <br>
 
