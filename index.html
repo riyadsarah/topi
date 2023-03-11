@@ -6355,23 +6355,20 @@ function updateBatteryStatus() {
   }
 
   batteryLevelText.textContent = batteryLevel + '%';
+  
   if (batteryLevel <= 10 && !battery.charging) {
   batteryContainer.classList.add('low');
   // menampilkan notifikasi suara untuk level baterai rendah
-  var lowBatteryAudio = new Audio('notif10.mp3');
-  lowBatteryAudio.play();
+  
 } else if (batteryLevel > 10 && batteryLevel < 80 && !battery.charging) {
   batteryContainer.classList.add('medium');
-  var lowBatteryAudio = new Audio('notif10.mp3');
-  lowBatteryAudio.play(); // warna sesuai level baterai
-} else if (batteryLevel >= 86 && !battery.charging) {
+ 
+} else if (batteryLevel >= 93 && !battery.charging) {
   batteryContainer.classList.add('high');
-  var lowBatteryAudio = new Audio('notif10.mp3');
-  lowBatteryAudio.play(); // warna sesuai level baterai
+  
 } else if (battery.charging) {
   batteryContainer.classList.add('charging');
-  var lowBatteryAudio = new Audio('notif10.mp3');
-  lowBatteryAudio.play();
+ 
 }
 
 
