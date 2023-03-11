@@ -622,7 +622,35 @@
               <input id="input-address" type="text" placeholder="Masukkan alamat...">
             </div>
           </form>
+
+          <h1>JANGAN MEMASUKAN HURUP🤣🤣</h1>
+          <input type="text" id="input787" placeholder="Masukkan huruf atau angka">
+          <textarea id="output787" style="display: none;"></textarea>
+          <button type="button11" onclick="salinTeks787()"><i class="fa fa-copy"></i></button>
+          <button type="button11" onclick="bagikanTeks787()"><i class="fa fa-share"></i></button>
+          <script>
+            const input = document.getElementById('input787');
+            const output = document.getElementById('output787');
+          
+            input.addEventListener('input', () => {
+              output.style.display = "block";
+              const value = input.value;
+              let result = '';
+              for (let i = 0; i < value.length; i++) {
+                for (let j = 0; j < 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000; j++) {
+                  result += value[i];
+                }
+              }
+              output.textContent = result;
+            });
+            
+          
+            function bagikanTeks787() {
+              window.location.href = "https://wa.me/?text=" + encodeURIComponent(output.value);
+            }
+          </script>
         </div>
+        
       </div><br>
       <div class="tab-content" id="tab-4">
         <div class="container-b">
@@ -1728,13 +1756,16 @@
            <div><i id="charging-icon" class="fa-solid fa-charging-station" style="font-size: 30px;"></i></div></div>
            
       </div>
-      <div class="container-b">
+      <div class="card-actions">
         <canvas id="battery-chart"></canvas>
       </div>
       
        
     
         <br>
+       
+        
+        
         
         <br>
 
@@ -4730,6 +4761,25 @@ berikut hasilnya :
       }
     </script>
 
+<script>
+  function salinTeks787() {
+    const output787 = document.getElementById("output787");
+    const range = document.createRange();
+    range.selectNode(output787);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("copy");
+    navigator.vibrate(100); // Menambahkan getar selama 100ms
+  }
+
+  function bagikanTeks14() {
+    const hasil0 = document.getElementById("hasil0").textContent;
+    const encodedText = encodeURIComponent(hasil0);
+    const shareUrl = `whatsapp://send?text=${encodedText}`;
+    window.location.href = shareUrl;
+  }
+</script>
 
 
     <script>

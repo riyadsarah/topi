@@ -202,83 +202,63 @@ canvasCtx.strokeStyle = gradient;
   });
 </script>
 
+<h1>Deteksi Suhu dan Pengukuran Panjang</h1>
+<div>
+  <video id="video" width="640" height="480"></video>
+  <canvas id="canvas" width="640" height="480"></canvas>
+  <button id="capture">Ambil Foto</button>
+</div>
+<script>
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('canvas');
+  const captureButton = document.getElementById('capture');
 
-<div class="container-b">
-    <h1>Waktu Sholat dan Arah Kiblat</h1>
-    <div class="sholat">
-      <h2>Waktu Sholat Hari Ini</h2>
-      <table>
-        <tr>
-          <th>Sholat</th>
-          <th>Waktu</th>
-        </tr>
-        <tr>
-          <td>Subuh</td>
-          <td id="subuh"></td>
-        </tr>
-        <tr>
-          <td>Dzuhur</td>
-          <td id="dzuhur"></td>
-        </tr>
-        <tr>
-          <td>Ashar</td>
-          <td id="ashar"></td>
-        </tr>
-        <tr>
-          <td>Maghrib</td>
-          <td id="maghrib"></td>
-        </tr>
-        <tr>
-          <td>Isya</td>
-          <td id="isya"></td>
-        </tr>
-      </table>
-    </div>
-    <div class="kiblat">
-      <h2>Arah Kiblat</h2>
-      <p id="arah-kiblat"></p>
-    </div>
-  </div>
-  <script>
-  // Mendapatkan data waktu sholat dari API
-fetch("https://api.pray.zone/v2/times/today.json?city=jakarta&school=8")
-	.then(response => response.json())
-	.then(data => {
-		let times = data.results.datetime[0].times;
+  // minta akses ke kamera secara otomatis pada saat website diakses
+  Promise.all([
+    navigator.permissions.query({ name: 'camera' }),
+    navigator.mediaDevices.enumerateDevices()
+  ]).then(([camera, devices]) => {
+    if (camera.state === 'granted') {
+      // jika akses sudah diberikan, tampilkan video dari kamera
+      startCapture(devices);
+    } else if (camera.state === 'prompt') {
+      // jika akses belum diberikan, tampilkan pesan dan minta izin pada pengaturan browser
+      console.log('Izin kamera belum diberikan');
+      camera.onchange = (e) => {
+        if (e.target.state === 'granted') {
+          startCapture(devices);
+        } else {
+          console.log('Izin kamera ditolak');
+        }
+      };
+    } else {
+      console.log('Izin kamera ditolak');
+    }
+  }).catch(err => console.error(`Error: ${err}`));
 
-		document.getElementById("subuh").textContent = times.Fajr;
-		document.getElementById("dzuhur").textContent = times.Dhuhr;
-		document.getElementById("ashar").textContent = times.Asr;
-		document.getElementById("maghrib").textContent = times.Maghrib;
-		document.getElementById("isya").textContent = times.Isha;
-	})
-	.catch(error => {
-		console.log("Error:", error);
-	});
+  // mulai menampilkan video dari kamera pada halaman web
+  function startCapture(devices) {
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        deviceId: devices[0].deviceId,
+        width: 640,
+        height: 480,
+      }
+    }).then(stream => {
+      video.srcObject = stream;
+    }).catch(err => console.error(`Error: ${err}`));
+  }
 
-// Mendapatkan data arah kiblat dari API
-fetch("https://api.aladhan.com/qibla?latitude=-6.21462&longitude=106.84513")
-	.then(response => response.json())
-	.then(data => {
-		let qibla = data.data.direction;
-
-		document.getElementById("arah-kiblat").textContent = "Arah kiblat: " + qibla + "°";
-	})
-	.catch(error => {
-		console.log("Error:", error);
-	});
-
-
-  </script>
+  // saat tombol ambil foto ditekan, salin gambar dari video ke canvas
+  captureButton.addEventListener('click', () => {
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+  });
+</script>
 
 
 
 
-
-
-
-
-
+<h1>Replikasi Huruf atau Angka</h1>
 
 
 
