@@ -6277,7 +6277,13 @@ recognition.onresult = function (event) {
      <div><i id="charging-icon" class="fa-solid fa-charging-station" style="font-size: 30px;"></i>
       <canvas id="battery-chart"></canvas></div>
 
-   
+      <audio id="battery-alert">
+        <source id="alert-10" src="assets/notif11.mp3" type="audio/mpeg">
+        <source id="alert-100" src="assets/notif10.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      
+      
 
     
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -6369,9 +6375,15 @@ if (battery.charging) {
 }
 
 
-if (batteryLevel % 1 === 0 && !battery.charging) {
-  alert('Battery level is now at ' + batteryLevel + '%');
+if (batteryLevel === 100) {
+  var batteryAlert = document.querySelector('#alert-100');
+  batteryAlert.play();
+} else if (batteryLevel === 10) {
+  var batteryAlert = document.querySelector('#alert-10');
+  batteryAlert.play();
 }
+
+
 
 
 
