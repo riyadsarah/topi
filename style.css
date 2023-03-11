@@ -2755,6 +2755,29 @@ background-color: #ffffff24;
   }
 
   
+  .charging-animation {
+    animation: pulse 1s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(85, 255, 0, 0.7);
+  border-radius: 10%;
+  transform: scale(1);
+  transition: box-shadow 5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
   
   .battery-status {
     position: absolute;
@@ -2780,4 +2803,25 @@ background-color: #ffffff24;
     background-color: #ffffff;
   }
 
+  .battery-level.animate {
+    animation-name: charge-level;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes charge-level {
+    0% {
+      background-color: #1d9ad4;
+      width: 0;
+    }
+    50% {
+      background-color: #1d9ad4;
+      width: 50%;
+    }
+    100% {
+      background-color: #1d9ad4;
+      width: 100%;
+    }
+  }
   

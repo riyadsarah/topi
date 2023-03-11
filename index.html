@@ -6277,12 +6277,9 @@ recognition.onresult = function (event) {
      <div><i id="charging-icon" class="fa-solid fa-charging-station" style="font-size: 30px;"></i>
       <canvas id="battery-chart"></canvas></div>
 
-    <audio id="low-battery-sound">
-      <source src="assets/notif1.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="full-battery-sound">
-      <source src="assets/notif3.mp3" type="audio/mpeg">
-    </audio>
+      <audio id="low-battery-sound" src="assets/notif11.mp3"></audio>
+      <audio id="full-battery-sound" src="assets/notif10.mp3"></audio>
+      
     
 
     
@@ -6353,9 +6350,12 @@ var chargingIcon = document.querySelector('#charging-icon');
 
 if (battery.charging) {
   chargingIcon.style.color = getBatteryColor(batteryLevel);
+  chargingIcon.classList.add('charging-animation');
 } else {
   chargingIcon.style.color = '#ffffff'; // warna putih
+  chargingIcon.classList.remove('charging-animation');
 }
+
 
   batteryLevelText.textContent = batteryLevel + '%';
 
@@ -6368,6 +6368,7 @@ if (battery.charging) {
   } else if (batteryLevel >= 90 && battery.charging) {
     batteryContainer.classList.add('full');
     batteryLevelText.style.backgroundColor = '#04ff00'; 
+    
   }else if (batteryLevel >= 80 && battery.charging) {
     batteryContainer.classList.add('full');
     batteryLevelText.style.backgroundColor = '#1e90ff'; 
