@@ -6304,7 +6304,7 @@ function getBatteryColor(percent) {
 }
 
     var batteryChart = new Chart(document.getElementById('battery-chart'), {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: ['Battery Level'],
         datasets: [{
@@ -6315,6 +6315,7 @@ function getBatteryColor(percent) {
         }]
       },
       options: {
+        
         cutoutPercentage: 60,
         rotation: -Math.PI,
         circumference: Math.PI,
@@ -6378,7 +6379,7 @@ if (battery.charging) {
 if (batteryLevel === 100) {
   var batteryAlert = document.querySelector('#alert-100');
   batteryAlert.play();
-} else if (batteryLevel === 10) {
+} else if (batteryLevel === 30) {
   var batteryAlert = document.querySelector('#alert-10');
   batteryAlert.play();
 }

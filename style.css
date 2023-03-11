@@ -2745,7 +2745,7 @@ background-color: #ffffff24;
     left: 0;
     width: 100%;
     height: 100%;
-   
+background-color: #00b3ff;
     color: #fff;
     text-align: center;
     line-height: 50px;
@@ -2785,7 +2785,7 @@ background-color: #ffffff24;
     right: 0;
     height: 100%;
     padding: 0 10px;
-    color: #ffffff;
+    color: #848484c9;
     font-size: 18px;
     font-weight: bold;
     line-height: 50px;
@@ -2802,15 +2802,7 @@ background-color: #ffffff24;
   .battery-container.full .battery-level {
     background-color: #ffffff;
   }
-  .battery-container.low {
-    background-color: #FF0000; /* warna merah untuk level baterai kurang dari atau sama dengan 10% */
-  }
-  .battery-container.medium {
-    background-color: #1e90ff; /* warna biru untuk level baterai lebih dari 10% dan kurang dari 80% */
-  }
-  .battery-container.high {
-    background-color: #00ff00; /* warna hijau untuk level baterai lebih dari atau sama dengan 80% */
-  }
+
   
   .battery-level.animate {
     animation-name: charge-level;

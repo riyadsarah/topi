@@ -180,32 +180,6 @@ canvasCtx.strokeStyle = gradient;
     </script>
 
 
-<p>Current battery level: <span id="battery-level">-</span>%</p>
-<p>Charging: <span id="charging-status">-</span></p>
-
-<script>
-  window.addEventListener('load', function() {
-    var battery = navigator.battery || navigator.mozBattery || navigator.webkitBattery;
-    if ('navigator' in window && 'getBattery' in navigator) {
-      navigator.getBattery().then(function(battery) {
-        function updateBatteryStatus() {
-          document.querySelector('#battery-level').textContent = Math.round(battery.level * 100);
-          document.querySelector('#charging-status').textContent = battery.charging ? 'Yes' : 'No';
-        }
-        battery.addEventListener('chargingchange', updateBatteryStatus);
-        battery.addEventListener('levelchange', updateBatteryStatus);
-        updateBatteryStatus();
-      });
-    } else {
-      console.log('Battery status not supported.');
-    }
-  });
-</script>
-
-
-
-
-
 
 
 
