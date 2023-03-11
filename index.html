@@ -27,8 +27,10 @@
   <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Open+Sans&display=swap" rel="stylesheet">
+  <script src="speedtest.js"></script>
 
 
+  
 
 </head>
 
@@ -169,6 +171,11 @@
         <button id="color8-btn"><i class="fa-solid fa-paint-roller"></i></button>
       </div>
     </div><br>
+
+
+
+   
+
 
     <div class="tab-container">
 
@@ -1721,10 +1728,15 @@
            <div><i id="charging-icon" class="fa-solid fa-charging-station" style="font-size: 30px;"></i></div></div>
            
       </div>
-      <div class="container"><canvas id="battery-chart"></canvas></div>
+      <div class="container-b">
+        <canvas id="battery-chart"></canvas>
+      </div>
+      
        
     
-        <br><br>
+        <br>
+        
+        <br>
 
 
 
@@ -6299,7 +6311,7 @@ function getBatteryColor(percent) {
 }
 
 var batteryChart = new Chart(document.getElementById('battery-chart'), {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: ['Battery Level'],
         datasets: [{
@@ -6338,7 +6350,7 @@ var batteryChart = new Chart(document.getElementById('battery-chart'), {
       }
     });
 
-function updateBatteryStatus() {
+    function updateBatteryStatus() {
   var batteryLevel = Math.round(battery.level * 100);
   var batteryContainer = document.querySelector('.battery-container');
   var batteryLevelText = document.querySelector('#battery-level');
@@ -6351,39 +6363,35 @@ function updateBatteryStatus() {
     chargingIcon.classList.add('charging-animation');
   } else {
     chargingIcon.style.color = '#ffffff'; // warna putih
+  
     chargingIcon.classList.remove('charging-animation');
   }
 
   batteryLevelText.textContent = batteryLevel + '%';
   
-  if (batteryLevel <= 10 && !battery.charging) {
+  if (batteryLevel <= 19 && !battery.charging) {
   batteryContainer.classList.add('low');
-  // menampilkan notifikasi suara untuk level baterai rendah
-  
-} else if (batteryLevel > 10 && batteryLevel < 80 && !battery.charging) {
-  batteryContainer.classList.add('medium');
- 
-} else if (batteryLevel >= 93 && !battery.charging) {
-  batteryContainer.classList.add('high');
-  
-} else if (battery.charging) {
-  batteryContainer.classList.add('charging');
  
 }
-
-
-
-
+ 
+  else if (batteryLevel >= 20 && !battery.charging) {
+    batteryContainer.classList.add('low1');
+  
+  }else if (batteryLevel >= 100 && !battery.charging) {
+    batteryContainer.classList.add('high');
+  
+  } else if (battery.charging) {
+    batteryContainer.classList.add('charging');
+   
+  }
   var batteryLevelBar = batteryContainer.querySelector('.battery-level');
   batteryLevelBar.style.width = batteryLevel + '%';
-
-
-
 }
 
 battery.addEventListener('chargingchange', updateBatteryStatus);
 battery.addEventListener('levelchange', updateBatteryStatus);
 updateBatteryStatus();
+
 
 
       });
@@ -6393,10 +6401,6 @@ updateBatteryStatus();
   });
 </script>
 
-<audio id="lowBatteryAudio">
-  <source src="notif10.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
 
 
     <br>
