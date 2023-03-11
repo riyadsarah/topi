@@ -1706,19 +1706,35 @@
 
    
       <div id="widget-container">
+        
         <div id="clock">
           <p id="time"></p>
           <div><i class="fa-sharp fa-solid fa-calendar-days"></i>
             <p id="date"></p>
           </div>
         </div>
+        <div>
+          <div class="battery-container">
+          <div class="battery-level" id="battery-level">-</div>
+        </div><br>
+           <div><i id="charging-icon" class="fa-solid fa-charging-station" style="font-size: 30px;"></i></div></div>
         <div id="weather">
           <i class="fa-sharp fa-solid fa-location-dot"></i>
           <p id="location"></p>
           <p id="temperature"></p>
           <p id="condition"></p>
         </div>
-      </div><br><br>
+      </div><div id="widget-container">
+ 
+       <div><canvas id="battery-chart"></canvas></div> 
+  
+        <audio id="battery-alert">
+          <source src="notif10.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        
+      </div>
+        <br><br>
 
 
 
@@ -6271,18 +6287,7 @@ recognition.onresult = function (event) {
     </script>
  
     <br>
-    <div class="battery-container">
-    <div class="battery-level" id="battery-level">-</div>
-  </div>
-     <div><i id="charging-icon" class="fa-solid fa-charging-station" style="font-size: 30px;"></i>
-      <canvas id="battery-chart"></canvas></div>
-
-      <audio id="battery-alert">
-        <source id="alert-10" src="assets/notif11.mp3" type="audio/mpeg">
-        <source id="alert-100" src="assets/notif10.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-      
+    
       
 
     
@@ -6303,99 +6308,97 @@ function getBatteryColor(percent) {
   }
 }
 
-    var batteryChart = new Chart(document.getElementById('battery-chart'), {
-      type: 'line',
-      data: {
-        labels: ['Battery Level'],
-        datasets: [{
-          label: 'Battery Level',
-          data: batteryData,
-          backgroundColor: [getBatteryColor(batteryData[0])],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        
-        cutoutPercentage: 60,
-        rotation: -Math.PI,
-        circumference: Math.PI,
-        animation: {
-          animateRotate: true,
-          animateScale: true
-        },
-        legend: {
-          display: true
-        },
-        tooltips: {
-          callbacks: {
-            label: function(tooltipItem, data) {
-              return data.labels[tooltipItem.index] + ': ' + data.datasets[0].data[tooltipItem.index] + '%';
-            }
-          }
-        },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              suggestedMax: 100
-            }
-          }]
+    // definisikan variabel data
+    var batteryData = [Math.round(battery.level * 100), 0, 0, 0, 0, 0];
+
+
+// definisikan fungsi untuk mengembalikan warna dataset berdasarkan nilai pertama
+
+
+// definisikan grafik radar
+var batteryChart = new Chart(document.getElementById('battery-chart'), {
+  type: 'radar',
+  data: {
+    labels: ['0%','15%', '20%', '40%', '60%', '80%', '100%'],
+    datasets: [{
+      label: 'Battery Level',
+      data: batteryData,
+      backgroundColor: getBatteryColor(batteryData[0]),
+      borderWidth: 1
+    }]
+  },
+  options: {
+    legend: {
+      display: true
+    },
+    tooltips: {
+      callbacks: {
+        label: function(tooltipItem, data) {
+          return data.datasets[0].label + ': ' + tooltipItem.yLabel + '%';
         }
       }
-    });
+    },
+    scale: {
+      ticks: {
+        beginAtZero: true,
+        max: 100,
+        stepSize: 10
+      }
+    }
+  }
+});
 
-    function updateBatteryStatus() {
+
+function updateBatteryStatus() {
   var batteryLevel = Math.round(battery.level * 100);
   var batteryContainer = document.querySelector('.battery-container');
   var batteryLevelText = document.querySelector('#battery-level');
   var batteryStatusText = document.querySelector('#charging-status');
   // di dalam function updateBatteryStatus()
-var chargingIcon = document.querySelector('#charging-icon');
+  var chargingIcon = document.querySelector('#charging-icon');
 
-if (battery.charging) {
-  chargingIcon.style.color = getBatteryColor(batteryLevel);
-  chargingIcon.classList.add('charging-animation');
-} else {
-  chargingIcon.style.color = '#ffffff'; // warna putih
-  chargingIcon.classList.remove('charging-animation');
-}
-
+  if (battery.charging) {
+    chargingIcon.style.color = getBatteryColor(batteryLevel);
+    chargingIcon.classList.add('charging-animation');
+  } else {
+    chargingIcon.style.color = '#ffffff'; // warna putih
+    chargingIcon.classList.remove('charging-animation');
+  }
 
   batteryLevelText.textContent = batteryLevel + '%';
-
- 
-  
   if (batteryLevel <= 10 && !battery.charging) {
   batteryContainer.classList.add('low');
+  // menampilkan notifikasi suara untuk level baterai rendah
+  var lowBatteryAudio = new Audio('notif10.mp3');
+  lowBatteryAudio.play();
 } else if (batteryLevel > 10 && batteryLevel < 80 && !battery.charging) {
-  batteryContainer.classList.add('medium'); // warna sesuai level baterai
+  batteryContainer.classList.add('medium');
+  var lowBatteryAudio = new Audio('notif10.mp3');
+  lowBatteryAudio.play(); // warna sesuai level baterai
 } else if (batteryLevel >= 80 && !battery.charging) {
-  batteryContainer.classList.add('high'); // warna sesuai level baterai
+  batteryContainer.classList.add('high');
+  var lowBatteryAudio = new Audio('notif10.mp3');
+  lowBatteryAudio.play(); // warna sesuai level baterai
 } else if (battery.charging) {
   batteryContainer.classList.add('charging');
-}
-
-
-if (batteryLevel === 100) {
-  var batteryAlert = document.querySelector('#alert-100');
-  batteryAlert.play();
-} else if (batteryLevel === 30) {
-  var batteryAlert = document.querySelector('#alert-10');
-  batteryAlert.play();
+  var lowBatteryAudio = new Audio('notif10.mp3');
+  lowBatteryAudio.play();
 }
 
 
 
 
-
-var batteryLevelBar = batteryContainer.querySelector('.battery-level');
+  var batteryLevelBar = batteryContainer.querySelector('.battery-level');
   batteryLevelBar.style.width = batteryLevel + '%';
-}
 
+
+
+}
 
 battery.addEventListener('chargingchange', updateBatteryStatus);
 battery.addEventListener('levelchange', updateBatteryStatus);
 updateBatteryStatus();
+
 
       });
     } else {
