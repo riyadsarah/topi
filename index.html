@@ -6271,16 +6271,13 @@ recognition.onresult = function (event) {
     </script>
  
     <br>
-    <div class="battery-container" >
+    <div class="battery-container">
     <div class="battery-level" id="battery-level">-</div>
   </div>
      <div><i id="charging-icon" class="fa-solid fa-charging-station" style="font-size: 30px;"></i>
       <canvas id="battery-chart"></canvas></div>
 
-      <audio id="low-battery-sound" src="assets/notif11.mp3"></audio>
-      <audio id="full-battery-sound" src="assets/notif10.mp3"></audio>
-      
-    
+   
 
     
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -6361,37 +6358,27 @@ if (battery.charging) {
 
  
   
-  batteryContainer.classList.remove('low', 'charging', 'full');
   if (batteryLevel <= 10 && !battery.charging) {
-    batteryContainer.classList.add('low');
-    batteryLevelText.style.backgroundColor = '#FF0000'; // merah untuk 1-10%
-  } else if (batteryLevel >= 90 && battery.charging) {
-    batteryContainer.classList.add('full');
-    batteryLevelText.style.backgroundColor = '#04ff00'; 
-    
-  }else if (batteryLevel >= 80 && battery.charging) {
-    batteryContainer.classList.add('full');
-    batteryLevelText.style.backgroundColor = '#1e90ff'; 
-  }
-   else if (battery.charging) {
-    batteryContainer.classList.add('charging');
-    
-  }
-
-  if (batteryLevel <= 10 && !battery.charging) {
-  var lowBatterySound = document.getElementById('low-battery-sound');
-  lowBatterySound.currentTime = 0; // reset waktu audio
-  lowBatterySound.play();
-} else if (batteryLevel >= 100 && battery.charging) {
-  var fullBatterySound = document.getElementById('full-battery-sound');
-  fullBatterySound.currentTime = 0; // reset waktu audio
-  fullBatterySound.play();
+  batteryContainer.classList.add('low');
+} else if (batteryLevel > 10 && batteryLevel < 80 && !battery.charging) {
+  batteryContainer.classList.add('medium'); // warna sesuai level baterai
+} else if (batteryLevel >= 80 && !battery.charging) {
+  batteryContainer.classList.add('high'); // warna sesuai level baterai
+} else if (battery.charging) {
+  batteryContainer.classList.add('charging');
 }
+
+
+if (batteryLevel % 1 === 0 && !battery.charging) {
+  alert('Battery level is now at ' + batteryLevel + '%');
+}
+
 
 
 var batteryLevelBar = batteryContainer.querySelector('.battery-level');
   batteryLevelBar.style.width = batteryLevel + '%';
 }
+
 
 battery.addEventListener('chargingchange', updateBatteryStatus);
 battery.addEventListener('levelchange', updateBatteryStatus);

@@ -2802,7 +2802,16 @@ background-color: #ffffff24;
   .battery-container.full .battery-level {
     background-color: #ffffff;
   }
-
+  .battery-container.low {
+    background-color: #FF0000; /* warna merah untuk level baterai kurang dari atau sama dengan 10% */
+  }
+  .battery-container.medium {
+    background-color: #1e90ff; /* warna biru untuk level baterai lebih dari 10% dan kurang dari 80% */
+  }
+  .battery-container.high {
+    background-color: #00ff00; /* warna hijau untuk level baterai lebih dari atau sama dengan 80% */
+  }
+  
   .battery-level.animate {
     animation-name: charge-level;
     animation-duration: 2s;
