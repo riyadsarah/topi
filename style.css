@@ -2735,9 +2735,11 @@ background-color: #ffffff24;
     background-color: #6b6b6b74;
     border-radius: 5px;
     margin-left: 10px;
+    border: solid 2px;
     position: relative;
     overflow: hidden;
   }
+
   
   .battery-level {
     position: absolute;

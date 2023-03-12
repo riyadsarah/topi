@@ -45,6 +45,8 @@ background: cover;
     <button id="startButton">Start Recording</button>
   <button id="stopButton" disabled>Stop Recording</button>
   <canvas id="canvas4"></canvas>
+  <div id="result"></div>
+
   
 
     <script>
@@ -53,6 +55,204 @@ var startButton = document.getElementById("startButton");
 var stopButton = document.getElementById("stopButton");
 var canvas = document.getElementById("canvas4");
 var canvasCtx = canvas.getContext("2d");
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const recognition = new window.webkitSpeechRecognition();
+      const outputText = document.getElementById('output-text7');
+
+      const interimText = document.getElementById('interim-text');
+      const startBtn = document.getElementById('start-btn');
+      const stopBtn = document.getElementById('stop-btn');
+
+
+      const punctuation = {
+        "titik ": ".",
+        "pemisah": ":",
+        "koma": ",",
+        "tiga titik": "...",
+        "tanda tanya": "?",
+        "tanda seru": "!",
+        "petik satu": "'",
+        "petik dua": "\"",
+        "kurung buka": "(",
+        "kurung tutup": ")",
+        "kurung kurawal buka": "{",
+        "kurung kurawal tutup": "}",
+        "sama dengan": "=",
+        "tanda tambah": "+",
+        "tanda kurangi": "-",
+        "tanda kali": "×",
+        "tanda bagi": "÷",
+        "persen": "%",
+        "panah kanan": ">",
+        "panah kiri": "<",
+        "poin": "\n• ",
+        "point": "\n• ",
+        "baris baru": " ",
+        "spasi bawah": "\n",
+        "hehehe": "🤭🤭",
+        "subhan": "MUHAMMAD SUBHAN AL-GOTSANI",
+        "r": "MUHAMMAD Ⓡⓘⓨⓐⓓ FIRDAUS",
+        "Z": "MUHAMMAD FAZRI SIDIK ",
+        "sarah": "SARAH YULIANA NAFISHA ",
+        "mantap": "👍👍👍",
+        "emot batu": "🗿🗿🗿",
+
+      };
+
+      function capitalize(str) {
+        let words = str.split(" ");
+        words = words.map((word) => {
+          if (word in punctuation) {
+            return punctuation[word];
+          } else {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+          }
+        });
+        return words.join(" ");
+      }
+      let isRecording = true;
+      recognition.lang = 'id-ID';
+      recognition.lang = ['id-ID', 'su-ID'];
+      recognition.continuous = true;
+      recognition.maxAlternatives = 5;
+      recognition.interimResults = isMobile ? false : true;
+
+      recognition.onend = () => {
+        if (isRecording) {
+          console.log('Recognition ended, restarting');
+          recognition.start({
+            remember: true
+          });
+
+        }
+      };
+
+      recognition.onerror = (event) => {
+        console.error('Recognition error', event);
+      };
+
+      setTimeout(() => {
+        stopRecognition();
+      }, 300000); // rekam selama 5 menit (300 detik)
+
+      function showInterimTranscripts() {
+        if (interimTranscripts.length > 0 && !isTyping) {
+          interimText.style.display = 'block';
+          interimText.innerHTML = interimTranscripts.join('');
+        } else {
+          interimText.style.display = 'none';
+          interimText.innerHTML = '';
+        }
+      }
+
+
+      function toggleRecognition() {
+        const popupBox = document.querySelector('.popup-box');
+
+        if (isRecording) {
+          recognition.stop();
+          startBtn.classList.remove('recording');
+          startBtn.style.display = 'inline-block';
+          stopBtn.style.display = 'none';
+
+          interimText.innerHTML = '';
+          popupBox.classList.remove('show');
+        } else {
+          recognition.start();
+          startBtn.classList.add('recording');
+          stopBtn.style.display = 'inline-block';
+          popupBox.classList.add('show');
+        }
+
+        isRecording = !isRecording;
+      }
+
+      const shareContent = (url) => {
+        window.location.href = url + encodeURIComponent(outputText.value);
+      }
+
+    
+      const searchOnYouTube = () => {
+        const query = outputText.value;
+        const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+        window.open(url, '_blank');
+        audio.play();
+      }
+      const audio = new Audio('assets/notif4.mp3');
+let googleWindow;
+
+const searchOnGoogle = () => {
+  const query = outputText.value;
+  const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+
+  if (googleWindow && !googleWindow.closed) { // cek apakah window sudah dibuka sebelumnya
+    googleWindow.location.href = url; // buka URL di window yang sudah dibuka
+  } else {
+    googleWindow = window.open(url, 'googleWindow'); // buka window baru dengan nama 'googleWindow'
+  }
+
+  audio.play(); // tambahkan kode ini untuk memainkan file audio
+}
+const audio7 = new Audio('assets/notif1.mp3');
+      const goToFooter = () => {
+        // Pindah ke bagian footer
+        const footerSection = document.getElementById("footerSection");
+        window.scrollTo(0, footerSection.offsetTop);
+
+        audio7.play();
+      }
+
+      const color1Button = () => {
+        const color1Button = document.getElementById("color1Button");
+        color1Button.click();
+        audio.play();
+      }
+      const audio5 = new Audio('assets/notif1.mp3');
+      const goToProduk = () => {
+        // Pindah ke bagian footer
+        const Produk = document.getElementById("Produk");
+        window.scrollTo(0, Produk.offsetTop);
+        audio5.play();
+      }
+      const audio6 = new Audio('assets/notif1.mp3');
+      const goToTatang = () => {
+        // Pindah ke bagian footer
+        const Tatang = document.getElementById("Tatang");
+        window.scrollTo(0, Tatang.offsetTop);
+        audio6.play();
+      }
+
+
+      const shareToWhatsApp = () => {
+        window.location.href = "https://wa.me/?text=" + encodeURIComponent(outputText.value);
+        audio.play();
+      }
+
+      let currentDirection = null; // variabel global untuk menyimpan arah scroll saat ini
+let scrollInterval = null; // variabel global untuk menyimpan interval scroll saat ini
+
+function startAutoScroll(direction) {
+  if (currentDirection !== direction) {
+    // Jika arah scroll saat ini berbeda dengan arah yang baru, hentikan scroll terlebih dahulu
+    stopAutoScroll();
+    currentDirection = direction;
+  }
+
+  // Mulai scroll dengan arah yang baru
+  const scrollStep = 1;
+  const scrollSpeed = 10;
+  scrollInterval = setInterval(() => {
+    if (currentDirection === "up") {
+      window.scrollBy(0, -scrollStep);
+    } else if (currentDirection === "down") {
+      window.scrollBy(0, scrollStep);
+    }
+  }, scrollSpeed);
+}
+
+function stopAutoScroll() {
+  clearInterval(scrollInterval);
+}
 
 // Menambahkan event listener untuk tombol start
 startButton.addEventListener('mousedown', () => {
@@ -128,8 +328,11 @@ stopButton.addEventListener('mousedown', function() {
   // Variabel untuk menyimpan ID animasi
   var animationId;
 
+ 
   // Fungsi untuk menggambar grafik gelombang
   function draw() {
+
+   
     // Membersihkan canvas sebelum menggambar
     canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -175,6 +378,145 @@ canvasCtx.strokeStyle = gradient;
 
     // Meminta browser untuk menggambar lagi di frame berikutnya
     animationId = requestAnimationFrame(draw);
+     // Memulai pengenalan suara
+     recognition.onresult = function (event) {
+  const interimTranscripts = [];
+  for (let i = event.resultIndex, len = event.results.length; i < len; i++) {
+    const transcript = event.results[i][0].transcript;
+    if (event.results[i].isFinal) {
+      let output = transcript;
+   
+
+
+
+
+            for (let word in punctuation) {
+              const pattern = new RegExp("\\b" + word + "\\b", "gi");
+              output = output.replace(pattern, punctuation[word]);
+            }
+
+
+            if (/\bsalin teks\b/.test(output.toLowerCase())) {
+              navigator.clipboard.writeText(outputText.value);
+              outputText.focus();
+
+              if ('vibrate' in navigator) {
+                navigator.vibrate(200);
+              }
+              if (output.toLowerCase().includes("salin teks")) {
+                const copyBtn = document.getElementById('salin-btn');
+                copyBtn.click();
+              }
+
+
+            } else if (output.toLowerCase().includes("hapus")) {
+              if (output.toLowerCase().includes("semua")) { // hapus semua kalimat
+                outputText.value = "";
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play(); // memainkan suara ketika perintah dijalankan
+              } else if (output.toLowerCase().includes("satu kalimat")) { // hapus satu kalimat terakhir
+                outputText.value = hapusKalimatTerakhir(outputText.value, 1);
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
+              } else if (output.toLowerCase().includes("dua kalimat")) { // hapus dua kalimat terakhir
+                outputText.value = hapusKalimatTerakhir(outputText.value, 2);
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
+              } else if (output.toLowerCase().includes("tiga kalimat")) { // hapus tiga kalimat terakhir
+                outputText.value = hapusKalimatTerakhir(outputText.value, 3);
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
+              } else if (output.toLowerCase().includes("4 kalimat")) { // hapus empat kalimat terakhir
+                outputText.value = hapusKalimatTerakhir(outputText.value, 4);
+                const audio = new Audio('assets/notif1.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
+              } else {
+                outputText.value = hapusKalimatSebelumnya(outputText.value) || hapusKalimatTerakhirTidakKosong(
+                  outputText.value);
+              }
+            } else if (output.toLowerCase().includes("share ke whatsapp")) {
+              shareToWhatsApp();
+            } else if (output.toLowerCase().includes("cari di google")) {
+              searchOnGoogle();
+            } else if (output.toLowerCase().includes("cari di youtube")) {
+              searchOnYouTube();
+            } else if (output.toLowerCase().includes("share ke facebook")) {
+              shareContent('https://facebook.com/sharer/sharer.php?u=');
+              // ganti URL di atas dengan URL dari platform sharing yang ingin digunakan
+            } else if (output.toLowerCase().includes("pindah ke bawah")) {
+              goToFooter();
+
+            } else if (output.toLowerCase().includes("pindah ke produk")) {
+              goToProduk();
+
+            } else if (output.toLowerCase().includes("pindah ke atas")) {
+              goToTatang();
+
+            } else if (output.toLowerCase().includes("rubah warna")) {
+              if (output.toLowerCase().includes("hijau tosca")) {
+                document.querySelector('#color1-btn').click();
+              } else if (output.toLowerCase().includes("hitam")) {
+                document.querySelector('#color2-btn').click();
+              } else if (output.toLowerCase().includes("putih")) {
+                document.querySelector('#color3-btn').click();
+              } else if (output.toLowerCase().includes("merah")) {
+                document.querySelector('#color4-btn').click();
+              } else if (output.toLowerCase().includes("ungu")) {
+                document.querySelector('#color5-btn').click();
+              } else if (output.toLowerCase().includes("biru muda")) {
+                document.querySelector('#color6-btn').click();
+              } else if (output.toLowerCase().includes("biru")) {
+                document.querySelector('#color7-btn').click();
+              } else if (output.toLowerCase().includes("pink")) {
+                document.querySelector('#color8-btn').click();
+              }
+
+            } else if (output.toLowerCase().includes("mode layar penuh")) {
+              document.querySelector('#full-mode-toggle').click();
+              
+             
+              const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
+            } else if (output.toLowerCase().includes("mode layar biasa")) {
+              document.querySelector('#full-mode-toggle').click();
+              const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+                audio.play();
+              
+            } 
+
+        
+      else if (output.toLowerCase().includes("stop scroll")) {
+  stopAutoScroll(); // menghentikan scroll
+  const audio = new Audio('assets/notif3.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+  audio.play();      
+} else if (output.toLowerCase().includes("scroll ke bawah")) {
+  startAutoScroll("down"); 
+  const audio = new Audio('assets/notif5.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+  audio.play(); 
+  // memulai scroll ke bawah
+} else if (output.toLowerCase().includes("scroll ke atas")) {
+  startAutoScroll("up"); // memulai scroll ke atas
+  const audio = new Audio('assets/notif5.mp3'); // ganti 'suara-sukses.mp3' dengan path file suara Anda
+  audio.play(); 
+}else if (output.toLowerCase().includes("putar musik")) {
+  const audio = new Audio('assets/notif9.mp3'); // ganti 'path/to/music.mp3' dengan path file musik Anda
+  audio.play();
+}else if (transcript.toLowerCase().includes('whatsapp sarah')) {
+  window.location.href = 'https://api.whatsapp.com/send?phone=6282311406572&action=phone';
+}
+
+
+             else {
+              outputText.value += output;
+            }
+          } else {
+            interimTranscripts.push(transcript);
+          }
+        }
+
+        interimText.innerHTML = interimTranscripts.map(transcript => `<span>${transcript}</span>`).join('');
+
+      };
 }
 
     </script>
@@ -202,67 +544,6 @@ canvasCtx.strokeStyle = gradient;
   });
 </script>
 
-<h1>Deteksi Suhu dan Pengukuran Panjang</h1>
-<div>
-  <video id="video" width="640" height="480"></video>
-  <canvas id="canvas" width="640" height="480"></canvas>
-  <button id="capture">Ambil Foto</button>
-</div>
-<script>
-  const video = document.getElementById('video');
-  const canvas = document.getElementById('canvas');
-  const captureButton = document.getElementById('capture');
 
-  // minta akses ke kamera secara otomatis pada saat website diakses
-  Promise.all([
-    navigator.permissions.query({ name: 'camera' }),
-    navigator.mediaDevices.enumerateDevices()
-  ]).then(([camera, devices]) => {
-    if (camera.state === 'granted') {
-      // jika akses sudah diberikan, tampilkan video dari kamera
-      startCapture(devices);
-    } else if (camera.state === 'prompt') {
-      // jika akses belum diberikan, tampilkan pesan dan minta izin pada pengaturan browser
-      console.log('Izin kamera belum diberikan');
-      camera.onchange = (e) => {
-        if (e.target.state === 'granted') {
-          startCapture(devices);
-        } else {
-          console.log('Izin kamera ditolak');
-        }
-      };
-    } else {
-      console.log('Izin kamera ditolak');
-    }
-  }).catch(err => console.error(`Error: ${err}`));
-
-  // mulai menampilkan video dari kamera pada halaman web
-  function startCapture(devices) {
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        deviceId: devices[0].deviceId,
-        width: 640,
-        height: 480,
-      }
-    }).then(stream => {
-      video.srcObject = stream;
-    }).catch(err => console.error(`Error: ${err}`));
-  }
-
-  // saat tombol ambil foto ditekan, salin gambar dari video ke canvas
-  captureButton.addEventListener('click', () => {
-    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-  });
-</script>
-
-
-
-
-<h1>Replikasi Huruf atau Angka</h1>
-
-
-
-
-   
 </body>
 </html>

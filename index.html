@@ -28,8 +28,6 @@
   <link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Open+Sans&display=swap" rel="stylesheet">
   <script src="speedtest.js"></script>
-
-
   
 
 </head>
@@ -172,8 +170,7 @@
       </div>
     </div><br>
 
-
-
+   
    
 
 
@@ -623,32 +620,7 @@
             </div>
           </form>
 
-          <h1>JANGAN MEMASUKAN HURUP🤣🤣</h1>
-          <input type="text" id="input787" placeholder="Masukkan huruf atau angka">
-          <textarea id="output787" style="display: none;"></textarea>
-          <button type="button11" onclick="salinTeks787()"><i class="fa fa-copy"></i></button>
-          <button type="button11" onclick="bagikanTeks787()"><i class="fa fa-share"></i></button>
-          <script>
-            const input = document.getElementById('input787');
-            const output = document.getElementById('output787');
-          
-            input.addEventListener('input', () => {
-              output.style.display = "block";
-              const value = input.value;
-              let result = '';
-              for (let i = 0; i < value.length; i++) {
-                for (let j = 0; j < 900000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000; j++) {
-                  result += value[i];
-                }
-              }
-              output.textContent = result;
-            });
-            
-          
-            function bagikanTeks787() {
-              window.location.href = "https://wa.me/?text=" + encodeURIComponent(output.value);
-            }
-          </script>
+         
         </div>
         
       </div><br>
@@ -6283,9 +6255,7 @@ recognition.onresult = function (event) {
   
   </script>
   
-    <br><br>
-    <button type="button" onclick="location.href='halaman-tujuan.html'">voice to text sunda</button>
-<br><br>
+   
 
     <script>
     function convertToBinary() {
@@ -6427,10 +6397,20 @@ var batteryChart = new Chart(document.getElementById('battery-chart'), {
   else if (batteryLevel >= 20 && !battery.charging) {
     batteryContainer.classList.add('low1');
   
-  }else if (batteryLevel >= 100 && !battery.charging) {
-    batteryContainer.classList.add('high');
+  }
+  if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
+  new Notification('Battery Level', {
+    body: 'Your battery level is now at 100%',
+    icon: 'path/to/your/icon.png'
+  });
+}
+else if (batteryLevel >= 94 && !battery.charging) {
+    batteryContainer.classList.add('full');
   
-  } else if (battery.charging) {
+  }
+  
+
+ else if (battery.charging) {
     batteryContainer.classList.add('charging');
    
   }
@@ -6450,7 +6430,6 @@ updateBatteryStatus();
     }
   });
 </script>
-
 
 
     <br>
