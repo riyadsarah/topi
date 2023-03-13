@@ -6389,7 +6389,7 @@ var batteryChart = new Chart(document.getElementById('battery-chart'), {
 
   batteryLevelText.textContent = batteryLevel + '%';
   
-  if (batteryLevel <= 10 && !battery.charging) {
+  if (batteryLevel <= 19 && !battery.charging) {
   batteryContainer.classList.add('low');
  
 }
@@ -6398,17 +6398,11 @@ var batteryChart = new Chart(document.getElementById('battery-chart'), {
     batteryContainer.classList.add('low1');
   
   }
-
-else if (batteryLevel >= 100 && !battery.charging) {
+  else if (batteryLevel >= 94 && !battery.charging) {
     batteryContainer.classList.add('full');
   
   }
-  if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
-  new Notification('Battery Level', {
-    body: 'Your battery level is now at 100%',
-    icon: 'path/to/your/icon.png'
-  });
-}
+  
 
  else if (battery.charging) {
     batteryContainer.classList.add('charging');
