@@ -2838,4 +2838,11 @@ background-color: #00b3ff;
       width: 100%;
     }
   }
-  
+  .color-box {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+
+    margin: 10px;
+    display: inline-block;
+  }
