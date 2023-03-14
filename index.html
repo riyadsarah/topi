@@ -6427,83 +6427,19 @@ updateBatteryStatus();
   });
 </script>
 
-<h1>Adjust Screen Brightness</h1>
-<input type="range" min="0" max="100" value="100" oninput="changeBrightness(this.value)">
-<script>
-  function changeBrightness(value) {
-    document.body.style.filter = "brightness(" + value + "%)";
-  }
-</script>
-<h2>Generate Kata Sandi</h2>
-<form>
-  <label for="length">Panjang Kata Sandi:</label>
-  <input type="number" id="length" value="8"><br>
 
-  <label for="upper-case">Gunakan Huruf Besar:</label>
-  <input type="checkbox" id="upper-case"><br>
 
-  <label for="lower-case">Gunakan Huruf Kecil:</label>
-  <input type="checkbox" id="lower-case"><br>
 
-  <label for="numbers">Gunakan Angka:</label>
-  <input type="checkbox" id="numbers"><br>
-
-  <label for="symbols">Gunakan Simbol:</label>
-  <input type="checkbox" id="symbols"><br>
-
-  <input type="button" value="Generate" onclick="generatePassword()"><br>
-
-  <label for="password">Kata Sandi:</label>
-  <input type="text" id="password">
-</form>
-<script>
-  // Fungsi untuk menghasilkan kata sandi acak
-  function generatePassword() {
-    // Kriteria-kriteria kata sandi
-    var length = document.getElementById("length").value;
-    var useUpperCase = document.getElementById("upper-case").checked;
-    var useLowerCase = document.getElementById("lower-case").checked;
-    var useNumbers = document.getElementById("numbers").checked;
-    var useSymbols = document.getElementById("symbols").checked;
-
-    // Daftar karakter yang dapat digunakan untuk kata sandi
-    var upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
-    var numberChars = "0123456789";
-    var symbolChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
-
-    // Buat string yang berisi karakter yang dapat digunakan
-    var allowedChars = "";
-    if (useUpperCase) {
-      allowedChars += upperCaseChars;
-    }
-    if (useLowerCase) {
-      allowedChars += lowerCaseChars;
-    }
-    if (useNumbers) {
-      allowedChars += numberChars;
-    }
-    if (useSymbols) {
-      allowedChars += symbolChars;
-    }
-
-    // Buat kata sandi acak dari karakter yang telah ditentukan
-    var password = "";
-    for (var i = 0; i < length; i++) {
-      var randomIndex = Math.floor(Math.random() * allowedChars.length);
-      password += allowedChars.charAt(randomIndex);
-    }
-
-    // Tampilkan kata sandi pada halaman web
-    document.getElementById("password").value = password;
-  }
-</script>
 <form>
   <label for="inputColor">Pilih Warna:</label>
   <input type="color" id="inputColor" name="inputColor"><br>
+  <div>
   <button type="button" onclick="generateColors()">Generate Warna</button>
+  <button type="button" onclick="resetColors()">Reset</button>
+</div>
+
 </form>
-<div id="colorBoxes">
+<div id="colorBoxes" style="display:none">
   <div class="color-box" id="box1"></div>
   <div class="color-box" id="box2"></div>
   <div class="color-box" id="box3"></div>
@@ -6514,8 +6450,17 @@ updateBatteryStatus();
   <div class="color-box"></div>
   <div class="color-box"></div>
   <div class="color-box"></div>
+  <div class="color-box"></div>
+  <div class="color-box"></div>
+  <div class="color-box"></div>
+  <div class="color-box"></div>
+  <div class="color-box"></div>
+  <div class="color-box"></div>
+  <div class="color-box"></div>
+  <div class="color-box"></div>
+  <div class="color-box"></div>
+  <div class="color-box"></div>
 </div>
-
 
 <script>
 function generateColors() {
@@ -6527,7 +6472,7 @@ function generateColors() {
   colorBoxes.style.justifyContent = "center";
   colorBoxes.style.marginTop = "20px";
   colorBoxes.innerHTML = "";
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     const saturation = Math.floor(Math.random() * 31) + 50;
     const lightness = Math.floor(Math.random() * 31) + 50;
     const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
@@ -6618,11 +6563,284 @@ hue += 360;
 return hue;
 }
 
+function resetColors() {
+  const colorBoxes = document.getElementById("colorBoxes");
+  colorBoxes.style.display = "none";
+  colorBoxes.innerHTML = "";
+  document.getElementById("inputColor").value = "#000000";
+}
 
 
 </script>
     <br>
 
+    <label for="length" style="display: inline-block; width: 170px;">Panjang Kata Sandi:</label>
+    <input type="number" id="length" value="8" style="display: inline-block; width: 80px;">
+    <br>
+    
+      <label for="upper-case">Gunakan Huruf Besar:</label>
+      <input type="checkbox" id="upper-case"><br>
+    
+      <label for="lower-case">Gunakan Huruf Kecil:</label>
+      <input type="checkbox" id="lower-case"><br>
+    
+      <label for="numbers">Gunakan Angka:</label>
+      <input type="checkbox" id="numbers"><br>
+    
+      <label for="symbols">Gunakan Simbol:</label>
+      <input type="checkbox" id="symbols"><br><br>
+    
+      <button type="button" value="Generate" onclick="generatePassword()">buat kata sandi</button> 
+      <button type="button" onclick="resetForm888()">Reset</button>
+<br>
+    
+      <label for="password">Kata Sandi:</label>
+      <input type="text" id="password">
+    
+      <br>
+    
+      <label for="password-strength-indicator"></label>
+      <span id="password-strength-indicator"></span>
+
+    
+    <script>
+    function checkPasswordStrength(password) {
+      var strength = 0;
+    
+      // Periksa apakah kata sandi mengandung huruf besar
+      if (/[A-Z]/.test(password)) {
+        strength += 1;
+      }
+    
+      // Periksa apakah kata sandi mengandung huruf kecil
+      if (/[a-z]/.test(password)) {
+        strength += 1;
+      }
+    
+      // Periksa apakah kata sandi mengandung angka
+      if (/[0-9]/.test(password)) {
+        strength += 1;
+      }
+    
+      // Periksa apakah kata sandi mengandung simbol
+      if (/[$-/:-?{-~!"^_`[\]]/.test(password)) {
+        strength += 1;
+      }
+    
+      // Periksa panjang kata sandi
+      if (password.length >= 8 && password.length <= 10) {
+        strength += 1;
+      } else if (password.length >= 11 && password.length <= 15) {
+        strength += 2;
+      } else if (password.length >= 16) {
+        strength += 3;
+      }
+    
+      return strength;
+    }
+    
+    function generatePassword() {
+      // Kriteria-kriteria kata sandi
+      var length = document.getElementById("length").value;
+      var useUpperCase = document.getElementById("upper-case").checked;
+      var useLowerCase = document.getElementById("lower-case").checked;
+      var useNumbers = document.getElementById("numbers").checked;
+      var useSymbols = document.getElementById("symbols").checked;
+    
+      // Validasi minimal satu kriteria harus dipilih
+      if (!useUpperCase && !useLowerCase && !useNumbers && !useSymbols) {
+        alert("Anda harus memilih minimal satu kriteria untuk menghasilkan password.");
+        return;
+      }
+    
+      // Daftar karakter yang dapat digunakan untuk kata sandi
+      var upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
+      var numberChars = "0123456789";
+      var symbolChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+    
+      // Buat string yang berisi karakter yang dapat digunakan
+      var allowedChars = "";
+      if (useUpperCase) {
+        allowedChars += upperCaseChars;
+      }
+      if (useLowerCase) {
+        allowedChars += lowerCaseChars;
+      }
+      if (useNumbers) {
+        allowedChars += numberChars;
+      }
+      if (useSymbols) {
+        allowedChars += symbolChars;
+      }
+    
+      // Buat kata sandi acak dari karakter yang telah ditentukan
+      var password = "";
+      for (var i = 0; i < length; i++) {
+        var randomIndex = Math.floor(Math.random() * allowedChars.length);
+        password += allowedChars.charAt(randomIndex);
+      }
+    
+      // Tampilkan kata sandi pada halaman web
+      document.getElementById("password").value = password;
+    
+      // Periksa kekuatan kata sandi dan tampilkan hasilnya pada halaman web
+      var strength = checkPasswordStrength(password);
+    var strengthIndicator = document.getElementById("password-strength-indicator");
+    switch (strength) {
+      case 0:
+        strengthIndicator.innerHTML = "";
+        break;
+      case 1:
+        strengthIndicator.innerHTML = "Kekuatan Kata Sandi: Lemah";
+        strengthIndicator.style.color = "red";
+        break;
+      case 2:
+        strengthIndicator.innerHTML = "Kekuatan Kata Sandi: Sedang";
+        strengthIndicator.style.color = "orange";
+        break;
+      case 3:
+        strengthIndicator.innerHTML = "Kekuatan Kata Sandi: Kuat";
+        strengthIndicator.style.color = "green";
+        break;
+      default:
+        strengthIndicator.innerHTML = "";
+        break;
+    }
+    
+    }
+    
+    // Fungsi untuk memeriksa kekuatan kata sandi
+    function checkPasswordStrength(password) {
+    var strength = 0;
+    if (password.length >= 8) {
+    strength++;
+    }
+    if (password.match(/[a-z]/)) {
+    strength++;
+    }
+    if (password.match(/[A-Z]/)) {
+    strength++;
+    }
+    if (password.match(/[0-9]/)) {
+    strength++;
+    }
+    if (password.match(/[$-/:-?{-~!"^_`[]]/)) {
+    strength++;
+    }
+    return strength;
+    }
+    function resetForm888() {
+  document.getElementById("length").value = 8;
+  document.getElementById("upper-case").checked = false;
+  document.getElementById("lower-case").checked = false;
+  document.getElementById("numbers").checked = false;
+  document.getElementById("symbols").checked = false;
+  document.getElementById("password").value = "";
+  document.getElementById("password-strength-indicator").innerHTML = "";
+  document.getElementById("password-strength-indicator").style.color = "inherit";
+}
+
+    </script>
+
+
+
+<h1>Generate Random Phone Numbers</h1>
+<div>
+  <label for="operator">Operator:</label>
+  <select id="operator" name="operator">
+    <option value="telkomsel">Telkomsel</option>
+    <option value="indosat">Indosat</option>
+    <option value="xl">XL</option>
+    <option value="axis">Axis</option>
+  </select>
+</div>
+<div>
+  <label for="count">Number of Phone Numbers:</label>
+  <input type="number" id="count" name="count" min="1" max="100" value="10">
+</div>
+<div>
+  <label for="prefix">Custom Prefix:</label>
+  <input type="text" id="prefix" name="prefix" value="">
+</div><br><br>
+<button type="button" onclick="generateNumbers()">Generate Numbers</button>
+<br><br>
+<table>
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Name</th>
+      <th>Phone Number</th>
+    </tr>
+  </thead>
+  <tbody id="outputTable">
+  </tbody>
+</table>
+
+<script>
+  let numbers = "";
+
+  function generateNumbers() {
+    const operator = document.getElementById("operator").value;
+    let operatorPrefix = "";
+    if (document.getElementById("prefix").value.trim() !== "") {
+      operatorPrefix = document.getElementById("prefix").value.trim();
+    } else {
+      switch (operator) {
+        case "telkomsel":
+          operatorPrefix = "0811,0812,0813,0821,0822,0823,0852,0853,0851";
+          break;
+        case "indosat":
+          operatorPrefix = "0814,0815,0816,0855,0856,0857,0858";
+          break;
+        case "xl":
+          operatorPrefix = "0817,0818,0819,0859,0877,0878";
+          break;
+        case "axis":
+          operatorPrefix = "0838,0831,0832,0833,0838";
+          break;
+      }
+    }
+    const operatorPrefixList = operatorPrefix.split(",");
+    const count = document.getElementById("count").value;
+    numbers = "";
+    for (let i = 0; i < count; i++) {
+      const randomOperatorPrefix = operatorPrefixList[Math.floor(Math.random() * operatorPrefixList.length)];
+      const randomNumber = Math.floor(Math.random() * 100000000);
+      const phoneNumber = randomOperatorPrefix.toString() + randomNumber.toString().padStart(7, "0");
+      const name = generateName();
+      numbers += `<tr><td>${(i + 1).toString().padStart(2, "0")}</td><td>${name}</td><td>${phoneNumber}</td></tr>`;
+    }
+    document.getElementById("outputTable").innerHTML = numbers;
+  }
+
+
+  function generateName() {
+const firstNames = ["Aurel", "Bobby", "Citra", "Dewi", "Eko", "Farel", "Gita", "Hendra", "Indra", "Joko", "Karti", "Lina", "Mamat", "Neng", "Oneng", "Pepen", "Qonita", "Roni", "Susi", "Tedi", "Ucup", "Vina", "Wawan", "Xanda", "Yanto", "Zakia"];
+const lastNames = ["Agustina", "Budiman", "Cahyani", "Damanik", "Erlangga", "Firdaus", "Gultom", "Harahap", "Iskandar", "Junaedi", "Kusuma", "Lestari", "Maulana", "Ningsih", "Oktavia", "Permana", "Qolbi", "Rahayu", "Sari", "Taufik", "Utama", "Virgianty", "Wardana", "Xaverius", "Yustina", "Zulfikar"];
+const middleNames = ["Abdullah", "Budiman", "Cahya", "Darmawan", "Eka", "Fadhil", "Gumilar", "Hadi", "Ibnu", "Jaya", "Kartika", "Lutfi", "Maulidia", "Nadia", "Oscar", "Purnama", "Qonitah", "Rahmad", "Santoso", "Tegar", "Umar", "Vanesa", "Wahyu", "Xaverius", "Yudha", "Zakaria"];
+
+const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+const randomMiddleName = middleNames[Math.floor(Math.random() * middleNames.length)];
+const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+
+// Decide whether to use one, two, or three names
+const randomNum = Math.random();
+if (randomNum < 0.4) {
+return randomFirstName;
+} else if (randomNum < 0.7) {
+return `${randomFirstName} ${randomLastName}`;
+} else {
+return `${randomFirstName} ${randomMiddleName} ${randomLastName}`;
+}
+}
+
+</script>
+
+
+
+
+    
     <footer id="footerSection">
       <div class="container">
         <div class="row">
