@@ -5,41 +5,94 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voice Recorder</title>
-    <style>
-        body {
+    <style type="text/css">
+				.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			margin-top: 50px;
+		}
 
-top: 0;
-left: 0;
-right: 0px;
-z-index: 10;
-overflow-x: hidden;
-}
+		.box {
+			position: relative;
+			margin-top: 30px;
+			margin-bottom: 30px;
+			transform-style: preserve-3d;
+			transform: rotateY(30deg) rotateX(-30deg);
+			animation: rotate 10s infinite linear;
+		}
 
-body {
+		.front, .back, .left, .right, .top, .bottom {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background-color: white;
+			border: 1px solid black;
+			box-sizing: border-box;
+			opacity: 0.9;
+		}
 
-background-image: linear-gradient(to right, #009999 0, #009999 0);
-background: cover;
-}
+		.front {
+			transform: translateZ(100px);
+		}
 
-    
-    button {
-      background-color: #4CAF50; /* Warna latar belakang */
-      border: none; /* Menghilangkan border */
-      color: white; /* Warna teks */
-      padding: 15px 32px; /* Jarak antara teks dengan border */
-      text-align: center; /* Posisi teks */
-      text-decoration: none; /* Menghilangkan underline */
-      display: inline-block; /* Membuat button terlihat seperti sebuah blok */
-      font-size: 16px; /* Ukuran teks */
-      margin: 10px; /* Jarak antara button */
-    }
+		.back {
+			transform: rotateY(180deg) translateZ(100px);
+		}
 
-    button:disabled {
-      opacity: 0.5; /* Mengubah opasitas menjadi 50% saat tombol tidak bisa digunakan */
-      cursor: not-allowed; /* Mengubah cursor saat tombol tidak bisa digunakan */
-    }
+		.left {
+			transform: rotateY(-90deg) translateZ(100px);
+		}
 
-    </style>
+		.right {
+			transform: rotateY(90deg) translateZ(100px);
+		}
+
+		.top {
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+
+		.bottom {
+			transform: rotateX(90deg) translateZ(100px);
+		}
+
+		.length, .width, .height {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		.length::before, .width::before, .height::before {
+			content: attr(data-label);
+			display: inline-block;
+			width: 60px;
+			margin-right: 10px;
+			text-align: right;
+		}
+
+		.length, .width, .height, .calculate {
+			font-size: 18px;
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid black;
+		}
+
+		.calculate {
+			background-color: #4CAF50;
+			color: white;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+
+		@keyframes rotate {
+			from {
+				transform: rotateY(30deg) rotateX(-30deg);
+			}
+			to {
+				transform: rotateY(-330deg) rotateX(-30deg);
+			}
+		}
+	</style>
 </head>
 <body>
     <button id="startButton">Start Recording</button>
@@ -544,6 +597,43 @@ canvasCtx.strokeStyle = gradient;
   });
 </script>
 
+<h1>Kotak Meter Kubik</h1>
+
+<div id="container">
+  <div id="box"></div>
+</div>
+
+<label for="panjang">Panjang:</label>
+<input type="number" id="panjang" name="panjang" value="0" min="0" max="100" onchange="updateBox()">
+<br>
+
+<label for="lebar">Lebar:</label>
+<input type="number" id="lebar" name="lebar" value="0" min="0" max="100" onchange="updateBox()">
+<br>
+
+<label for="tinggi">Tinggi:</label>
+<input type="number" id="tinggi" name="tinggi" value="0" min="0" max="100" onchange="updateBox()">
+<br>
+
+<script>
+function updateBox() {
+  var panjang = document.getElementById("panjang").value;
+  var lebar = document.getElementById("lebar").value;
+  var tinggi = document.getElementById("tinggi").value;
+
+  // Mengubah dimensi kotak dengan CSS
+  var box = document.getElementById("box");
+  box.style.width = panjang + "px";
+  box.style.height = tinggi + "px";
+  box.style.depth = lebar + "px";
+
+  // Menghitung volume kotak dan menampilkan dalam gambaran
+  var volume = panjang * tinggi * lebar;
+  document.getElementById("volume").innerHTML = volume;
+}
+</script>
+
+<p>Volume: <span id="volume">0</span></p>
 
 </body>
 </html>

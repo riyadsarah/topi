@@ -5720,6 +5720,7 @@ berikut hasilnya :
         });
         return words.join(" ");
       }
+      
       let isRecording = true;
       recognition.lang = 'id-ID';
       recognition.lang = ['id-ID', 'su-ID'];
@@ -5992,9 +5993,10 @@ recognition.onresult = function (event) {
 }
 
 
-             else {
-              outputText.value += output;
-            }
+ else {
+  outputText.value += output;
+}
+
           } else {
             interimTranscripts.push(transcript);
           }
@@ -6425,7 +6427,15 @@ updateBatteryStatus();
   });
 </script>
 
+<h1>Adjust Screen Brightness</h1>
+<input type="range" min="0" max="100" value="100" oninput="changeBrightness(this.value)">
+<script>
+  function changeBrightness(value) {
+    document.body.style.filter = "brightness(" + value + "%)";
+  }
+</script>
 
+  
     <br>
 
     <footer id="footerSection">
